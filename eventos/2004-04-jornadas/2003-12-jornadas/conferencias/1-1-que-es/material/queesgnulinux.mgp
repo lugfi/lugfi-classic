@@ -1,0 +1,143 @@
+%%%%%%%%%%%%%%%%%%%
+%%
+%% Default settings per each line numbers.
+%%
+%default 1 area 90 90, leftfill, size 2, fore "gray20", back "white", hgap 0
+%default 2 size 7, vgap 10, prefix " ", ccolor "black"
+%default 3 size 4, bar "gray70", vgap 10
+%default 4 size 5, fore "gray20", vgap 30, prefix " " 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%%bgrad 0 0 100 45 45 "darkblue" "red" "yellow"
+%center
+%size 5,fore "darkblue"
+
+Que es Gnu/Linux
+
+
+Juan D. Chimienti
+
+%image "gnu-head.png",image "sit3-shine.7.gif"
+12 diciembre 2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Sistema Operativo
+%pause
+
+
+
+
+%center, size 6
+Programas + Nucleo
+%pause
+%center, size 6
+
+GNU + Linux
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Richard Stallman
+
+%center
+%image "rms.jpg"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Linus Torvalds
+
+
+
+%center
+%image "FF_linus_1.jpg"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Arquitecturas
+soportadas por Linux, por ahora
+
+intel compatible(i386,i486,pentium I II III IV,k6,k7)
+Alpha 
+Sparc
+itanium
+PPC
+m68k
+Mainframe
+xbox
+playstation
+Dreamcast
+PowerPc
+mas...
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Distribuciones
+(entre otras)
+
+Debian
+Mandrake 
+Red Hat
+Suse
+Knoppix
+gentoo
+slackware
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Por que si Gnu/Linux
+(dicen quienes lo usan)
+Es multitarea: soporta multiples procesos
+Es multiusuario: procede de Unix
+Es eficiente: programa no colapsa el sistema
+Es abierto: GPL
+Es seguro: Comunidad que lo supervisa
+Control dispositivos:son independientes y permite redirigir datos de uno a otro
+%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Beneficios de ser "libre"
+(dicen quienes lo usan)
+Independencia de cualquier sector privado
+Seguridad: mas robusto
+Adaptabilidad y portabilidad
+Respeto a los estandares
+Mayor vida del hardware
+Continuidad en los desarollos
+No hay restriccion legal en el uso
+Fomento del idioma propio
+Sistemas abiertos y transparentes
+Ausencia de virus
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+A nivel Mundial
+(dicen quienes lo usan)
+Gobierno Alemán
+Gobierno Francés
+Gobierno Noruego
+Gobierno brasileño
+Gobierno Indú
+Gobierno Argentino
+%pause
+Todos pro software libre
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%center
+
+
+%size 30
+ES LIBRE!!!
+%%%%%%%%%%%%%%%%%
+%page
+
+Links
+cosas utiles y otra no tanto
+
+www.linuxiso.org
+www.linux.org
+es.tldp.org
+lug.fi.uba.ar
+

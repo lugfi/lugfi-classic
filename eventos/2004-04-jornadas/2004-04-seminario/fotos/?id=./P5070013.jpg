@@ -1,0 +1,522 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- INICIO $Id: default-cabecera.php,v 1.9 2007-03-06 11:50:54 des Exp $ -->
+
+<html lang="es">
+
+<head>
+
+<title>::: Álbum de fotos de las Charlas de PHP en Ingeniería :::</title>
+
+<!-- INICIO $Id: default-estilo.php,v 1.5 2005/05/22 20:49:28 luca Exp $ -->
+  <link rel="stylesheet" href="../../../css/lugfi.css" type="text/css">
+  <!-- FIN $Id: default-estilo.php,v 1.5 2005/05/22 20:49:28 luca Exp $ -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Description" content="Álbum de fotos de las Charlas de PHP en Ingeniería">
+<link rel="shortcut icon" href="../../../favicon.ico">
+
+</head>
+
+<!-- FIN $Id: default-head.php,v 1.3 2006/11/23 19:55:33 lugfi Exp $ -->
+
+
+<body>
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%" align="center">
+<tr><td width="100%" height="100%" class="LugFI-Top">
+
+ <table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tr><td width="52%" class="LugFI-LogoLeft">
+
+ <!-- Beg Logo -->
+ <a href="../../..">
+ <img src="../../../logos/logo.png" alt="Logo LugFi" border="0" class="bottom"></a>
+ <!-- End Logo -->
+
+ </td>
+
+ <td width="48%" class="LugFI-LogoRight">
+
+ <!-- INICIO $Id: default-banner.php,v 1.9 2007-01-06 00:21:04 des Exp $ -->
+
+  <!-- Beg Marco Banners -->
+  <!-- Defino un marco para banners estandares de 234x60 -->
+
+  <table border="0" cellpadding="1" cellspacing="0" width="234" align="center">
+  <tr><td width="100%" class="LugFI-BannerDiv1" height="62">
+
+   <table border="0" cellpadding="1" cellspacing="0" width="100%">
+   <tr><td width="100%" class="LugFI-BannerDiv2" height="61">
+
+    <table border="0" cellpadding="1" cellspacing="0" width="100%">
+    <tr><td width="100%" class="LugFI-BannerDiv3" height="60">
+
+    <a href="http://unlux.com.ar/index.php?option=com_content&task=view&id=27&Itemid=1"><img src="../../../images/Banner_Lujan_cdc2008.gif" alt="Ciclo de charlas UNLUX 2008 - "Integrando Disciplinas"" border="0" class="bottom"></a>
+
+    </td></tr>
+    </table>
+
+   </td></tr>
+   </table>
+
+  </td></tr>
+  </table>
+
+  <!-- End Marco Banners -->
+
+<!-- FIN $Id: default-banner.php,v 1.9 2007-01-06 00:21:04 des Exp $ -->
+
+ </td></tr>
+ </table>
+
+</td></tr>
+
+
+<tr><td width="100%" class="LugFI-TopNavBar">
+
+<!-- Beg StatBar -->
+
+ <table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tr><td width="28%" class="LugFI-StatBar-Left">
+ &nbsp;:: Friday 06, March 2009 - Argentina ::
+ </td>
+
+ <td width="44%" class="LugFI-StatBar-Center">
+  :: ¿Por qué uso drogas? Tengo una 286...
+		-- Www.frases.com. 
+ ::
+ </td>
+
+ <td width="28%" class="LugFI-StatBar-Right">
+ <form method="post" action="/cgi-bin/htsearch">
+  <input type=hidden name=config value="htdig">
+  <input type="text" name="words" value="Ingresar busqueda" onFocus="this.value=''" class="Top_Search">
+  <input type="submit" name="submit" value="Buscar" class="Top_Search_Button">
+ </form>
+ </td></tr>
+ </table>
+
+
+<!-- End StatBar -->
+
+</td></tr>
+
+<tr><td width="100%" class="LugFI-TopNavBar">
+
+<!-- Beg StatBar -->
+<!-- INICIO $Id: default-barra.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+
+<!-- Beg StatBar -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../acerca/" class="Section">Acerca de</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../documentos/" class="Section">Documentos
+</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../eventos/" class="Section">Eventos
+</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../integrantes/" class="Section">Integrantes</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../listas/" class="Section">Listas</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../proyectos/" class="Section">Proyectos
+</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../servicios/" class="Section">Servicios
+</A>
+ <b>::</b>
+</td>
+</tr>
+</table>
+
+<!-- FIN $Id: default-barra.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- End StatBar -->
+
+</td></tr>
+</table>
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+<tr><td width="100%" class="LugFI-Contenedor">
+<!-- Beg Contenedor -->
+
+<!-- INICIO $Id: default-menu.php,v 1.4 2004/07/25 19:49:08 luca Exp $ -->
+
+
+ <table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tr><td width="20%" class="LugFI-SideBar">
+
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <!-- Beg NavLink-->
+		 
+       
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../../">Página Inicial
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../">Eventos
+
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../2003-12-jornadas/">Jornadas Diciembre 2003
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2003-12-jornadas/anuncio/" class="MLink" >Anuncio
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2003-12-jornadas/documentos/" class="MLink" >Documentos
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2003-12-jornadas/fotos/" class="MLink" >Fotos
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../2004-07-jornadas/">Jornadas Julio 2004
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2004-07-jornadas/anuncio/" class="MLink" >Anuncio
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2004-07-jornadas/documentos/" class="MLink" >Documentos
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2004-07-jornadas/fotos/" class="MLink" >Fotos
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../2004-04-seminario/">Seminario PHP Mayo 2004
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2004-04-seminario/documentos/" class="MLink" >Documentos
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2004-04-seminario/fotos/" class="MLink" >Fotos
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../2005-charlas/">Charlas Irregulares 2005
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2005-charlas/documentos/" class="MLink" >Documentos
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../2006-ddl/">Día de Lenguajes 2006
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2006-ddl/documentos/" class="MLink" >Documentos
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../2007-jornadas/">Jornadas 2007
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2007-jornadas/documentos/" class="MLink" >Documentos
+</a>
+</td></tr>
+
+  
+
+<!-- FIN $Id: default-menu.php,v 1.4 2004/07/25 19:49:08 luca Exp $ -->
+
+  <!-- End NavLink-->
+
+  <tr><td width="100%" class="LugFI-MenuDivA">
+  &nbsp;
+  </td></tr>
+
+  <!-- Encuestas -->
+    
+  </table>
+
+ </td>
+
+ <td valign="top" width="80%" height="100%">
+ <!-- Beg Contenido -->
+     
+  <table border="0" cellpadding="0" cellspacing="0" width="99%" align="center">
+  <tr><td width="100%" height="100%" class="LugFI-Principal">
+    
+
+<!--
+                                    -->
+<!-- FIN $Id: default-cabecera.php,v 1.9 2007-03-06 11:50:54 des Exp $ -->
+<!-- INICIO $Id: index.php,v 1.2 2004/06/14 07:43:36 ecalot Exp $ -->
+<!-- INICIO $Id: default-titulo.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<span class="LugFI-Span_Titulo">:: Fotos de las jornadas ::</span>
+<br>
+<!-- FIN $Id: default-titulo.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<p>
+A continuación podés ver una serie de fotos que sacamos durante las charlas de php. Si por casualidad
+sacaste fotos vos también nos las podés mandar a la
+<a href="mailto:org@lug.fi.uba.ar">lista de organización</a> para que las agreguemos a este
+bonito album :).
+</p>
+<div align="center"><table>
+<tr>
+<!-- INICIO $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<TD align="center" valign="middle"><A href="foto.php?id=.%2FP5070001.jpg" title="Introducción a PHP by Marga
+">
+<IMG alt="Introducción a PHP by Marga
+" src="./mini-P5070001.jpg" border="0"></A></TD>
+<!-- FIN $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<TD align="center" valign="middle"><A href="foto.php?id=.%2FP5070002.jpg" title="Audiencia
+">
+<IMG alt="Audiencia
+" src="./mini-P5070002.jpg" border="0"></A></TD>
+<!-- FIN $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<TD align="center" valign="middle"><A href="foto.php?id=.%2FP5070003.jpg" title="Más audiencia
+">
+<IMG alt="Más audiencia
+" src="./mini-P5070003.jpg" border="0"></A></TD>
+<!-- FIN $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<TD align="center" valign="middle"><A href="foto.php?id=.%2FP5070004.jpg" title="Introducción al PHP: registerglobals
+">
+<IMG alt="Introducción al PHP: registerglobals
+" src="./mini-P5070004.jpg" border="0"></A></TD>
+<!-- FIN $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+</tr><tr>
+<!-- INICIO $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<TD align="center" valign="middle"><A href="foto.php?id=.%2FP5070005.jpg" title="Efe, Poirot, Juandie
+">
+<IMG alt="Efe, Poirot, Juandie
+" src="./mini-P5070005.jpg" border="0"></A></TD>
+<!-- FIN $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<TD align="center" valign="middle"><A href="foto.php?id=.%2FP5070006.jpg" title="Introducción al PHP: cerrando
+">
+<IMG alt="Introducción al PHP: cerrando
+" src="./mini-P5070006.jpg" border="0"></A></TD>
+<!-- FIN $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<TD align="center" valign="middle"><A href="foto.php?id=.%2FP5070008.jpg" title="MySQL by Ale
+">
+<IMG alt="MySQL by Ale
+" src="./mini-P5070008.jpg" border="0"></A></TD>
+<!-- FIN $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<TD align="center" valign="middle"><A href="foto.php?id=.%2FP5070009.jpg" title="Les presento a Erdos, mi máquinita :)
+">
+<IMG alt="Les presento a Erdos, mi máquinita :)
+" src="./mini-P5070009.jpg" border="0"></A></TD>
+<!-- FIN $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+</tr><tr>
+<!-- INICIO $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<TD align="center" valign="middle"><A href="foto.php?id=.%2FP5070010.jpg" title="MySQL en consola
+">
+<IMG alt="MySQL en consola
+" src="./mini-P5070010.jpg" border="0"></A></TD>
+<!-- FIN $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<TD align="center" valign="middle"><A href="foto.php?id=.%2FP5070011.jpg" title="Ejemplo de uso del comando mysql
+">
+<IMG alt="Ejemplo de uso del comando mysql
+" src="./mini-P5070011.jpg" border="0"></A></TD>
+<!-- FIN $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<TD align="center" valign="middle"><A href="foto.php?id=.%2FP5070012.jpg" title="Efe
+">
+<IMG alt="Efe
+" src="./mini-P5070012.jpg" border="0"></A></TD>
+<!-- FIN $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<TD align="center" valign="middle"><A href="foto.php?id=.%2FP5070013.jpg" title="MySQL by Ale: phpMyAdmin
+">
+<IMG alt="MySQL by Ale: phpMyAdmin
+" src="./mini-P5070013.jpg" border="0"></A></TD>
+<!-- FIN $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+</tr><tr>
+<!-- INICIO $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<TD align="center" valign="middle"><A href="foto.php?id=.%2FP5070014.jpg" title="MySQL: Como se utiliza desde PHP
+">
+<IMG alt="MySQL: Como se utiliza desde PHP
+" src="./mini-P5070014.jpg" border="0"></A></TD>
+<!-- FIN $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<TD align="center" valign="middle"><A href="foto.php?id=.%2FP5070015.jpg" title="Recreo: Jugando al Prince I
+">
+<IMG alt="Recreo: Jugando al Prince I
+" src="./mini-P5070015.jpg" border="0"></A></TD>
+<!-- FIN $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<TD align="center" valign="middle"><A href="foto.php?id=.%2FP5070016.jpg" title="Recreo: Jugando al Prince II
+">
+<IMG alt="Recreo: Jugando al Prince II
+" src="./mini-P5070016.jpg" border="0"></A></TD>
+<!-- FIN $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<TD align="center" valign="middle"><A href="foto.php?id=.%2FP5070017.jpg" title="Más Efe
+">
+<IMG alt="Más Efe
+" src="./mini-P5070017.jpg" border="0"></A></TD>
+<!-- FIN $Id: default-album-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+</tr><tr>
+</tr>
+</table>
+<center>1&nbsp;&nbsp;<a href="?page=1">2</a>&nbsp;&nbsp;</center><br></div>
+<!-- INICIO $Id: index.php,v 1.2 2004/06/14 07:43:36 ecalot Exp $ -->
+<!-- INICIO $Id: default-pie.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+
+  </td></tr>
+  </table>
+
+ <!-- End Contenido -->
+ </td></tr>
+ </table>
+
+
+<!-- End Contenedor -->
+</td></tr>
+</table>
+
+       
+<p>
+	    
+<!-- Epígrafe -->
+<!-- /Epígrafe -->
+
+<p>
+
+<!-- ## Footer ## -->
+<table cellspacing="0" width="80%" align="center">
+<tr><td width="100%" class="Footer_Frame">
+
+ <table cellspacing="0" width="90%" align="center">
+ <tr><td width="49%" class="Footer_Frame">
+
+ 
+  <table cellspacing="0" width="90%" align="center">
+  <tr><td width="100%" class="Footer_Devel">
+  <a href="../../.." >LUGFI</a>
+  &copy; Copyleft 2002-2009 - Bajo Licencia GPL
+  </td></tr>
+  </table>
+
+  
+ </td>
+ 
+ <td width="2%" class="Footer_Frame">
+ &nbsp;|&nbsp;
+ </td>
+
+ <td width="49%" class="Footer_Frame">
+  
+  <table cellspacing="0" width="90%" align="center">
+  <tr><td width="50%" class="Footer_Devel">
+  <!-- INICIO $Id: default-epigrafe.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<DIV CLASS="epigrafe" ALIGN="center">
+    Última actualización: Fri Sep 22 19:05:06 2006</DIV>
+<!-- FIN $Id: default-epigrafe.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+  </td></tr>
+  </table>
+ 
+ </td></tr>
+
+ </table>
+
+</td></tr>
+</table>
+<!-- / ## Footer ## -->
+
+</body>
+</html>
+<!-- FIN $Id: default-pie.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->

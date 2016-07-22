@@ -1,0 +1,549 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- INICIO $Id: default-cabecera.php,v 1.9 2007-03-06 11:50:54 des Exp $ -->
+
+<html lang="es">
+
+<head>
+
+<title>::: Álbum de fotos de las Primeras Jornadas de GNU/Linux y Software Libre en Ingeniería :::</title>
+
+<!-- INICIO $Id: default-estilo.php,v 1.5 2005/05/22 20:49:28 luca Exp $ -->
+  <link rel="stylesheet" href="../../../css/lugfi.css" type="text/css">
+  <!-- FIN $Id: default-estilo.php,v 1.5 2005/05/22 20:49:28 luca Exp $ -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Description" content="Álbum de fotos de las Primeras Jornadas de GNU/Linux y Software Libre en Ingeniería">
+<link rel="shortcut icon" href="../../../favicon.ico">
+
+</head>
+
+<!-- FIN $Id: default-head.php,v 1.3 2006/11/23 19:55:33 lugfi Exp $ -->
+
+
+<body>
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%" align="center">
+<tr><td width="100%" height="100%" class="LugFI-Top">
+
+ <table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tr><td width="52%" class="LugFI-LogoLeft">
+
+ <!-- Beg Logo -->
+ <a href="../../..">
+ <img src="../../../logos/logo.png" alt="Logo LugFi" border="0" class="bottom"></a>
+ <!-- End Logo -->
+
+ </td>
+
+ <td width="48%" class="LugFI-LogoRight">
+
+ <!-- INICIO $Id: default-banner.php,v 1.9 2007-01-06 00:21:04 des Exp $ -->
+
+  <!-- Beg Marco Banners -->
+  <!-- Defino un marco para banners estandares de 234x60 -->
+
+  <table border="0" cellpadding="1" cellspacing="0" width="234" align="center">
+  <tr><td width="100%" class="LugFI-BannerDiv1" height="62">
+
+   <table border="0" cellpadding="1" cellspacing="0" width="100%">
+   <tr><td width="100%" class="LugFI-BannerDiv2" height="61">
+
+    <table border="0" cellpadding="1" cellspacing="0" width="100%">
+    <tr><td width="100%" class="LugFI-BannerDiv3" height="60">
+
+    <a href="http://jornadas.grulic.org.ar/7"><img src="../../../images/Banner_JRSL2007.png" alt="7as Jornadas Regionales de Software Libre" border="0" class="bottom"></a>
+
+    </td></tr>
+    </table>
+
+   </td></tr>
+   </table>
+
+  </td></tr>
+  </table>
+
+  <!-- End Marco Banners -->
+
+<!-- FIN $Id: default-banner.php,v 1.9 2007-01-06 00:21:04 des Exp $ -->
+
+ </td></tr>
+ </table>
+
+</td></tr>
+
+
+<tr><td width="100%" class="LugFI-TopNavBar">
+
+<!-- Beg StatBar -->
+
+ <table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tr><td width="28%" class="LugFI-StatBar-Left">
+ &nbsp;:: Sunday 10, June 2007 - Argentina ::
+ </td>
+
+ <td width="44%" class="LugFI-StatBar-Center">
+  :: ¡Ah! Aquellos DLLs estaban ocupando mucho espacio.
+		-- Www.frases.com. 
+ ::
+ </td>
+
+ <td width="28%" class="LugFI-StatBar-Right">
+ <form method="post" action="/cgi-bin/htsearch">
+  <input type=hidden name=config value="htdig">
+  <input type="text" name="words" value="Ingresar busqueda" onFocus="this.value=''" class="Top_Search">
+  <input type="submit" name="submit" value="Buscar" class="Top_Search_Button">
+ </form>
+ </td></tr>
+ </table>
+
+
+<!-- End StatBar -->
+
+</td></tr>
+
+<tr><td width="100%" class="LugFI-TopNavBar">
+
+<!-- Beg StatBar -->
+<!-- INICIO $Id: default-barra.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+
+<!-- Beg StatBar -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../acerca/" class="Section">Acerca de</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../documentos/" class="Section">Documentos
+</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../eventos/" class="Section">Eventos
+</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../integrantes/" class="Section">Integrantes</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../listas/" class="Section">Listas</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../proyectos/" class="Section">Proyectos
+</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../servicios/" class="Section">Servicios
+</A>
+ <b>::</b>
+</td>
+</tr>
+</table>
+
+<!-- FIN $Id: default-barra.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- End StatBar -->
+
+</td></tr>
+</table>
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+<tr><td width="100%" class="LugFI-Contenedor">
+<!-- Beg Contenedor -->
+
+<!-- INICIO $Id: default-menu.php,v 1.4 2004/07/25 19:49:08 luca Exp $ -->
+
+
+ <table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tr><td width="20%" class="LugFI-SideBar">
+
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <!-- Beg NavLink-->
+		 
+       
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../../">Página Inicial
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../">Eventos
+
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../2003-12-jornadas/">Jornadas Diciembre 2003
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2003-12-jornadas/anuncio/" class="MLink" >Anuncio
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2003-12-jornadas/documentos/" class="MLink" >Documentos
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2003-12-jornadas/fotos/" class="MLink" >Fotos
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../2004-07-jornadas/">Jornadas Julio 2004
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2004-07-jornadas/anuncio/" class="MLink" >Anuncio
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2004-07-jornadas/documentos/" class="MLink" >Documentos
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2004-07-jornadas/fotos/" class="MLink" >Fotos
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../2004-04-seminario/">Seminario PHP Mayo 2004
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2004-04-seminario/documentos/" class="MLink" >Documentos
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2004-04-seminario/fotos/" class="MLink" >Fotos
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../2005-charlas/">Charlas Irregulares 2005
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2005-charlas/documentos/" class="MLink" >Documentos
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../2006-ddl/">Día de Lenguajes 2006
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../2006-ddl/documentos/" class="MLink" >Documentos
+</a>
+</td></tr>
+
+  
+
+<!-- FIN $Id: default-menu.php,v 1.4 2004/07/25 19:49:08 luca Exp $ -->
+
+  <!-- End NavLink-->
+
+  <tr><td width="100%" class="LugFI-MenuDivA">
+  &nbsp;
+  </td></tr>
+
+  <!-- Encuestas -->
+    
+  </table>
+
+ </td>
+
+ <td valign="top" width="80%" height="100%">
+ <!-- Beg Contenido -->
+     
+  <table border="0" cellpadding="0" cellspacing="0" width="99%" align="center">
+  <tr><td width="100%" height="100%" class="LugFI-Principal">
+    
+
+<!--
+                                    -->
+<!-- FIN $Id: default-cabecera.php,v 1.9 2007-03-06 11:50:54 des Exp $ -->
+<!-- INICIO $Id: foto.php,v 1.1.1.1 2003/12/19 15:56:40 luca Exp $ -->
+<!-- INICIO $Id: default-titulo.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<span class="LugFI-Span_Titulo">:: Álbum de fotos de las Primeras Jornadas de GNU/Linux y Software Libre en Ingeniería ::</span>
+<br>
+<!-- FIN $Id: default-titulo.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<div align="center">
+  <!-- INICIO $Id: default-foto.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<IMG alt="Aplicaciones para ingeniería: GNUPlot: La audiencia atenta (salvo un par de maleducados que estaban cuchicheando :-P)
+" src="./rpc120007.jpg">
+<P>Aplicaciones para ingeniería: GNUPlot: La audiencia atenta (salvo un par de maleducados que estaban cuchicheando :-P)
+</P>
+<P align="center"><!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Fpc120005.jpg" class="cuerpo" title="Juandie dando la primera charla: qué es GNU/Linux
+">1</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Fpc120006.jpg" class="cuerpo" title="Charla de filosofía del Software libre: Emi hablando adelante, Quique paseando por detrás
+">2</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Fpc120008.jpg" class="cuerpo" title="Filosofíaa del Software libre: Bienes intelectuales vs Bienes materiales, contestando preguntas mientras Marga hacía señas de que se había acabado el tiempo
+">3</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Fpc120009.jpg" class="cuerpo" title="Filosof&iacute;a del Software libre: Emi explicando los distintos tipos de licencias
+">4</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Fpc120010.jpg" class="cuerpo" title="Filosofía del Software libre: Medio Lugfi y el resto de la audiencia, Emi al frente
+">5</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Fpc120011.jpg" class="cuerpo" title="Filosofía del Software Libre: Emi izquierda y Quique a la derecha, atendiendo preguntas
+">6</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Fpc120015.jpg" class="cuerpo" title="Knoppix, Aplicaciones y juegos en GNU/Linux: Dami al frente
+">7</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Fpc120016.jpg" class="cuerpo" title="Knoppix, Aplicaciones y juegos en GNU/Linux: Dami mostrando que el Knoppix anda en pantalla grande
+">8</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Fpc120017.jpg" class="cuerpo" title="Knoppix, Aplicaciones y juegos en GNU/Linux: La pantalla grande :) bienvenidos a Knoppix
+">9</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Fpc120018.jpg" class="cuerpo" title="Knoppix, Aplicaciones y juegos en GNU/Linux: Entre la audiencia en el fondo, Marga y Emi representando símbolo de GNU :-P
+">10</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120002.jpg" class="cuerpo" title="Aplicaciones para ingenier&iacute;a: Octave: Marga explicando Octave
+">11</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120003.jpg" class="cuerpo" title="Aplicaciones para ingenier&iacute;a: Octave: Marga peleandose con el seno de x, pero lo mejor de la foto se puede observar mas adelante: la hermosa remera de Ricky
+">12</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120004.jpg" class="cuerpo" title="Aplicaciones para ingeniería: Nuca de Luca tratando de convencer a la fuente de Homero que la energía de la FI es tan buena como la de casa :)
+">13</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120005.jpg" class="cuerpo" title="Aplicaciones para ingeniería: GNUPlot por Diegote: Gráfico de la exponencial negativa, tenía que ser el profe de proba!!!
+">14</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120006.jpg" class="cuerpo" title="Aplicaciones para ingeniería: GNUPlot: Diegote graficando exitosamente el seno de x mientras Emi se ceba unos mates
+">15</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+16 | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120010.jpg" class="cuerpo" title="Aplicaciones para ingeniería: TeX/LaTex: Diegote al frente
+">17</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120012.jpg" class="cuerpo" title="Aplicaciones para ingeniería: A ricky se le colgó la remera justo antes de su charla!!! X-D
+">18</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120013.jpg" class="cuerpo" title="Dos integrantes muy activos del lugfi: Maxi (poniendo a punto el sonido) y Homero (rehusándose a funcionar con la energía de la FI)
+">19</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120015.jpg" class="cuerpo" title="Aplicaciones para ingeniería: LaTeX: Mostrando la salida DVI de un documento en LaTeX
+">20</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120016.jpg" class="cuerpo" title="Maxi rodeado de <em>chicas</am> ;-)
+">21</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120017.jpg" class="cuerpo" title="de izquierda a derecha: satán, digo santisi muy atento; efe bolubeando; emi y luca mirando las boludeces de efe
+">22</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120018.jpg" class="cuerpo" title="Diegote con la clásica cara de una labor terminada exitosamente!
+">23</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120020.jpg" class="cuerpo" title="Aplicaciones para ingeniería: Doxygen: Luca explicando cómo usar doxygen para entregar TPs y zafar de hacer gran parte de la documentación 
+">24</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120021.jpg" class="cuerpo" title="Aplicaciones para ingeniería: Doxygen: Fuente preparado para ser <em>entendido</em> por Doxygen (como te robaste el TP1 de taller!!! X-D)
+">25</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120022.jpg" class="cuerpo" title="Aplicaciones para ingenier&iacute;a: Doxygen: Hermoso gráfico de las dependencias de un archivo generado automáticamente
+">26</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120025.jpg" class="cuerpo" title="Aplicaciones para ingeniería: Doxygen: Marga completamente poseida por las funcionalidades del doxygen
+">27</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120028.jpg" class="cuerpo" title="Aplicaciones para ingeniería: Doxygen: Luca descubriendo América... Perdón, mostrando como se generan las páginas con doxygen
+">28</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120030.jpg" class="cuerpo" title="El Ingeniero Miguel Reiser, director del Labi, dandole un toque oficial a las charlas
+">29</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120031.jpg" class="cuerpo" title="Reiser hablando, maxi acomodando la pantalla para que no se caiga
+">30</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120032.jpg" class="cuerpo" title="Reiser nos sigue tirando flores =)
+">31</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120033.jpg" class="cuerpo" title="Clientes Delgados: por Maxi y Marga
+">32</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120036.jpg" class="cuerpo" title="
+">33</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120037.jpg" class="cuerpo" title="Clientes Delgados: Maxi al frente dando detalles técnicos
+">34</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120041.jpg" class="cuerpo" title="Clientes Delgados: Maxi y Marga contestan preguntas. Diegote presta mucha atención
+">35</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120043.jpg" class="cuerpo" title="Introducción a Python: Ricky empieza a contarnos sus bondades. También se ve la capocha de albert, este es el preciso instante en el que le robamos el alma (al menos la parte de arriba del alma)
+">36</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120044.jpg" class="cuerpo" title="Introducción a Python: Emi y Luca, mate en mano, miran como Marga labura de promotora :-P
+">37</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120045.jpg" class="cuerpo" title="Introducción a Python: Audiencia en genral, atenta. Abajo: diegote prestando atención (no se está metiendo el dedo en la nariz! mal pensados!), efe con el mate, alb a punto de vomitar, gustavo poseido por el demonio (parece que a él también le robaron el alma) y un poco más arriba Luca charlando con Emi
+">38</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120046.jpg" class="cuerpo" title="Introducción a Python: Ricky mostrando un ejemplo de aplicación con GUI; un cliente HTTP que se baja images y las muestra y que <em>mide</em>: 73 lineas!!! 8-)
+">39</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120047.jpg" class="cuerpo" title="Introducción a Python: Audiencia atrapada por las capacidades didácticas de ricky
+">40</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120048.jpg" class="cuerpo" title="Introducción a Python: Python, Ricky y su remera revolucionaria
+">41</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120049.jpg" class="cuerpo" title="Introducción a Python: ricky explicando python segundos antes de que se ponga a <em>bailar</em> con el PyDance (se pueden ver los parlantitos :)
+">42</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Frpc120050.jpg" class="cuerpo" title="Introducción a Python: Consultas de la audiencia (esta vez diegote, efe, alb, gustavo, luca y emi, todos muy atentos)
+">43</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Fspc120052.jpg" class="cuerpo" title="Seguridad en capas en GNU/Linux: by DarkZen (en el pizarrón se puede ver el dibujito de 2 PC con sus capas de red :)
+">44</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Fspc120054.jpg" class="cuerpo" title="Seguridad en capas en GNU/Linux: DarkZen nos muestra como usar IPtables
+">45</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Fspc120056.jpg" class="cuerpo" title="Nuevas características del kernel 2.6: alb dando la charla de kernel 2.6, la diva de las jornadas (la charla, no alb!!! :)
+">46</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Fspc120058.jpg" class="cuerpo" title="Nuevas características del kernel 2.6: La audiencia atrapada por la verborragia de alb
+">47</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2Fspc120059.jpg" class="cuerpo" title="Nuevas características del kernel 2.6: alb descubriendo América... Perdón, este chiste ya lo hicimos :-P
+">48</A><!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+</P>
+<!-- FIN $Id: default-foto.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+</div>
+<!-- FIN $Id: foto.php,v 1.1.1.1 2003/12/19 15:56:40 luca Exp $ -->
+<!-- INICIO $Id: default-pie.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+
+  </td></tr>
+  </table>
+
+ <!-- End Contenido -->
+ </td></tr>
+ </table>
+
+
+<!-- End Contenedor -->
+</td></tr>
+</table>
+
+       
+<p>
+	    
+<!-- Epígrafe -->
+<!-- /Epígrafe -->
+
+<p>
+
+<!-- ## Footer ## -->
+<table cellspacing="0" width="80%" align="center">
+<tr><td width="100%" class="Footer_Frame">
+
+ <table cellspacing="0" width="90%" align="center">
+ <tr><td width="49%" class="Footer_Frame">
+
+ 
+  <table cellspacing="0" width="90%" align="center">
+  <tr><td width="100%" class="Footer_Devel">
+  <a href="../../.." >LUGFI</a>
+  &copy; Copyleft 2002-2007 - Bajo Licencia GPL
+  </td></tr>
+  </table>
+
+  
+ </td>
+ 
+ <td width="2%" class="Footer_Frame">
+ &nbsp;|&nbsp;
+ </td>
+
+ <td width="49%" class="Footer_Frame">
+  
+  <table cellspacing="0" width="90%" align="center">
+  <tr><td width="50%" class="Footer_Devel">
+  <!-- INICIO $Id: default-epigrafe.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<DIV CLASS="epigrafe" ALIGN="center">
+    Última actualización: Fri Sep 22 19:04:50 2006</DIV>
+<!-- FIN $Id: default-epigrafe.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+  </td></tr>
+  </table>
+ 
+ </td></tr>
+
+ </table>
+
+</td></tr>
+</table>
+<!-- / ## Footer ## -->
+
+</body>
+</html>
+<!-- FIN $Id: default-pie.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->

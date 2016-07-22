@@ -1,0 +1,254 @@
+<HTML>
+<BODY>
+<HR>
+<DIV ALIGN=CENTER>
+<FONT SIZE=+2><BR>
+<BR>
+SCMs: Mitos y verdades</FONT><FONT SIZE=-1><BR>
+<BR>
+Todo lo que siempre quiso saber sobre SCMs<BR>
+y nunca se animó a preguntar<BR>
+<BR>
+<BR>
+Leandro Lucarella (luca@llucax.hn.org)<BR>
+Alberto Bertogli (albertogli@telpin.com.ar)<BR>
+<BR>
+LUGFI<BR>
+<BR>
+18 de Mayo de 2005<BR>
+<BR>
+</FONT></DIV>
+<BR>
+(página 1)<BR>
+<HR>
+<BR>
+Introducción<BR>
+<BR>
+	<UL>
+	<LI>Devuelvanme los colores! Viva Rainbow Brite!
+	<LI>Motivación (estamos motivaaaaaaadooosssss!)
+	<LI>Subjetividad (acaso existe una opinión distinta a la nuestra?)
+	</UL>
+<BR>
+(página 2)<BR>
+<HR>
+<BR>
+El proceso de desarrollo de software<BR>
+<BR>
+	<UL>
+	<LI>Proceso social y creativo
+	<LI>Concentrarnos en el código fuente y no en metodologías
+	<LI>Construcción iterativa y lógica
+	<LI>Evolución del software con cambios
+	<LI>Changesets, porque los nombres tienen que tener onda
+	</UL>
+<BR>
+<BR>
+(página 3)<BR>
+<HR>
+<BR>
+Grupos de trabajo<BR>
+<BR>
+	<UL>
+	<LI>Coordinación del trabajo
+	<LI>Imprescindible la buena comunicación y coordinación
+	<LI>Complejidad respecto del código: trabajo en simultáneo
+	<LI>Relaciones asimétricas y flujo de trabajo
+	</UL>
+<BR>
+<BR>
+(página 4)<BR>
+<HR>
+<BR>
+Capacidad de revisión<BR>
+<BR>
+	<UL>
+	<LI>Poder ver qué cambios fueron introducidos
+	<LI>Revisión y abstracción
+	<LI>Capacidad de manejar y leer changesets
+	<LI>Representación del código como una base y su conjunto de changesets
+	<LI>Historial de cambios
+	</UL>
+<BR>
+	<UL>
+	<LI>Dejemos de mentir un poco y veamos la realidad
+	</UL>
+<BR>
+<BR>
+(página 5)<BR>
+<HR>
+<BR>
+diff + patch<BR>
+<BR>
+	<UL>
+	<LI>Herramientas más viejas y usadas
+	<LI>diff
+	<LI>patch
+	<LI>Formato unificado del diff
+	<LI>Lectura de diffs
+	<LI>Operación "a pulmón" con estas herramientas
+	</UL>
+<BR>
+<BR>
+(página 6)<BR>
+<HR>
+<BR>
+Sistemas para la administración de código fuente<BR>
+<BR>
+	<UL>
+	<LI>Vimos la importancia de manejar y administrar changesets
+	<LI>A eso vinimos: a hablar de los sistemas que los administran (como? esto no es Análisis II??? <<huida despavorida>>)
+	<LI>Formas de llamarlos (se acuerdan de las siglas copadas?): SCM, VCS, CMS
+	<LI>Objetivo básico de los SCMs
+	<LI>Repositorios
+	<LI>Aplicación de changesets
+	</UL>
+<BR>
+<BR>
+(página 7)<BR>
+<HR>
+<BR>
+Manipulando repositorios<BR>
+<BR>
+	<UL>
+	<LI>Branches
+	<LI>Aplicación de changesets en distintos branches
+	<LI>Merges: integración de cambios
+	<LI>Conflictos
+	</UL>
+<BR>
+<BR>
+(página 8)<BR>
+<HR>
+<BR>
+Historia de un repositorio<BR>
+<BR>
+	<UL>
+	<LI>Importancia de la historia de la evolución del código
+	<LI>Revisión de cambios
+		<UL>
+		<LI>Grupos con estructuras jerárquicas
+		<LI>Revisión entre pares
+		<LI>Colaboración
+		<LI>Aprender de los aciertos y errores anteriores
+		</UL>
+	<LI>Backtracking de bugs
+	<LI>Tests de regresión
+	<LI>Ver quién manipuló el código
+	<LI>Pensar en changesets
+	</UL>
+<BR>
+<BR>
+(página 9)<BR>
+<HR>
+<BR>
+Dos formas de ver a los SCMs<BR>
+<BR>
+	<UL>
+	<LI>Formas de encarar el problema en la práctica
+		<UL>
+		<LI>Distribuidos
+		<LI>Centralizados
+		</UL>
+	</UL>
+<BR>
+	<UL>
+	<LI>Una viñetita nada más? Qué vergüenza!!!
+	</UL>
+<BR>
+<BR>
+(página 10)<BR>
+<HR>
+<BR>
+SCMs Centralizados<BR>
+<BR>
+	<UL>
+	<LI>Un sólo repositorio con todas las letras
+	<LI>El repositorio central incluye los branches
+	<LI>Working copy, un branch "rarito"
+	<LI>Noción de línea de tiempo
+	<LI>Al haber un servidor el setup suele ser más complejo
+	<LI>La mayoría de las operaciones necesitan conexión
+	</UL>
+<BR>
+<BR>
+(página 11)<BR>
+<HR>
+<BR>
+Caso de estudio: Subversion<BR>
+<BR>
+	<UL>
+	<LI>Características generales
+		<UL>
+		<LI>Un nombre re copado
+		<LI>Evolución natural de CVS (migración fácil)
+		<LI>Clientes para todos los gustos
+		<LI>Modelo Copy-Modify-Merge
+		<LI>Filosofía "El espacio en HD es más barato que el BW" (operación "offline siempre que sea posible)
+		</UL>
+	<LI>Filesystem versionado
+		<UL>
+		<LI>Muy bueno porque es muy flexible
+		<LI>Muy malo porque es muy flexible
+		</UL>
+	<LI>"Copias baratas" (cheap copy) como mecanismo de branching
+		<UL>
+		<LI>Conviene elegir un esquema al crear un repositorio
+		</UL>
+	<LI>Propiedades (metainformación)
+		<UL>
+		<LI>Propiedades especiales: ignore, keywords, executable, eol-style, mime-type, externals
+		<LI>Propiedades muy muy especiales: author, log, date, revision, etc...
+		<LI>Propiedades arbitrarias (para la gente creativa)
+		</UL>
+	</UL>
+<BR>
+<BR>
+(página 12)<BR>
+<HR>
+<BR>
+SCMs Distribuidos<BR>
+<BR>
+	<UL>
+	<LI>No existe un repositorio central, son todos pares
+	<LI>No necesariamente basados en líneas de tiempo
+	<LI>Permiten el trabajo "offline"
+	<LI>Se concentran en mantener la historia
+	<LI>El merge cobra mayor importancia
+	</UL>
+<BR>
+<BR>
+(página 13)<BR>
+<HR>
+<BR>
+Caso de estudio: Darcs<BR>
+<BR>
+	<UL>
+	<LI>Características generales
+		<UL>
+		<LI>Basado en una teoria de patches magica
+		<LI>Muy facil de usar y de entender
+		<LI>Flexible y transparente con los repositorios
+		<LI>Los branches son simples copias del repositorio
+		<LI>Orientado a cambios mas que a versiones
+		</UL>
+	<LI>Formas de trabajo
+		<UL>
+		<LI>Simplifica el trabajo en paralelo
+		<LI>Flujos de trabajo distribuidos
+		</UL>
+	</UL>
+<BR>
+<BR>
+(página 14)<BR>
+<HR>
+<BR>
+Ejemplos!<BR>
+<BR>
+	<UL>
+	<LI>Para los que todavía estén despiertos...
+	</UL>
+<BR>
+(página 15)<BR>
+</BODY>
+</HTML>

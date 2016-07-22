@@ -1,0 +1,57 @@
+- bash
+ - ls >archivo
+ - ls existo noexisto 2>&1 >sal | cat
+ - expansions
+  - {}
+ - history
+  - ^mkdir^cd^
+	- HISTTIMEFORMAT="%F %T " history
+ - completion
+ - for i in *.txt ; do echo next? $i ; read && vim $i ; done
+ - while sleep 1; do clear ; who ; done
+ - PROMPT_COMMAND='[ $? -eq 1 ] && echo -e -n "\e[0;39m" || echo -e -n "\e[1;31m"'
+ - readline
+- watch
+ - watch -n 1 who
+ - -d
+- find
+ - -exec
+ - -print0
+- xargs
+ - -0
+  - find . -name '*.old' -print0 |xargs -0 rm
+  - dpkg -L xbase-clients |grep bin | xargs -n1 basename |xargs apropos|grep led
+- cat
+ - header - footer 
+ - -n
+- sort
+ - -u
+ - -n
+ - -z
+- uniq
+- grep
+ - -o
+ - -v
+ - -lZ
+- cut
+ - -d
+- head
+- tail
+- sed
+ - -n
+- awk
+- nc
+- ssh
+- xclip
+ - alias xi="xclip -i"
+ - alias xo="xclip -o"
+
+
+- Ejemplos
+ - history | cat -n |grep '.\{60,\}'
+ - ls | cat -n | head -20 | tail -3 (18, 19, 20)
+ - for i in *.mp3; do echo $i | mv "$i" "`sed -e 's/\(..\)\./\1 - /'`" ; done
+ - find . -name '*.JPG' | while read i; do mv "$i" "`echo $i | sed -e 's/\.JPG$/\.jpg/'`"; done
+ - COLUMNS=200 dpkg -l |awk '{print $2 " " $3}'| while read paq ver ; do if ! (apt-cache madison $paq |grep -q '$ver.*sid') ; then echo "$paq - $ver"; fi ; done
+ - find -mtime (argh, se reinicio mi compu y perdi el 'state')
+ - chmod -R o+rw ; find . -type d -print0| xargs -0 chmod o+x

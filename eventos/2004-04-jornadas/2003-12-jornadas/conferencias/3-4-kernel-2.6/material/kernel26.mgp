@@ -1,0 +1,121 @@
+%include "default.mgp"
+%default 1 bgrad
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%center
+
+Nuevas características del kernel 2.6
+
+Alberto Bertogli
+(albertogli@telpin.com.ar)
+
+12/Dic/2003
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Cambios necesarios
+
+Es necesario actualizar:
+	procps (inc. ps, vmstat, top, y cia.)
+	modutils (module-init-tools)
+	mkinitrd
+	aplicaciones especificas (filesystems, lvm, etc.)
+
+Recomendado actualizar glibc a 2.3.2
+
+%fore "yellow"
+Inclusive realizados estos cambios, es posible ir y venir entre 2.4 y 2.6 sin
+ningun problema.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+"Sintomas" de 2.6
+
+	Muchisimo mas escalable
+	Mejor respuesta bajo carga
+	Mas "interactivo"
+	Mejor manejo de disco
+	Carga de interrupciones baja aun con mucho trafico de red
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+MM, scheduling, etc.
+
+	O(1) scheduler
+	NPTL (Native Posix Thread Library)
+	rmap
+	sysenter
+	preempt
+	futexes
+	CPU affinity
+	IRQ balancing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+HD I/O
+
+	bio
+	Anticipatory Scheduler
+	O_DIRECT
+	AIO
+	IDE y SCSI
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+VFS/Filesystems
+
+	sysfs
+	ACL/EA
+	Move mounts y operaciones atomicas
+	JFS y XFS
+	NFSv4 y NFS over TCP
+	LVM2/dm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Networking
+
+	NAPI
+	epoll
+	ebtables
+	IPSec
+	IPVS
+	SCTP
+	MII
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Limites
+
+	PID allocator
+	32-bit UID/GID
+	64-bit block devices
+	mas dispositivos (extension major/minor)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Otros cambios
+
+	ALSA
+	capabilities
+	AGP y DRI
+	Framebuffer
+	Video 4 Linux
+	USB
+	User I/O
+	device model
+	Nuevas arquitecturas: UML, ia64, x86-64, uClinux, ppc64
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Preguntas
+

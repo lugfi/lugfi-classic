@@ -1,0 +1,158 @@
+%include "default.mgp"
+%default 1 bgrad
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%center
+
+E/S atómica y transaccional con libjio
+
+Alberto Bertogli
+(albertogli@telpin.com.ar)
+
+17/Julio/2004
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Escrituras
+
+	Asincrónicas
+		Page Cache / Writeback
+		HD Write Caching
+	Sincrónicas
+		Velocidad - Tiempo de búsqueda
+		Garantías a nivel filesystem
+	Concurrencia
+		Escrituras solapadas
+		File locks
+	Fallas inesperadas
+		Interrupciones abruptas
+		Corrupción de archivos
+		Tiempos de recuperación
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Atomicidad
+
+	Operaciones indivisibles
+	Necesaria para sistemas confiables
+	MTAs, DBs, embebidos, etc.
+	Garantías existentes en los filesystems POSIX
+		No hay operaciones atómicas
+		No hay estandarización
+		No hay garantías de ordenamiento
+		Si hay fsync()
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Transacciones
+
+	Agrupamiento ordenado de operaciones
+	Commit
+	Rollback
+	Garantías transaccionales (ACID)
+		Atomicidad
+		Consistencia
+		Aislamiento
+		Durabilidad
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+libjio
+
+	En userspace
+	Transacciones atómicas de E/S
+	Permite trabajo concurrente
+	Locks de escritura y lectura diferenciados
+	Bajos tiempos de recuperación
+	Portable e independiente del filesystem
+	Embebible (aprox. 9k)
+	APIs similares a UNIX y a ANSI I/O
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Formato en el disco
+
+	Archivo original intacto
+	Directorio de journal
+	Un archivo por cada transacción en curso
+		Header principal
+		Operaciones (header de op. + datos)
+		Checksum
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Commit
+
+	Bloquear las porciones del archivo donde se va a trabajar
+	Crear el archivo de transacción
+	Leer los datos que están actualmente en el archivo
+	Escribir los datos en el archivo de transacción
+	Escribir los datos al archivo
+	Marcar la transacción como aplicada
+	Borrar el archivo de transacción
+	Desbloquear las porciones bloqueadas al principio
+
+jtrans_init(file, trans);
+jtrans_add(trans, buf, len, offset);
+...
+jtrans_commit(trans);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Rollback
+
+	Crear una nueva transacción igual a la que queremos deshacer
+	Intercambiar los datos previos con los nuevos
+	Hacer un commit de la nueva transacción
+
+jtrans_rollback(trans);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Recuperación ante fallas
+
+	"Camina" el directorio de journal
+	Verifica la integridad de las transacciones
+	Reaplica las transacciones completas
+	Limpia el journal
+
+jfsck(filename, result);
+jfsck_cleanup(filename);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Transacciones "vagas"
+
+	Utilizan el cache del OS
+	Realizan solo una escritura sincrónica
+	Las escrituras fisicas al archivo real son diferidas
+	Mejor performance
+	Mayor tiempo de recuperación
+	Mayor espacio en disco
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+API
+
+jopen(); jclose(); jsync();
+
+jtrans_init(); jtrans_free();
+jtrans_add(); jtrans_commit(); jtrans_rollback();
+
+jread(); jwrite();
+jreadv(); jwritev();
+jpread(); jpwrite();
+jtruncate();
+
+jfsck(); jfsck_cleanup();
+

@@ -1,0 +1,131 @@
+%include "default.mgp"
+%default 1 bgrad
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%center, size 7, font "standard", fore "white", vgap 100
+
+Novedades en
+PHP5/Zend Engine II
+
+%size 2
+por Luca (Leandro Lucarella)
+<luca@lug.fi.uba.ar>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Novedades en PHP5/Zend Engine II
+
+Nuevas Características:
+	Nuevo modelo de objetos.
+	Excepciones.
+	Resolución de clases no declaradas.
+	Iteradores.
+	API de introspección.
+	Nuevo modelo de memoria.
+	Nuevo manejo de XML.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Novedades en PHP5/Zend Engine II
+
+Nuevo modelo de objetos:
+	Mejor abstracción.
+	Métodos especiales.
+	Cambios en el lenguaje.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Nuevo modelo de objetos
+
+Mejor abstracción:
+	Clases y métodos abstractos.
+%pause
+	Clases y métodos 'finales'.
+%pause
+	Interfaces.
+%pause
+	Atributos y funciones privadas y protegidas.
+%pause
+	Constantes de clase.
+%pause
+	Atributos estáticos de clase.
+%pause
+	Métodos estáticos.
+%pause
+	Constante __METHOD__.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Nuevo modelo de objetos
+
+Métodos especiales:
+	Constructor unificado.
+%pause
+	Destructor.
+%pause
+	Constructor de copia (clonación).
+%pause
+	Sobrecarga de conversión a string.
+%pause
+	Sobrecarga de acceso a propiedades y llamados a métodos (php4).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Nuevo modelo de objetos
+
+Cambios en el lenguaje:
+	Chequeo opcional de tipo de objeto.
+%pause
+	Desreferencia de objetos devueltos por funciones.
+%pause
+	Nuevos operadores: clone e instanceof.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Novedades en PHP5/Zend Engine II
+
+Excepciones
+	try, catch, throw.
+	Excepción estándar.
+%pause
+Resolución de clases no declaradas.
+%pause
+Iteradores.
+	Interface Iterator: rewind(), valid(), key(), current(), next()
+	Interface IteratorAggregate: getIterator()
+%pause
+API de introspección.
+	Comentarios de documentación (en línea).
+%pause
+Nuevo modelo de memoria.
+%pause
+Nuevo manejo de XML.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Novedades en PHP5/Zend Engine II
+
+Links:
+	http://www.php.net/
+	http://ar.php.net/
+	http://www.zend.com/php5/zend-engine2.php
+	http://pear.php.net/
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%center, size 7, font "standard", fore "white", vgap 150
+
+FIN
+
+%size 2
+(aplausos y preguntas)
+

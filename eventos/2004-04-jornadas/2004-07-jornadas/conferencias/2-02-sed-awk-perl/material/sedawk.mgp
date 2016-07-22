@@ -1,0 +1,251 @@
+%include "default.mgp"
+
+%default 1 fore "white", bgrad
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%center, size 7, font "standard", fore "white", vgap 20
+
+
+
+
+Sed & Awk ... y perl
+
+
+
+
+
+%fore "yellow", size 4
+Maximiliano Curia
+maxy@gnuservers.com.ar
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+¿Que hago acá?
+
+¿Para que?
+	Poder procesar miles de archivos con un solo script
+	O con una sola línea de comandos
+
+¿Por que usar sed & awk?
+	Es la manera inteligente de procesar textos
+	Es divertido
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Historia
+
+UNIX
+	Bell Labs y el procesamiento de textos
+	Páginas de manual en línea
+
+Herramientas para procesar texto,
+	ed, editor de textos
+	sed, editor de flujo (stream)
+	awk, procesador de flujo
+	perl, pathologically eclectic rubbish lister
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Expresiones Regulares
+
+	Patrones de busqueda y reemplazo.
+
+	Disponibles en un gran número de programas (grep, vi, emacs, etc) y lenguajes de programación (C, python, perl, etc).
+
+Ejemplo
+
+	/^(.?)(.?)(.?).?\3\2\1$/
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+ed
+
+	Originalmente un editor de textos, para usarse con terminales LENTAS.
+
+	Tiene el poder de las expresiones regulares.
+
+	Es perfecto para hacer scripts que modifican archivos.
+
+Sintaxis de comandos
+
+	[inicial[,final]][comando[parametros]]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+ed - Ejemplo
+
+for i in *; do
+ ed $i <<EoT
+0a
+//
+// Trabajo Practico, Materia, Ayudante
+// Grupo, Integrantes, Fecha
+// Licencia GPL
+//
+.
+w
+EoT
+done
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Sed
+
+	Hijo directo de ed
+	Un editor de flujos de textos.
+		Se usa para hacer transformaciones básicas en el flujo de entrada (un archivo, o entrada desde un pipe). 
+		Aún cuando suene parecido a ed, sed funciona haciendo solo una pasada sobre la entrada, por lo que es mucho más eficiente. 
+		Lo que lo distingue de otros editores es su capacidad de filtrar a través de pipes.
+
+	Recibe un patrón y las acciones a relizar con ese patrón.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Sed - Ejemplos 1/2
+
+Reemplazos con expresiones regulares
+	sed 's/^M$//' archivo # Convierte de \r\n a \n
+	sed 's/^/     /' archivo # Inserta 5 espacios al principio
+	sed 's/^[ \t]*//' archivo # Saca los espacios del principio
+
+Selección de líneas
+	sed 10q archivo # Imprime las 10 primeras líneas
+	sed -n '$p' archivo # Imprime la última línea
+	sed -n '8,12p' archivo # Imprime de la línea 8 a la 12
+	sed -n '/Hola/,/Chau./p' archivo # Imprime lo que se encuentre entre dos expresiones regulares.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Sed - Ejemplos 2/2
+
+Borrado de líneas
+	sed '/^.\{65\}/d' # Borra las líneas con más de 65 caracteres
+	sed 'n;d' archivo # Borra las líneas pares
+	sed '/^$/d' archivo # Borra líneas vacías
+
+Comandos simpáticos
+	sed G archivo # Agrega "doble espacio".
+	sed -n '$=' archivo # Cuentas las líneas 
+	sed '1!G;h;$!d' archivo # Invierte el orden de las líneas
+	sed = archivo | sed 'N;s/\n/\t/' # Imprime el número de línea
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Awk
+
+	Aho, Weinberger y Kernighan.
+	Sintaxis similar a la de C.
+	Recibe un patrón y las acciones a realizar con ese patrón.
+	Está mucho más orientado al procesamiento de datos estructurados, cálculos, estadísticas, etc.
+	Suele ser más cómodo de usar para los programadores de C.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Awk - Ejemplos 1/3
+
+	who -u | awk '{print $5}' # Imprime el 6to campo
+
+	ls -l | awk '{total+=$5}; END { print total }' # Suma una columna
+
+	ls -l | awk '{total+=$5}; END {print total/NR }'
+
+	awk -F: '$3>500 && $3<65000 { print $6 }' /etc/passwd
+
+	awk 'BEGIN { print "Hola awk!"; # Código en pseudo-C aquí }'
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Awk - Ejemplos 2/3
+
+ # Numera las líneas del archivo
+BEGIN { fn = "" }
+
+{ if ( FILENAME != fn ) {
+   NR = 1
+   fn = FILENAME
+  }
+  print NR, $0
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Awk - Ejemplos 3/3
+
+ # Invierte el contenido de las líneas.
+{
+  for (i = length($0); i > 0 ; i-- ) {
+    printf "%c", substr($0,i,1)
+  }
+  printf "\n";
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Perl
+
+perl < /dev/random # Oh, my god!
+
+	Combina la sintaxis de sed y awk (de C, de lisp, de shell, etc).
+	Es un lenguaje práctico.
+	Es un lenguaje de solo escritura (?).
+
+	s2p & a2p scripts que convierten de sed y awk a perli, respectivamente.
+
+	Hay más de una manera de hacerlo.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Perl Ejemplo
+
+while (<>) {
+  if ( s/Sed&Awk/Perl/ ) {
+    $changes++;
+  }
+  $lc++;
+  print;
+}
+
+print(stderr "Lineas: " . $lc . "       Cambios: ". $changes  ."\n");
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Preguntas
+
+%pause
+	¿Que hago acá?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Particularidades
+
+	sed también es un lenguaje de programación(sokoban, arkanoid, etc).
+	awk tiene soporte de redes usando TCP/IP.
+
+	Para aplicaciones más "limpias" usar python (uptight!).
+
+EOF.

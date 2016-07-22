@@ -1,0 +1,620 @@
+%Por LucasCollino para BuenosAiresLibre.org
+
+\documentclass[9pt]{beamer}
+
+\usetheme{Warsaw}
+%\usetheme{Szeged}
+\usecolortheme{default}
+\usefonttheme{structurebold}
+\useinnertheme{rounded}
+
+\usepackage[spanish]{babel}
+\usepackage[utf-8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+
+\usepackage{tikz} % para poder realizar los graficos
+\usepackage{verbatim}
+\usetikzlibrary{arrows,shapes} %para las flechas y nodos
+
+\setbeamercovered{transparent}
+
+\title{BuenosAiresLibre.org}
+\subtitle{Introducción al proyecto \\
+        Aplicación del Software Libre \\
+        (como herramienta y modelo a la vez)}
+%\author{Sergio Montenegro, Hernán Rossetto \& Lucas Collino}
+\institute[BuenosAiresLibre.org]{
+  http://www.buenosaireslibre.org/ \\
+  Ciudad de Buenos Aires \\
+  Fi 2007
+}
+
+\date{14 de Septiembre de 2007}
+
+\begin{document}
+
+\frame{
+	\titlepage
+}
+
+%================================== Outline ================================
+
+\frame{
+        \frametitle{Temario: Proyecto BuenosAiresLibre.org}
+
+        \tableofcontents[part=1]
+
+}
+
+\frame{
+        \frametitle{Temario: Software Libre \& Obelisco}
+
+        \tableofcontents[part=2]
+
+}
+
+\part{proyecto bal}
+
+\section{Introducción}
+
+        \subsection{Objetivo | ¿Para qué sirve?}
+
+                \frame{
+                        \frametitle{¿Hasta dónde querés llegar?}
+
+                        \begin{block} {Nuestra meta}
+                                Formar la estructura de una red de datos, libre y comunitaria en la Ciudad de Buenos Aires y alrededores, más allá de su utilización práctica y los servicios que puedan ofrecerse sobre ella.
+                        \end{block}
+
+                        \pause
+
+                        \begin{block} {Aplicaciones}
+                                \begin{itemize}
+                                        \item Genera un medio alternativo libre para ofrecer contenidos.
+                                        \item Conectar la casa con la oficina, o mi PC con la de un amigo que vive en otro barrio.
+                                        \item Medio de seguridad para monitorear una zona vecinal.
+                                        \item Provee una infraestructura para poder aplicar conocimientos y fomentar el desarrollo individual.
+                                \end{itemize}
+                        \end{block}
+
+                }
+
+
+
+        \subsection{Conceptos básicos}
+        
+                \frame{  
+                        \frametitle{¿Quiénes? | ¿Dónde? | ¿Cómo? | ¿Cuán lejos?}
+
+                        \begin{block} {¿Quiénes?}
+                                Cualquier interesado puede formar parte del proyecto. El único requisito es estar interesado, con ganas de aprender y de ayudar a los demás.
+                        \end{block}
+
+                        \pause
+
+                        \begin{block} {¿Dónde?}
+                                El proyecto es más fuerte en la Ciudad de Buenos Aires, pero está cada vez mejor ubicado en la provincia de Buenos Aires también.
+                        \end{block}
+
+                        \pause
+
+                        \begin{block} {¿Cómo?}
+                                Nos interconectamos mediante antenas de producción propia y la utilización de Software Libre en los routers o PCs armadas para tal fin.
+                        \end{block}
+
+                        \pause
+
+                        \begin{block} {¿Cuán lejos?}
+                                Hemos logrado un enlace estable a una distancia de \textbf{5.4 km} entre NodoAsgard y NodoParis.
+                        \end{block}
+
+                }
+
+
+
+\section{Características}
+
+        \subsection{Servicios}
+
+                \frame{
+                        \frametitle{¿Necesitás algo?}
+
+                        \begin{block} {Algunos servicios actuales y otros planeados}
+                        
+                                Los servicios que existen dentro de la red los deciden los miembros. La red es el medio, los contenidos y servicios los aporta la gente que participa. Tal como ocurre en Internet. Estos son algunos:
+
+                                \begin{itemize}
+                                        \item Servidor Jabber
+                                        \item IRC
+                                        \item Repositorio Debian (NodoHermes)
+                                        \item Servidor FTP (varios nodos)
+                                        \item Streamming de Audio/Vídeo (NodoGhost, NodoPenthouse)
+                                        \item Game Servers (NodoAmerica)
+                                        \item Servidor Asterisk para VoIP (NodoOrmiga)
+                                \end{itemize}
+
+                        \end{block}
+
+                }
+
+        \subsection{Herramientas del proyecto}
+
+                \frame{
+                        \frametitle{``Herramientas del proyecto''}
+
+                        Las herramientas propias de \emph{BuenosAiresLibre.org} son:
+
+                        \pause
+
+                        \begin{block} {Wiki}
+                                Este es \emph{``el''} sitio de la comunidad por excelencia donde todos colaboramos manteniéndolo actualizado.
+                                \begin{flushright}
+                                        \textit{http://wiki.buenosaireslibre.org/}
+                                \end{flushright}
+                        \end{block}
+
+                        \pause
+
+                        \begin{block} {Listas de Correo}
+                                Noticias y novedades del proyecto, coordinación entre miembros.
+                                \begin{flushright}
+                                        \textit{http://wiki.buenosaireslibre.org/ListasDeCorreo}
+                                \end{flushright}
+                        \end{block}
+
+                        \pause
+
+                        \begin{block} {Galería}
+                                Se desarrolló para mantener un registro gráfico de las actividades en el proyecto.
+                                \begin{flushright}
+                                        \textit{http://galeria.buenosaireslibre.org/}
+                                \end{flushright}
+                        \end{block}
+
+                }
+
+                \frame{
+                        \frametitle{``Herramientas del proyecto''}
+
+                        \begin{block} {Buenos Aires Libre Location System}
+                                \emph{BALLS} contiene la base de datos con las ubicaciones de todos los miembros y la despliega en un mapa político de Buenos Aires y Capital Federal.
+                                \begin{flushright}
+                                        \textit{http://balls.buenosaireslibre.org/}
+                                \end{flushright}
+
+                        \end{block}
+
+                        \pause
+
+                        \begin{block} {Mapa de BuenosAiresLibre.org en GoogleEarth}
+                                Esta herramienta toma los datos de los usuarios registrados en BALLS y vuelca sus ubicaciones en GoogleEarth.
+                                \begin{flushright}
+                                        \textit{http://mapa.buenosaireslibre.org/}
+                                \end{flushright}
+
+                        \end{block}
+
+                        \pause
+
+                        \begin{block} {Obelisco}
+                                Es una distribución GNU/Linux especialmente preparada para satisfacer las necesidades del proyecto.
+                                \begin{flushright}
+                                        \textit{http://wiki.buenosaireslibre.org/Obelisco}
+                                \end{flushright}
+                                
+                        \end{block}
+
+
+                }
+
+
+
+\section{Organización}
+
+        \subsection{Distintos roles}
+
+                \frame{
+                        \frametitle{Cliente | AP-Aislado | AP-Conectado | Nodo}
+
+                        Dividimos los distintos roles que toman los miembros en cuatro posibilidades:
+
+                        \pause
+
+                        \begin{block} {Cliente}
+                                Un rol fundamental en la red, ya que más adelante, varios serán APs también.
+                        \end{block}
+
+                        \pause
+
+                        \begin{block} {AP-Aislado}
+                                Por algún motivo no puede conectarse a otros APs (falta de una interfaz, o de línea de vista) pero puede estar conectado con sus Clientes.
+                        \end{block}
+
+                        \pause
+
+                        \begin{block} {AP-Conectado}
+                                Generalmente poseen dos interfaces, una para conectar sus Clientes y otra para conectarse a un nodo.
+                        \end{block}
+
+                        \pause
+
+                        \begin{block} {Nodo}
+                                Constituyen el núcleo de la red, definimos como Nodo a un AP que al menos esta conectado a otros dos AP-Conectados.
+                        \end{block}
+
+                }
+
+        \subsection{Situaciones comunes antes de 2006}
+
+\tikzstyle{nodo} = [circle,draw,thin,fill=red!20]
+\tikzstyle{apc} = [nodo,fill=blue!20]
+\tikzstyle{apa} = [nodo,fill=green!20]
+\tikzstyle{cliente} = [nodo,fill=black!20]
+\tikzstyle{distancia} = [font=\tiny,black]
+\tikzstyle{flecha} = [draw,thick,<->]
+\tikzstyle{flechan} = [flecha,red]
+\tikzstyle{flechac} = [flecha,blue]
+\tikzstyle{flechaplan} = [flecha]
+
+                \frame{
+                        \frametitle{Antes de 2006}
+
+                        Antes de 2006 la red estaba formada en gran parte por casos similares a estos:
+
+                \begin{center}
+
+                        \begin{tikzpicture}[node distance=1.7cm,auto,>=latex']
+
+
+                                \pause
+
+                                %primer ejemplo
+                                \node[apa]      (apa1)                                          {AP-A};
+                                \node[cliente]  (c1)            [above left of=apa1]            {C};
+                                \node[cliente]  (c2)            [above right of=apa1]           {C};
+                                %flechas del primer ejemplo
+                                \path[flechac] (apa1) -- (c1);
+                                \path[flechac] (apa1) -- (c2);
+
+                                \pause
+
+                                %segundo ejemplo
+                                \node[apc]              (apc1)          [below left of=apa1]            {AP-C};
+                                \node[apc]              (apc2)          [below left of=apc1]            {AP-C};
+                                \node[cliente]  (c3)            [above left of=apc1]            {C};
+                                \node[cliente]  (c4)            [below right of=apc2]           {C};
+                                \node[cliente]  (c8)            [below left of=apc2]            {C};
+                                %flechas del segundo ejemplo
+                                \path[flechan] (apc1) -- (apc2);
+                                \path[flechac] (apc1) -- (c3);
+                                \path[flechac] (apc2) -- (c4);
+                                \path[flechac] (apc2) -- (c8);
+
+                                \pause
+
+                                %tercer ejemplo
+                                \node[nodo]     (n1)            [below right of=apa1]           {Nodo};
+                                \node[apc]      (apc3)          [below left of=n1]              {AP-C};
+                                \node[apc]      (apc4)          [below right of=n1]             {AP-C};
+                                \node[cliente]  (c5)            [below right of=apc3]           {C};
+                                \node[cliente]  (c6)            [below right of=apc4]           {C};
+                                \node[cliente]  (c7)            [above right of=n1]             {C};
+                                \node[cliente]  (c9)            [above right of=apc4]           {C};
+                                %flechas del tercer ejemplo
+                                \path[flechan] (n1) -- (apc3);
+                                \path[flechan] (n1) -- (apc4);
+                                \path[flechac] (apc3) -- (c5);
+                                \path[flechac] (apc4) -- (c6);
+                                \path[flechac] (n1) -- (c7);
+                                \path[flechac] (apc4) -- (c9);
+
+                        \end{tikzpicture}
+
+                \end{center}
+
+                }
+
+        \subsection{Situación actual y a corto plazo}
+
+%%%% estos son para definir estilos locales del tikz en cada grafico (son predefinidos).
+
+
+                \frame{
+
+                \frametitle{A partir de mediados de 2006}
+                
+
+                \begin{footnotesize}
+
+                        Esta es la situación actual de dos subredes del proyecto, y algunos enlaces planeados a corto plazo.
+
+                        \begin{tikzpicture}[node distance=1.7cm,auto,>=latex']
+
+                                \node[apa]      (asgard)                                        {Asgard};
+                                \node[apc]      (londres)       [above left of=asgard]          {Londres};
+                                \node[apa]      (hermes)        [above right of=asgard]         {Hermes};
+                                \node[nodo]     (america)       [above of=londres]              {America};
+                                \node[apc]      (y01)           [above of=hermes]               {Y01};
+                                \node[nodo]     (paris)         [above right of=america]        {Paris};
+                                \node[apc]      (fiumicino)     [above right of=paris]          {Fiumicino};
+                                \node[apc]      (rohirrim)      [below right of=hermes]         {Rohirrim};
+                                \node[nodo]     (mandrake)      [above right of=rohirrim]       {Mandrake};
+                                \node[apa]      (gizmo)         [above of = mandrake]           {Gizmo};
+                                \node[apc]      (larrea)        [right of=mandrake]             {Larrea};
+                                \node[nodo]     (villar)        [above right of=larrea]         {Villar};
+                                \node[apc]      (ghost)         [below right of=villar]         {Ghost};
+
+
+                                % subred 1
+                                \path[flecha] (america) -- node[distancia,left] {$0.5 Km$} (londres);
+                                \path[flecha] (america) -- node[distancia,above left] {$1.3 Km$} (y01);
+                                \path[flecha] (america) -- node[distancia,above left] {$1.6 Km$} (paris);
+                                \path[flecha] (fiumicino) -- node[distancia,above left] {$0.05 Km$} (paris);
+
+                                % subred 2
+                                \path[flecha] (rohirrim) -- node[distancia,above left] {$1.55 Km$} (mandrake);
+                                \path[flecha] (villar) -- node[distancia,above left] {$2 Km$} (mandrake);
+                                \path[flecha] (villar) -- node[distancia,below right] {$0.7 Km$} (larrea);
+                                \path[flecha] (villar) -- node[distancia,above right] {$1 Km$} (ghost);
+
+                                % animacion de los planes a futuro
+                                \path[flechaplan,red]<2-> (hermes) -- node[distancia,right,red] {$0.75 Km$} (america);
+%lo dejo por las dudas          \path[flechaplan,red]<3-> (hermes) -- node[distancia,left,red] {$2 Km$} (paris);
+%lo dejo por las dudas          \path[flechaplan,black!50]<4-> (hermes) -- node[distancia,right] {$1.7 Km$} (y01);
+                                \path[flechaplan,blue]<3-> (asgard) -- node[distancia,below left,blue] {$5.41 Km$} (paris);
+                                \path[flechaplan,brown]<4-> (asgard) -- node[distancia,below,brown] {$5.44 Km$} (rohirrim);
+                                \path[flechaplan,orange]<5-> (gizmo) -- node[distancia,left,orange] {$0.33 Km$} (mandrake);
+
+                        \end{tikzpicture}
+
+                \end{footnotesize}
+
+                }
+
+\part{sl y obelisco}
+
+        \frame{
+
+        \begin{center}
+
+                \begin{Huge} \textbf{Software Libre \& Obelisco} \end{Huge} \\
+
+                Qué buena combinación.
+
+        \end{center}
+
+        }
+
+
+\section{El Software Libre en el proyecto}
+
+        \subsection{Como herramienta}
+
+                \frame{
+
+                \frametitle{El Software Libre como herramienta}
+
+                        Dentro \emph{BuenosAiresLibre.org} aplicamos todo el tiempo herramientas y soluciones que nos brinda el \emph{Software Libre} (al punto tal que sería imposible mantener el proyecto de no ser así). Algunas de las herramientas más habituales son:
+
+                        \begin{description}
+
+                                \item[GNU/Linux] La mayoría de los miembros activos en el proyecto utiliza algún GNU/Linux, su estabilidad, performance y comodidad nos permiten enfocarnos en lo que realmente hace falta.
+
+                                \item[OLSR] Es el protocolo de enrutamiento dinámico a través del cual podemos llegar de un extremo a otro de la red sin configuraciones adicionales, y además nos permite enviar información entre Nodos, para mostrar, entre otras cosas, el listado de Nodos enlazados y los servicios disponibles en la red.
+
+                                \item[Kismet] Entre muchas cosas más, es un detector de redes inalámbricas, facilita la ubicación de los demás dentro del proyecto.
+
+                        \end{description}
+
+
+                }
+
+        \subsection{Como modelo}
+
+                \frame{
+
+                \frametitle{El Software Libre como modelo}
+
+                \begin{block} {Concepto}
+                        El modelo de Software Libre plantea un escenario donde voluntarios aportan su esfuerzo y tiempo para solucionar problemas al resto de los usuarios. El trabajo de una persona o un grupo se traduce en un ahorro de tiempo y dolores de cabeza de un gran número de usuarios finales.
+                \end{block}
+
+
+                \pause
+
+                \begin{block} {Aplicación en Herramientas}
+                
+                El Wiki, Obelisco, BALLS y el Mapa de BAL en GE, fueron ideados para facilitar a los interesados en montar un nodo, herramientas que agilicen el armado y posterior administración de un nodo.
+
+                \end{block}
+
+                \pause
+
+                \begin{block} {Aplicación en los Grupos de Trabajo}
+                Los  Grupos de Trabajo generan documentación, arman antenas, ofrecen asistencia, experiencia y herramientas para el armado de un nodo, para evitarle al novato invertir más tiempo y dinero del necesario.
+                \end{block}
+
+                }
+
+\section{Obelisco}
+
+        \subsection{Raices}
+
+                \frame{
+
+                        \frametitle{Obelisco}
+
+                \begin{block} {Origen}
+
+                        Obelisco está basado en una distribución GNU/Linux llamada OpenWRT, su modularidad, flexibilidad, seguridad y enfoque general están en sintonía con los requerimientos del proyecto.
+
+                \end{block}
+
+                \begin{block} {Función de Obelisco}
+
+                        Obelisco es una distribución GNU/Linux ideada para satisfacer tareas particulares en \emph{BuenosAiresLibre.org}, de esta manera facilita y complementa todo el proceso de formación de un miembro del proyecto, desde la persona que no posee ningún conocimiento hasta el administrador de uno o varios Nodos vía remota.
+
+                \end{block}
+
+                }
+
+        \subsection{Sabores de Obelisco}
+
+                \frame{
+                        \frametitle{Obelisco}
+
+                Como toda buena distribución GNU, Obelisco corre en distintas plataformas. Además posee una extensa y detallada documentación.
+
+                \begin{block} {Obelisco-MIPS}
+
+                        Funciona en equipos comerciales como toda la linea Linksys WRT54** o Motorola WR850G
+
+                \end{block}
+
+                \begin{block} {Obelisco-x86}
+
+                        Desde cualquier IBM-PC compatible se puede correr, una de las joyitas es que se puede instalar en una tarjeta Compact Flash colocada en un adaptador CF-ATA.
+
+                \end{block}
+
+                \begin{block} {Obelisco-LiveCD}
+
+                        Hace poco tiempo se empezó a desarrollar esta herramienta que se carga desde un CD o pendrive, está basada en la distribución SLAX, y su objetivo es simplificar la instalación de Obelisco en un router o una CF.
+
+                \end{block}
+
+                }
+
+
+        \subsection{Ventajas de usar Obelisco}
+
+                \frame{
+                        \frametitle{Obelisco Advantage}
+
+                Algunos de los tantos beneficios que se obtienen al utilizar Obelisco son:
+
+                \begin{block} {Balconfig}
+
+                        Balconfig es una herramienta que mediante la interacción con el usario (vía preguntas y respuestas) configura el router acorde a las necesidades de esa persona en relación al proyecto. Acepta argumentos, por ejemplo ``balconfig extra'' además de las opciones normales, agrega funcionalidad más avanzada pero que puede confundir a los más nuevos.
+
+                \end{block}
+
+                \begin{block} {Portal Cautivo}
+
+                        El Portal Cautivo fue idedado para que las personas ajenas al proyecto, pero que hayan enlazado con un nodo de la red, tengan un medio con el cual contactarse con los miembros del proyecto, (se proporcionan los datos del Administrador del Nodo, acceso a IRC y se bloquea el acceso a internet).
+
+                \end{block}
+
+
+                }
+
+
+        \subsection{¿Porqué debería instalar Obelisco?}
+
+                \frame{
+                        \frametitle{¿Por qué instalar Obelisco?}
+
+                \begin{block} {Unas buenas razones para instalar Obelisco}
+
+                \begin{itemize}
+
+                        \item Estás entusiasmado por participar del proyecto armando un AP o Nodo pero aún no tenés los conocimientos para configurar una distribución GNU/Linux, como podrían ser Debian o Gentoo.
+
+                        \item Tenés mucha experiencia con GNU/Linux pero tal vez no tanto con distribuciones orientadas a Wireless como Voyage u OpenWRT.
+
+                        \item Querés asegurarte de tener un AP/Nodo que cumpla con todos los requisitos de \emph{BuenosAiresLibre.org} .
+
+                        \item Querés levantar tu AP en 5 minutos sin renegar buscando documentación dudosa por cualquier lado (la documentación de Obelisco es muy buena).
+
+                        \item No te interesa saber nada de GNU/Linux, sólo que tu AP quede apto para \emph{BuenosAiresLibre.org} .
+
+                        \item Simplemente te parece genial apoyar a \emph{BuenosAiresLibre.org} en esta iniciativa.
+
+                \end{itemize}
+
+                \end{block}
+
+                }
+
+\section{Participando de BuenosAiresLibre.org}
+
+        \subsection{Reuniones}
+
+                \frame{
+                        \frametitle{Después de todo, algunos de los integrantes de \emph{BuenosAiresLibre.org}, somos todavía seres humanos.}
+
+                \begin{block} {Reuniones Organizativas}
+
+                        Todos los meses se llevan a cabo reuniones organizativas, generalmente el segundo sábado de cada mes, donde se planean los siguientes pasos a seguir a corto plazo, cualquier persona es bienvenida a participar de estas reuniones (tené en cuenta que para pertenecer al grupo de organización deberás mostrar interés en el proyecto y haber asistido al menos a dos reuniones organizativas).
+
+                \end{block}
+
+                \begin{block} {Reuniones sociales}
+
+                        Las reuniones sociales son de carácter informal y varias veces espontáneo, suelen llevarse a cabo ``on the fly'' por los miembros del proyecto, generalmente se anuncian con poco tiempo, debido a su caracter informal e improvisado.
+
+                \end{block}
+
+                }
+
+        \subsection{Listas de Correo | IRC | Wiki}
+
+                \frame{
+                        \frametitle{Puntos de inicio}
+
+                Todos podemos participar de \emph{BuenosAiresLibre.org} lo único que se necesita son ganas de aprender y compartir conocimiento, muchas veces las personas no saben como comenzar su participación en el proyecto, es por eso que a continuación se listan los puntos de inicio más recomendados para los recién llegados:
+
+                \begin{block} {IRC}
+
+                        Definitivamente el mejor punto de inicio, gracias a Cerbero que se puso las pilas tiempo atrás, el IRC ha cobrado vida y en casi todo momento del día hay un grupo de miembros dispuestos a responder dudas y guíar a los recién llegados.
+
+                        \begin{flushright}
+                                \textit{irc.freenode.net \\
+                                Canal: \#buenosaireslibre}
+                        \end{flushright}
+
+                \end{block}
+
+                }
+
+                \frame{
+                        \frametitle{Puntos de inicio}
+
+                \begin{block} {Listas de Correo}
+
+                        Si por algún motivo el IRC no te vá, a través de las listas de correo vas a poder presentarte a la comunidad y conseguir que la gente te guíe por los pasos a tomar.
+
+                        \begin{flushright}
+                                \textit{http://wiki.buenosaireslibre.org/ListasDeCorreo}
+                        \end{flushright}
+
+                \end{block}
+
+                \begin{block} {Wiki}
+
+                        Cuando necesites saber cómo hacer una antena, configurar Obelisco, cómo armar bien un cable, o lo que sea referente al proyecto, el Wiki es el mejor sitio para consultar (y porqué no, completar lo que veas que le falta).
+
+                        \begin{flushright}
+                                \textit{http://wiki.buenosaireslibre.org/}
+                        \end{flushright}
+
+                \end{block}
+
+                }
+
+\section{Sobre este documento}
+
+        \subsection{Agradecimientos}
+
+                \frame{
+                        \frametitle{Sobre este documento}
+
+                Este documento fue realizado íntegramente en \LaTeX{}, y la última modificación fue realizada el \today.
+
+                }
+
+\end{document}

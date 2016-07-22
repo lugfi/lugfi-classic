@@ -1,0 +1,210 @@
+/** @mainpage
+
+@section intro Introducción.
+	@subsection block  Bloque de documentación.
+		@if MACHETE
+			Tipos de bloques:
+			@verbatim
+			/ **
+			/ *!
+			//!
+			///
+			@endverbatim
+		@endif
+	@subsection compat Compatibilidad con JavaDoc y QT.
+	@subsection comman Comandos especiales.
+		@if MACHETE
+			Todo lo que empieza con \\ o \@.
+			- param
+			- return
+			- brief
+		@endif
+	@subsection brief  Descripción Breve y Detallada.
+		@if MACHETE
+			Para la descripción breve hay que poner un \@brief
+			a menos que se use JAVADOC_AUTOBRIEF.
+		@endif
+	@subsection inline Documentación en línea.
+		@if MACHETE
+			Documentacion detallada:
+			@verbatim
+			/ **<
+			/ *!<
+			@endverbatim
+			Documentacion breve:
+			@verbatim
+			//!<
+			///<
+			@endverbatim
+			Tambien puede ser usada como detallada si tiene 2
+			renglones.
+		@endif
+	@subsection ofline Documentación fuera de línea.
+		@if MACHETE
+			Se puede documentar fuera de línea estos elementos:
+			@verbatim
+			@struct to document a C-struct.
+			@union to document a union.
+			@enum to document an enumeration type.
+			@fn to document a function.
+			@var to document a variable or typedef or enum value.
+			@def to document a #define.
+			@file to document a file.
+			@namespace to document a namespace.
+			@package to document a Java package.
+			@interface to document an IDL interface.
+			@endverbatim
+		@endif
+	@subsection config Creación y opciones del archivo de configuración.
+		@if MACHETE
+			@verbatim doxygen -g <config-file> @endverbatim
+			Mostrar doxywizard.
+		@endif
+	@subsection format Formatos de salida.
+		@if MACHETE
+			- HTML
+			- LaTeX -> PDF
+			- RTF
+			- Man
+			- PerlMod
+			- CHM (o algo asi)
+		@endif
+	@subsection lang Lenguajes soportados.
+		@if MACHETE
+			Muchos, el español está :)
+		@endif
+
+@section mejor Mejorando la calidad de las descripciones.
+	@subsection refauto Links y referencias cruzadas automáticos.
+		@if MACHETE
+			- Detecta URLs y e-mails.
+			- Detecta classes, funciones, variables y archivos.
+			Formas de especificar scope:
+			@verbatim
+			funcion(args)
+			funcion()
+			::funcion
+			scope::funcion(args)
+			scope::funcion()
+			scope::funcion
+			@endverbatim
+			Donde <tt>scope</tt> pueden ser namespaces y clases
+			anidadas. Se puede usar "#" en vez de "::" para
+			compatibilidad con JavaDoc.
+			@note Mencionar el tema del scope (hay que poner
+			::simbolo para referirse a un simbolo global).
+
+			Para funciones no sobrecargadas puede omitirse los
+			argumentos.
+
+			Expande typedefs.
+		@endif
+	@subsection refman Referencias cruzadas manuales.
+		@if MACHETE
+			@verbatim \\ref nombre ["texto"] @endverbatim
+			Si no se especifica el "texto", se pone el titulo de la
+			seccion. Particularmente util para usar con paginas y
+			secciones propias y para darle nombre a los links a
+			clases y funciones.
+		@endif
+	@subsection href Hipervínculos (sólo salida HTML).
+		@if MACHETE
+			Aprovechar para nombrar otros comandos HTML.
+		@endif
+	@subsection code Incluir código de ejemplo.
+		@if MACHETE
+			Nombrar \@code y \@example.
+		@endif
+	@subsection listas Listas (con bullets o numeradas).
+		@if MACHETE
+			Nombrar:
+			- Listas comunes con bullets con '-'.
+			- Listas comunes numeradas con '-#'.
+			Pueden ser anidadas identando, para terminar. Para
+			terminar una lista dejar una linea vacia o que tenga
+			solo un punto:
+			@verbatim
+			- 1
+				- 1.1
+				- 1.2
+				.
+				Seguimos escribiendo en el item '1'.
+			- 2.
+			  Mas texto en el 2
+			.
+			Termina la lista y sigue el texto en el mismo párrafo.
+			@endverbatim
+			Resultado:
+			- 1
+				- 1.1
+				- 1.2
+				.
+				Seguimos escribiendo en el item '1'.
+			- 2.
+			  Mas texto en el 2
+			.
+			Termina la lista y sigue el texto en el mismo párrafo.
+			Nombrar listas en formato HTML.
+		@endif
+	@subsection tablas Tablas.
+		@if MACHETE
+			Nombrar tablas en HTML.
+		@endif
+	@subsection math Fórmulas matemáticas.
+		@if MACHETE
+			Hay formulas en embebidas en el texto:
+			@verbatim
+			La distancia entre \@f$ (x_1, y_1) \@f$ y
+			\@f$ (x_2, y_2) \@f$ es
+			\@f$ \\sqrt{ (x_2 - x_1)^2 + (y_2 - y_1)^2 } \@f$
+			@endverbatim
+			Resultado:
+			La distancia entre @f$ (x_1, y_1) @f$ y
+			@f$ (x_2, y_2) @f$ es
+			@f$ \sqrt{ (x_2 - x_1)^2 + (y_2 - y_1)^2 } @f$
+			Y formulas en su propio renglón:
+			@verbatim
+			\@f[ \\sqrt{ (x_2 - x_1)^2 + (y_2 - y_1)^2 } \@f]
+			@endverbatim
+			Resultado:
+			@f[ \sqrt{ (x_2 - x_1)^2 + (y_2 - y_1)^2 } @f]
+
+			@note Ver como engancharlo con lo que explique Diego.
+		@endif
+	@subsection images Agregar imágenes.
+		@if MACHETE
+			@verbatim
+			\@image format file ["caption"] [sizeindication=size]
+			@endverbatim
+			Ejemplo:
+			@verbatim
+			\@image html  diagrama.jpg
+			\@image latex diagrama.eps "Diagrama de lala" width=10cm
+			@endverbatim
+			@note Las imagenes deben estar en el IMAGE_PATH.
+		@endif
+
+@section avanzado Características avanzadas.
+	@subsection pagina Páginas relacionadas.
+		@if MACHETE
+			Nombrar \c bug, \c todo, \c example, \c deprecated.
+		@endif
+	@subsection pagpro Páginas propias.
+		@if MACHETE
+			Nombrar \c page, \c section, \c subsection, etc.
+		@endif
+	@subsection salidas Contenido selectivo.
+		@if MACHETE
+			Nombrar \c htmlonly, \c latexonly, \c if, \c internal,
+			etc.
+		@endif
+	@subsection pulir Pulir los resultados.
+		@if MACHETE
+			Mostrar un refman.tex y retocarlo. Mostrar PlaQui.
+		@endif
+
+@section preguntas Preguntas.
+
+@section fin FIN
+
+*/
