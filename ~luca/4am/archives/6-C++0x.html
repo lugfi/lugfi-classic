@@ -42,30 +42,30 @@
         <div class="serendipity_entry serendipity_entry_author_Leandro-Lucarella ">
                         <span class="serendipity_entryIcon">
                                                 <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/8-C++"><img class="serendipity_entryIcon" title="C++: I always wanted to learn russian...but learned C++ instead :)" alt="C++" src="/~luca/4am/uploads/categorias/Cxx.png" /></a>
-                                                                <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/2-Codigo"><img class="serendipity_entryIcon" title="CÛdigo: ArtÌculos con cÛdigo fuente incluÌdo" alt="CÛdigo" src="/~luca/4am/uploads/categorias/programacion.png" /></a>
+                                                                <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/2-Codigo"><img class="serendipity_entryIcon" title="C√≥digo: Art√≠culos con c√≥digo fuente inclu√≠do" alt="C√≥digo" src="/~luca/4am/uploads/categorias/programacion.png" /></a>
                                         </span>
             
             <div class="serendipity_entry_body">
-                <p>C++0x es el nombre provisorio que le da <a href="http://www.research.att.com/~bs/" onclick="window.open(this.href, '_blank'); return false;">Bjarne Stroustrup</a> (y no sÈ si el comitÈ de la ISO entero tambiÈn) a la nueva revisiÛn del est·ndar de C++ (que supuestamente estarÌa saliendo en un par de aÒos). En un breve <a href="http://www.research.att.com/~bs/rules.pdf" onclick="window.open(this.href, '_blank'); return false;">paper</a> explica quÈ son las cosas que m·s probablemente cambien o se agreguen.</p>
+                <p>C++0x es el nombre provisorio que le da <a href="http://www.research.att.com/~bs/" onclick="window.open(this.href, '_blank'); return false;">Bjarne Stroustrup</a> (y no s√© si el comit√© de la ISO entero tambi√©n) a la nueva revisi√≥n del est√°ndar de C++ (que supuestamente estar√≠a saliendo en un par de a√±os). En un breve <a href="http://www.research.att.com/~bs/rules.pdf" onclick="window.open(this.href, '_blank'); return false;">paper</a> explica qu√© son las cosas que m√°s probablemente cambien o se agreguen.</p>
 
 
             </div>
 
-                        <div class="serendipity_entry_extended"><a id="extended"></a><p>Lo m·s copado de la nueva revisiÛn es, para mÌ, que van a tratar de bajarle un poco el <i>overhead sint·ctico</i>. Para esto se agregarÌa un nuevo uso para la palabra clave <tt>auto</tt> permitiendo su uso como declaraciÛn de tipo, para que lo <i>infiera</i> de la asignaciÛn. Por ejemplo (sacado del paper), algo como:</p>
+                        <div class="serendipity_entry_extended"><a id="extended"></a><p>Lo m√°s copado de la nueva revisi√≥n es, para m√≠, que van a tratar de bajarle un poco el <i>overhead sint√°ctico</i>. Para esto se agregar√≠a un nuevo uso para la palabra clave <tt>auto</tt> permitiendo su uso como declaraci√≥n de tipo, para que lo <i>infiera</i> de la asignaci√≥n. Por ejemplo (sacado del paper), algo como:</p>
 
 
 <pre><code>vector&lt;int&gt;::iterator p =
     find(tbl.begin(), tbl.end(), x);
     // tbl is a const vector&lt;int&gt;</code></pre>
 
-<p>podrÌa escribirse asÌ:</p>
+<p>podr√≠a escribirse as√≠:</p>
 
 
 <pre><code>auto p = find(tbl, x);
     // tbl is a const vector&lt;int&gt;
     // p becomes a vector&lt;int&gt;::const_iterator</code></pre>
 
-<p>Sin dudas es mucho m·s legible y sintÈtico lo segundo. Otro ejemplo es la inicializaciÛn de contenedores de la STL. Con algo de suerte agregarÌan las herramientas necesarias para poder pasar de esto:</p>
+<p>Sin dudas es mucho m√°s legible y sint√©tico lo segundo. Otro ejemplo es la inicializaci√≥n de contenedores de la STL. Con algo de suerte agregar√≠an las herramientas necesarias para poder pasar de esto:</p>
 
 
 <pre><code>vector&lt;double&gt; v;
@@ -78,16 +78,16 @@ v.push_back(3.4);</code></pre>
 
 <pre><code>vector&lt;double&gt; v = { 1.2, 2.3, 3.4 };</code></pre>
 
-<p>Hay otros cambios mÌnimos, pero no por eso menos interesantes, que pueden leer directamente en el paper (que son sÛlo 5 p·ginas), aunque por supuesto, nada es definitivo a˙n.</p>
+<p>Hay otros cambios m√≠nimos, pero no por eso menos interesantes, que pueden leer directamente en el paper (que son s√≥lo 5 p√°ginas), aunque por supuesto, nada es definitivo a√∫n.</p>
 
-<p><strong>Update:</strong> TambiÈn se incluirÌan varias <a href="http://open-std.org/jtc1/sc22/wg21/docs/library_technical_report.html" onclick="window.open(this.href, '_blank'); return false;">nuevas bibliotecas</a> a la STL.</p>
+<p><strong>Update:</strong> Tambi√©n se incluir√≠an varias <a href="http://open-std.org/jtc1/sc22/wg21/docs/library_technical_report.html" onclick="window.open(this.href, '_blank'); return false;">nuevas bibliotecas</a> a la STL.</p>
 
 </div>
             
             
             <div class='serendipity_entryFooter'>
                 Publicado por <a href="http://www.lug.fi.uba.ar/~luca/4am/authors/1-Leandro-Lucarella">Leandro Lucarella</a>
-                                   en <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/8-C++">C++</a>, <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/2-Codigo">CÛdigo</a>                
+                                   en <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/8-C++">C++</a>, <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/2-Codigo">C√≥digo</a>                
                                     a las
                  <a href="/~luca/4am/archives/6-C++0x.html">02:26</a>
 
@@ -122,7 +122,7 @@ v.push_back(3.4);</code></pre>
                 <a id="trackbacks"></a>
                 <div class="serendipity_commentsTitle">Referencias</div>
                     <div class="serendipity_center">
-                        <a rel="nofollow" style="font-weight: normal" href="http://www.lug.fi.uba.ar/~luca/4am/comment.php?type=trackback&amp;entry_id=6" onclick="alert('Este enlace no es para hacer click en Èl. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el botÛn derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.'); return false;" title="Este enlace no es para hacer click en Èl. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el botÛn derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.">URI de referencia para esta entrada</a>
+                        <a rel="nofollow" style="font-weight: normal" href="http://www.lug.fi.uba.ar/~luca/4am/comment.php?type=trackback&amp;entry_id=6" onclick="alert('Este enlace no es para hacer click en √©l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el bot√≥n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.'); return false;" title="Este enlace no es para hacer click en √©l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el bot√≥n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.">URI de referencia para esta entrada</a>
                     </div>
                     <br />
                             <div class="serendipity_center">No hay referencias</div>
@@ -146,7 +146,7 @@ v.push_back(3.4);</code></pre>
                 
                 <br />
                 <div class="serendipity_section_commentform">
-	                <div class="serendipity_commentsTitle">AÒadir comentario</div>
+	                <div class="serendipity_commentsTitle">A√±adir comentario</div>
 	                <div id="serendipityCommentFormC" class="serendipityCommentForm">
     <div id="serendipity_replyform_0"></div>
     <a id="serendipity_CommentForm"></a>
@@ -159,7 +159,7 @@ v.push_back(3.4);</code></pre>
         </tr>
 
         <tr>
-            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_email">Correo electrÛnico</label></td>
+            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_email">Correo electr√≥nico</label></td>
             <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_email" name="serendipity[email]" value="" /></td>
         </tr>
 
@@ -177,14 +177,14 @@ v.push_back(3.4);</code></pre>
             <td class="serendipity_commentsLabel"><label for="serendipity_commentform_comment">Comentario</label></td>
             <td class="serendipity_commentsValue">
                 <textarea rows="10" cols="40" id="serendipity_commentform_comment" name="serendipity[comment]"></textarea><br />
-                <div class="serendipity_commentDirection serendipity_comment_textwiki">Formato <a href="http://c2.com/cgi/wiki">Wiki</a> permitido</div><input type="hidden" name="serendipity[token]" value="c08494eff7e088cb86b4bcd89bb9e278" /><div class="serendipity_commentDirection serendipity_comment_captcha"><br />Para prevenir un ataque spam en los comentarios por parte de bots, por favor ingresa la cadena que ves en la imagen mostrada m·s abajo en la apropiada caja de texto. Tu comentario ser· aceptado sÛlo si ambas cadenas son iguales. Por favor, aseg˙rate que tu navegador soporta y acepta cookies, o tu comentario no podr· ser verificado correctamente.<br /><img src="http://www.lug.fi.uba.ar/~luca/4am/plugin/captcha_2b6daf7ab6729cd926380d3034c63013" onclick="this.src=this.src + '1'" title="°Ingresa la cadena que ves m·s abajo en la caja de texto!" alt="CAPTCHA" class="captcha" /><br /><label for="captcha">Ingresa la cadena de protecciÛn contra spam de la imgen mostrada abajo: </label><br /><input class="input_textbox" type="text" size="5" name="serendipity[captcha]" value="" id="captcha" /></div>
+                <div class="serendipity_commentDirection serendipity_comment_textwiki">Formato <a href="http://c2.com/cgi/wiki">Wiki</a> permitido</div><input type="hidden" name="serendipity[token]" value="c08494eff7e088cb86b4bcd89bb9e278" /><div class="serendipity_commentDirection serendipity_comment_captcha"><br />Para prevenir un ataque spam en los comentarios por parte de bots, por favor ingresa la cadena que ves en la imagen mostrada m√°s abajo en la apropiada caja de texto. Tu comentario ser√° aceptado s√≥lo si ambas cadenas son iguales. Por favor, aseg√∫rate que tu navegador soporta y acepta cookies, o tu comentario no podr√° ser verificado correctamente.<br /><img src="http://www.lug.fi.uba.ar/~luca/4am/plugin/captcha_2b6daf7ab6729cd926380d3034c63013" onclick="this.src=this.src + '1'" title="¬°Ingresa la cadena que ves m√°s abajo en la caja de texto!" alt="CAPTCHA" class="captcha" /><br /><label for="captcha">Ingresa la cadena de protecci√≥n contra spam de la imgen mostrada abajo: </label><br /><input class="input_textbox" type="text" size="5" name="serendipity[captcha]" value="" id="captcha" /></div>
             </td>
         </tr>
 
         <tr>
             <td>&#160;</td>
             <td class="serendipity_commentsLabel">
-                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]"  /><label for="checkbox_remember">øRecordar la informaciÛn?</label>
+                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]"  /><label for="checkbox_remember">¬øRecordar la informaci√≥n?</label>
                     <br />
                 <input id="checkbox_subscribe" type="checkbox" name="serendipity[subscribe]"  /><label for="checkbox_subscribe">Suscribirse a esta entrada</label>
                 </td>
@@ -193,7 +193,7 @@ v.push_back(3.4);</code></pre>
 
        <tr>
             <td>&#160;</td>
-            <td><input type="submit" name="serendipity[submit]" value="Enviar comentario" /> <input type="submit" id="serendipity_preview" name="serendipity[preview]" value="PrevisualizaciÛn" /></td>
+            <td><input type="submit" name="serendipity[submit]" value="Enviar comentario" /> <input type="submit" id="serendipity_preview" name="serendipity[preview]" value="Previsualizaci√≥n" /></td>
         </tr>
     </table>
     </form>
@@ -239,7 +239,7 @@ document.write(d);
     <div>
         <input type="hidden"  name="serendipity[action]" value="search" />
         <input alt="Buscar" type="text"   id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" size="13" />
-        <input class="quicksearch_submit" type="submit" value="&gt;" alt="Buscar" name="serendipity[searchButton]" title="°Ir!" style="width: 2em;" />
+        <input class="quicksearch_submit" type="submit" value="&gt;" alt="Buscar" name="serendipity[searchButton]" title="¬°Ir!" style="width: 2em;" />
     </div>
     <div id="LSResult" style="display: none;"><div id="LSShadow"></div></div>
 </form>
@@ -251,21 +251,21 @@ document.write(d);
                     </script></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_categories_plugin">
-        <h3 class="serendipitySideBarTitle serendipity_categories_plugin">CategorÌas</h3>        <div class="serendipitySideBarContent"><form action="http://www.lug.fi.uba.ar/~luca/4am/index.php?frontpage" method="post">
+        <h3 class="serendipitySideBarTitle serendipity_categories_plugin">Categor√≠as</h3>        <div class="serendipitySideBarContent"><form action="http://www.lug.fi.uba.ar/~luca/4am/index.php?frontpage" method="post">
               <div id="serendipity_category_form_content"><ul id="serendipity_categories_list" style="list-style: none; margin: 0px; padding: 0px"><li class="category_depth0 category_8" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="8" /><a href="/~luca/4am/categories/8-C++" title="I always wanted to learn russian...but learned C++ instead :)" style="padding-left: 0px">C++</a></li>
-<li class="category_depth0 category_10" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="10" /><a href="/~luca/4am/categories/10-Charlas" title="No estamos sÛlos..." style="padding-left: 0px">Charlas</a></li>
-<li class="category_depth0 category_2" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="2" /><a href="/~luca/4am/categories/2-Codigo" title="ArtÌculos con cÛdigo fuente incluÌdo" style="padding-left: 0px">CÛdigo</a></li>
+<li class="category_depth0 category_10" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="10" /><a href="/~luca/4am/categories/10-Charlas" title="No estamos s√≥los..." style="padding-left: 0px">Charlas</a></li>
+<li class="category_depth0 category_2" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="2" /><a href="/~luca/4am/categories/2-Codigo" title="Art√≠culos con c√≥digo fuente inclu√≠do" style="padding-left: 0px">C√≥digo</a></li>
 <li class="category_depth0 category_13" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="13" /><a href="/~luca/4am/categories/13-D-Programming-Language" title="Just what I needed, another D in programming..." style="padding-left: 0px">D Programming Language</a></li>
 <li class="category_depth0 category_1" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="1" /><a href="/~luca/4am/categories/1-Institucional" title="Noticias sobre este mismo weblog" style="padding-left: 0px">Institucional</a></li>
 <li class="category_depth0 category_3" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="3" /><a href="/~luca/4am/categories/3-Python" title="El lenguaje de la viborita" style="padding-left: 0px">Python</a></li>
 <li class="category_depth0 category_12" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="12" /><a href="/~luca/4am/categories/12-Sistema-Operativo" title="The puppet master" style="padding-left: 0px">Sistema Operativo</a></li>
 <li class="category_depth1 category_11" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="11" /><a href="/~luca/4am/categories/11-Filesystems" title="Vos creias que lo unico en comun entre un arbol y un cajon era la madera?" style="padding-left: 6px">Filesystems</a></li>
-<li class="category_depth0 category_5" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="5" /><a href="/~luca/4am/categories/5-Teoria-de-Lenguaje" title="El lenguaje modela el pensamiento, sin un buen lenguaje no nos podemos expresar" style="padding-left: 0px">TeorÌa de Lenguaje</a></li>
+<li class="category_depth0 category_5" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="5" /><a href="/~luca/4am/categories/5-Teoria-de-Lenguaje" title="El lenguaje modela el pensamiento, sin un buen lenguaje no nos podemos expresar" style="padding-left: 0px">Teor√≠a de Lenguaje</a></li>
 <li class="category_depth1 category_9" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="9" /><a href="/~luca/4am/categories/9-Concurrencia" title="Otra que caminar y comer chicle!" style="padding-left: 6px">Concurrencia</a></li>
 <li class="category_depth1 category_7" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="7" /><a href="/~luca/4am/categories/7-Design-By-Contract" title="Los abogados llegan a todos lados" style="padding-left: 6px">Design By Contract</a></li>
 <li class="category_depth1 category_4" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="4" /><a href="/~luca/4am/categories/4-Garbage-Collection" title="Es un trabajo sucio, pero alguien debe hacerlo" style="padding-left: 6px">Garbage Collection</a></li>
 <li class="category_depth2 category_6" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="6" /><a href="/~luca/4am/categories/6-Reference-Counting" title="2 + 2 = 5" style="padding-left: 12px">Reference Counting</a></li>
-</ul><div class="category_submit"><br /><input type="submit" name="serendipity[isMultiCat]" value="°Ir!" /></div><div class="category_link_all"><br /><a href="/~luca/4am/index.php?frontpage" title="Todas las categorÌas">Todas las categorÌas</a></div></div></form></div>
+</ul><div class="category_submit"><br /><input type="submit" name="serendipity[isMultiCat]" value="¬°Ir!" /></div><div class="category_link_all"><br /><a href="/~luca/4am/index.php?frontpage" title="Todas las categor√≠as">Todas las categor√≠as</a></div></div></form></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_archives_plugin">
         <h3 class="serendipitySideBarTitle serendipity_archives_plugin">Archivos</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/archives/2008/10.html" title="October 2008">October 2008</a><br />
@@ -292,14 +292,14 @@ document.write(d);
     </div>
     <div class="serendipitySideBarItem container_serendipity_html_nugget_plugin">
         <h3 class="serendipitySideBarTitle serendipity_html_nugget_plugin">Licencia</h3>        <div class="serendipitySideBarContent"><!-- Creative Commons License -->
-<p>Estos artÌculos se publican bajo la licencia
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">AtribuciÛn-CompartirDerivadasIgual 2.5 Argentina</a>.</p>
+<p>Estos art√≠culos se publican bajo la licencia
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">Atribuci√≥n-CompartirDerivadasIgual 2.5 Argentina</a>.</p>
 <div style="text-align: center"><a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ar/deed.es_AR"><img alt="Creative Commons License" border="0" src="http://www.lug.fi.uba.ar/~luca/4am/uploads/somerights20.gif" /></a></div>
 <!-- /Creative Commons License -->
 </div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_superuser_plugin">
-        <h3 class="serendipitySideBarTitle serendipity_superuser_plugin">AdministraciÛn del Blog</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/admin" rel="nofollow" title="Abre ventana de conexiÛn">Abre ventana de conexiÛn</a></div>
+        <h3 class="serendipitySideBarTitle serendipity_superuser_plugin">Administraci√≥n del Blog</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/admin" rel="nofollow" title="Abre ventana de conexi√≥n">Abre ventana de conexi√≥n</a></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_plug_plugin">
         <h3 class="serendipitySideBarTitle serendipity_plug_plugin">Basado en</h3>        <div class="serendipitySideBarContent"><div class="serendipityPlug">

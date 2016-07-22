@@ -45,22 +45,22 @@
                                         </span>
             
             <div class="serendipity_entry_body">
-                <p>Volvemos al <a href="http://www.lug.fi.uba.ar/~luca/4am/archives/4-La-aventura-de-contar-referencias.html" onclick="window.open(this.href, '_blank'); return false;">conteo de referencias</a>, ahora con el algoritmo que hemos llamado <strong>VL</strong>. El nombre surge de un flag al cual no sabía que nombre ponerle, y a falta de mejor nombre, al hablar con Alberto, le decía <i>valor_loco</i> (<i>VL</i> para ahorrar palabras).</p>
+                <p>Volvemos al <a href="http://www.lug.fi.uba.ar/~luca/4am/archives/4-La-aventura-de-contar-referencias.html" onclick="window.open(this.href, '_blank'); return false;">conteo de referencias</a>, ahora con el algoritmo que hemos llamado <strong>VL</strong>. El nombre surge de un flag al cual no sabÃ­a que nombre ponerle, y a falta de mejor nombre, al hablar con Alberto, le decÃ­a <i>valor_loco</i> (<i>VL</i> para ahorrar palabras).</p>
 
-<p>Bien la idea del algoritmo es detectar <i>ciclos simples</i> sin referencias externas y liberarlos en una sola pasada, utilizando un flag (<strong>VL</strong>) que actuaría de algo así como <i>dirty bit</i>. La idea es comenzar con <tt>VL = 0</tt> y mantenerlo hasta encontrar, en la recorrida de la primera pasada del <a href="http://www.lug.fi.uba.ar/~luca/4am/archives/7-L+.html" onclick="window.open(this.href, '_blank'); return false;">L+</a>, algún nodo con <tt>RC &gt; 0</tt>. Además hay que guardar el nodo del cual partimos (<strong>R</strong>). Entonces, si en algún momento llegamos al principio, tenemos su contador en cero y el flag es cero (<tt>nodo_actual == R and RC(R) == 0 and VL == 0</tt>), podemos asegurar que encontramos un ciclo simple, y podemos liberar, al retornar en el stack, todos los nodos por los que pasamos.</p>
+<p>Bien la idea del algoritmo es detectar <i>ciclos simples</i> sin referencias externas y liberarlos en una sola pasada, utilizando un flag (<strong>VL</strong>) que actuarÃ­a de algo asÃ­ como <i>dirty bit</i>. La idea es comenzar con <tt>VL = 0</tt> y mantenerlo hasta encontrar, en la recorrida de la primera pasada del <a href="http://www.lug.fi.uba.ar/~luca/4am/archives/7-L+.html" onclick="window.open(this.href, '_blank'); return false;">L+</a>, algÃºn nodo con <tt>RC &gt; 0</tt>. AdemÃ¡s hay que guardar el nodo del cual partimos (<strong>R</strong>). Entonces, si en algÃºn momento llegamos al principio, tenemos su contador en cero y el flag es cero (<tt>nodo_actual == R and RC(R) == 0 and VL == 0</tt>), podemos asegurar que encontramos un ciclo simple, y podemos liberar, al retornar en el stack, todos los nodos por los que pasamos.</p>
 
 
             </div>
 
-                        <div class="serendipity_entry_extended"><a id="extended"></a><p>Esto se ve claramente en la figura 1, donde todos los nodos, después de eliminar la referencia externa a <strong>A</strong>, tienen un <strong>RC</strong> de 1, que al ir recorriéndose (en lo que sería la primera pasada del <strong>L+</strong>) quedarían en 0 y se llegaría a la condición mencionada anteriormente.</p>
+                        <div class="serendipity_entry_extended"><a id="extended"></a><p>Esto se ve claramente en la figura 1, donde todos los nodos, despuÃ©s de eliminar la referencia externa a <strong>A</strong>, tienen un <strong>RC</strong> de 1, que al ir recorriÃ©ndose (en lo que serÃ­a la primera pasada del <strong>L+</strong>) quedarÃ­an en 0 y se llegarÃ­a a la condiciÃ³n mencionada anteriormente.</p>
 
 <p><img src="http://www.lug.fi.uba.ar/~luca/4am/uploads/diagramas/VL1.png" alt="Figura 1" /></p>
 
-<p>En papel la cosa parecía bastante implementable y viable, ya que se a simple vista se agrega muy poco <i>overhead</i> en cuanto a memoria al menos; incluso parecía funcionar con casos un poco más rebuscados como el de la figura 2. Desgraciadamente, cuando me puse a hacer implementación simple de prueba, la cosa se complicó bastante. Ya el hecho de <i>dividir en 2</i> la primera pasada del <strong>L+</strong> complica bastante las cosas y <i>ensucia</i> mucho el algoritmo original, que es bellísimamente simple =)</p>
+<p>En papel la cosa parecÃ­a bastante implementable y viable, ya que se a simple vista se agrega muy poco <i>overhead</i> en cuanto a memoria al menos; incluso parecÃ­a funcionar con casos un poco mÃ¡s rebuscados como el de la figura 2. Desgraciadamente, cuando me puse a hacer implementaciÃ³n simple de prueba, la cosa se complicÃ³ bastante. Ya el hecho de <i>dividir en 2</i> la primera pasada del <strong>L+</strong> complica bastante las cosas y <i>ensucia</i> mucho el algoritmo original, que es bellÃ­simamente simple =)</p>
 
 <p><img src="http://www.lug.fi.uba.ar/~luca/4am/uploads/diagramas/VL2.png" alt="Figura 2" /></p>
 
-<p>Además, al haber tantos casos particulares, se agrega más complejidad aún, y al manejar tan pocos casos creo que no vale la pena el <i>overhead</i> en cuanto a computación y a complejidad que le agrega. Para que se den una idea, las funciones del <strong>L+</strong> <tt>mark_dec()</tt>, <tt>unmark_inc()</tt> y <tt>unmark_del()</tt> tienen 30 líneas de código; al ser modificadas para el <strong>VL</strong> ya son 50 (creció un 67%) y todavía no termino de llenar todos los <i>huecos</i> que deja. Evidentemente no tiene mucho sentido terminarlo, así que quedará sólo en una (buena?) idea.</p>
+<p>AdemÃ¡s, al haber tantos casos particulares, se agrega mÃ¡s complejidad aÃºn, y al manejar tan pocos casos creo que no vale la pena el <i>overhead</i> en cuanto a computaciÃ³n y a complejidad que le agrega. Para que se den una idea, las funciones del <strong>L+</strong> <tt>mark_dec()</tt>, <tt>unmark_inc()</tt> y <tt>unmark_del()</tt> tienen 30 lÃ­neas de cÃ³digo; al ser modificadas para el <strong>VL</strong> ya son 50 (creciÃ³ un 67%) y todavÃ­a no termino de llenar todos los <i>huecos</i> que deja. Evidentemente no tiene mucho sentido terminarlo, asÃ­ que quedarÃ¡ sÃ³lo en una (buena?) idea.</p>
 
 </div>
             
@@ -102,7 +102,7 @@
                 <a id="trackbacks"></a>
                 <div class="serendipity_commentsTitle">Referencias</div>
                     <div class="serendipity_center">
-                        <a rel="nofollow" style="font-weight: normal" href="http://www.lug.fi.uba.ar/~luca/4am/comment.php?type=trackback&amp;entry_id=9" onclick="alert('Este enlace no es para hacer click en él. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el botón derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.'); return false;" title="Este enlace no es para hacer click en él. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el botón derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.">URI de referencia para esta entrada</a>
+                        <a rel="nofollow" style="font-weight: normal" href="http://www.lug.fi.uba.ar/~luca/4am/comment.php?type=trackback&amp;entry_id=9" onclick="alert('Este enlace no es para hacer click en Ã©l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el botÃ³n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.'); return false;" title="Este enlace no es para hacer click en Ã©l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el botÃ³n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.">URI de referencia para esta entrada</a>
                     </div>
                     <br />
                             <div class="serendipity_center">No hay referencias</div>
@@ -126,7 +126,7 @@
                 
                 <br />
                 <div class="serendipity_section_commentform">
-	                <div class="serendipity_commentsTitle">Añadir comentario</div>
+	                <div class="serendipity_commentsTitle">AÃ±adir comentario</div>
 	                <div id="serendipityCommentFormC" class="serendipityCommentForm">
     <div id="serendipity_replyform_0"></div>
     <a id="serendipity_CommentForm"></a>
@@ -139,7 +139,7 @@
         </tr>
 
         <tr>
-            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_email">Correo electrónico</label></td>
+            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_email">Correo electrÃ³nico</label></td>
             <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_email" name="serendipity[email]" value="" /></td>
         </tr>
 
@@ -157,14 +157,14 @@
             <td class="serendipity_commentsLabel"><label for="serendipity_commentform_comment">Comentario</label></td>
             <td class="serendipity_commentsValue">
                 <textarea rows="10" cols="40" id="serendipity_commentform_comment" name="serendipity[comment]"></textarea><br />
-                <div class="serendipity_commentDirection serendipity_comment_textwiki">Formato <a href="http://c2.com/cgi/wiki">Wiki</a> permitido</div><input type="hidden" name="serendipity[token]" value="149bee540d11eea8861bcc02a2ba4336" /><div class="serendipity_commentDirection serendipity_comment_captcha"><br />Para prevenir un ataque spam en los comentarios por parte de bots, por favor ingresa la cadena que ves en la imagen mostrada más abajo en la apropiada caja de texto. Tu comentario será aceptado sólo si ambas cadenas son iguales. Por favor, asegúrate que tu navegador soporta y acepta cookies, o tu comentario no podrá ser verificado correctamente.<br /><img src="http://www.lug.fi.uba.ar/~luca/4am/plugin/captcha_81b00cd4d44865644e7632ca22361e8b" onclick="this.src=this.src + '1'" title="¡Ingresa la cadena que ves más abajo en la caja de texto!" alt="CAPTCHA" class="captcha" /><br /><label for="captcha">Ingresa la cadena de protección contra spam de la imgen mostrada abajo: </label><br /><input class="input_textbox" type="text" size="5" name="serendipity[captcha]" value="" id="captcha" /></div>
+                <div class="serendipity_commentDirection serendipity_comment_textwiki">Formato <a href="http://c2.com/cgi/wiki">Wiki</a> permitido</div><input type="hidden" name="serendipity[token]" value="149bee540d11eea8861bcc02a2ba4336" /><div class="serendipity_commentDirection serendipity_comment_captcha"><br />Para prevenir un ataque spam en los comentarios por parte de bots, por favor ingresa la cadena que ves en la imagen mostrada mÃ¡s abajo en la apropiada caja de texto. Tu comentario serÃ¡ aceptado sÃ³lo si ambas cadenas son iguales. Por favor, asegÃºrate que tu navegador soporta y acepta cookies, o tu comentario no podrÃ¡ ser verificado correctamente.<br /><img src="http://www.lug.fi.uba.ar/~luca/4am/plugin/captcha_81b00cd4d44865644e7632ca22361e8b" onclick="this.src=this.src + '1'" title="Â¡Ingresa la cadena que ves mÃ¡s abajo en la caja de texto!" alt="CAPTCHA" class="captcha" /><br /><label for="captcha">Ingresa la cadena de protecciÃ³n contra spam de la imgen mostrada abajo: </label><br /><input class="input_textbox" type="text" size="5" name="serendipity[captcha]" value="" id="captcha" /></div>
             </td>
         </tr>
 
         <tr>
             <td>&#160;</td>
             <td class="serendipity_commentsLabel">
-                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]"  /><label for="checkbox_remember">¿Recordar la información?</label>
+                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]"  /><label for="checkbox_remember">Â¿Recordar la informaciÃ³n?</label>
                     <br />
                 <input id="checkbox_subscribe" type="checkbox" name="serendipity[subscribe]"  /><label for="checkbox_subscribe">Suscribirse a esta entrada</label>
                 </td>
@@ -173,7 +173,7 @@
 
        <tr>
             <td>&#160;</td>
-            <td><input type="submit" name="serendipity[submit]" value="Enviar comentario" /> <input type="submit" id="serendipity_preview" name="serendipity[preview]" value="Previsualización" /></td>
+            <td><input type="submit" name="serendipity[submit]" value="Enviar comentario" /> <input type="submit" id="serendipity_preview" name="serendipity[preview]" value="PrevisualizaciÃ³n" /></td>
         </tr>
     </table>
     </form>
@@ -219,7 +219,7 @@ document.write(d);
     <div>
         <input type="hidden"  name="serendipity[action]" value="search" />
         <input alt="Buscar" type="text"   id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" size="13" />
-        <input class="quicksearch_submit" type="submit" value="&gt;" alt="Buscar" name="serendipity[searchButton]" title="¡Ir!" style="width: 2em;" />
+        <input class="quicksearch_submit" type="submit" value="&gt;" alt="Buscar" name="serendipity[searchButton]" title="Â¡Ir!" style="width: 2em;" />
     </div>
     <div id="LSResult" style="display: none;"><div id="LSShadow"></div></div>
 </form>
@@ -231,21 +231,21 @@ document.write(d);
                     </script></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_categories_plugin">
-        <h3 class="serendipitySideBarTitle serendipity_categories_plugin">Categorías</h3>        <div class="serendipitySideBarContent"><form action="http://www.lug.fi.uba.ar/~luca/4am/index.php?frontpage" method="post">
+        <h3 class="serendipitySideBarTitle serendipity_categories_plugin">CategorÃ­as</h3>        <div class="serendipitySideBarContent"><form action="http://www.lug.fi.uba.ar/~luca/4am/index.php?frontpage" method="post">
               <div id="serendipity_category_form_content"><ul id="serendipity_categories_list" style="list-style: none; margin: 0px; padding: 0px"><li class="category_depth0 category_8" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="8" /><a href="/~luca/4am/categories/8-C++" title="I always wanted to learn russian...but learned C++ instead :)" style="padding-left: 0px">C++</a></li>
-<li class="category_depth0 category_10" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="10" /><a href="/~luca/4am/categories/10-Charlas" title="No estamos sólos..." style="padding-left: 0px">Charlas</a></li>
-<li class="category_depth0 category_2" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="2" /><a href="/~luca/4am/categories/2-Codigo" title="Artículos con código fuente incluído" style="padding-left: 0px">Código</a></li>
+<li class="category_depth0 category_10" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="10" /><a href="/~luca/4am/categories/10-Charlas" title="No estamos sÃ³los..." style="padding-left: 0px">Charlas</a></li>
+<li class="category_depth0 category_2" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="2" /><a href="/~luca/4am/categories/2-Codigo" title="ArtÃ­culos con cÃ³digo fuente incluÃ­do" style="padding-left: 0px">CÃ³digo</a></li>
 <li class="category_depth0 category_13" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="13" /><a href="/~luca/4am/categories/13-D-Programming-Language" title="Just what I needed, another D in programming..." style="padding-left: 0px">D Programming Language</a></li>
 <li class="category_depth0 category_1" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="1" /><a href="/~luca/4am/categories/1-Institucional" title="Noticias sobre este mismo weblog" style="padding-left: 0px">Institucional</a></li>
 <li class="category_depth0 category_3" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="3" /><a href="/~luca/4am/categories/3-Python" title="El lenguaje de la viborita" style="padding-left: 0px">Python</a></li>
 <li class="category_depth0 category_12" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="12" /><a href="/~luca/4am/categories/12-Sistema-Operativo" title="The puppet master" style="padding-left: 0px">Sistema Operativo</a></li>
 <li class="category_depth1 category_11" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="11" /><a href="/~luca/4am/categories/11-Filesystems" title="Vos creias que lo unico en comun entre un arbol y un cajon era la madera?" style="padding-left: 6px">Filesystems</a></li>
-<li class="category_depth0 category_5" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="5" /><a href="/~luca/4am/categories/5-Teoria-de-Lenguaje" title="El lenguaje modela el pensamiento, sin un buen lenguaje no nos podemos expresar" style="padding-left: 0px">Teoría de Lenguaje</a></li>
+<li class="category_depth0 category_5" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="5" /><a href="/~luca/4am/categories/5-Teoria-de-Lenguaje" title="El lenguaje modela el pensamiento, sin un buen lenguaje no nos podemos expresar" style="padding-left: 0px">TeorÃ­a de Lenguaje</a></li>
 <li class="category_depth1 category_9" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="9" /><a href="/~luca/4am/categories/9-Concurrencia" title="Otra que caminar y comer chicle!" style="padding-left: 6px">Concurrencia</a></li>
 <li class="category_depth1 category_7" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="7" /><a href="/~luca/4am/categories/7-Design-By-Contract" title="Los abogados llegan a todos lados" style="padding-left: 6px">Design By Contract</a></li>
 <li class="category_depth1 category_4" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="4" /><a href="/~luca/4am/categories/4-Garbage-Collection" title="Es un trabajo sucio, pero alguien debe hacerlo" style="padding-left: 6px">Garbage Collection</a></li>
 <li class="category_depth2 category_6" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="6" /><a href="/~luca/4am/categories/6-Reference-Counting" title="2 + 2 = 5" style="padding-left: 12px">Reference Counting</a></li>
-</ul><div class="category_submit"><br /><input type="submit" name="serendipity[isMultiCat]" value="¡Ir!" /></div><div class="category_link_all"><br /><a href="/~luca/4am/index.php?frontpage" title="Todas las categorías">Todas las categorías</a></div></div></form></div>
+</ul><div class="category_submit"><br /><input type="submit" name="serendipity[isMultiCat]" value="Â¡Ir!" /></div><div class="category_link_all"><br /><a href="/~luca/4am/index.php?frontpage" title="Todas las categorÃ­as">Todas las categorÃ­as</a></div></div></form></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_archives_plugin">
         <h3 class="serendipitySideBarTitle serendipity_archives_plugin">Archivos</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/archives/2008/10.html" title="October 2008">October 2008</a><br />
@@ -272,14 +272,14 @@ document.write(d);
     </div>
     <div class="serendipitySideBarItem container_serendipity_html_nugget_plugin">
         <h3 class="serendipitySideBarTitle serendipity_html_nugget_plugin">Licencia</h3>        <div class="serendipitySideBarContent"><!-- Creative Commons License -->
-<p>Estos artículos se publican bajo la licencia
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">Atribución-CompartirDerivadasIgual 2.5 Argentina</a>.</p>
+<p>Estos artÃ­culos se publican bajo la licencia
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">AtribuciÃ³n-CompartirDerivadasIgual 2.5 Argentina</a>.</p>
 <div style="text-align: center"><a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ar/deed.es_AR"><img alt="Creative Commons License" border="0" src="http://www.lug.fi.uba.ar/~luca/4am/uploads/somerights20.gif" /></a></div>
 <!-- /Creative Commons License -->
 </div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_superuser_plugin">
-        <h3 class="serendipitySideBarTitle serendipity_superuser_plugin">Administración del Blog</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/admin" rel="nofollow" title="Abre ventana de conexión">Abre ventana de conexión</a></div>
+        <h3 class="serendipitySideBarTitle serendipity_superuser_plugin">AdministraciÃ³n del Blog</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/admin" rel="nofollow" title="Abre ventana de conexiÃ³n">Abre ventana de conexiÃ³n</a></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_plug_plugin">
         <h3 class="serendipitySideBarTitle serendipity_plug_plugin">Basado en</h3>        <div class="serendipitySideBarContent"><div class="serendipityPlug">

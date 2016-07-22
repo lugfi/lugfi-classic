@@ -44,26 +44,26 @@
                                         </span>
             
             <div class="serendipity_entry_body">
-                <p>Todo empezó hace mucho, mucho tiempo (finales de 2004) en una de las famosas reuniones del <a target="_self" href="http://www.lug.fi.uba.ar/">LUGFI</a> en la L11. Con la excusa de la confección de un <a target="_self" href="http://www.fi.uba.ar/materias/7542/enunciados/20051/ej4.pdf">ejercicio</a> sobre <a target="_self" href="http://www.boost.org/libs/smart_ptr/smart_ptr.htm">smart pointers</a> para <a target="_self" href="http://www.fi.uba.ar/materias/7542/">taller</a> empecé a hablar con Alberto sobre el tema (en particular sobre la detección y liberación de ciclos). Esto duró apenas unos días, hasta hace cosa de un par de semanas, cuando se avivó la llama =)</p>
+                <p>Todo empezÃ³ hace mucho, mucho tiempo (finales de 2004) en una de las famosas reuniones del <a target="_self" href="http://www.lug.fi.uba.ar/">LUGFI</a> en la L11. Con la excusa de la confecciÃ³n de un <a target="_self" href="http://www.fi.uba.ar/materias/7542/enunciados/20051/ej4.pdf">ejercicio</a> sobre <a target="_self" href="http://www.boost.org/libs/smart_ptr/smart_ptr.htm">smart pointers</a> para <a target="_self" href="http://www.fi.uba.ar/materias/7542/">taller</a> empecÃ© a hablar con Alberto sobre el tema (en particular sobre la detecciÃ³n y liberaciÃ³n de ciclos). Esto durÃ³ apenas unos dÃ­as, hasta hace cosa de un par de semanas, cuando se avivÃ³ la llama =)</p>
 
 
             </div>
 
-                        <div class="serendipity_entry_extended"><a id="extended"></a><p>Sin dudas tuvo que ver la cursada de <i>Teoría de Lenguaje</i>, una materia relativamente nueva y por demás interesante, en donde vimos un resumen sobre las técnicas principales de recolección de basura y nos llevamos un <a target="_self" href="http://www.cs.kent.ac.uk/people/staff/rej/gcbook/gcbook.html">muy buen libro</a> de <a target="_self" href="http://www.cs.kent.ac.uk/people/staff/rej/">Richards Jones</a> y Rafael Lins. Pero sin dudas la gota que rebalsó el vaso fue la charla que dio este último en la facultad.</p>
+                        <div class="serendipity_entry_extended"><a id="extended"></a><p>Sin dudas tuvo que ver la cursada de <i>TeorÃ­a de Lenguaje</i>, una materia relativamente nueva y por demÃ¡s interesante, en donde vimos un resumen sobre las tÃ©cnicas principales de recolecciÃ³n de basura y nos llevamos un <a target="_self" href="http://www.cs.kent.ac.uk/people/staff/rej/gcbook/gcbook.html">muy buen libro</a> de <a target="_self" href="http://www.cs.kent.ac.uk/people/staff/rej/">Richards Jones</a> y Rafael Lins. Pero sin dudas la gota que rebalsÃ³ el vaso fue la charla que dio este Ãºltimo en la facultad.</p>
 
-<p>En fin, después de bastante trabajo y de ser consumidos por el tema, hemos sacados un par de cosas en limpio, que voy a presentar brevemente y cronológicamente, según las fuimos <i>descubriendo</i>:</p>
+<p>En fin, despuÃ©s de bastante trabajo y de ser consumidos por el tema, hemos sacados un par de cosas en limpio, que voy a presentar brevemente y cronolÃ³gicamente, segÃºn las fuimos <i>descubriendo</i>:</p>
 
 <dl>
     <dt>SH</dt>
-        <dd>es una optimización muy simple para evitar lo más posible salir a recorrer en búsqueda de ciclos.</dd>
+        <dd>es una optimizaciÃ³n muy simple para evitar lo mÃ¡s posible salir a recorrer en bÃºsqueda de ciclos.</dd>
     <dt>L+</dt>
-        <dd>es sin dudas lo mejor que salió de todo esto; es un algoritmo para detección y limpieza de ciclos en dos pasadas. Después de terminarlo Alberto se dio cuenta que es muy similar al algoritmo de Lins (podría llegar a verse incluso como una optimización), aunque no me basé (al menos concientemente =) en él cuando lo pensé.</dd>
+        <dd>es sin dudas lo mejor que saliÃ³ de todo esto; es un algoritmo para detecciÃ³n y limpieza de ciclos en dos pasadas. DespuÃ©s de terminarlo Alberto se dio cuenta que es muy similar al algoritmo de Lins (podrÃ­a llegar a verse incluso como una optimizaciÃ³n), aunque no me basÃ© (al menos concientemente =) en Ã©l cuando lo pensÃ©.</dd>
     <dt>VL</dt>
-        <dd>este algoritmo fue pensado como una optimización sobre la primera pasada del <strong>L+</strong>. Es capaz de detectar y limpiar en una sola pasada algunos casos puntuales, como aquellos en los que no hayan ciclos o que hayan <i>ciclos simples</i>; para el resto de los casos hay que correr la segunda pasada del <strong>L+</strong>.</dd>
+        <dd>este algoritmo fue pensado como una optimizaciÃ³n sobre la primera pasada del <strong>L+</strong>. Es capaz de detectar y limpiar en una sola pasada algunos casos puntuales, como aquellos en los que no hayan ciclos o que hayan <i>ciclos simples</i>; para el resto de los casos hay que correr la segunda pasada del <strong>L+</strong>.</dd>
     <dt>L+-</dt>
-        <dd>este algoritmo es similar al <strong>VL</strong> en cuanto a objetivo, también busca optimizar el <strong>L+</strong> para que se puedan hacer más cosas en la primera pasada. Es capaz de detectar varios casos (pero no todos) en los cuales no hay que hacer ninguna limpieza, de manera tal de no ser necesaria la segunda pasada del <strong>L+</strong>.</dd>
+        <dd>este algoritmo es similar al <strong>VL</strong> en cuanto a objetivo, tambiÃ©n busca optimizar el <strong>L+</strong> para que se puedan hacer mÃ¡s cosas en la primera pasada. Es capaz de detectar varios casos (pero no todos) en los cuales no hay que hacer ninguna limpieza, de manera tal de no ser necesaria la segunda pasada del <strong>L+</strong>.</dd>
 </dl>
-<p>Este es un pantallado general a modo de resumen. En los próximos <i>posts</i> iremos describiendo detalladamente cada algoritmo, en lo posible incluyendo una implementación de referencia simple.</p>
+<p>Este es un pantallado general a modo de resumen. En los prÃ³ximos <i>posts</i> iremos describiendo detalladamente cada algoritmo, en lo posible incluyendo una implementaciÃ³n de referencia simple.</p>
 
 </div>
             
@@ -105,13 +105,13 @@
                 <a id="trackbacks"></a>
                 <div class="serendipity_commentsTitle">Referencias</div>
                     <div class="serendipity_center">
-                        <a rel="nofollow" style="font-weight: normal" href="http://www.lug.fi.uba.ar/~luca/4am/comment.php?type=trackback&amp;entry_id=4" onclick="alert('Este enlace no es para hacer click en &amp;eacute;l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el bot&oacute;n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.'); return false;" title="Este enlace no es para hacer click en &amp;eacute;l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el botón derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.">URI de referencia para esta entrada</a>
+                        <a rel="nofollow" style="font-weight: normal" href="http://www.lug.fi.uba.ar/~luca/4am/comment.php?type=trackback&amp;entry_id=4" onclick="alert('Este enlace no es para hacer click en &amp;eacute;l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el bot&oacute;n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.'); return false;" title="Este enlace no es para hacer click en &amp;eacute;l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el botÃ³n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.">URI de referencia para esta entrada</a>
                     </div>
                     <br />
                             <div class="serendipity_comment">
         <div class="serendipity_commentBody">
             <a href="http://www.lug.fi.uba.ar/~luca/4am/archives/9-VL.html" >VL</a><br />
-            Volvemos al conteo de referencias, ahora con el algoritmo que hemos llamado VL. El nombre surge de un flag al cual no sabía que nombre ponerle, y a falta de mejor nombre, al hablar con Alberto, le decía valor_loco (VL para ahorrar palabras).
+            Volvemos al conteo de referencias, ahora con el algoritmo que hemos llamado VL. El nombre surge de un flag al cual no sabÃ­a que nombre ponerle, y a falta de mejor nombre, al hablar con Alberto, le decÃ­a valor_loco (VL para ahorrar palabras).
 
 Bien la idea
         </div>
@@ -139,7 +139,7 @@ Bien la idea
                 
                 
                 <br />
-                <div class="serendipity_commentsTitle">Añadir comentario</div>
+                <div class="serendipity_commentsTitle">AÃ±adir comentario</div>
                 <div class="serendipityCommentForm">
     <a id="serendipity_CommentForm"></a>
     <form id="serendipity_comment" action="/~luca/4am/index.php?url=archives/4-La-aventura-de-contar-referencias.html#feedback" method="post">
@@ -151,7 +151,7 @@ Bien la idea
         </tr>
 
         <tr>
-            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_email">Correo electrónico</label></td>
+            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_email">Correo electrÃ³nico</label></td>
             <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_email" name="serendipity[email]" value="" /></td>
         </tr>
 
@@ -204,7 +204,7 @@ document.getElementById('serendipity_commentform_url').value   = getCommentCooki
         <tr>
             <td>&#160;</td>
             <td class="serendipity_commentsLabel">
-                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]"  /><label for="checkbox_remember">¿Recordar la información? </label>
+                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]"  /><label for="checkbox_remember">Â¿Recordar la informaciÃ³n? </label>
                     <br />
                 <input id="checkbox_subscribe" type="checkbox" name="serendipity[subscribe]"  /><label for="checkbox_subscribe">Suscribirse a esta entrada</label>
                 </td>
@@ -213,7 +213,7 @@ document.getElementById('serendipity_commentform_url').value   = getCommentCooki
 
        <tr>
             <td>&#160;</td>
-            <td><input type="submit" name="serendipity[submit]" value="Enviar comentario" /> <input type="submit" name="serendipity[preview]" value="Previsualización" /></td>
+            <td><input type="submit" name="serendipity[submit]" value="Enviar comentario" /> <input type="submit" name="serendipity[preview]" value="PrevisualizaciÃ³n" /></td>
         </tr>
     </table>
     </form>
@@ -268,19 +268,19 @@ document.write(d);
                     </script></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_categories_plugin">
-        <h3 class="serendipitySideBarTitle serendipity_categories_plugin">Categorías</h3>        <div class="serendipitySideBarContent"><div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/10-Charlas" title="Charlas" style="padding-left: 0px">Charlas</a></div>
-<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/2-Codigo" title="Código" style="padding-left: 0px">Código</a></div>
+        <h3 class="serendipitySideBarTitle serendipity_categories_plugin">CategorÃ­as</h3>        <div class="serendipitySideBarContent"><div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/10-Charlas" title="Charlas" style="padding-left: 0px">Charlas</a></div>
+<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/2-Codigo" title="CÃ³digo" style="padding-left: 0px">CÃ³digo</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/8-C++" title="C++" style="padding-left: 6px">C++</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/3-Python" title="Python" style="padding-left: 6px">Python</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/1-Institucional" title="Institucional" style="padding-left: 0px">Institucional</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/12-Sistema-Operativo" title="Sistema Operativo" style="padding-left: 0px">Sistema Operativo</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/11-Filesystems" title="Filesystems" style="padding-left: 6px">Filesystems</a></div>
-<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/5-Teoria-de-Lenguaje" title="Teoría de Lenguaje" style="padding-left: 0px">Teoría de Lenguaje</a></div>
+<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/5-Teoria-de-Lenguaje" title="TeorÃ­a de Lenguaje" style="padding-left: 0px">TeorÃ­a de Lenguaje</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/9-Concurrencia" title="Concurrencia" style="padding-left: 6px">Concurrencia</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/7-Design-By-Contract" title="Design By Contract" style="padding-left: 6px">Design By Contract</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/4-Garbage-Collection" title="Garbage Collection" style="padding-left: 6px">Garbage Collection</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/6-Reference-Counting" title="Reference Counting" style="padding-left: 12px">Reference Counting</a></div>
-<br /><a href="/~luca/4am/index.php" title="Todas las categorías">Todas las categorías</a></div>
+<br /><a href="/~luca/4am/index.php" title="Todas las categorÃ­as">Todas las categorÃ­as</a></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_archives_plugin">
         <h3 class="serendipitySideBarTitle serendipity_archives_plugin">Archivos</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/archives/2007/12.html" title="December 2007">December 2007</a><br />
@@ -303,14 +303,14 @@ document.write(d);
     </div>
     <div class="serendipitySideBarItem container_serendipity_html_nugget_plugin">
         <h3 class="serendipitySideBarTitle serendipity_html_nugget_plugin">Licencia</h3>        <div class="serendipitySideBarContent"><!-- Creative Commons License -->
-<p>Estos artículos se publican bajo la licencia
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">Atribución-CompartirDerivadasIgual 2.5 Argentina</a>.</p>
+<p>Estos artÃ­culos se publican bajo la licencia
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">AtribuciÃ³n-CompartirDerivadasIgual 2.5 Argentina</a>.</p>
 <div style="text-align: center"><a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ar/deed.es_AR"><img alt="Creative Commons License" border="0" src="http://www.lug.fi.uba.ar/~luca/4am/uploads/somerights20.gif" /></a></div>
 <!-- /Creative Commons License -->
 </div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_superuser_plugin">
-        <h3 class="serendipitySideBarTitle serendipity_superuser_plugin">Administración del Blog</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/admin" title="Abre ventana de conexión">Abre ventana de conexión</a></div>
+        <h3 class="serendipitySideBarTitle serendipity_superuser_plugin">AdministraciÃ³n del Blog</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/admin" title="Abre ventana de conexiÃ³n">Abre ventana de conexiÃ³n</a></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_plug_plugin">
         <h3 class="serendipitySideBarTitle serendipity_plug_plugin">Basado en</h3>        <div class="serendipitySideBarContent"><div class="serendipityPlug">

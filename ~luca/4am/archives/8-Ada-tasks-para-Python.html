@@ -41,27 +41,27 @@
 
         <div class="serendipity_entry serendipity_entry_author_Alberto-Bertogli ">
                         <span class="serendipity_entryIcon">
-                                                                            <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/2-Codigo"><img class="serendipity_entryIcon" title="CÛdigo: ArtÌculos con cÛdigo fuente incluÌdo" alt="CÛdigo" src="/~luca/4am/uploads/categorias/programacion.png" /></a>
+                                                                            <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/2-Codigo"><img class="serendipity_entryIcon" title="C√≥digo: Art√≠culos con c√≥digo fuente inclu√≠do" alt="C√≥digo" src="/~luca/4am/uploads/categorias/programacion.png" /></a>
                                                                 <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/3-Python"><img class="serendipity_entryIcon" title="Python: El lenguaje de la viborita" alt="Python" src="/~luca/4am/uploads/categorias/python.png" /></a>
                                         </span>
             
             <div class="serendipity_entry_body">
-                <p>Ada es un lenguaje de programaciÛn que probablemente hayan escuchado nombrar, nacido originalmente para la gente tan decente del Departamento de Defensa de los Estados Unidos; no es demasiado popular pero tiene una base de usuarios respetable y esta estandarizado por la ISO. No voy a hablar mucho mas de Èl, si les interesa pueden ver <a href="http://www.adahome.com" onclick="window.open(this.href, '_blank'); return false;">Ada Home</a>.</p>
+                <p>Ada es un lenguaje de programaci√≥n que probablemente hayan escuchado nombrar, nacido originalmente para la gente tan decente del Departamento de Defensa de los Estados Unidos; no es demasiado popular pero tiene una base de usuarios respetable y esta estandarizado por la ISO. No voy a hablar mucho mas de √©l, si les interesa pueden ver <a href="http://www.adahome.com" onclick="window.open(this.href, '_blank'); return false;">Ada Home</a>.</p>
 
-<p>Como lenguaje no tiene mucha gracia (y encima tiene una sintaxis parecida a la de Pascal),  pero la forma de manejar concurrencia es linda y bastante cÛmoda para muchos usos. Como me gustÛ (lo vimos en TeorÌa de Lenguaje con Rosita, en una de las presentaciones), decidÌ implementar algo similar para Python, que no es exactamente lo mismo pero se le asemeja bastante.</p>
+<p>Como lenguaje no tiene mucha gracia (y encima tiene una sintaxis parecida a la de Pascal),  pero la forma de manejar concurrencia es linda y bastante c√≥moda para muchos usos. Como me gust√≥ (lo vimos en Teor√≠a de Lenguaje con Rosita, en una de las presentaciones), decid√≠ implementar algo similar para Python, que no es exactamente lo mismo pero se le asemeja bastante.</p>
 
 
             </div>
 
-                        <div class="serendipity_entry_extended"><a id="extended"></a><p>La idea b·sica es definir <em>tasks</em>, que son en principio funciones que se ejecutan  asincrÛnicamente (en un thread aparte). En Ada se definen de forma natural, pero son pr·cticamente iguales a las funciones. En esta implementaciÛn puede haber varias instancias de una misma tarea.</p>
+                        <div class="serendipity_entry_extended"><a id="extended"></a><p>La idea b√°sica es definir <em>tasks</em>, que son en principio funciones que se ejecutan  asincr√≥nicamente (en un thread aparte). En Ada se definen de forma natural, pero son pr√°cticamente iguales a las funciones. En esta implementaci√≥n puede haber varias instancias de una misma tarea.</p>
 
-<p>A su vez, cada task tiene un canal asociado por el cual podemos enviarle cierta informaciÛn, la cual tiene la forma <em>(entry, parametros)</em>; en donde el entry es un nombre descriptivo, y los par·metros son el conjunto de valores que lo acompaÒan, en una tupla.</p>
+<p>A su vez, cada task tiene un canal asociado por el cual podemos enviarle cierta informaci√≥n, la cual tiene la forma <em>(entry, parametros)</em>; en donde el entry es un nombre descriptivo, y los par√°metros son el conjunto de valores que lo acompa√±an, en una tupla.</p>
 
-<p>Entonces, cada task puede recibir uno o mas entries; y existen dos mecanismos para poder esperar a que llegue un entry: estos son <tt>accept()</tt> y <tt>select()</tt>. El primero espera hasta que le manden un entry dado y devuelve el valor que se asocio; y el segundo es similar pero espera por alguno de los entries dados (o por cualquiera) y devuelve el par <tt>(entry, parametros)</tt>. Los par·metros se devuelven siempre como una tupla dado que su longitud es variable.</p>
+<p>Entonces, cada task puede recibir uno o mas entries; y existen dos mecanismos para poder esperar a que llegue un entry: estos son <tt>accept()</tt> y <tt>select()</tt>. El primero espera hasta que le manden un entry dado y devuelve el valor que se asocio; y el segundo es similar pero espera por alguno de los entries dados (o por cualquiera) y devuelve el par <tt>(entry, parametros)</tt>. Los par√°metros se devuelven siempre como una tupla dado que su longitud es variable.</p>
 
-<p>Los entries se encolan, y son por tarea y no por instancia, lo que nos permite lanzar m˙ltiples instancias de una misma tarea y al enviar un entry solo lo recibir· una sola instancia.</p>
+<p>Los entries se encolan, y son por tarea y no por instancia, lo que nos permite lanzar m√∫ltiples instancias de una misma tarea y al enviar un entry solo lo recibir√° una sola instancia.</p>
 
-<p>Como se ve, esta construcciÛn es muy simple, pero para muchos de los casos pr·cticos de uso de concurrencia resulta muy cÛmoda; por ejemplo para el manejo de eventos con callbacks asincrÛnicos, modelos de productor/consumidor, etc.</p>
+<p>Como se ve, esta construcci√≥n es muy simple, pero para muchos de los casos pr√°cticos de uso de concurrencia resulta muy c√≥moda; por ejemplo para el manejo de eventos con callbacks asincr√≥nicos, modelos de productor/consumidor, etc.</p>
 
 <p>Veamos un ejemplo:</p>
 
@@ -93,9 +93,9 @@ def main():
 
         print 'terminamos'</code></pre>
 
-<p>Al principio definimos la tarea con el decorator, la cual es una funciÛn sin par·metros que acepta un entry e imprime su ˙nico valor, a menos que este sea <em>salir</em> en cuyo caso termina.</p>
+<p>Al principio definimos la tarea con el decorator, la cual es una funci√≥n sin par√°metros que acepta un entry e imprime su √∫nico valor, a menos que este sea <em>salir</em> en cuyo caso termina.</p>
 
-<p>Luego definimos la funciÛn principal, que inicia la ejecuciÛn de las tareas (en nuestro caso hay una sola), le envÌa tres entries <em>comando</em> con tres par·metros distintos, y espera a que concluyan todas las tareas. De no realizarse este ultimo paso, el programa terminarÌa sin esperar a que concluyan todas las tareas.</p>
+<p>Luego definimos la funci√≥n principal, que inicia la ejecuci√≥n de las tareas (en nuestro caso hay una sola), le env√≠a tres entries <em>comando</em> con tres par√°metros distintos, y espera a que concluyan todas las tareas. De no realizarse este ultimo paso, el programa terminar√≠a sin esperar a que concluyan todas las tareas.</p>
 
 <p>Entonces, la salida es:</p>
 
@@ -108,24 +108,24 @@ esperamos
 &gt; chau
 terminamos</code></pre>
 
-<p>La implementaciÛn es bastante f·cil: usamos un decorator para la funciÛn y este la convierte en una clase que la envuelve, creando una cola especial para manejar los entries y proveyendo las funciones apropiadas que hacen falta para encolarlos y esperar por ellos.</p>
+<p>La implementaci√≥n es bastante f√°cil: usamos un decorator para la funci√≥n y este la convierte en una clase que la envuelve, creando una cola especial para manejar los entries y proveyendo las funciones apropiadas que hacen falta para encolarlos y esperar por ellos.</p>
 
-<p>Para los entries, se usa internamente un diccionario que vive a nivel del mÛdulo, el cual se indexa con el nombre del task y contiene una cola especial para almacenar los entries pendientes. Toda la notificaciÛn se realiza usando condition mutexes (que, dicho sea de paso, si bien est·n implementados de una forma similar a los de pthreads, son mucho mas amistosos de usar (debido a Python mas que nada)).</p>
+<p>Para los entries, se usa internamente un diccionario que vive a nivel del m√≥dulo, el cual se indexa con el nombre del task y contiene una cola especial para almacenar los entries pendientes. Toda la notificaci√≥n se realiza usando condition mutexes (que, dicho sea de paso, si bien est√°n implementados de una forma similar a los de pthreads, son mucho mas amistosos de usar (debido a Python mas que nada)).</p>
 
-<p>Adem·s, para esperar la finalizaciÛn de tareas tenemos otro diccionario que almacena un contador de instancias, y notificamos a los que esperan cuando este llega a 0.</p>
+<p>Adem√°s, para esperar la finalizaci√≥n de tareas tenemos otro diccionario que almacena un contador de instancias, y notificamos a los que esperan cuando este llega a 0.</p>
 
-<p>Como cosas pendientes que se podrÌan hacer en un futuro es implementar timeouts opcionales, y alg˙n mecanismo para poder compartir colas de entries entre distintas tareas, aunque no se si vale la pena la complicaciÛn. Otra cosa ˙til y mas divertida puede ser extender este modelo para correr los tasks en otras maquinas, distribuyendo la aplicaciÛn y convirtiendo los entries en pasos de mensaje; no es nada complicado de implementar, aunque ciertamente seria una soluciÛn mas especÌfica.</p>
+<p>Como cosas pendientes que se podr√≠an hacer en un futuro es implementar timeouts opcionales, y alg√∫n mecanismo para poder compartir colas de entries entre distintas tareas, aunque no se si vale la pena la complicaci√≥n. Otra cosa √∫til y mas divertida puede ser extender este modelo para correr los tasks en otras maquinas, distribuyendo la aplicaci√≥n y convirtiendo los entries en pasos de mensaje; no es nada complicado de implementar, aunque ciertamente seria una soluci√≥n mas espec√≠fica.</p>
 
-<p>Hay bastantes mas cosas que se pueden hacer con esto, pero creo que esto esta quedando demasiado largo (todavÌa no entiendo muy bien que onda esto de los blogs) asÌ que mejor dejo ac·.</p>
+<p>Hay bastantes mas cosas que se pueden hacer con esto, pero creo que esto esta quedando demasiado largo (todav√≠a no entiendo muy bien que onda esto de los blogs) as√≠ que mejor dejo ac√°.</p>
 
-<p>Si quieren ver, hay <a href="http://users.auriga.wearlab.de/~alb/repos/pymisc/samples/adatasks/" onclick="window.open(this.href, '_blank'); return false;">mas ejemplos</a>, y tambiÈn esta <a href="http://users.auriga.wearlab.de/~alb/repos/pymisc/adatasks.py" onclick="window.open(this.href, '_blank'); return false;">el cÛdigo fuente</a> si lo quieren usar (esta en un <a href="http://users.auriga.wearlab.de/~alb/repos/pymisc/" onclick="window.open(this.href, '_blank'); return false;">repositorio darcs</a>, asÌ que tambiÈn pueden obtenerlo por ese medio).</p>
+<p>Si quieren ver, hay <a href="http://users.auriga.wearlab.de/~alb/repos/pymisc/samples/adatasks/" onclick="window.open(this.href, '_blank'); return false;">mas ejemplos</a>, y tambi√©n esta <a href="http://users.auriga.wearlab.de/~alb/repos/pymisc/adatasks.py" onclick="window.open(this.href, '_blank'); return false;">el c√≥digo fuente</a> si lo quieren usar (esta en un <a href="http://users.auriga.wearlab.de/~alb/repos/pymisc/" onclick="window.open(this.href, '_blank'); return false;">repositorio darcs</a>, as√≠ que tambi√©n pueden obtenerlo por ese medio).</p>
 
 </div>
             
             
             <div class='serendipity_entryFooter'>
                 Publicado por <a href="http://www.lug.fi.uba.ar/~luca/4am/authors/2-Alberto-Bertogli">Alberto Bertogli</a>
-                                   en <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/9-Concurrencia">Concurrencia</a>, <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/2-Codigo">CÛdigo</a>, <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/3-Python">Python</a>                
+                                   en <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/9-Concurrencia">Concurrencia</a>, <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/2-Codigo">C√≥digo</a>, <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/3-Python">Python</a>                
                                     a las
                  <a href="/~luca/4am/archives/8-Ada-tasks-para-Python.html">23:09</a>
 
@@ -160,7 +160,7 @@ terminamos</code></pre>
                 <a id="trackbacks"></a>
                 <div class="serendipity_commentsTitle">Referencias</div>
                     <div class="serendipity_center">
-                        <a rel="nofollow" style="font-weight: normal" href="http://www.lug.fi.uba.ar/~luca/4am/comment.php?type=trackback&amp;entry_id=8" onclick="alert('Este enlace no es para hacer click en Èl. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el botÛn derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.'); return false;" title="Este enlace no es para hacer click en Èl. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el botÛn derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.">URI de referencia para esta entrada</a>
+                        <a rel="nofollow" style="font-weight: normal" href="http://www.lug.fi.uba.ar/~luca/4am/comment.php?type=trackback&amp;entry_id=8" onclick="alert('Este enlace no es para hacer click en √©l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el bot√≥n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.'); return false;" title="Este enlace no es para hacer click en √©l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el bot√≥n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.">URI de referencia para esta entrada</a>
                     </div>
                     <br />
                             <div class="serendipity_center">No hay referencias</div>
@@ -184,7 +184,7 @@ terminamos</code></pre>
                 
                 <br />
                 <div class="serendipity_section_commentform">
-	                <div class="serendipity_commentsTitle">AÒadir comentario</div>
+	                <div class="serendipity_commentsTitle">A√±adir comentario</div>
 	                <div id="serendipityCommentFormC" class="serendipityCommentForm">
     <div id="serendipity_replyform_0"></div>
     <a id="serendipity_CommentForm"></a>
@@ -197,7 +197,7 @@ terminamos</code></pre>
         </tr>
 
         <tr>
-            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_email">Correo electrÛnico</label></td>
+            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_email">Correo electr√≥nico</label></td>
             <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_email" name="serendipity[email]" value="" /></td>
         </tr>
 
@@ -215,14 +215,14 @@ terminamos</code></pre>
             <td class="serendipity_commentsLabel"><label for="serendipity_commentform_comment">Comentario</label></td>
             <td class="serendipity_commentsValue">
                 <textarea rows="10" cols="40" id="serendipity_commentform_comment" name="serendipity[comment]"></textarea><br />
-                <div class="serendipity_commentDirection serendipity_comment_textwiki">Formato <a href="http://c2.com/cgi/wiki">Wiki</a> permitido</div><input type="hidden" name="serendipity[token]" value="c800f5700571a723c3aff7d283d83473" /><div class="serendipity_commentDirection serendipity_comment_captcha"><br />Para prevenir un ataque spam en los comentarios por parte de bots, por favor ingresa la cadena que ves en la imagen mostrada m·s abajo en la apropiada caja de texto. Tu comentario ser· aceptado sÛlo si ambas cadenas son iguales. Por favor, aseg˙rate que tu navegador soporta y acepta cookies, o tu comentario no podr· ser verificado correctamente.<br /><img src="http://www.lug.fi.uba.ar/~luca/4am/plugin/captcha_cef3b6b3d2bada28092cd103949d3ea7" onclick="this.src=this.src + '1'" title="°Ingresa la cadena que ves m·s abajo en la caja de texto!" alt="CAPTCHA" class="captcha" /><br /><label for="captcha">Ingresa la cadena de protecciÛn contra spam de la imgen mostrada abajo: </label><br /><input class="input_textbox" type="text" size="5" name="serendipity[captcha]" value="" id="captcha" /></div>
+                <div class="serendipity_commentDirection serendipity_comment_textwiki">Formato <a href="http://c2.com/cgi/wiki">Wiki</a> permitido</div><input type="hidden" name="serendipity[token]" value="c800f5700571a723c3aff7d283d83473" /><div class="serendipity_commentDirection serendipity_comment_captcha"><br />Para prevenir un ataque spam en los comentarios por parte de bots, por favor ingresa la cadena que ves en la imagen mostrada m√°s abajo en la apropiada caja de texto. Tu comentario ser√° aceptado s√≥lo si ambas cadenas son iguales. Por favor, aseg√∫rate que tu navegador soporta y acepta cookies, o tu comentario no podr√° ser verificado correctamente.<br /><img src="http://www.lug.fi.uba.ar/~luca/4am/plugin/captcha_cef3b6b3d2bada28092cd103949d3ea7" onclick="this.src=this.src + '1'" title="¬°Ingresa la cadena que ves m√°s abajo en la caja de texto!" alt="CAPTCHA" class="captcha" /><br /><label for="captcha">Ingresa la cadena de protecci√≥n contra spam de la imgen mostrada abajo: </label><br /><input class="input_textbox" type="text" size="5" name="serendipity[captcha]" value="" id="captcha" /></div>
             </td>
         </tr>
 
         <tr>
             <td>&#160;</td>
             <td class="serendipity_commentsLabel">
-                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]"  /><label for="checkbox_remember">øRecordar la informaciÛn?</label>
+                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]"  /><label for="checkbox_remember">¬øRecordar la informaci√≥n?</label>
                     <br />
                 <input id="checkbox_subscribe" type="checkbox" name="serendipity[subscribe]"  /><label for="checkbox_subscribe">Suscribirse a esta entrada</label>
                 </td>
@@ -231,7 +231,7 @@ terminamos</code></pre>
 
        <tr>
             <td>&#160;</td>
-            <td><input type="submit" name="serendipity[submit]" value="Enviar comentario" /> <input type="submit" id="serendipity_preview" name="serendipity[preview]" value="PrevisualizaciÛn" /></td>
+            <td><input type="submit" name="serendipity[submit]" value="Enviar comentario" /> <input type="submit" id="serendipity_preview" name="serendipity[preview]" value="Previsualizaci√≥n" /></td>
         </tr>
     </table>
     </form>
@@ -277,7 +277,7 @@ document.write(d);
     <div>
         <input type="hidden"  name="serendipity[action]" value="search" />
         <input alt="Buscar" type="text"   id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" size="13" />
-        <input class="quicksearch_submit" type="submit" value="&gt;" alt="Buscar" name="serendipity[searchButton]" title="°Ir!" style="width: 2em;" />
+        <input class="quicksearch_submit" type="submit" value="&gt;" alt="Buscar" name="serendipity[searchButton]" title="¬°Ir!" style="width: 2em;" />
     </div>
     <div id="LSResult" style="display: none;"><div id="LSShadow"></div></div>
 </form>
@@ -289,21 +289,21 @@ document.write(d);
                     </script></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_categories_plugin">
-        <h3 class="serendipitySideBarTitle serendipity_categories_plugin">CategorÌas</h3>        <div class="serendipitySideBarContent"><form action="http://www.lug.fi.uba.ar/~luca/4am/index.php?frontpage" method="post">
+        <h3 class="serendipitySideBarTitle serendipity_categories_plugin">Categor√≠as</h3>        <div class="serendipitySideBarContent"><form action="http://www.lug.fi.uba.ar/~luca/4am/index.php?frontpage" method="post">
               <div id="serendipity_category_form_content"><ul id="serendipity_categories_list" style="list-style: none; margin: 0px; padding: 0px"><li class="category_depth0 category_8" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="8" /><a href="/~luca/4am/categories/8-C++" title="I always wanted to learn russian...but learned C++ instead :)" style="padding-left: 0px">C++</a></li>
-<li class="category_depth0 category_10" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="10" /><a href="/~luca/4am/categories/10-Charlas" title="No estamos sÛlos..." style="padding-left: 0px">Charlas</a></li>
-<li class="category_depth0 category_2" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="2" /><a href="/~luca/4am/categories/2-Codigo" title="ArtÌculos con cÛdigo fuente incluÌdo" style="padding-left: 0px">CÛdigo</a></li>
+<li class="category_depth0 category_10" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="10" /><a href="/~luca/4am/categories/10-Charlas" title="No estamos s√≥los..." style="padding-left: 0px">Charlas</a></li>
+<li class="category_depth0 category_2" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="2" /><a href="/~luca/4am/categories/2-Codigo" title="Art√≠culos con c√≥digo fuente inclu√≠do" style="padding-left: 0px">C√≥digo</a></li>
 <li class="category_depth0 category_13" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="13" /><a href="/~luca/4am/categories/13-D-Programming-Language" title="Just what I needed, another D in programming..." style="padding-left: 0px">D Programming Language</a></li>
 <li class="category_depth0 category_1" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="1" /><a href="/~luca/4am/categories/1-Institucional" title="Noticias sobre este mismo weblog" style="padding-left: 0px">Institucional</a></li>
 <li class="category_depth0 category_3" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="3" /><a href="/~luca/4am/categories/3-Python" title="El lenguaje de la viborita" style="padding-left: 0px">Python</a></li>
 <li class="category_depth0 category_12" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="12" /><a href="/~luca/4am/categories/12-Sistema-Operativo" title="The puppet master" style="padding-left: 0px">Sistema Operativo</a></li>
 <li class="category_depth1 category_11" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="11" /><a href="/~luca/4am/categories/11-Filesystems" title="Vos creias que lo unico en comun entre un arbol y un cajon era la madera?" style="padding-left: 6px">Filesystems</a></li>
-<li class="category_depth0 category_5" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="5" /><a href="/~luca/4am/categories/5-Teoria-de-Lenguaje" title="El lenguaje modela el pensamiento, sin un buen lenguaje no nos podemos expresar" style="padding-left: 0px">TeorÌa de Lenguaje</a></li>
+<li class="category_depth0 category_5" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="5" /><a href="/~luca/4am/categories/5-Teoria-de-Lenguaje" title="El lenguaje modela el pensamiento, sin un buen lenguaje no nos podemos expresar" style="padding-left: 0px">Teor√≠a de Lenguaje</a></li>
 <li class="category_depth1 category_9" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="9" /><a href="/~luca/4am/categories/9-Concurrencia" title="Otra que caminar y comer chicle!" style="padding-left: 6px">Concurrencia</a></li>
 <li class="category_depth1 category_7" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="7" /><a href="/~luca/4am/categories/7-Design-By-Contract" title="Los abogados llegan a todos lados" style="padding-left: 6px">Design By Contract</a></li>
 <li class="category_depth1 category_4" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="4" /><a href="/~luca/4am/categories/4-Garbage-Collection" title="Es un trabajo sucio, pero alguien debe hacerlo" style="padding-left: 6px">Garbage Collection</a></li>
 <li class="category_depth2 category_6" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="6" /><a href="/~luca/4am/categories/6-Reference-Counting" title="2 + 2 = 5" style="padding-left: 12px">Reference Counting</a></li>
-</ul><div class="category_submit"><br /><input type="submit" name="serendipity[isMultiCat]" value="°Ir!" /></div><div class="category_link_all"><br /><a href="/~luca/4am/index.php?frontpage" title="Todas las categorÌas">Todas las categorÌas</a></div></div></form></div>
+</ul><div class="category_submit"><br /><input type="submit" name="serendipity[isMultiCat]" value="¬°Ir!" /></div><div class="category_link_all"><br /><a href="/~luca/4am/index.php?frontpage" title="Todas las categor√≠as">Todas las categor√≠as</a></div></div></form></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_archives_plugin">
         <h3 class="serendipitySideBarTitle serendipity_archives_plugin">Archivos</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/archives/2008/09.html" title="September 2008">September 2008</a><br />
@@ -330,14 +330,14 @@ document.write(d);
     </div>
     <div class="serendipitySideBarItem container_serendipity_html_nugget_plugin">
         <h3 class="serendipitySideBarTitle serendipity_html_nugget_plugin">Licencia</h3>        <div class="serendipitySideBarContent"><!-- Creative Commons License -->
-<p>Estos artÌculos se publican bajo la licencia
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">AtribuciÛn-CompartirDerivadasIgual 2.5 Argentina</a>.</p>
+<p>Estos art√≠culos se publican bajo la licencia
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">Atribuci√≥n-CompartirDerivadasIgual 2.5 Argentina</a>.</p>
 <div style="text-align: center"><a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ar/deed.es_AR"><img alt="Creative Commons License" border="0" src="http://www.lug.fi.uba.ar/~luca/4am/uploads/somerights20.gif" /></a></div>
 <!-- /Creative Commons License -->
 </div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_superuser_plugin">
-        <h3 class="serendipitySideBarTitle serendipity_superuser_plugin">AdministraciÛn del Blog</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/admin" rel="nofollow" title="Abre ventana de conexiÛn">Abre ventana de conexiÛn</a></div>
+        <h3 class="serendipitySideBarTitle serendipity_superuser_plugin">Administraci√≥n del Blog</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/admin" rel="nofollow" title="Abre ventana de conexi√≥n">Abre ventana de conexi√≥n</a></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_plug_plugin">
         <h3 class="serendipitySideBarTitle serendipity_plug_plugin">Basado en</h3>        <div class="serendipitySideBarContent"><div class="serendipityPlug">
