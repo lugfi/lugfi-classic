@@ -41,26 +41,26 @@
 
         <div class="serendipity_entry serendipity_entry_author_Leandro-Lucarella ">
                         <span class="serendipity_entryIcon">
-                                                <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/2-Codigo"><img class="serendipity_entryIcon" title="CÛdigo: ArtÌculos con cÛdigo fuente incluÌdo" alt="CÛdigo" src="/~luca/4am/uploads/categorias/programacion.png" /></a>
+                                                <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/2-Codigo"><img class="serendipity_entryIcon" title="C√≥digo: Art√≠culos con c√≥digo fuente inclu√≠do" alt="C√≥digo" src="/~luca/4am/uploads/categorias/programacion.png" /></a>
                                                                 <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/3-Python"><img class="serendipity_entryIcon" title="Python: El lenguaje de la viborita" alt="Python" src="/~luca/4am/uploads/categorias/python.png" /></a>
                                                                 <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/6-Reference-Counting"><img class="serendipity_entryIcon" title="Reference Counting: 2 + 2 = 5" alt="Reference Counting" src="/~luca/4am/uploads/categorias/counter.png" /></a>
                                         </span>
             
             <div class="serendipity_entry_body">
-                <p>L+ es un algorito de detecciÛn y liberaciÛn de ciclos al hacer conteo de referencias que, al fin y al cabo, es una optimizaciÛn al algoritmo de Lins (en parte el nombre <strong>L+</strong> significa <strong>Lins+</strong>). Para quienes conozcan este ˙ltimo, lo que se propone <strong>L+</strong> es agregar una lista (otra de las razones para el nombre proviene de llamar a esa lista <strong>L</strong>, aunque a la hora de implementarlo tenga m·s sentido usar un <i>set</i>) de los nodos que quedan con una cantidad de referencias mayor a cero luego del <tt>mark_grey()</tt>, de manera tal de evitarse la pasada del <tt>scan()</tt>.</p>
+                <p>L+ es un algorito de detecci√≥n y liberaci√≥n de ciclos al hacer conteo de referencias que, al fin y al cabo, es una optimizaci√≥n al algoritmo de Lins (en parte el nombre <strong>L+</strong> significa <strong>Lins+</strong>). Para quienes conozcan este √∫ltimo, lo que se propone <strong>L+</strong> es agregar una lista (otra de las razones para el nombre proviene de llamar a esa lista <strong>L</strong>, aunque a la hora de implementarlo tenga m√°s sentido usar un <i>set</i>) de los nodos que quedan con una cantidad de referencias mayor a cero luego del <tt>mark_grey()</tt>, de manera tal de evitarse la pasada del <tt>scan()</tt>.</p>
 
-<p>En vez de realizar el <tt>scan()</tt> para encontrar nodos con referencias externas, se obtienen de la lista <strong>L</strong>. De forma an·loga al <tt>scan()</tt>, a cada elemento de la lista se le corre el <tt>mark_black()</tt> para  reestablecer los contadores.</p>
+<p>En vez de realizar el <tt>scan()</tt> para encontrar nodos con referencias externas, se obtienen de la lista <strong>L</strong>. De forma an√°loga al <tt>scan()</tt>, a cada elemento de la lista se le corre el <tt>mark_black()</tt> para  reestablecer los contadores.</p>
 
-<p>Finalmente sÛlo queda borrar recursivamente todos los nodos partiendo del nodo original que <i>disparÛ</i> la detecciÛn de ciclos, <i>cortando</i> la recursividad cuando se encuentra un nodo con un contador mayor a cero.</p>
+<p>Finalmente s√≥lo queda borrar recursivamente todos los nodos partiendo del nodo original que <i>dispar√≥</i> la detecci√≥n de ciclos, <i>cortando</i> la recursividad cuando se encuentra un nodo con un contador mayor a cero.</p>
 
 
             </div>
 
-                        <div class="serendipity_entry_extended"><a id="extended"></a><p>Para aquellos que no conozcan el algoritmo de Lins, voy a explicar el <strong>L+</strong> completo. Y para aquellos que lo conozcan la explicaciÛn tambiÈn puede servir porque se simplifica bastante.</p>
+                        <div class="serendipity_entry_extended"><a id="extended"></a><p>Para aquellos que no conozcan el algoritmo de Lins, voy a explicar el <strong>L+</strong> completo. Y para aquellos que lo conozcan la explicaci√≥n tambi√©n puede servir porque se simplifica bastante.</p>
 
-<p>Vale la pena aclarar que no se habla aquÌ de <i>lazyness</i>, ya que esta caracterÌstica es ortogonal al algoritmo en sÌ. Tanto el algoritmo de Lins como este pueden ser <i>lazy</i> agregando el bit de <i>dirty</i> (o poniendo el color p˙rpura seg˙n el libro) y poniendo las referencias compartidas, al eliminarlas, en un <i>control set</i> para buscar los ciclos m·s tarde. Con esto aclarado, veamos el algoritmo.</p>
+<p>Vale la pena aclarar que no se habla aqu√≠ de <i>lazyness</i>, ya que esta caracter√≠stica es ortogonal al algoritmo en s√≠. Tanto el algoritmo de Lins como este pueden ser <i>lazy</i> agregando el bit de <i>dirty</i> (o poniendo el color p√∫rpura seg√∫n el libro) y poniendo las referencias compartidas, al eliminarlas, en un <i>control set</i> para buscar los ciclos m√°s tarde. Con esto aclarado, veamos el algoritmo.</p>
 
-<p>Todo parte de la base de 3 primitivas para el manejo del conteo de referencias (en el pseudocÛdigo usado en el libro):</p>
+<p>Todo parte de la base de 3 primitivas para el manejo del conteo de referencias (en el pseudoc√≥digo usado en el libro):</p>
 
 
 <pre><code>new() =
@@ -90,7 +90,7 @@ update(R, S):
     delete(*R)
     *R = S</code></pre>
 
-<p>En <strong>L+</strong> se agregan 3 nuevas funciones: <tt>mark_dec()</tt>, <tt>unmark_inc()</tt> y <tt>unmark_del()</tt> que son las encargadas de detectar y liberar ciclos (el algoritmo m·s b·sico de conteo de referencias, que pierde memoria si hay ciclos) no tiene el bloque <tt>else</tt> de la funciÛn <tt>delete()</tt>). Adem·s agrega, como ya dije, la lista <tt>L</tt> (que es global para simplificar las cosas).</p>
+<p>En <strong>L+</strong> se agregan 3 nuevas funciones: <tt>mark_dec()</tt>, <tt>unmark_inc()</tt> y <tt>unmark_del()</tt> que son las encargadas de detectar y liberar ciclos (el algoritmo m√°s b√°sico de conteo de referencias, que pierde memoria si hay ciclos) no tiene el bloque <tt>else</tt> de la funci√≥n <tt>delete()</tt>). Adem√°s agrega, como ya dije, la lista <tt>L</tt> (que es global para simplificar las cosas).</p>
 
 <p>Veamos ahora las funciones faltantes:</p>
 
@@ -120,20 +120,20 @@ unmark_del(T) =
             unmark_del(*U)
         free(T)</code></pre>
 
-<p>Al igual que <tt>RC(T)</tt>, <tt>MARK(T)</tt> devuelve un <i>lvalue</i> de la marca para la referencia T. Las 2 pasadas serÌa en <strong>mark</strong> por un lado (que marca los nodos decrementado su <strong>RC</strong> debido a las referencias internas del subgrafo) y el <strong>unmark</strong> por el otro (dividido en 2, el que por cada nodo con referencias externas reestablece los <strong>RC</strong> increment·ndolos, y el que libera los nodos que quedaron con <tt>RC == 0</tt>  que coincide con lo que tienen <tt>MARK == 1</tt>).</p>
+<p>Al igual que <tt>RC(T)</tt>, <tt>MARK(T)</tt> devuelve un <i>lvalue</i> de la marca para la referencia T. Las 2 pasadas ser√≠a en <strong>mark</strong> por un lado (que marca los nodos decrementado su <strong>RC</strong> debido a las referencias internas del subgrafo) y el <strong>unmark</strong> por el otro (dividido en 2, el que por cada nodo con referencias externas reestablece los <strong>RC</strong> increment√°ndolos, y el que libera los nodos que quedaron con <tt>RC == 0</tt>  que coincide con lo que tienen <tt>MARK == 1</tt>).</p>
 
-<p>A continuaciÛn se presenta una pequeÒa animaciÛn de un caso bastante complicado:</p>
+<p>A continuaci√≥n se presenta una peque√±a animaci√≥n de un caso bastante complicado:</p>
 
-<p><img src="http://www.lug.fi.uba.ar/~luca/4am/uploads/diagramas/L.gif" alt="L+ en acciÛn" /></p>
+<p><img src="http://www.lug.fi.uba.ar/~luca/4am/uploads/diagramas/L.gif" alt="L+ en acci√≥n" /></p>
 
-<p>TambiÈn dejo una <a href="http://www.lug.fi.uba.ar/~luca/4am/uploads/fuentes/python/Lx.python" onclick="window.open(this.href, '_blank'); return false;">implementaciÛn de ejemplo en Python</a>. (la extensiÛn .python es para evitar problemas con el servidor, renombren a .py antes de probarlo). Aunque el grafo que se analiza en el ejemplo es el mismo que el de la animaciÛn anterior, la ejecuciÛn no es exactamente igual, debido al orden en que se agregan las referencias y se itera sobre el <i>set</i> <strong>L</strong>.</p>
+<p>Tambi√©n dejo una <a href="http://www.lug.fi.uba.ar/~luca/4am/uploads/fuentes/python/Lx.python" onclick="window.open(this.href, '_blank'); return false;">implementaci√≥n de ejemplo en Python</a>. (la extensi√≥n .python es para evitar problemas con el servidor, renombren a .py antes de probarlo). Aunque el grafo que se analiza en el ejemplo es el mismo que el de la animaci√≥n anterior, la ejecuci√≥n no es exactamente igual, debido al orden en que se agregan las referencias y se itera sobre el <i>set</i> <strong>L</strong>.</p>
 
 </div>
             
             
             <div class='serendipity_entryFooter'>
                 Publicado por <a href="http://www.lug.fi.uba.ar/~luca/4am/authors/1-Leandro-Lucarella">Leandro Lucarella</a>
-                                   en <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/2-Codigo">CÛdigo</a>, <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/3-Python">Python</a>, <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/6-Reference-Counting">Reference Counting</a>                
+                                   en <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/2-Codigo">C√≥digo</a>, <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/3-Python">Python</a>, <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/6-Reference-Counting">Reference Counting</a>                
                                     a las
                  <a href="/~luca/4am/archives/7-L+.html">04:12</a>
 
@@ -168,14 +168,14 @@ unmark_del(T) =
                 <a id="trackbacks"></a>
                 <div class="serendipity_commentsTitle">Referencias</div>
                     <div class="serendipity_center">
-                        <a rel="nofollow" style="font-weight: normal" href="http://www.lug.fi.uba.ar/~luca/4am/comment.php?type=trackback&amp;entry_id=7" onclick="alert('Este enlace no es para hacer click en Èl. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el botÛn derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.'); return false;" title="Este enlace no es para hacer click en Èl. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el botÛn derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.">URI de referencia para esta entrada</a>
+                        <a rel="nofollow" style="font-weight: normal" href="http://www.lug.fi.uba.ar/~luca/4am/comment.php?type=trackback&amp;entry_id=7" onclick="alert('Este enlace no es para hacer click en √©l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el bot√≥n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.'); return false;" title="Este enlace no es para hacer click en √©l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el bot√≥n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.">URI de referencia para esta entrada</a>
                     </div>
                     <br />
                             <div class="serendipity_comment">
         <a id="c4"></a>
         <div class="serendipity_commentBody">
             <a href="http://www.lug.fi.uba.ar/~luca/4am/archives/9-VL.html" >VL</a><br />
-             Volvemos al conteo de referencias, ahora con el algoritmo que hemos llamado VL. El nombre surge de un flag al cual no sabÌa que nombre ponerle, y a falta de mejor nombre, al hablar con Alberto, le decÌa valor_loco (VL para ahorrar palabras). 
+             Volvemos al conteo de referencias, ahora con el algoritmo que hemos llamado VL. El nombre surge de un flag al cual no sab√≠a que nombre ponerle, y a falta de mejor nombre, al hablar con Alberto, le dec√≠a valor_loco (VL para ahorrar palabras). 
 
  Bien la idea 
 
@@ -206,7 +206,7 @@ unmark_del(T) =
                 
                 <br />
                 <div class="serendipity_section_commentform">
-	                <div class="serendipity_commentsTitle">AÒadir comentario</div>
+	                <div class="serendipity_commentsTitle">A√±adir comentario</div>
 	                <div id="serendipityCommentFormC" class="serendipityCommentForm">
     <div id="serendipity_replyform_0"></div>
     <a id="serendipity_CommentForm"></a>
@@ -219,7 +219,7 @@ unmark_del(T) =
         </tr>
 
         <tr>
-            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_email">Correo electrÛnico</label></td>
+            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_email">Correo electr√≥nico</label></td>
             <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_email" name="serendipity[email]" value="" /></td>
         </tr>
 
@@ -237,14 +237,14 @@ unmark_del(T) =
             <td class="serendipity_commentsLabel"><label for="serendipity_commentform_comment">Comentario</label></td>
             <td class="serendipity_commentsValue">
                 <textarea rows="10" cols="40" id="serendipity_commentform_comment" name="serendipity[comment]"></textarea><br />
-                <div class="serendipity_commentDirection serendipity_comment_textwiki">Formato <a href="http://c2.com/cgi/wiki">Wiki</a> permitido</div><input type="hidden" name="serendipity[token]" value="bd4c0e469bc9339a1b958be941d24a57" /><div class="serendipity_commentDirection serendipity_comment_captcha"><br />Para prevenir un ataque spam en los comentarios por parte de bots, por favor ingresa la cadena que ves en la imagen mostrada m·s abajo en la apropiada caja de texto. Tu comentario ser· aceptado sÛlo si ambas cadenas son iguales. Por favor, aseg˙rate que tu navegador soporta y acepta cookies, o tu comentario no podr· ser verificado correctamente.<br /><img src="http://www.lug.fi.uba.ar/~luca/4am/plugin/captcha_80c05fbada35757029803c690301f178" onclick="this.src=this.src + '1'" title="°Ingresa la cadena que ves m·s abajo en la caja de texto!" alt="CAPTCHA" class="captcha" /><br /><label for="captcha">Ingresa la cadena de protecciÛn contra spam de la imgen mostrada abajo: </label><br /><input class="input_textbox" type="text" size="5" name="serendipity[captcha]" value="" id="captcha" /></div>
+                <div class="serendipity_commentDirection serendipity_comment_textwiki">Formato <a href="http://c2.com/cgi/wiki">Wiki</a> permitido</div><input type="hidden" name="serendipity[token]" value="bd4c0e469bc9339a1b958be941d24a57" /><div class="serendipity_commentDirection serendipity_comment_captcha"><br />Para prevenir un ataque spam en los comentarios por parte de bots, por favor ingresa la cadena que ves en la imagen mostrada m√°s abajo en la apropiada caja de texto. Tu comentario ser√° aceptado s√≥lo si ambas cadenas son iguales. Por favor, aseg√∫rate que tu navegador soporta y acepta cookies, o tu comentario no podr√° ser verificado correctamente.<br /><img src="http://www.lug.fi.uba.ar/~luca/4am/plugin/captcha_80c05fbada35757029803c690301f178" onclick="this.src=this.src + '1'" title="¬°Ingresa la cadena que ves m√°s abajo en la caja de texto!" alt="CAPTCHA" class="captcha" /><br /><label for="captcha">Ingresa la cadena de protecci√≥n contra spam de la imgen mostrada abajo: </label><br /><input class="input_textbox" type="text" size="5" name="serendipity[captcha]" value="" id="captcha" /></div>
             </td>
         </tr>
 
         <tr>
             <td>&#160;</td>
             <td class="serendipity_commentsLabel">
-                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]"  /><label for="checkbox_remember">øRecordar la informaciÛn?</label>
+                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]"  /><label for="checkbox_remember">¬øRecordar la informaci√≥n?</label>
                     <br />
                 <input id="checkbox_subscribe" type="checkbox" name="serendipity[subscribe]"  /><label for="checkbox_subscribe">Suscribirse a esta entrada</label>
                 </td>
@@ -253,7 +253,7 @@ unmark_del(T) =
 
        <tr>
             <td>&#160;</td>
-            <td><input type="submit" name="serendipity[submit]" value="Enviar comentario" /> <input type="submit" id="serendipity_preview" name="serendipity[preview]" value="PrevisualizaciÛn" /></td>
+            <td><input type="submit" name="serendipity[submit]" value="Enviar comentario" /> <input type="submit" id="serendipity_preview" name="serendipity[preview]" value="Previsualizaci√≥n" /></td>
         </tr>
     </table>
     </form>
@@ -299,7 +299,7 @@ document.write(d);
     <div>
         <input type="hidden"  name="serendipity[action]" value="search" />
         <input alt="Buscar" type="text"   id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" size="13" />
-        <input class="quicksearch_submit" type="submit" value="&gt;" alt="Buscar" name="serendipity[searchButton]" title="°Ir!" style="width: 2em;" />
+        <input class="quicksearch_submit" type="submit" value="&gt;" alt="Buscar" name="serendipity[searchButton]" title="¬°Ir!" style="width: 2em;" />
     </div>
     <div id="LSResult" style="display: none;"><div id="LSShadow"></div></div>
 </form>
@@ -311,21 +311,21 @@ document.write(d);
                     </script></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_categories_plugin">
-        <h3 class="serendipitySideBarTitle serendipity_categories_plugin">CategorÌas</h3>        <div class="serendipitySideBarContent"><form action="http://www.lug.fi.uba.ar/~luca/4am/index.php?frontpage" method="post">
+        <h3 class="serendipitySideBarTitle serendipity_categories_plugin">Categor√≠as</h3>        <div class="serendipitySideBarContent"><form action="http://www.lug.fi.uba.ar/~luca/4am/index.php?frontpage" method="post">
               <div id="serendipity_category_form_content"><ul id="serendipity_categories_list" style="list-style: none; margin: 0px; padding: 0px"><li class="category_depth0 category_8" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="8" /><a href="/~luca/4am/categories/8-C++" title="I always wanted to learn russian...but learned C++ instead :)" style="padding-left: 0px">C++</a></li>
-<li class="category_depth0 category_10" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="10" /><a href="/~luca/4am/categories/10-Charlas" title="No estamos sÛlos..." style="padding-left: 0px">Charlas</a></li>
-<li class="category_depth0 category_2" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="2" /><a href="/~luca/4am/categories/2-Codigo" title="ArtÌculos con cÛdigo fuente incluÌdo" style="padding-left: 0px">CÛdigo</a></li>
+<li class="category_depth0 category_10" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="10" /><a href="/~luca/4am/categories/10-Charlas" title="No estamos s√≥los..." style="padding-left: 0px">Charlas</a></li>
+<li class="category_depth0 category_2" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="2" /><a href="/~luca/4am/categories/2-Codigo" title="Art√≠culos con c√≥digo fuente inclu√≠do" style="padding-left: 0px">C√≥digo</a></li>
 <li class="category_depth0 category_13" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="13" /><a href="/~luca/4am/categories/13-D-Programming-Language" title="Just what I needed, another D in programming..." style="padding-left: 0px">D Programming Language</a></li>
 <li class="category_depth0 category_1" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="1" /><a href="/~luca/4am/categories/1-Institucional" title="Noticias sobre este mismo weblog" style="padding-left: 0px">Institucional</a></li>
 <li class="category_depth0 category_3" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="3" /><a href="/~luca/4am/categories/3-Python" title="El lenguaje de la viborita" style="padding-left: 0px">Python</a></li>
 <li class="category_depth0 category_12" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="12" /><a href="/~luca/4am/categories/12-Sistema-Operativo" title="The puppet master" style="padding-left: 0px">Sistema Operativo</a></li>
 <li class="category_depth1 category_11" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="11" /><a href="/~luca/4am/categories/11-Filesystems" title="Vos creias que lo unico en comun entre un arbol y un cajon era la madera?" style="padding-left: 6px">Filesystems</a></li>
-<li class="category_depth0 category_5" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="5" /><a href="/~luca/4am/categories/5-Teoria-de-Lenguaje" title="El lenguaje modela el pensamiento, sin un buen lenguaje no nos podemos expresar" style="padding-left: 0px">TeorÌa de Lenguaje</a></li>
+<li class="category_depth0 category_5" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="5" /><a href="/~luca/4am/categories/5-Teoria-de-Lenguaje" title="El lenguaje modela el pensamiento, sin un buen lenguaje no nos podemos expresar" style="padding-left: 0px">Teor√≠a de Lenguaje</a></li>
 <li class="category_depth1 category_9" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="9" /><a href="/~luca/4am/categories/9-Concurrencia" title="Otra que caminar y comer chicle!" style="padding-left: 6px">Concurrencia</a></li>
 <li class="category_depth1 category_7" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="7" /><a href="/~luca/4am/categories/7-Design-By-Contract" title="Los abogados llegan a todos lados" style="padding-left: 6px">Design By Contract</a></li>
 <li class="category_depth1 category_4" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="4" /><a href="/~luca/4am/categories/4-Garbage-Collection" title="Es un trabajo sucio, pero alguien debe hacerlo" style="padding-left: 6px">Garbage Collection</a></li>
 <li class="category_depth2 category_6" style="display: block;"><input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="6" /><a href="/~luca/4am/categories/6-Reference-Counting" title="2 + 2 = 5" style="padding-left: 12px">Reference Counting</a></li>
-</ul><div class="category_submit"><br /><input type="submit" name="serendipity[isMultiCat]" value="°Ir!" /></div><div class="category_link_all"><br /><a href="/~luca/4am/index.php?frontpage" title="Todas las categorÌas">Todas las categorÌas</a></div></div></form></div>
+</ul><div class="category_submit"><br /><input type="submit" name="serendipity[isMultiCat]" value="¬°Ir!" /></div><div class="category_link_all"><br /><a href="/~luca/4am/index.php?frontpage" title="Todas las categor√≠as">Todas las categor√≠as</a></div></div></form></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_archives_plugin">
         <h3 class="serendipitySideBarTitle serendipity_archives_plugin">Archivos</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/archives/2008/12.html" title="December 2008">December 2008</a><br />
@@ -352,14 +352,14 @@ document.write(d);
     </div>
     <div class="serendipitySideBarItem container_serendipity_html_nugget_plugin">
         <h3 class="serendipitySideBarTitle serendipity_html_nugget_plugin">Licencia</h3>        <div class="serendipitySideBarContent"><!-- Creative Commons License -->
-<p>Estos artÌculos se publican bajo la licencia
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">AtribuciÛn-CompartirDerivadasIgual 2.5 Argentina</a>.</p>
+<p>Estos art√≠culos se publican bajo la licencia
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">Atribuci√≥n-CompartirDerivadasIgual 2.5 Argentina</a>.</p>
 <div style="text-align: center"><a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ar/deed.es_AR"><img alt="Creative Commons License" border="0" src="http://www.lug.fi.uba.ar/~luca/4am/uploads/somerights20.gif" /></a></div>
 <!-- /Creative Commons License -->
 </div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_superuser_plugin">
-        <h3 class="serendipitySideBarTitle serendipity_superuser_plugin">AdministraciÛn del Blog</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/admin" rel="nofollow" title="Abre ventana de conexiÛn">Abre ventana de conexiÛn</a></div>
+        <h3 class="serendipitySideBarTitle serendipity_superuser_plugin">Administraci√≥n del Blog</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/admin" rel="nofollow" title="Abre ventana de conexi√≥n">Abre ventana de conexi√≥n</a></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_plug_plugin">
         <h3 class="serendipitySideBarTitle serendipity_plug_plugin">Basado en</h3>        <div class="serendipitySideBarContent"><div class="serendipityPlug">

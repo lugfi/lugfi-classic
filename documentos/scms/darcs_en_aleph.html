@@ -10,39 +10,39 @@
 
 <h1>Usando darcs en aleph</h1>
 
-<h2>IntroducciÛn</h2>
+<h2>Introducci√≥n</h2>
 
-Este pequeÒo documento habla de cÛmo usar darcs de forma pr·ctica, y cÛmo
+Este peque√±o documento habla de c√≥mo usar darcs de forma pr√°ctica, y c√≥mo
 almacenar el/los repositorios en aleph (aunque en realidad sirve para
-cualquier cuenta ssh p˙blica, como la provista por sourceforge.net, cualquier
+cualquier cuenta ssh p√∫blica, como la provista por sourceforge.net, cualquier
 GForge o lugares por el estilo).<p>
 
-Vamos a asumir que se conoce un poquito de darcs, y se est· algo familiarizado
-con Linux o alg˙n sistema tipo UNIX, dado que lo que vamos a mostrar es
-bastante especÌfico a esos sistemas operativos desde allÌ (aunque si usan
-aleph no deberÌa resultarles demasiado loco).<br>
-Para los que usan Windows, si se dan un mÌnimo de maÒa muchas de las cosas
-(si no todas) las deberÌan poder hacer utilizando
+Vamos a asumir que se conoce un poquito de darcs, y se est√° algo familiarizado
+con Linux o alg√∫n sistema tipo UNIX, dado que lo que vamos a mostrar es
+bastante espec√≠fico a esos sistemas operativos desde all√≠ (aunque si usan
+aleph no deber√≠a resultarles demasiado loco).<br>
+Para los que usan Windows, si se dan un m√≠nimo de ma√±a muchas de las cosas
+(si no todas) las deber√≠an poder hacer utilizando
 <a href="http://www.cygwin.com">Cygwin</a> e instalando los programas
-correspondientes (que est·n todos).<p>
+correspondientes (que est√°n todos).<p>
 
-Hay muchas formas distintas de hacer lo que nosotros mostramos ac·, cada una
-con sus ventajas y desventajas, y en la mayorÌa de los casos es una cuestiÛn
-de preferencia cual usar. Como Èste es un documento pr·ctico, no se van a
+Hay muchas formas distintas de hacer lo que nosotros mostramos ac√°, cada una
+con sus ventajas y desventajas, y en la mayor√≠a de los casos es una cuesti√≥n
+de preferencia cual usar. Como √©ste es un documento pr√°ctico, no se van a
 hacer salvedades mostrando las maneras alternativas o justificando las
-elecciones mas all· de donde se crea necesario; cualquier aclaraciÛn de esta
-Ìndole por favor preguntar directamente a los autores.<p>
+elecciones mas all√° de donde se crea necesario; cualquier aclaraci√≥n de esta
+√≠ndole por favor preguntar directamente a los autores.<p>
 
 
-<h2>Momento! QuÈ es aleph?</h2>
+<h2>Momento! Qu√© es aleph?</h2>
 
 aleph es un servidor de la facultad que provee distintos servicios. Cualquier
 persona con una
 <a href="http://www.fi.uba.ar/sdi/cuenta.php">cuenta de e-mail de la facultad</a>
 tiene
 <a href="http://www.fi.uba.ar/sdi/rep_per.php">acceso a aleph</a> y sus
-servicios, entre los cuales est· tanto ssh como ftp, cosas que ser·n muy ˙tiles
-para poder montar un repositorio p˙blico de darcs, ya que se provee acceso web
+servicios, entre los cuales est√° tanto ssh como ftp, cosas que ser√°n muy √∫tiles
+para poder montar un repositorio p√∫blico de darcs, ya que se provee acceso web
 sobre todo el contenido almacenado en el directorio <code>public_html</code> del
 usuario.
 
@@ -50,27 +50,27 @@ usuario.
 <h2>Plan de trabajo</h2>
 
 Antes de empezar a mostrar comandos, pensemos primero bien como vamos a
-trabajar. Nuestra idea es dar un caso de uso de un grupo de personas que est·n
-desarrollando sobre el mismo proyecto (caso tÌpico de un TP grupal), y que
-quieren usar darcs como SCM distribuido para coordinar y administrar su cÛdigo
-y/o documentaciÛn.<p>
+trabajar. Nuestra idea es dar un caso de uso de un grupo de personas que est√°n
+desarrollando sobre el mismo proyecto (caso t√≠pico de un TP grupal), y que
+quieren usar darcs como SCM distribuido para coordinar y administrar su c√≥digo
+y/o documentaci√≥n.<p>
 
 Lo primero que vamos a plantear es que cada persona tenga su propio
-repositorio, adem·s de haber una encargada de tener y administrar el
+repositorio, adem√°s de haber una encargada de tener y administrar el
 repositorio para entregar.<br>
-Cada integrante generara cambios sobre su propio repositorio, y luego ser·n
-incorporados al repositorio para entregar de dos maneras: o envi·ndole por
-mail los mismos al responsable, o avis·ndole que haga un
+Cada integrante generara cambios sobre su propio repositorio, y luego ser√°n
+incorporados al repositorio para entregar de dos maneras: o envi√°ndole por
+mail los mismos al responsable, o avis√°ndole que haga un
 <code lang="en">pull</code> del
 repositorio personal. Por esto, al menos el repositorio para entregar debe ser
-disponible p˙blicamente, para que los integrantes del grupo puedan sincronizar
+disponible p√∫blicamente, para que los integrantes del grupo puedan sincronizar
 con el.<p>
 
 
 <h2>Publicando un repositorio en aleph</h2>
 
-Hoy en dÌa, aleph no tiene el darcs instalado (ya hemos solicitado que lo
-instalen pero no nos dieron bola, tal vez si mand·s un mail pidiÈndolo se dan
+Hoy en d√≠a, aleph no tiene el darcs instalado (ya hemos solicitado que lo
+instalen pero no nos dieron bola, tal vez si mand√°s un mail pidi√©ndolo se dan
 cuenta que es necesario y lo agregan =), por lo que no podremos
 manipular repositorios directamente en el. En su lugar, deberemos trabajar en
 cualquier maquina que lo tenga instalado (en nuestras casas podemos usar
@@ -79,13 +79,13 @@ aunque seria lo mas recomendable; o sino usando las compus disponibles en el
 LABI, en el primer piso, que todas las del L4 cuentan con darcs).<br>
 El hecho de que sea distribuido nos da una enorme ventaja, que es que podemos
 usar <b>cualquier</b> compu con darcs para desarrollar, no importa si tiene el
-cÛdigo ahÌ o no, puesto que lo que hacemos es clonar el repositorio que
-publicamos en aleph, trabajar localmente y luego enviamos los cambios seg˙n
+c√≥digo ah√≠ o no, puesto que lo que hacemos es clonar el repositorio que
+publicamos en aleph, trabajar localmente y luego enviamos los cambios seg√∫n
 haga falta.<p>
 
-AsÌ que ahora que estamos convencidisimos de que lo necesitamos, vamos a ver
+As√≠ que ahora que estamos convencidisimos de que lo necesitamos, vamos a ver
 como publicar un repositorio en aleph. Vamos a pensar que ya tenemos el
-repositorio creado, mas o menos con la siguiente estructura jer·rquica:<br>
+repositorio creado, mas o menos con la siguiente estructura jer√°rquica:<br>
 
 <pre>
 tp1/
@@ -97,13 +97,13 @@ tp1/
 	    ...
 </pre><p>
 
-Lo que nosotros queremos hacer es poder publicar nuestro repositorio, que ac·
-llamamos <code>tp1-alberto</code> (yo me llamo Alberto, por eso lo llamo asÌ)
+Lo que nosotros queremos hacer es poder publicar nuestro repositorio, que ac√°
+llamamos <code>tp1-alberto</code> (yo me llamo Alberto, por eso lo llamo as√≠)
 en aleph.<p>
 
 Para esto, creamos un directorio <code>~/public_html/repos</code> en el cual
 vamos a poner nuestros repositorios. El nombre <code>~/public_html</code> es
-importante porque ahÌ es donde est·n los archivos que se publicaran en nuestra
+importante porque ah√≠ es donde est√°n los archivos que se publicaran en nuestra
 pagina personal de aleph. Entonces, en aleph, hacemos:<p>
 
 <pre>
@@ -112,13 +112,13 @@ pagina personal de aleph. Entonces, en aleph, hacemos:<p>
 </pre><p>
 
 Ahora queremos copiar nuestro directorio <code>tp1-alberto</code> a
-<code>~/public_html/repos/</code>, para lo cual hay muchos mecanismos. Ac·
+<code>~/public_html/repos/</code>, para lo cual hay muchos mecanismos. Ac√°
 vamos a usar uno que se llama <code>rsync</code>, porque se basa en un
-programa que se llama asÌ, que esta incluido en todas las distribuciones
+programa que se llama as√≠, que esta incluido en todas las distribuciones
 conocidas (y no tanto) de Linux, y en aleph.<p>
 
 Lo que hace rsync es copiar por la red un directorio de un origen a un
-destino, con la caracterÌstica especial que en lugar de pasar tooooodo cada
+destino, con la caracter√≠stica especial que en lugar de pasar tooooodo cada
 vez, si en el destino ya existe algo, solo copia lo que hace falta para
 dejarlo igualito al origen. Esto optimiza bastante el tiempo que tardamos en
 copiar, y resulta muy piola para lo que queremos hacer.<p>
@@ -134,40 +134,40 @@ compu$ cd tp1/repos
 compu$ rsync --rsh=ssh -vrzltP --delete tp1-alberto alberto@aleph.fi.uba.ar:./public_html/repos/
 <tt class=nota>Nos pide nuestra clave para entrar a aleph</tt>
 Password:
-<tt class=nota>Ac· nos muestra que cosas copia</tt>
+<tt class=nota>Ac√° nos muestra que cosas copia</tt>
 [...]
 compu$
 </pre><p>
 
-Los primeros cuatro par·metros modifican cosas particulares de la copia que no
-vamos a detallar por ser cosas especificas de rsync. AsÌ como esta anda, y si
+Los primeros cuatro par√°metros modifican cosas particulares de la copia que no
+vamos a detallar por ser cosas especificas de rsync. As√≠ como esta anda, y si
 les interesa saber mejor que es cada una (es una buena idea) pueden consultar
-el manual del rsync. DespuÈs viene el directorio origen, en este caso
+el manual del rsync. Despu√©s viene el directorio origen, en este caso
 <code>tp1-alberto</code>, y el destino, incluyendo el usuario, de la forma:
 <code>usuario@server:directorio_remoto</code>. En nuestro ejemplo, el usuario seria
 <code>alberto</code>, el server <code>aleph.fi.uba.ar</code> y el directorio
 <code>./public_html/repos</code>.<p>
 
-Con esto copiamos el repositorio local a aleph, haciendo que este p˙blicamente
+Con esto copiamos el repositorio local a aleph, haciendo que este p√∫blicamente
 disponible en <code>http://www.fi.uba.ar/~alberto/repos/tp1-alberto/</code>.<p>
 
-Como vemos, la linea del rsync es bastante larga, fea y difÌcil de recordar,
-por lo que adem·s de recurrir a esta pagina si no se la acuerdan, pueden
+Como vemos, la linea del rsync es bastante larga, fea y dif√≠cil de recordar,
+por lo que adem√°s de recurrir a esta pagina si no se la acuerdan, pueden
 armarse un script que ejecute eso por ustedes. Yo suelo ponerlo en el
 directorio <code>repos</code>, y llamarlo <code>update</code>.<p>
 
 Entonces, redondeando, lo que vamos a hacer, en lugar de trabajar en aleph
 directamente, siempre es trabajar sobre un repositorio local, y enviarlo a
-aleph periÛdicamente para que puedan verlo los dem·s o bajarlo nosotros si nos
-cambiamos de maquina, que era lo que busc·bamos en un principio.<p>
+aleph peri√≥dicamente para que puedan verlo los dem√°s o bajarlo nosotros si nos
+cambiamos de maquina, que era lo que busc√°bamos en un principio.<p>
 
 
 <h2>Haciendo cosas con nuestro repositorio</h2>
 
-Ahora que el repositorio es accesible p˙blicamente, vamos a ver un par de cosas
+Ahora que el repositorio es accesible p√∫blicamente, vamos a ver un par de cosas
 que podemos hacer con el.<p>
 
-Para empezar, vamos a ver como clonarlo, cosa que puede ser ˙til en muchas
+Para empezar, vamos a ver como clonarlo, cosa que puede ser √∫til en muchas
 circunstancias, por ejemplo si estando en la facu se nos ocurre una idea re
 copada para implementar, entonces salimos corriendo al LABI, nos sentamos en
 una compu de la L4 y queremos traernos nuestro repositorio para desarrollar.<p>
@@ -183,9 +183,9 @@ Finished getting.
 compu$
 </pre><p>
 
-AhÌ vamos a tener en el directorio <code>tp1-alberto</code> un clon del repositorio
-publicado. Ahora en nuestro rapto de inspiraciÛn hacemos algunos cambios con
-sus correspondientes records, y nos damos cuenta que tenÌamos que estar en
+Ah√≠ vamos a tener en el directorio <code>tp1-alberto</code> un clon del repositorio
+publicado. Ahora en nuestro rapto de inspiraci√≥n hacemos algunos cambios con
+sus correspondientes records, y nos damos cuenta que ten√≠amos que estar en
 clase hace 20 minutos, por lo que queremos enviar estos cambios de nuevo a
 aleph, para no perderlos. Entonces, simplemente, volvemos a hacer el rsync
 como hicimos antes:<p>
@@ -200,19 +200,19 @@ compu$
 Vamos a ver que copia muchos menos archivos, puesto que solo va a copiar lo
 que nosotros modificamos.<p>
 
-TambiÈn pueden poner el script <code>update</code> en, por ejemplo,
+Tambi√©n pueden poner el script <code>update</code> en, por ejemplo,
 <code>~/public_html/repos/update</code> de manera tal de poder bajarlo en la PC
-y ejecutarlo, para no tener que recordar toda esa lÌnea de comandos.<p></p>
+y ejecutarlo, para no tener que recordar toda esa l√≠nea de comandos.<p></p>
 
-Esto tambiÈn lo usamos cuando desarrollamos en nuestra casa, despuÈs de que
+Esto tambi√©n lo usamos cuando desarrollamos en nuestra casa, despu√©s de que
 hacemos records localmente y estamos satisfechos con como va quedando nuestro
 repositorio, podemos ir actualizando el que tenemos en aleph por si nuestros
-compaÒeros lo quieren ir chusmeando, o si queremos que el responsable del
+compa√±eros lo quieren ir chusmeando, o si queremos que el responsable del
 repositorio para entregar (a quien vamos a llamar Reinaldo, de REsponsable)
 incorpore alguno de nuestros cambios.
 
 
-<h2>Haciendo cosas con los dem·s</h2>
+<h2>Haciendo cosas con los dem√°s</h2>
 
 Ahora supongamos que queremos integrar en nuestro repositorio local los
 cambios que introdujo Reinaldo en el repositorio para entregar; o sea, que
@@ -223,43 +223,43 @@ http://www.fi.uba.ar/~reinaldo/repos/tp1-entrega, con<br>
 
 Una vez que nosotros hayamos publicado nuestro repositorio, le podemos pedir a
 Reinaldo que incorpore nuestros cambios al repositorio para entregar, entonces
-el tendrÌa que correr<br>
+el tendr√≠a que correr<br>
 <pre>reinaldo$ darcs pull http://www.fi.uba.ar/~alberto/repos/tp1-alberto</pre>
 <p>
 
 Siempre hay que acordarse que cuando queremos que los cambios de nuestro
-repositorio se hagan visibles y p˙blicos tenemos que sincronizarlo con aleph,
-como ya mostramos. Por eso, en el ejemplo de reciÈn, cuando Reinaldo haya
+repositorio se hagan visibles y p√∫blicos tenemos que sincronizarlo con aleph,
+como ya mostramos. Por eso, en el ejemplo de reci√©n, cuando Reinaldo haya
 terminado de incorporar los cambios nuestros en el repositorio de el, seria
-conveniente que sincronice para que los otros compaÒeros nuestros puedan
+conveniente que sincronice para que los otros compa√±eros nuestros puedan
 enterarse e incorporar los cambios cuando hagan un pull de Reinaldo.<p>
 
-TambiÈn es importante que nosotros sincronicemos con Reinaldo de forma
-periÛdica, asÌ siempre estamos trabajando con una base actualizada y similar a
-la que se va a entregar. Adem·s, muchas veces nos interesa poder revisar lo
-que hicieron nuestros compaÒeros, o construir sobre ello. Por eso es bueno que
+Tambi√©n es importante que nosotros sincronicemos con Reinaldo de forma
+peri√≥dica, as√≠ siempre estamos trabajando con una base actualizada y similar a
+la que se va a entregar. Adem√°s, muchas veces nos interesa poder revisar lo
+que hicieron nuestros compa√±eros, o construir sobre ello. Por eso es bueno que
 Reinaldo vaya avisando al grupo por mail u otro mecanismo a medida que va
-incorporando cosas, para que todos se enteren como van los dem·s, y sepan que
+incorporando cosas, para que todos se enteren como van los dem√°s, y sepan que
 conviene hacer un pull.<p>
 
 
 <h2>Pasando los cambios por email</h2>
 
 En lugar de avisarle a Reinaldo que haga un pull de nuestro repositorio,
-podemos pasarle los cambios por mail si nos queda mas cÛmodo (quiz·s los que
+podemos pasarle los cambios por mail si nos queda mas c√≥modo (quiz√°s los que
 usan Windows pueden preferir este mecanismo). Para ello vamos a usar el
-comando <b>darcs send</b> que envÌa un mail directamente o, si le pasamos un
-par·metro, nos da un archivo para que podamos adjuntar. Luego, quien lo reciba
+comando <b>darcs send</b> que env√≠a un mail directamente o, si le pasamos un
+par√°metro, nos da un archivo para que podamos adjuntar. Luego, quien lo reciba
 usara <b>darcs apply</b> para incorporar los cambios a su repositorio.<p>
 
 Vamos a ver primero como hacer para obtener el archivo que debemos adjuntar.
-Nuestro objetivo es obtener un archivo adjunto con los cambios que estÈn en
+Nuestro objetivo es obtener un archivo adjunto con los cambios que est√©n en
 nuestro repositorio pero no en el de Reinaldo. Para hacer esto, corremos:<p>
 
 <pre>
 compu$ darcs send -o /tmp/para_reinaldo http://www.fi.uba.ar/~reinaldo/repos/tp1-entrega
-<tt class=nota>Ac· nos pregunta uno por uno que cambios queremos enviar y
-cuales no, ajustando autom·ticamente los que dependen entre si.</tt>
+<tt class=nota>Ac√° nos pregunta uno por uno que cambios queremos enviar y
+cuales no, ajustando autom√°ticamente los que dependen entre si.</tt>
 [...]
 compu$
 </pre>
@@ -274,7 +274,7 @@ cuando nos mandan cambios a nosotros, incorporarlos en nuestro repositorio.<p>
 
 Supongamos que nos llego el mail con el archivo adjunto, el cual grabamos en
 <code>/tmp/para_aplicar</code>. Entonces vamos a nuestro repositorio y le decimos al
-darcs que incorpore los cambios que est·n en ese archivo, con el comando:<p>
+darcs que incorpore los cambios que est√°n en ese archivo, con el comando:<p>
 
 <pre>
 compu$ darcs apply /tmp/para_aplicar

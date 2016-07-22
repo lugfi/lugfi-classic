@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Configuración de un Gateway</TITLE>
-<META NAME="description" CONTENT="Configuración de un Gateway">
+<TITLE>ConfiguraciÃ³n de un Gateway</TITLE>
+<META NAME="description" CONTENT="ConfiguraciÃ³n de un Gateway">
 <META NAME="keywords" CONTENT="gateway">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -22,16 +22,16 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <P>
-<H1 ALIGN="CENTER">Configuración de un Gateway</H1>
+<H1 ALIGN="CENTER">ConfiguraciÃ³n de un Gateway</H1>
 <P ALIGN="CENTER"><STRONG><A NAME="tex2html1"
   HREF="mailto:ecastag@fi.uba.ar">Emiliano Castagnari</A></STRONG></P>
 
 <P>
-Este documento describe brevemente cómo configurar una máquina corriendo 
-GNU/Linux, como <B>Gateway</B>. Esto significa, poder compartir una conexión a 
-Internet desde nuestro GNU/Linux (de ahora en más, <B>server</B>) con nuestra 
-red interna, a través del conocido método <I>masquerade</I>, una forma 
-particular de NAT (Network Address Translation - Traducción de Direcciones de 
+Este documento describe brevemente cÃ³mo configurar una mÃ¡quina corriendo 
+GNU/Linux, como <B>Gateway</B>. Esto significa, poder compartir una conexiÃ³n a 
+Internet desde nuestro GNU/Linux (de ahora en mÃ¡s, <B>server</B>) con nuestra 
+red interna, a travÃ©s del conocido mÃ©todo <I>masquerade</I>, una forma 
+particular de NAT (Network Address Translation - TraducciÃ³n de Direcciones de 
 Red).
 
 <P>
@@ -47,18 +47,18 @@ Red).
   HREF="gateway.html">1 Acerca de este documento</A>
 <UL>
 <LI><A NAME="tex2html34"
-  HREF="#SECTION00021000000000000000">1.1 Créditos</A>
+  HREF="#SECTION00021000000000000000">1.1 CrÃ©ditos</A>
 </UL>
 <BR>
 <LI><A NAME="tex2html35"
-  HREF="#SECTION00030000000000000000">2 Introducción</A>
+  HREF="#SECTION00030000000000000000">2 IntroducciÃ³n</A>
 <UL>
 <LI><A NAME="tex2html36"
   HREF="#SECTION00031000000000000000">2.1 Convenciones del documento</A>
 <LI><A NAME="tex2html37"
-  HREF="#SECTION00032000000000000000">2.2 ¿Que es un Gateway?</A>
+  HREF="#SECTION00032000000000000000">2.2 Â¿Que es un Gateway?</A>
 <LI><A NAME="tex2html38"
-  HREF="#SECTION00033000000000000000">2.3 ¿Por que querría usar uno?</A>
+  HREF="#SECTION00033000000000000000">2.3 Â¿Por que querrÃ­a usar uno?</A>
 <LI><A NAME="tex2html39"
   HREF="#SECTION00034000000000000000">2.4 Pros y Contras</A>
 <UL>
@@ -79,30 +79,30 @@ Red).
 </UL>
 <BR>
 <LI><A NAME="tex2html45"
-  HREF="#SECTION00050000000000000000">4 Elección de rangos IP y un poco de redes</A>
+  HREF="#SECTION00050000000000000000">4 ElecciÃ³n de rangos IP y un poco de redes</A>
 <LI><A NAME="tex2html46"
-  HREF="#SECTION00060000000000000000">5 Qué es una Topología de red</A>
+  HREF="#SECTION00060000000000000000">5 QuÃ© es una TopologÃ­a de red</A>
 <LI><A NAME="tex2html47"
   HREF="#SECTION00070000000000000000">6 Preparando un Gateway ADSL</A>
 <UL>
 <LI><A NAME="tex2html48"
-  HREF="#SECTION00071000000000000000">6.1 Situación ideal y Topología de la red</A>
+  HREF="#SECTION00071000000000000000">6.1 SituaciÃ³n ideal y TopologÃ­a de la red</A>
 <UL>
 <LI><A NAME="tex2html49"
-  HREF="#SECTION00071100000000000000">Para el primer caso (dos o más <B>clientes</B>, y un Hub)</A>
+  HREF="#SECTION00071100000000000000">Para el primer caso (dos o mÃ¡s <B>clientes</B>, y un Hub)</A>
 <LI><A NAME="tex2html50"
   HREF="#SECTION00071200000000000000">Para el segundo caso (Un solo <B>cliente</B>, y sin Hub)</A>
 </UL>
 <LI><A NAME="tex2html51"
-  HREF="#SECTION00072000000000000000">6.2 Una situación no tan ideal</A>
+  HREF="#SECTION00072000000000000000">6.2 Una situaciÃ³n no tan ideal</A>
 </UL>
 <BR>
 <LI><A NAME="tex2html52"
   HREF="#SECTION00080000000000000000">7 Preparando un Gateway Cablemodem</A>
 <LI><A NAME="tex2html53"
-  HREF="#SECTION00090000000000000000">8 Preparando un Gateway Telefónico</A>
+  HREF="#SECTION00090000000000000000">8 Preparando un Gateway TelefÃ³nico</A>
 <LI><A NAME="tex2html54"
-  HREF="#SECTION000100000000000000000">9 Configurando el Daemon de Conexión y un Firewall</A>
+  HREF="#SECTION000100000000000000000">9 Configurando el Daemon de ConexiÃ³n y un Firewall</A>
 <UL>
 <LI><A NAME="tex2html55"
   HREF="#SECTION000101000000000000000">9.1 Acceso ADSL</A>
@@ -115,16 +115,16 @@ Red).
 <LI><A NAME="tex2html58"
   HREF="#SECTION000102000000000000000">9.2 Acceso Cablemodem</A>
 <LI><A NAME="tex2html59"
-  HREF="#SECTION000103000000000000000">9.3 Acceso Telefónico</A>
+  HREF="#SECTION000103000000000000000">9.3 Acceso TelefÃ³nico</A>
 </UL>
 <BR>
 <LI><A NAME="tex2html60"
-  HREF="#SECTION000110000000000000000">10 Configurando el Firewall y compartiendo la conexión</A>
+  HREF="#SECTION000110000000000000000">10 Configurando el Firewall y compartiendo la conexiÃ³n</A>
 <UL>
 <LI><A NAME="tex2html61"
-  HREF="#SECTION000111000000000000000">10.1 Un poco de teoría</A>
+  HREF="#SECTION000111000000000000000">10.1 Un poco de teorÃ­a</A>
 <LI><A NAME="tex2html62"
-  HREF="#SECTION000112000000000000000">10.2 Construcción del Firewall, ensuciándonos las mandos...</A>
+  HREF="#SECTION000112000000000000000">10.2 ConstrucciÃ³n del Firewall, ensuciÃ¡ndonos las mandos...</A>
 </UL></UL>
 <!--End of Table of Contents-->
 
@@ -137,32 +137,32 @@ Red).
 <P>
 
 <H2><A NAME="SECTION00021000000000000000">
-1.1 Créditos</A>
+1.1 CrÃ©ditos</A>
 </H2>
 
 <P>
 
 <UL>
-<LI>Emiliano Castagnari: Preparación
+<LI>Emiliano Castagnari: PreparaciÃ³n
 </LI>
-<LI>Margarita Manterola: Corrección ortográfica. Conversión a Latex.
+<LI>Margarita Manterola: CorrecciÃ³n ortogrÃ¡fica. ConversiÃ³n a Latex.
 </LI>
 </UL> 
 
 <P>
 
 <H1><A NAME="SECTION00030000000000000000">
-2 Introducción</A>
+2 IntroducciÃ³n</A>
 </H1>
 
 <P>
-Este documento tiene como objetivo ayudar a la gente que recién ingresa
-al mundo de Linux (y a los que ya están también), a configurar una
-máquina que esté corriendo un sistema operativo GNU/Linux, que se conecta
-a Internet ya sea, a través de un ADSL, Cablemodem, o bien una línea 
-telefónica, de forma tal que pueda compartir esa conexión con una 
+Este documento tiene como objetivo ayudar a la gente que reciÃ©n ingresa
+al mundo de Linux (y a los que ya estÃ¡n tambiÃ©n), a configurar una
+mÃ¡quina que estÃ© corriendo un sistema operativo GNU/Linux, que se conecta
+a Internet ya sea, a travÃ©s de un ADSL, Cablemodem, o bien una lÃ­nea 
+telefÃ³nica, de forma tal que pueda compartir esa conexiÃ³n con una 
 red interna, sea en su casa, trabajo, o cualquier otro lugar en el que disponga 
-de una red privada y una conexión a Internet.
+de una red privada y una conexiÃ³n a Internet.
 
 <P>
 
@@ -171,28 +171,28 @@ de una red privada y una conexión a Internet.
 </H2>
 
 <P>
-La máquina que dispondrá de la conexión a Internet, sera referida como 
-<B>server</B> o <B>gateway</B>. Cualquier otra máquina que use la primera para 
-navegar (léase utilice el servicio provisto por el <B>server</B>) será 
+La mÃ¡quina que dispondrÃ¡ de la conexiÃ³n a Internet, sera referida como 
+<B>server</B> o <B>gateway</B>. Cualquier otra mÃ¡quina que use la primera para 
+navegar (lÃ©ase utilice el servicio provisto por el <B>server</B>) serÃ¡ 
 denominada <B>cliente</B>.
 
 <P>
-El proveedor de Internet, será referenciado como <B>ISP</B> (Internet Service 
+El proveedor de Internet, serÃ¡ referenciado como <B>ISP</B> (Internet Service 
 Provider)   
 
 <P>
 
 <H2><A NAME="SECTION00032000000000000000">
-2.2 ¿Que es un Gateway?</A>
+2.2 Â¿Que es un Gateway?</A>
 </H2>
 
 <P>
 Un Gateway es un <B>server</B>, que proporciona a <B>clientes</B> conectividad 
-hacia el mundo exterior, estén o no dentro de una red privada (nosotros nos 
+hacia el mundo exterior, estÃ©n o no dentro de una red privada (nosotros nos 
 centraremos en el primer caso, pero para el segundo, esto no cambia demasiado).   
 
 <P>
-Este <B>server</B>, puede ser cualquier tipo de máquina, con cualquier sistema 
+Este <B>server</B>, puede ser cualquier tipo de mÃ¡quina, con cualquier sistema 
 operativo que sea capaz de proveer funcionalidades de router y firewall.
 El documento se basa en "Sistemas Operativos" GNU/Linux, y no en <I>Sistemas 
 Inoperativos</I>.   
@@ -200,21 +200,21 @@ Inoperativos</I>.
 <P>
 
 <H2><A NAME="SECTION00033000000000000000">
-2.3 ¿Por que querría usar uno?</A>
+2.3 Â¿Por que querrÃ­a usar uno?</A>
 </H2>
 
 <P>
-Supongamos la siguiente situación: En tu casa/trabajo disponen de una sola 
-conexión a Internet (léase dirección IP provista por ISP) o bien una sola 
-línea telefónica. A la vez, tenés varias estaciones de trabajo, con diferentes 
+Supongamos la siguiente situaciÃ³n: En tu casa/trabajo disponen de una sola 
+conexiÃ³n a Internet (lÃ©ase direcciÃ³n IP provista por ISP) o bien una sola 
+lÃ­nea telefÃ³nica. A la vez, tenÃ©s varias estaciones de trabajo, con diferentes 
 sistemas operativos (o no), desde las cuales se realizan tareas 
 recreativas/laborales que dependen de tu acceso a Internet, y por tener una 
-sola conexión/línea telefónica no pueden estar todas conectadas al mismo 
+sola conexiÃ³n/lÃ­nea telefÃ³nica no pueden estar todas conectadas al mismo 
 tiempo.
 
 <P>
-Acá es donde toma realmente fuerza el hecho de tener un gateway que 
-proporcione a las demás máquinas pertenecientes a la red, una conexión al 
+AcÃ¡ es donde toma realmente fuerza el hecho de tener un gateway que 
+proporcione a las demÃ¡s mÃ¡quinas pertenecientes a la red, una conexiÃ³n al 
 mundo exterior.
 
 <P>
@@ -232,9 +232,9 @@ Pros</A>
 <P>
 
 <UL>
-<LI>Te podés conectar desde cualquier máquina, o de todas al mismo tiempo!!
+<LI>Te podÃ©s conectar desde cualquier mÃ¡quina, o de todas al mismo tiempo!!
 </LI>
-<LI>Podés ofrecer servicios a Internet desde distintas maquinas en la red 
+<LI>PodÃ©s ofrecer servicios a Internet desde distintas maquinas en la red 
 interna 
 </LI>
 <LI>Tener control de donde se navega, o donde no se puede.
@@ -250,15 +250,15 @@ Contras</A>
 <P>
 
 <UL>
-<LI>Si tenés una conexión de baja velocidad, digamos un acceso telefónico, el 
-ancho de banda será distribuido entre las diferentes máquinas que generen 
+<LI>Si tenÃ©s una conexiÃ³n de baja velocidad, digamos un acceso telefÃ³nico, el 
+ancho de banda serÃ¡ distribuido entre las diferentes mÃ¡quinas que generen 
 peticiones a Internet. Esto no es tan terrible si vas a navegar y chequear 
-correo, pero si querés jugar algún juego en red con gráficos pesados y 
-demás, vas a tener menor rendimiento.
+correo, pero si querÃ©s jugar algÃºn juego en red con grÃ¡ficos pesados y 
+demÃ¡s, vas a tener menor rendimiento.
 
 <P>
-Personalmente, creo que es mejor poder conectarte de cualquier máquina sin 
-tener que gritarle a tu hermano que deje de chatear porque le tenés que enviar 
+Personalmente, creo que es mejor poder conectarte de cualquier mÃ¡quina sin 
+tener que gritarle a tu hermano que deje de chatear porque le tenÃ©s que enviar 
 un TP a un amigo de la facu.
 
 <P>
@@ -274,17 +274,17 @@ un TP a un amigo de la facu.
 </H1>
 
 <P>
-Veremos básicamente tres formas de conectarnos a Internet, lo que determinará 
-la topología de nuestra red.
+Veremos bÃ¡sicamente tres formas de conectarnos a Internet, lo que determinarÃ¡ 
+la topologÃ­a de nuestra red.
 
 <P>
 Digamos que lo ideal es disponer, en el <B>server</B>, de dos placas de red, en 
-el caso de tener una conexión ADSL o Cablemodem. Sin embargo, si lo que tenemos
-es una conexión telefónica, nos será más que suficiente una sola placa de red
+el caso de tener una conexiÃ³n ADSL o Cablemodem. Sin embargo, si lo que tenemos
+es una conexiÃ³n telefÃ³nica, nos serÃ¡ mÃ¡s que suficiente una sola placa de red
 y el modem.
 
 <P>
-<B>Nota</B>: Para conectar más de dos máquinas entre sí, es necesario disponer 
+<B>Nota</B>: Para conectar mÃ¡s de dos mÃ¡quinas entre sÃ­, es necesario disponer 
 de un Hub o un Switch (centralizadores de conexiones para redes UTP) y 
 utilizar cables UTP rectos/cruzados.
 
@@ -297,17 +297,17 @@ utilizar cables UTP rectos/cruzados.
 <P>
 
 <OL>
-<LI>Una máquina
+<LI>Una mÃ¡quina
 </LI>
-<LI>Para una conexión ADSL, una o dos placas de red y el modem ADSL
+<LI>Para una conexiÃ³n ADSL, una o dos placas de red y el modem ADSL
 </LI>
-<LI>Para una conexión Cablemodem, dos placas de red
+<LI>Para una conexiÃ³n Cablemodem, dos placas de red
 </LI>
-<LI>Para una conexión Telefónica una placa de red y un modem
+<LI>Para una conexiÃ³n TelefÃ³nica una placa de red y un modem
 </LI>
-<LI>Un Hub (según el caso)
+<LI>Un Hub (segÃºn el caso)
 </LI>
-<LI>Cables de red (Cruzado o Recto, depende de la topología de red)
+<LI>Cables de red (Cruzado o Recto, depende de la topologÃ­a de red)
 </LI>
 </OL> 
 
@@ -320,7 +320,7 @@ utilizar cables UTP rectos/cruzados.
 <P>
 
 <OL>
-<LI>Un sistema operativo como la gente: GNU/Linux (cualquier distribución)
+<LI>Un sistema operativo como la gente: GNU/Linux (cualquier distribuciÃ³n)
 </LI>
 <LI>iptables - iproute  (Kernels 2.4), o bien
 
@@ -332,14 +332,14 @@ ipchains - ifconfig (Kernels 2.2)
 <P>
 
 <H1><A NAME="SECTION00050000000000000000">
-4 Elección de rangos IP y un poco de redes</A>
+4 ElecciÃ³n de rangos IP y un poco de redes</A>
 </H1>
 
 <P>
-Básicamente, lo que necesitás hacer es elegir un rango de IPs privado.
+BÃ¡sicamente, lo que necesitÃ¡s hacer es elegir un rango de IPs privado.
 Para la gente que desconoce lo que esto significa, me voy a limitar a contarles
 que es un rango de IPs que en Internet no van a encontrar nunca, debido 
-justamente a que es "privada", solo las verán, valga la redundancia, en redes
+justamente a que es "privada", solo las verÃ¡n, valga la redundancia, en redes
 privadas.
 
 <P>
@@ -349,12 +349,12 @@ Estos son algunos de los rangos de IPs privadas disponibles:
 <DIV ALIGN="CENTER">
 <TABLE CELLPADDING=3 BORDER="1">
 <TR><TD ALIGN="LEFT">Red</TD>
-<TD ALIGN="LEFT">Máscara</TD>
-<TD ALIGN="LEFT">Descripción</TD>
+<TD ALIGN="LEFT">MÃ¡scara</TD>
+<TD ALIGN="LEFT">DescripciÃ³n</TD>
 </TR>
 <TR><TD ALIGN="LEFT">127.0.0.0</TD>
 <TD ALIGN="LEFT">255.0.0.0</TD>
-<TD ALIGN="LEFT">Dispositivos de loopback (No las podés usar)</TD>
+<TD ALIGN="LEFT">Dispositivos de loopback (No las podÃ©s usar)</TD>
 </TR>
 <TR><TD ALIGN="LEFT">10.0.0.0</TD>
 <TD ALIGN="LEFT">255.0.0.0</TD>
@@ -372,27 +372,27 @@ Estos son algunos de los rangos de IPs privadas disponibles:
 </DIV>
 
 <P>
-Es posible que esto de la red les suene un poco extraño si no están 
-familiarizados con el manejo de los rangos y máscaras, pero no se preocupen,
+Es posible que esto de la red les suene un poco extraÃ±o si no estÃ¡n 
+familiarizados con el manejo de los rangos y mÃ¡scaras, pero no se preocupen,
 ahora veremos unos ejemplos concretos. Mientras tanto, si les interesa saber
-como partir una red, ver como funcionan las máscaras y demás, les recomiendo
-una página útil para comenzar a entender como se disponen estas cosas:
+como partir una red, ver como funcionan las mÃ¡scaras y demÃ¡s, les recomiendo
+una pÃ¡gina Ãºtil para comenzar a entender como se disponen estas cosas:
 
 <P>
 <code>http://www.htmlweb.net/redes/subredes/subredes_1.html</code>
 
 <P>
-Centrándonos un poco más en nuestra red, supongamos que les asignamos un rango 
-de IP del último grupo, es decir, por ejemplo, "192.168.0.0". Nuestra máscara 
-de red será "255.255.255.0".  
+CentrÃ¡ndonos un poco mÃ¡s en nuestra red, supongamos que les asignamos un rango 
+de IP del Ãºltimo grupo, es decir, por ejemplo, "192.168.0.0". Nuestra mÃ¡scara 
+de red serÃ¡ "255.255.255.0".  
 Digamos que nuestra red esta compuesta por un <B>server</B> y dos <B>clientes</B>, los configuraremos de la siguiente manera:
 
 <P>
 <DIV ALIGN="CENTER">
 <TABLE CELLPADDING=3 BORDER="1">
-<TR><TD ALIGN="LEFT">Máquina</TD>
+<TR><TD ALIGN="LEFT">MÃ¡quina</TD>
 <TD ALIGN="LEFT">IP</TD>
-<TD ALIGN="LEFT">Máscara de red</TD>
+<TD ALIGN="LEFT">MÃ¡scara de red</TD>
 </TR>
 <TR><TD ALIGN="LEFT"><B>server</B></TD>
 <TD ALIGN="LEFT">192.168.0.1</TD>
@@ -410,21 +410,21 @@ Digamos que nuestra red esta compuesta por un <B>server</B> y dos <B>clientes</B
 </DIV>
 
 <P>
-¿Por qué? Porque así se me ocurrió, nada más que por eso... Igualmente pensá 
-que al seleccionar las IPs tenés que estas dentro del rango xxx.xxx.xxx.1 - 
-xxx.xxx.xxx.254.  Si querés saber porqué, leé el documento de la dirección 
-especificada más arriba.
+Â¿Por quÃ©? Porque asÃ­ se me ocurriÃ³, nada mÃ¡s que por eso... Igualmente pensÃ¡ 
+que al seleccionar las IPs tenÃ©s que estas dentro del rango xxx.xxx.xxx.1 - 
+xxx.xxx.xxx.254.  Si querÃ©s saber porquÃ©, leÃ© el documento de la direcciÃ³n 
+especificada mÃ¡s arriba.
 
 <P>
 
 <H1><A NAME="SECTION00060000000000000000">
-5 Qué es una Topología de red</A>
+5 QuÃ© es una TopologÃ­a de red</A>
 </H1>
 
 <P>
-Por topología de red, se entiende la forma en la cual esta diseñada la red a 
-la que pertenecemos. Esto incluye desde la cantidad de máquinas que hay, hasta 
-la forma en la cual están interconectadas.
+Por topologÃ­a de red, se entiende la forma en la cual esta diseÃ±ada la red a 
+la que pertenecemos. Esto incluye desde la cantidad de mÃ¡quinas que hay, hasta 
+la forma en la cual estÃ¡n interconectadas.
 
 <P>
 
@@ -435,21 +435,21 @@ la forma en la cual están interconectadas.
 <P>
 
 <H2><A NAME="SECTION00071000000000000000">
-6.1 Situación ideal y Topología de la red</A>
+6.1 SituaciÃ³n ideal y TopologÃ­a de la red</A>
 </H2>
 
 <P>
-Idealizando la situación, supongamos que tenemos dos placas de red en el <B>server</B>, el modem ADSL y dos máquinas <B>cliente</B> (o más de estos últimos).
+Idealizando la situaciÃ³n, supongamos que tenemos dos placas de red en el <B>server</B>, el modem ADSL y dos mÃ¡quinas <B>cliente</B> (o mÃ¡s de estos Ãºltimos).
 En este caso, necesitaremos para conectar toda nuestra red, un Hub o Switch.
 
 <P>
 Si solamente tenemos el <B>server</B>  (con dos placas de red), modem ADSL y una 
-sola máquina <B>cliente</B>, no será necesario ni un Hub ni un Switch. 
+sola mÃ¡quina <B>cliente</B>, no serÃ¡ necesario ni un Hub ni un Switch. 
 
 <P>
 
 <H3><A NAME="SECTION00071100000000000000">
-Para el primer caso (dos o más <B>clientes</B>, y un Hub)</A>
+Para el primer caso (dos o mÃ¡s <B>clientes</B>, y un Hub)</A>
 </H3>
 
 <P>
@@ -461,7 +461,7 @@ Hub/Switch, de la siguiente manera:
 <TABLE  WIDTH="95%">
 <TR><TD>
 <PRE>
- Linea Telefónica                                  ========&gt; CLIENTE-1
+ Linea TelefÃ³nica                                  ========&gt; CLIENTE-1
    ^                                               ||
    |                         -----                 ||
    |                         | L | eth0      ----------------
@@ -481,7 +481,7 @@ Para el segundo caso (Un solo <B>cliente</B>, y sin Hub)</A>
 
 <P>
 Para el modem ADSL no hay cambio, lo conectamos a la placa de red eth1, y la
-placa restante en el <B>server</B>, irá directamente conectada a la placa de
+placa restante en el <B>server</B>, irÃ¡ directamente conectada a la placa de
 red del <B>cliente</B>, quedando de la siguiente manera:
 
 <P>
@@ -489,7 +489,7 @@ red del <B>cliente</B>, quedando de la siguiente manera:
 <TR><TD>
 <PRE> 
 
-  Linea Telefónica
+  Linea TelefÃ³nica
     ^
     |                       -----
     |                       | L | eth0
@@ -505,23 +505,23 @@ red del <B>cliente</B>, quedando de la siguiente manera:
 </TABLE>
 
 <P>
-Espero se hayan dado cuenta de las diferencias en ambos gráficos, en cuanto al
+Espero se hayan dado cuenta de las diferencias en ambos grÃ¡ficos, en cuanto al
 cable UTP utilizado para conectar eth0. Esto no es un error, sino para
-diferenciar explícitamente el tipo de cable a utilizar, que es muy importante,
-de lo contrario nuestra red no podrá funcionar.
+diferenciar explÃ­citamente el tipo de cable a utilizar, que es muy importante,
+de lo contrario nuestra red no podrÃ¡ funcionar.
 
 <P>
 En el primer caso, el cable UTP que conecta la eth0 del <B>server</B> al
-Hub/Switch y este a los <B>clientes</B>, está representado por <code>&lt;====&gt;</code>,
+Hub/Switch y este a los <B>clientes</B>, estÃ¡ representado por <code>&lt;====&gt;</code>,
 lo que significa que el tipo de UTP a utilizar es "recto" (debido a la
-topología de red).
+topologÃ­a de red).
 
 <P>
-Para el segundo ejemplo, el UTP que conecta la eth0 del <B>server</B> al <B>cliente</B>, está simbolizado por <code>&lt;-XXXX-&gt;</code>, que nos indica que debemos
+Para el segundo ejemplo, el UTP que conecta la eth0 del <B>server</B> al <B>cliente</B>, estÃ¡ simbolizado por <code>&lt;-XXXX-&gt;</code>, que nos indica que debemos
 emplear un UTP <I>cruzado</I> (Crossover).
 
 <P>
-Noten, también, que el cable de conexión desde el modem ADSL a la eth1 del <B>server</B> es <B>SIEMPRE</B> recto.
+Noten, tambiÃ©n, que el cable de conexiÃ³n desde el modem ADSL a la eth1 del <B>server</B> es <B>SIEMPRE</B> recto.
 
 <P>
 Antes de conectarnos a Internet, configuraremos las placas de red del
@@ -538,9 +538,9 @@ anteriormente):
 </UL>
 
 <P>
-¿Cómo hacemos esto? Bueno, utilizando iproute, o bien ifconfig. Personalmente 
-prefiero iproute, por ser mas versátil. Una ventaja muy grande sobre ifconfig, 
-es que se puede asignar muy fácilmente una segunda dirección IP a la placa de 
+Â¿CÃ³mo hacemos esto? Bueno, utilizando iproute, o bien ifconfig. Personalmente 
+prefiero iproute, por ser mas versÃ¡til. Una ventaja muy grande sobre ifconfig, 
+es que se puede asignar muy fÃ¡cilmente una segunda direcciÃ³n IP a la placa de 
 red.    
 
 <P>
@@ -548,7 +548,7 @@ Necesitamos tener acceso al sistema como superusuario para esto, por lo tanto,
 si no estas logueado como root, es un buen momento para hacer un <code>su</code>.
 
 <P>
-<B>Nota:</B> ¡¡Todo esto se hace suponiendo que la red no esta configurada!!
+<B>Nota:</B> Â¡Â¡Todo esto se hace suponiendo que la red no esta configurada!!
 
 <P>
 Comandos:
@@ -577,11 +577,11 @@ Comandos:
 
 <P>
 Lamentablemente, iproute es un paquete muy poco documentado, por lo tanto
-se aprende rompiendo un poco las cosas. Bueno, en realidad no es tan drástico
+se aprende rompiendo un poco las cosas. Bueno, en realidad no es tan drÃ¡stico
 esto, podes desconfigurar la red, pero romper, no vas a romper nada. 
 
 <P>
-Si querés ver lo que podes hacer con ip, podes por ejemplo, poner "ip addr 
+Si querÃ©s ver lo que podes hacer con ip, podes por ejemplo, poner "ip addr 
 help".
 
 <P>
@@ -591,9 +591,9 @@ Brevemente, lo que hicimos fue:
 <code># ip addr add 192.168.1.1/32 dev eth1</code>
 
 <P>
-Le dijimos a IP que agregue (add) una dirección (addr) al dispositivo (dev) 
-eth1. La situación es la misma para eth0, salvo que acá especificamos la 
-dirección de <B>broadcast</B> que utilizaremos (para la red "/0", siempre es 
+Le dijimos a IP que agregue (add) una direcciÃ³n (addr) al dispositivo (dev) 
+eth1. La situaciÃ³n es la misma para eth0, salvo que acÃ¡ especificamos la 
+direcciÃ³n de <B>broadcast</B> que utilizaremos (para la red "/0", siempre es 
 esa).
 
 <P>
@@ -602,7 +602,7 @@ muestre (show) las direcciones (addr) de todos los dispositivos de red en el
 <B>server</B>.
 
 <P>
-Lo más importante, es la siguiente linea:
+Lo mÃ¡s importante, es la siguiente linea:
 
 <P>
 <TABLE  WIDTH="90%">
@@ -618,26 +618,26 @@ Lo más importante, es la siguiente linea:
 </TABLE>
 
 <P>
-En donde nos especifica la dirección de la placa, la dirección de <B>broadcast</B>, y el dispositivo al que pertenece todo esto (eth0 en este caso)
+En donde nos especifica la direcciÃ³n de la placa, la direcciÃ³n de <B>broadcast</B>, y el dispositivo al que pertenece todo esto (eth0 en este caso)
 
 <P>
-Una vez hecho esto, la configuración de la red del <B>server</B>, está
+Una vez hecho esto, la configuraciÃ³n de la red del <B>server</B>, estÃ¡
 terminada. Nos queda configurar el daemon para conectarse y el firewall.
 
 <P>
 
 <H2><A NAME="SECTION00072000000000000000">
-6.2 Una situación no tan ideal</A>
+6.2 Una situaciÃ³n no tan ideal</A>
 </H2>
 
 <P>
 Bien, supongamos ahora que, sea por poco presupuesto, o bien no nos quedan mas
-slots PCI/ISA, no podemos tener una máquina con dos placas de red, sino una
+slots PCI/ISA, no podemos tener una mÃ¡quina con dos placas de red, sino una
 sola.
 
 <P>
-Por lo tanto, necesitaremos disponer de un <B>server</B>, un modem ADSL, un <B>cliente</B> (o más) y necesariamente un Hub/Switch. Este último dispositivo, es 
-necesario si queremos armar una red UTP con estas características.
+Por lo tanto, necesitaremos disponer de un <B>server</B>, un modem ADSL, un <B>cliente</B> (o mÃ¡s) y necesariamente un Hub/Switch. Este Ãºltimo dispositivo, es 
+necesario si queremos armar una red UTP con estas caracterÃ­sticas.
 
 <P>
 <B>Nota:</B> Para otro tipo de redes (SLIP, Seriales) no es necesario el Hub.
@@ -649,7 +649,7 @@ Veamos entonces, un esquema de nuestra red:
 <TABLE  WIDTH="90%">
 <TR><TD><PRE>
                                               eth0  -----
-  Linea Telefónica                  ==============&gt; | L |
+  Linea TelefÃ³nica                  ==============&gt; | L |
         ^                           ||              | I |
         |                           ||              | N |
         |                           ||              | U |
@@ -664,51 +664,51 @@ Veamos entonces, un esquema de nuestra red:
 </TABLE>
 
 <P>
-Como pueden ver, la topología de nuestra red cambia radicalmente. Ahora,
+Como pueden ver, la topologÃ­a de nuestra red cambia radicalmente. Ahora,
 nuestro modem ADSL se conecta al Hub/Switch (en vez de hacerlo al <B>server</B>), y mediante un cable UTP cruzado (en lugar de uno recto). 
 
 <P>
 <B>Diferencias:</B>
 
 <P>
-Con este tipo de configuración, podés llegar a generarte mas tráfico en el 
-Hub, que también es conocido como un repetidor. Básicamente lo que hace este
+Con este tipo de configuraciÃ³n, podÃ©s llegar a generarte mas trÃ¡fico en el 
+Hub, que tambiÃ©n es conocido como un repetidor. BÃ¡sicamente lo que hace este
 ultimo, es repetir los paquetes que le llegan de una boca determinada, al las
 restantes. 
-La placa de red a la cual está destinado este paquete lo acepta, el resto lo
+La placa de red a la cual estÃ¡ destinado este paquete lo acepta, el resto lo
 descartan.   
 
 <P>
-Esto te va a generar un tráfico bastante alto en el Hub, porque pensá que
+Esto te va a generar un trÃ¡fico bastante alto en el Hub, porque pensÃ¡ que
 ahora, los pedidos de los <B>clientes</B> se van a hacer al <B>server</B> en la 
-interfase eth0, y a la vez este, también va a hacer sus pedidos al modem en esa 
-misma interfaz. El modem a su vez, responderá a esta última, generando así una
-congestión muy alta en el repetidor, y que como consecuencia, provocara
+interfase eth0, y a la vez este, tambiÃ©n va a hacer sus pedidos al modem en esa 
+misma interfaz. El modem a su vez, responderÃ¡ a esta Ãºltima, generando asÃ­ una
+congestiÃ³n muy alta en el repetidor, y que como consecuencia, provocara
 colisiones entre paquetes, y posibles perdidas de estos.
 
 <P>
-Si tenés un Switch, todo este tema va a ser manejado mucho mejor por el 
+Si tenÃ©s un Switch, todo este tema va a ser manejado mucho mejor por el 
 dispositivo, que no es propiamente dicho un repetidor. Muy por encima de su 
 funcionamiento real (porque tampoco lo conozco con exactitud), les puedo 
-contar que posee un caché que le permite recordar en qué puertos están 
-conectadas las máquinas a las que le corresponde el paquete que está recibiendo
-o enviando, reduciendo radicalmente el tráfico en él.
+contar que posee un cachÃ© que le permite recordar en quÃ© puertos estÃ¡n 
+conectadas las mÃ¡quinas a las que le corresponde el paquete que estÃ¡ recibiendo
+o enviando, reduciendo radicalmente el trÃ¡fico en Ã©l.
 
 <P>
-Actualmente, el precio de un Hub ronda los U$S 50 acá en Argentina, y un 
-Switch, bueno, mejor no hablar de eso. Si estas buscando la opción 
-económica, te propongo un Hub o comprarte otra placa de red si tenés slots 
+Actualmente, el precio de un Hub ronda los U$S 50 acÃ¡ en Argentina, y un 
+Switch, bueno, mejor no hablar de eso. Si estas buscando la opciÃ³n 
+econÃ³mica, te propongo un Hub o comprarte otra placa de red si tenÃ©s slots 
 libres.
 
 <P>
-Volviendo a lo que es la configuración, nos resta configurar la placa de red 
+Volviendo a lo que es la configuraciÃ³n, nos resta configurar la placa de red 
 eth0 del <B>server</B>, de la  siguiente forma:
 
 <P>
 <code>[root@foo /]# ip addr add 192.168.0.1/0 dev eth0</code>
 
 <P>
-Si querés saber qué hicimos, leé la sección anterior.
+Si querÃ©s saber quÃ© hicimos, leÃ© la secciÃ³n anterior.
 
 <P>
 
@@ -722,7 +722,7 @@ Si querés saber qué hicimos, leé la sección anterior.
 <P>
 
 <H1><A NAME="SECTION00090000000000000000">
-8 Preparando un Gateway Telefónico</A>
+8 Preparando un Gateway TelefÃ³nico</A>
 </H1>
 
 <P>
@@ -731,13 +731,13 @@ Si querés saber qué hicimos, leé la sección anterior.
 <P>
 
 <H1><A NAME="SECTION000100000000000000000">
-9 Configurando el Daemon de Conexión y un Firewall</A>
+9 Configurando el Daemon de ConexiÃ³n y un Firewall</A>
 </H1>
 
 <P>
-Bien, en este momento nos encontramos con la configuración de red de nuestro
-<B>servidor</B> terminada. Lo siguiente que haremos, será configurar los daemons
-necesarios para cada tipo de conexión, y a su vez, configurar un firewall que
+Bien, en este momento nos encontramos con la configuraciÃ³n de red de nuestro
+<B>servidor</B> terminada. Lo siguiente que haremos, serÃ¡ configurar los daemons
+necesarios para cada tipo de conexiÃ³n, y a su vez, configurar un firewall que
 nos permita proveer Internet a nuestra red interna.
 
 <P>
@@ -749,12 +749,12 @@ nos permita proveer Internet a nuestra red interna.
 <P>
 Deberemos tener instalados los protocolos ppp y pppoe, ambos disponibles en
 cualquier distro, y normalmente instalados por defecto.
-Para configurar el daemon de conexión de ADSL, hay distintas herramientas que
-nos posibilitan una configuración rápida y efectiva.
-Haremos mención de dos de ellas, las mas utilizadas (y las únicas que conozco), que son el rp-pppoe, y el pppoeconf.
+Para configurar el daemon de conexiÃ³n de ADSL, hay distintas herramientas que
+nos posibilitan una configuraciÃ³n rÃ¡pida y efectiva.
+Haremos menciÃ³n de dos de ellas, las mas utilizadas (y las Ãºnicas que conozco), que son el rp-pppoe, y el pppoeconf.
 
 <P>
-El pppoeconf viene empaquetado por defecto en la distribución Debian Woody,
+El pppoeconf viene empaquetado por defecto en la distribuciÃ³n Debian Woody,
 pero de no haberlo instalado, pueden simplemente hacer:
 
 <P>
@@ -770,14 +770,14 @@ pero de no haberlo instalado, pueden simplemente hacer:
 </PRE>
 
 <P>
-Para cualquier otra distribución, esta disponible el paquete <I>r</I>p-pppoe,
-que puede ser descargado en su forma binaria(rpm's), o su código fuente. No
+Para cualquier otra distribuciÃ³n, esta disponible el paquete <I>r</I>p-pppoe,
+que puede ser descargado en su forma binaria(rpm's), o su cÃ³digo fuente. No
 tiene mayores complicaciones al compilarlo, y pueden obtener ambos de la
-siguiente dirección:
+siguiente direcciÃ³n:
 
 <P>
 <code>http://www.roaringpenguin.com/pppoe/</code>
-en donde pueden además, encontrar su documentación online, instalación, y demás
+en donde pueden ademÃ¡s, encontrar su documentaciÃ³n online, instalaciÃ³n, y demÃ¡s
 cosas ...
 
 <P>
@@ -796,9 +796,9 @@ cosas ...
 </H3>
 
 <P>
-Una vez compilado, o instalado, es sumamente fácil utilizarlo.
-Primero que nada, deberemos configurar varios parámetros que nos permitirán
-acceder a Internet, y esto lo haremos usando un script de configuración
+Una vez compilado, o instalado, es sumamente fÃ¡cil utilizarlo.
+Primero que nada, deberemos configurar varios parÃ¡metros que nos permitirÃ¡n
+acceder a Internet, y esto lo haremos usando un script de configuraciÃ³n
 llamado <B>adsl-setup</B>.
 
 <P>
@@ -811,15 +811,15 @@ Este nos preguntara las siguientes cosas:
 </LI>
 <LI>Interfaz en la cual esta conectado el Modem ADSL
 </LI>
-<LI>Activar la conexión bajo demanda
+<LI>Activar la conexiÃ³n bajo demanda
 </LI>
-<LI>Información sobre DNS's
+<LI>InformaciÃ³n sobre DNS's
 </LI>
-<LI>Contraseña
+<LI>ContraseÃ±a
 </LI>
 <LI>Activar Firewall
 </LI>
-<LI>Confirmación de datos 
+<LI>ConfirmaciÃ³n de datos 
 <BR>
 <BR>
 <P>
@@ -839,42 +839,42 @@ Deberemos ingresar el nombre de usuario que nos fue asignado por el <B>ISP</B>
 <LI>Interfaz en la cual esta conectado el Modem ADSL
 
 <P>
-... es bastante autoexplicativo ... ¿no?
+... es bastante autoexplicativo ... Â¿no?
 
 <P>
 </LI>
-<LI>Activar conexión bajo demanda
+<LI>Activar conexiÃ³n bajo demanda
 
 <P>
 En caso que no queramos que el <B>servidor</B> este conectado permanentemente,
-deberemos seleccionar esta opción. Esto hará que el enlace establecido con el
-<B>ISP</B> sea cortado si no hay actividad después de cierto tiempo. Lo más
-recomendable, es, como estamos utilizando una conexión que no tiene costo
+deberemos seleccionar esta opciÃ³n. Esto harÃ¡ que el enlace establecido con el
+<B>ISP</B> sea cortado si no hay actividad despuÃ©s de cierto tiempo. Lo mÃ¡s
+recomendable, es, como estamos utilizando una conexiÃ³n que no tiene costo
 alguno, que el enlace este activo, por mas que no se registre actividad alguna,
-esto no nos generara ningún tipo de problemas.
+esto no nos generara ningÃºn tipo de problemas.
 
 <P>
 </LI>
-<LI>Información sobre DNS's
+<LI>InformaciÃ³n sobre DNS's
 
 <P>
-De activar esta opción, nuestro archivo <code>/etc/resolv.conf</code> será
-modificado por el daemon, utilizando así, los DNS's provistos por el <I>D</I>HCP de nuestro <B>servidor</B>.
+De activar esta opciÃ³n, nuestro archivo <code>/etc/resolv.conf</code> serÃ¡
+modificado por el daemon, utilizando asÃ­, los DNS's provistos por el <I>D</I>HCP de nuestro <B>servidor</B>.
 
 <P>
 </LI>
-<LI>Contraseña
+<LI>ContraseÃ±a
 
 <P>
-Se nos solicitara ingresar la contraseña ... 2 veces.
+Se nos solicitara ingresar la contraseÃ±a ... 2 veces.
 
 <P>
 </LI>
 <LI>Activar Firewall
 
 <P>
-Acá podremos seleccionar 3 tipos diferentes de firewall, desde ninguno, hasta
-un símil de paranoia.
+AcÃ¡ podremos seleccionar 3 tipos diferentes de firewall, desde ninguno, hasta
+un sÃ­mil de paranoia.
 
 <P>
 Les recomiendo que no seleccionen ninguno, ya que lo configuraremos nosotros
@@ -882,22 +882,22 @@ antes de conectaremos.
 
 <P>
 </LI>
-<LI>Confirmación de Datos
+<LI>ConfirmaciÃ³n de Datos
 
 <P>
-Terminada la configuración, deberemos decidir si esta todo bien.
+Terminada la configuraciÃ³n, deberemos decidir si esta todo bien.
 
 <P>
 </LI>
 </UL>
 
 <P>
-Con esto, estamos listos para conectarnos, ejecutando el comando <B>adsl-start</B>. No obstante, no nos convendría hacerlo todavía, debido a que
-nuestro <I>f</I>irewall todavía no esta corriendo, y estaríamos exponiéndonos
-a la intrusión a nuestra red de algún usuario malintencionado.
+Con esto, estamos listos para conectarnos, ejecutando el comando <B>adsl-start</B>. No obstante, no nos convendrÃ­a hacerlo todavÃ­a, debido a que
+nuestro <I>f</I>irewall todavÃ­a no esta corriendo, y estarÃ­amos exponiÃ©ndonos
+a la intrusiÃ³n a nuestra red de algÃºn usuario malintencionado.
 
 <P>
-Por lo tanto, el próximo paso, es configurar nuestro <I>f</I>irewall !!
+Por lo tanto, el prÃ³ximo paso, es configurar nuestro <I>f</I>irewall !!
 
 <P>
 
@@ -911,7 +911,7 @@ Por lo tanto, el próximo paso, es configurar nuestro <I>f</I>irewall !!
 <P>
 
 <H2><A NAME="SECTION000103000000000000000">
-9.3 Acceso Telefónico</A>
+9.3 Acceso TelefÃ³nico</A>
 </H2>
 
 <P>
@@ -920,67 +920,67 @@ Por lo tanto, el próximo paso, es configurar nuestro <I>f</I>irewall !!
 <P>
 
 <H1><A NAME="SECTION000110000000000000000">
-10 Configurando el Firewall y compartiendo la conexión</A>
+10 Configurando el Firewall y compartiendo la conexiÃ³n</A>
 </H1>
 
 <P>
 
 <H2><A NAME="SECTION000111000000000000000">
-10.1 Un poco de teoría</A>
+10.1 Un poco de teorÃ­a</A>
 </H2>
 
 <P>
-Primero que nada, un poco de teoría básica sobre lo que realmente esta pasando
-al compartir una conexión a Internet con una red interna (no necesitas leerlo,
+Primero que nada, un poco de teorÃ­a bÃ¡sica sobre lo que realmente esta pasando
+al compartir una conexiÃ³n a Internet con una red interna (no necesitas leerlo,
 pero digamos que "lo que no te mata, te hace mas fuerte").
 
 <P>
-El método empleado que utilizaremos para compartir nuestra conexión, es el
+El mÃ©todo empleado que utilizaremos para compartir nuestra conexiÃ³n, es el
 conocido como <I>M</I>ASQUERADE. Este, es una forma particular de <I>N</I>AT,
-<I>N</I>etwork Address Translation (Traducción de Direcciones de Red),
-denominado <I>S</I>OURCE NAT o también referido por sus siglas <I>S</I>NAT.
+<I>N</I>etwork Address Translation (TraducciÃ³n de Direcciones de Red),
+denominado <I>S</I>OURCE NAT o tambiÃ©n referido por sus siglas <I>S</I>NAT.
 
 <P>
 El escenario es el siguiente, por un lado tenemos la red de redes, y nuestra
-red privada. Por como están dispuestas las cosas (digamos, dogmáticamente),
+red privada. Por como estÃ¡n dispuestas las cosas (digamos, dogmÃ¡ticamente),
 las IPs que pertenecen a nuestra red privada, no pueden tener contacto alguno
 con las direcciones publicas de internet. Es por esto que necesitamos nuestro
 <B>gateway</B> para comunicarnos con el resto del mundo exterior.
 
 <P>
-¿Pero cómo nos comunicamos realmente? Bueno, de esto se encarga el <I>S</I>OURCE NAT. Nuestros pedidos por una pagina web, consulta POP, SMTP, y
+Â¿Pero cÃ³mo nos comunicamos realmente? Bueno, de esto se encarga el <I>S</I>OURCE NAT. Nuestros pedidos por una pagina web, consulta POP, SMTP, y
 cualquier otro tipo de servicio en la red publica, son realizados a la
 interfase privada de nuestro <B>server</B>, y este identifica que el pedido es
 para el mundo publico de internet. Pero surge el inconveniente que nuestra IP
 es privada, por lo tanto no puede existir en la red de redes. En consecuencia
 nuestro <B>gateway</B> modifica el pedido que ha realizado el <B>cliente</B>
-cambiándole la <I>I</I>P fuente (IP del <B>cliente</B>) por su IP (IP del
+cambiÃ¡ndole la <I>I</I>P fuente (IP del <B>cliente</B>) por su IP (IP del
 <B>server</B>), y marcando el paquete de forma tal que, cuando la respuesta
 remota es recibida, es identificada por nuestro <I>f</I>irewall y
 "redireccionada" al <B>cliente</B> que origino el pedido.
 
 <P>
 Por lo tanto, esto significa que los pedidos que se realizan en la red interna,
-hacia la red publica, serán vistos por esta ultima como si hubiesen sido
+hacia la red publica, serÃ¡n vistos por esta ultima como si hubiesen sido
 originados por la interfaz publica del <B>server</B>, dicho de otra forma, para
 Internet, el origen de los paquetes enviados desde la red interna sera,
 <I>S</I>IEMPRE, la IP publica asignada por nuestro <B>ISP</B> al <B>server</B>.
 
 <P>
-Si querés saber mas sobre este tema, fijate en la "Bibliografía recomendada
+Si querÃ©s saber mas sobre este tema, fijate en la "BibliografÃ­a recomendada
 para el hambre de conocimiento". 8-D
 
 <P>
 
 <H2><A NAME="SECTION000112000000000000000">
-10.2 Construcción del Firewall, ensuciándonos las mandos...</A>
+10.2 ConstrucciÃ³n del Firewall, ensuciÃ¡ndonos las mandos...</A>
 </H2>
 
 <P>
 Nuestro primer <I>f</I>irewall sera bastante rudimentario, pero lo
 suficientemente bueno como para poder controlar quien utiliza nuestro
 <B>gateway</B> para acceder a la Nebulosa Internet, y lo haremos de forma tal,
-que podrá ser reutilizado cualquiera sea nuestro tipo de conexión.
+que podrÃ¡ ser reutilizado cualquiera sea nuestro tipo de conexiÃ³n.
 
 <P>
 <PRE>
@@ -996,7 +996,7 @@ que podrá ser reutilizado cualquiera sea nuestro tipo de conexión.
 ##  
 ##  
 ## 
-## Script para la configuración de un firewall hogareño
+## Script para la configuraciÃ³n de un firewall hogareÃ±o
 ##
 ## Dudas y/o comentarios, mandalos a la lista del
 ## LugFI (http://www.fi.uba.ar/lug)
@@ -1006,7 +1006,7 @@ que podrá ser reutilizado cualquiera sea nuestro tipo de conexión.
 
 ## Interfaz publica,
 ##
-##  ADSL / Telefónica =&gt; PUB_IF="ppp0"
+##  ADSL / TelefÃ³nica =&gt; PUB_IF="ppp0"
 ##  Cablemodem        =&gt; PUB_IF="eth0"
 ##
 ##  Para los usuarios de Cablemodem, la interfaz
@@ -1030,11 +1030,11 @@ PRIV_IF="eth0"
 NET="192.168.0.0/0"
 
 ##############################################################
-##### FIN DE PARÁMETROS CONFIGURABLES ... ####################
+##### FIN DE PARÃMETROS CONFIGURABLES ... ####################
 ##############################################################
 
-## La siguiente sección depende de ciertos paquetes instalados
-## en tu distribución, podes modificar lo que sigue a gusto
+## La siguiente secciÃ³n depende de ciertos paquetes instalados
+## en tu distribuciÃ³n, podes modificar lo que sigue a gusto
 ## siempre y cuando sepas como hacerlo 8-).
 ##
 #### Algunos programas que utilizaremos ... #################
@@ -1071,7 +1071,7 @@ if [ "$UID" != "0" ]; then
  $CAT &lt;&lt; _MSG
 
   ---------------------------------------
-  | Atención !!                         |
+  | AtenciÃ³n !!                         |
   | Necesitas acceso como super usuario |
   | para ejecutar iptables !!!!!!!!!!!! |
   |                                     |
@@ -1098,43 +1098,43 @@ if [ -n "$chk" ]; then
 fi
 
 
-## Muestro un pequeño esquema de como esta
+## Muestro un pequeÃ±o esquema de como esta
 ## nuestra conf actual de red
 
 $CAT &lt;&lt; _MSG
 
- ················· [ Cargando Firewall ] ················
- ·
- · Interfaz Publica : .............. $PUB_IF 
- · Interfaz Privada : .............. $PRIV_IF
- ·
- · IP Publica : .................... $PUB_IP
- · IP Privada : .................... $PRIV_IP
- · Red Privada : ................... $NET
- ·
- · Cargando Módulos ...
- ·
- ························································
+ Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â· [ Cargando Firewall ] Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·
+ Â·
+ Â· Interfaz Publica : .............. $PUB_IF 
+ Â· Interfaz Privada : .............. $PRIV_IF
+ Â·
+ Â· IP Publica : .................... $PUB_IP
+ Â· IP Privada : .................... $PRIV_IP
+ Â· Red Privada : ................... $NET
+ Â·
+ Â· Cargando MÃ³dulos ...
+ Â·
+ Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·
 _MSG
 
 
 #########################################################
-## Comienzo la carga de módulos para iptables. ##########
+## Comienzo la carga de mÃ³dulos para iptables. ##########
 ## Primero corroboro las dependencias de los
-## módulos del kernel ...
+## mÃ³dulos del kernel ...
 
 $DEPMOD -a
 
-## Cargo los módulos, verificando que no estén ya cargados
+## Cargo los mÃ³dulos, verificando que no estÃ©n ya cargados
 ##
-## Los módulos cargados son los siguientes:
+## Los mÃ³dulos cargados son los siguientes:
 ##
-## · ip_tables
-## · iptable_nat
-## · ip_nat_ftp
-## · ip_conntrack
-## · ip_conntrack_ftp
-## · ip_conntrack_irc
+## Â· ip_tables
+## Â· iptable_nat
+## Â· ip_nat_ftp
+## Â· ip_conntrack
+## Â· ip_conntrack_ftp
+## Â· ip_conntrack_irc
 ##
 
 
@@ -1143,36 +1143,36 @@ for modulo in ip_tables iptable_nat ip_nat_ftp ip_conntrack \
 
  if [ -z "$($LSMOD |$GREP $modulo)" ]; then
   
-  echo " · cargando $modulo"
+  echo " Â· cargando $modulo"
   $MODPROBE $modulo
 
  fi
 
 done
 
-#### Finalización de carga de Módulos ###################
+#### FinalizaciÃ³n de carga de MÃ³dulos ###################
 #########################################################
 
-echo " · Módulos Cargados ..."
+echo " Â· MÃ³dulos Cargados ..."
 
-echo " · Habilitando forwarding ..."
+echo " Â· Habilitando forwarding ..."
 echo 1 &gt; /proc/sys/net/ipv4/ip_forward
 
-echo " · Políticas por defecto eliminadas ..."
+echo " Â· PolÃ­ticas por defecto eliminadas ..."
 
 #########################################################
-#### Acá comienza la magia de iptables ...
+#### AcÃ¡ comienza la magia de iptables ...
 
 ## Reglas por defecto, muy estrictas.
 
-## · Permito la entrada de paquetes, y reinicio
+## Â· Permito la entrada de paquetes, y reinicio
 ##   la cadena que me lo permite (INPUT)
-## · Permito la salida de paquetes, y reinicio 
+## Â· Permito la salida de paquetes, y reinicio 
 ##   la cadena que lo permite (OUTPUT)
-## · Deniego por defecto todos los paquetes
+## Â· Deniego por defecto todos los paquetes
 ##   que me pidan ser redireccionados y reinicio
 ##   esa cadena (FORWARD)
-## · Reinicio la tabla de NATeo
+## Â· Reinicio la tabla de NATeo
 
 $IPTABLES -P INPUT ACCEPT
 $IPTABLES -F INPUT 
@@ -1183,7 +1183,7 @@ $IPTABLES -F FORWARD
 $IPTABLES -t nat -F
 
 
-## Sección de LOGS
+## SecciÃ³n de LOGS
 ##  Si deseo loguear la actividad de la red por el syslog
 ##  descomentar las siguientes lineas.
 ##  NOTA: si utilizas mucho la red, tus logs pueden crecer mucho
@@ -1194,7 +1194,7 @@ $IPTABLES -t nat -F
 $IPTABLES -t nat -A POSTROUTING --src $NET -o $PUB_IF -j LOG \
           --log-prefix 'NATTING : '
 
-## !!! Alguien que no pertenece a la red está usando nuestro server ...
+## !!! Alguien que no pertenece a la red estÃ¡ usando nuestro server ...
 $IPTABLES -t nat -A POSTROUTING --src ! $NET -o $PUB_IF -j LOG \
           --log-prefix 'INTRUSION !! : '
 
@@ -1205,18 +1205,18 @@ $IPTABLES -A FORWARD -i $PUB_IF -o $PRIV_IF -p tcp --sport ! 22 \
 
 ## Logueo todos los paquetes que entren por la interfase publica y 
 ## cuya fuente es cualquier IP sobre internet, dirigida al puerto 22 
-## (SSH) - útil para saber si alguien esta conectado -
+## (SSH) - Ãºtil para saber si alguien esta conectado -
 $IPTABLES -A INPUT -i $PUB_IF --src 0/0 -p tcp --dport 22 -j LOG \
           --log-prefix 'CONEXION SSH: '
 
 ########################################################################
 
-## Sección SOURCE NAT
+## SecciÃ³n SOURCE NAT
 ## En esta parte, llevamos a cabo la vedette de todos esto,
-## el SNAT, quien nos permite compartir la conexión
+## el SNAT, quien nos permite compartir la conexiÃ³n
 
 ## Solo voy a permitir que los paquetes entren desde afuera hacia la 
-## red interna cuando el estado de esta conexión haya sido establecida 
+## red interna cuando el estado de esta conexiÃ³n haya sido establecida 
 ## desde adentro, y este activa - ESTABLISHED, RELATED - 
 $IPTABLES -A FORWARD -i $PUB_IF -o $PRIV_IF -m state \
           --state ESTABLISHED,RELATED -j ACCEPT
@@ -1234,7 +1234,7 @@ $IPTABLES -t nat -A POSTROUTING --src $NET -o $PUB_IF -j MASQUERADE
 ########################################################################
 
 
-echo " ··················[ Firewall Cargado ]··················"
+echo " Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·[ Firewall Cargado ]Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·"
 
 --- /CUT ---
 </PRE>

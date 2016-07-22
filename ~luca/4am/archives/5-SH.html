@@ -45,12 +45,12 @@
                                         </span>
             
             <div class="serendipity_entry_body">
-                <p>El nombre SH viene de Stack-Heap, porque la idea de este algoritmo es diferenciar las referencias que vienen directamente del stack (directas) de las que vienen del heap (o sea, de otros objetos, serÌan referencias indirectas) de manera tal de poder retrasar la b˙squeda de ciclos lo m·s posible.</p>
+                <p>El nombre SH viene de Stack-Heap, porque la idea de este algoritmo es diferenciar las referencias que vienen directamente del stack (directas) de las que vienen del heap (o sea, de otros objetos, ser√≠an referencias indirectas) de manera tal de poder retrasar la b√∫squeda de ciclos lo m√°s posible.</p>
 
 
             </div>
 
-                        <div class="serendipity_entry_extended"><a id="extended"></a><p>B·sicamente lo que se hace es tener 2 contadores:</p>
+                        <div class="serendipity_entry_extended"><a id="extended"></a><p>B√°sicamente lo que se hace es tener 2 contadores:</p>
 
 <dl>
     <dt>SC o <i>Stack Counter</i></dt>
@@ -58,7 +58,7 @@
     <dt>HC o <i>Heap Counter</i></dt>
         <dd>contador que indica la cantidad de referencias <strong>indirectas</strong> que tengo al objeto.</dd>
 </dl>
-<p>Entonces lo que podemos hacer b·sicamente es lo siguiente. Si al eliminar una referencia el <strong>SC</strong> sigue siendo mayor a 0, no tengo que chequear si hay ciclos, porque tengo garantizado que de haber un ciclo, Èste va a <i>sobrevivir</i> de todos modos.</p>
+<p>Entonces lo que podemos hacer b√°sicamente es lo siguiente. Si al eliminar una referencia el <strong>SC</strong> sigue siendo mayor a 0, no tengo que chequear si hay ciclos, porque tengo garantizado que de haber un ciclo, √©ste va a <i>sobrevivir</i> de todos modos.</p>
 
 <p>Veamos un ejemplo simple en un diagrama:</p>
 
@@ -66,7 +66,7 @@
 
 <p>Si eliminamos la referencia a <strong>A</strong> que tiene una cruz roja, vemos como el ciclo sigue teniendo una referencia externa y por lo tanto no va a tener que ser eliminado. Una desventaja evidente es la necesidad de un contador extra.</p>
 
-<p>Este algoritmo no tiene mucha utilidad en realidad, fue pensado sÛlo para implementar <a target="_self" href="http://www.boost.org/libs/smart_ptr/smart_ptr.htm">smart pointers</a> con detecciÛn de ciclos <strong>no <i>lazy</i></strong> en C++. Al no tener soporte en el compilador y al ser no <i>lazy</i>, de no hacerse esto, se van a verificar ciclos pr·cticamente cada vez que se pase una referencia (<i>smart pointer</i>) por par·metro (que haya sido almacenada en el stack), ya que al retornar de la funciÛn se destruye el <i>smart pointer</i> y Èste iniciarÌa una b˙squeda de ciclos. Veamos un ejemplo con cÛdigo para aclarar:</p>
+<p>Este algoritmo no tiene mucha utilidad en realidad, fue pensado s√≥lo para implementar <a target="_self" href="http://www.boost.org/libs/smart_ptr/smart_ptr.htm">smart pointers</a> con detecci√≥n de ciclos <strong>no <i>lazy</i></strong> en C++. Al no tener soporte en el compilador y al ser no <i>lazy</i>, de no hacerse esto, se van a verificar ciclos pr√°cticamente cada vez que se pase una referencia (<i>smart pointer</i>) por par√°metro (que haya sido almacenada en el stack), ya que al retornar de la funci√≥n se destruye el <i>smart pointer</i> y √©ste iniciar√≠a una b√∫squeda de ciclos. Veamos un ejemplo con c√≥digo para aclarar:</p>
 
 
 <pre><code>void foo()
@@ -78,9 +78,9 @@ void bar(smart_ptr&lt;Objeto&gt; ref)
 {
     return;
 }</code></pre>
-<p>En este caso, usando un conteo de referencias normal, luego del <tt>return</tt> de <tt>bar()</tt> se destruye el <tt>smart_ptr</tt> y debe iniciarse una b˙squeda de ciclos. Si usamos el <strong>SC</strong>, al entrar en <tt>bar()</tt> (al copiarse el <tt>smart_ptr</tt>), el <strong>SC</strong> del <tt>Objeto</tt> ser· 2 y despuÈs del <tt>return</tt>, al destruirse, volver· a ser 1 (y como no es 0, no se necesitar· buscar ciclos).</p>
+<p>En este caso, usando un conteo de referencias normal, luego del <tt>return</tt> de <tt>bar()</tt> se destruye el <tt>smart_ptr</tt> y debe iniciarse una b√∫squeda de ciclos. Si usamos el <strong>SC</strong>, al entrar en <tt>bar()</tt> (al copiarse el <tt>smart_ptr</tt>), el <strong>SC</strong> del <tt>Objeto</tt> ser√° 2 y despu√©s del <tt>return</tt>, al destruirse, volver√° a ser 1 (y como no es 0, no se necesitar√° buscar ciclos).</p>
 
-<p>De disponer soporte en el compilador, probablemente este tipo de optimizaciones puedan hacerse todas con an·lisis est·tico (haciendo <i>Deferred reference counting</i>) y este algoritmo sea completamente in˙til y caro.</p>
+<p>De disponer soporte en el compilador, probablemente este tipo de optimizaciones puedan hacerse todas con an√°lisis est√°tico (haciendo <i>Deferred reference counting</i>) y este algoritmo sea completamente in√∫til y caro.</p>
 
 </div>
             
@@ -122,7 +122,7 @@ void bar(smart_ptr&lt;Objeto&gt; ref)
                 <a id="trackbacks"></a>
                 <div class="serendipity_commentsTitle">Referencias</div>
                     <div class="serendipity_center">
-                        <a rel="nofollow" style="font-weight: normal" href="http://www.lug.fi.uba.ar/~luca/4am/comment.php?type=trackback&amp;entry_id=5" onclick="alert('Este enlace no es para hacer click en &amp;eacute;l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el bot&oacute;n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.'); return false;" title="Este enlace no es para hacer click en &amp;eacute;l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el botÛn derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.">URI de referencia para esta entrada</a>
+                        <a rel="nofollow" style="font-weight: normal" href="http://www.lug.fi.uba.ar/~luca/4am/comment.php?type=trackback&amp;entry_id=5" onclick="alert('Este enlace no es para hacer click en &amp;eacute;l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el bot&oacute;n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.'); return false;" title="Este enlace no es para hacer click en &amp;eacute;l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el bot√≥n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.">URI de referencia para esta entrada</a>
                     </div>
                     <br />
                             <div class="serendipity_center">No hay referencias</div>
@@ -145,7 +145,7 @@ void bar(smart_ptr&lt;Objeto&gt; ref)
                 
                 
                 <br />
-                <div class="serendipity_commentsTitle">AÒadir comentario</div>
+                <div class="serendipity_commentsTitle">A√±adir comentario</div>
                 <div class="serendipityCommentForm">
     <a id="serendipity_CommentForm"></a>
     <form id="serendipity_comment" action="/~luca/4am/index.php?url=archives/5-SH.html#feedback" method="post">
@@ -157,7 +157,7 @@ void bar(smart_ptr&lt;Objeto&gt; ref)
         </tr>
 
         <tr>
-            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_email">Correo electrÛnico</label></td>
+            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_email">Correo electr√≥nico</label></td>
             <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_email" name="serendipity[email]" value="" /></td>
         </tr>
 
@@ -210,7 +210,7 @@ document.getElementById('serendipity_commentform_url').value   = getCommentCooki
         <tr>
             <td>&#160;</td>
             <td class="serendipity_commentsLabel">
-                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]"  /><label for="checkbox_remember">øRecordar la informaciÛn? </label>
+                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]"  /><label for="checkbox_remember">¬øRecordar la informaci√≥n? </label>
                     <br />
                 <input id="checkbox_subscribe" type="checkbox" name="serendipity[subscribe]"  /><label for="checkbox_subscribe">Suscribirse a esta entrada</label>
                 </td>
@@ -219,7 +219,7 @@ document.getElementById('serendipity_commentform_url').value   = getCommentCooki
 
        <tr>
             <td>&#160;</td>
-            <td><input type="submit" name="serendipity[submit]" value="Enviar comentario" /> <input type="submit" name="serendipity[preview]" value="PrevisualizaciÛn" /></td>
+            <td><input type="submit" name="serendipity[submit]" value="Enviar comentario" /> <input type="submit" name="serendipity[preview]" value="Previsualizaci√≥n" /></td>
         </tr>
     </table>
     </form>
@@ -274,19 +274,19 @@ document.write(d);
                     </script></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_categories_plugin">
-        <h3 class="serendipitySideBarTitle serendipity_categories_plugin">CategorÌas</h3>        <div class="serendipitySideBarContent"><div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/10-Charlas" title="Charlas" style="padding-left: 0px">Charlas</a></div>
-<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/2-Codigo" title="CÛdigo" style="padding-left: 0px">CÛdigo</a></div>
+        <h3 class="serendipitySideBarTitle serendipity_categories_plugin">Categor√≠as</h3>        <div class="serendipitySideBarContent"><div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/10-Charlas" title="Charlas" style="padding-left: 0px">Charlas</a></div>
+<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/2-Codigo" title="C√≥digo" style="padding-left: 0px">C√≥digo</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/8-C++" title="C++" style="padding-left: 6px">C++</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/3-Python" title="Python" style="padding-left: 6px">Python</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/1-Institucional" title="Institucional" style="padding-left: 0px">Institucional</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/12-Sistema-Operativo" title="Sistema Operativo" style="padding-left: 0px">Sistema Operativo</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/11-Filesystems" title="Filesystems" style="padding-left: 6px">Filesystems</a></div>
-<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/5-Teoria-de-Lenguaje" title="TeorÌa de Lenguaje" style="padding-left: 0px">TeorÌa de Lenguaje</a></div>
+<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/5-Teoria-de-Lenguaje" title="Teor√≠a de Lenguaje" style="padding-left: 0px">Teor√≠a de Lenguaje</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/9-Concurrencia" title="Concurrencia" style="padding-left: 6px">Concurrencia</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/7-Design-By-Contract" title="Design By Contract" style="padding-left: 6px">Design By Contract</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/4-Garbage-Collection" title="Garbage Collection" style="padding-left: 6px">Garbage Collection</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/6-Reference-Counting" title="Reference Counting" style="padding-left: 12px">Reference Counting</a></div>
-<br /><a href="/~luca/4am/index.php" title="Todas las categorÌas">Todas las categorÌas</a></div>
+<br /><a href="/~luca/4am/index.php" title="Todas las categor√≠as">Todas las categor√≠as</a></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_archives_plugin">
         <h3 class="serendipitySideBarTitle serendipity_archives_plugin">Archivos</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/archives/2007/12.html" title="December 2007">December 2007</a><br />
@@ -309,14 +309,14 @@ document.write(d);
     </div>
     <div class="serendipitySideBarItem container_serendipity_html_nugget_plugin">
         <h3 class="serendipitySideBarTitle serendipity_html_nugget_plugin">Licencia</h3>        <div class="serendipitySideBarContent"><!-- Creative Commons License -->
-<p>Estos artÌculos se publican bajo la licencia
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">AtribuciÛn-CompartirDerivadasIgual 2.5 Argentina</a>.</p>
+<p>Estos art√≠culos se publican bajo la licencia
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">Atribuci√≥n-CompartirDerivadasIgual 2.5 Argentina</a>.</p>
 <div style="text-align: center"><a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ar/deed.es_AR"><img alt="Creative Commons License" border="0" src="http://www.lug.fi.uba.ar/~luca/4am/uploads/somerights20.gif" /></a></div>
 <!-- /Creative Commons License -->
 </div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_superuser_plugin">
-        <h3 class="serendipitySideBarTitle serendipity_superuser_plugin">AdministraciÛn del Blog</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/admin" title="Abre ventana de conexiÛn">Abre ventana de conexiÛn</a></div>
+        <h3 class="serendipitySideBarTitle serendipity_superuser_plugin">Administraci√≥n del Blog</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/admin" title="Abre ventana de conexi√≥n">Abre ventana de conexi√≥n</a></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_plug_plugin">
         <h3 class="serendipitySideBarTitle serendipity_plug_plugin">Basado en</h3>        <div class="serendipitySideBarContent"><div class="serendipityPlug">

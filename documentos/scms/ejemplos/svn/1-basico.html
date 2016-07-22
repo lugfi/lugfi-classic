@@ -9,7 +9,7 @@
 
 <h2>Ejemplo 1 - En la cueva</h2>
 
-Yadda, yadda, yadda (Ìdem <a href="../darcs/1-basico.html">ejemplo 1 que en
+Yadda, yadda, yadda (√≠dem <a href="../darcs/1-basico.html">ejemplo 1 que en
 	darcs</a>)
 
 <pre>
@@ -31,7 +31,7 @@ drwxr-xr-x  2 guestlabi guestlabi 4096 2005-05-18 13:49 locks
 </pre>
 
 Esto es un repositorio central, en el caso de usarlo nosotros solos es un
-poco molesto porque hay que obtener una WC para trabajar en Èl.
+poco molesto porque hay que obtener una WC para trabajar en √©l.
 
 <pre>
 <tt class=nota>Obtenemos un WC</tt>
@@ -39,7 +39,7 @@ poco molesto porque hay que obtener una WC para trabajar en Èl.
 #
 </pre>
 
-Ahora creamos la estructura b·sica para branches (en este caso es un poco
+Ahora creamos la estructura b√°sica para branches (en este caso es un poco
 overkill, pero lo hacemos a modo demostrativo).
 
 <pre>
@@ -54,9 +54,9 @@ A         tags
 #
 <tt class=nota>Hacemos un commit para poner registrar la estructura</tt>
 # svn ci -m 'Estructura general del repositorio.'
-AÒadiendo      branches
-AÒadiendo      tags
-AÒadiendo      trunk
+A√±adiendo      branches
+A√±adiendo      tags
+A√±adiendo      trunk
 #
 </pre>
 
@@ -82,9 +82,9 @@ Y volvemos a hacer un commit para grabar el cambio en el repositorio:
 
 <pre>
 # svn ci -m 'Nueva receta para hacer arroz.'
-AÒadiendo      trunk/arroz
+A√±adiendo      trunk/arroz
 Transmitiendo contenido de archivos .
-Commit de la revisiÛn 2.
+Commit de la revisi√≥n 2.
 #
 </pre>
 
@@ -92,9 +92,9 @@ Vemos el historial de cambios<br>
 
 <pre>
 # svn log arroz
-<tt class=nota>Muestra sÛlo las revisiones en dÛnde cambiÛ este archivo</tt>
+<tt class=nota>Muestra s√≥lo las revisiones en d√≥nde cambi√≥ este archivo</tt>
 ------------------------------------------------------------------------
-r2 | guestlabi | 2005-05-18 15:31:13 -0300 (miÈ, 18 may 2005) | 1 line
+r2 | guestlabi | 2005-05-18 15:31:13 -0300 (mi√©, 18 may 2005) | 1 line
 
 Nueva receta para hacer arroz.
 ------------------------------------------------------------------------
@@ -108,7 +108,7 @@ lo grabamos con un commit.<br>
 <pre>
 <tt class=nota>Editamos un poco</tt>
 # vi arroz
-<tt class=nota>Vemos quÈ cambiÛ</tt>
+<tt class=nota>Vemos qu√© cambi√≥</tt>
 # svn st
 M      arroz
 #
@@ -116,7 +116,7 @@ M      arroz
 # svn diff
 Index: arroz
 ===================================================================
---- arroz       (revisiÛn: 2)
+--- arroz       (revisi√≥n: 2)
 +++ arroz       (copia de trabajo)
 @@ -1,5 +1,5 @@
 
@@ -135,16 +135,16 @@ Index: arroz
 
 #
 <tt class=nota>Nos parecio bien lo que ibamos a cambiar, asi que hacemos el ci</tt>
-# svn ci -m 'Unos pequeÒos cambios.'
+# svn ci -m 'Unos peque√±os cambios.'
 Enviando       trunk/arroz
 Transmitiendo contenido de archivos .
-Commit de la revisiÛn 3.
+Commit de la revisi√≥n 3.
 #
 </pre>
 
-Ahora hacemos otros cambios m·s que creemos que estan bien, pero despuÈs
-llamamos a la mam· de Alberto y ella nos grita "Horror! No hagas eso nene que
-se te va a quemar todo", asÌ que queremos volver a como estabamos antes de
+Ahora hacemos otros cambios m√°s que creemos que estan bien, pero despu√©s
+llamamos a la mam√° de Alberto y ella nos grita "Horror! No hagas eso nene que
+se te va a quemar todo", as√≠ que queremos volver a como estabamos antes de
 empezar.<br>
 Vamos a mostrar ahora la salida un poco resumida, para no cargar de cosas que
 ya vimos y no son relevantes.<br>
@@ -155,13 +155,13 @@ ya vimos y no son relevantes.<br>
 # svn diff
 [...]
 #
-<tt class=nota>Aca llamamos a la mam· de Alberto, y se horroriza. Volvemos todo
-para atr·s, hasta el ˙ltimo commit que hicimos</tt>
+<tt class=nota>Aca llamamos a la mam√° de Alberto, y se horroriza. Volvemos todo
+para atr√°s, hasta el √∫ltimo commit que hicimos</tt>
 # svn revert arroz
-<tt class=nota>(hay que poner explÌcitamente los archivos a revertir, para
-evitar errores indeseados,  porque hay que tener en cuenta que esta operaciÛn
-puede borrar cosas importantes sin vuelta atr·s)</tt>
-Se revirtiÛ 'arroz'
+<tt class=nota>(hay que poner expl√≠citamente los archivos a revertir, para
+evitar errores indeseados,  porque hay que tener en cuenta que esta operaci√≥n
+puede borrar cosas importantes sin vuelta atr√°s)</tt>
+Se revirti√≥ 'arroz'
 #
 </pre>
 
@@ -172,7 +172,7 @@ llamarse "arroz-solo", asi que la renombramos.
 <pre>
 # svn mv arroz arroz-solo
 <tt class=nota>Notar que el mv es un copy + delete, pero como el copy conserva
-la historia, no hay ning˙n problema.</tt>
+la historia, no hay ning√∫n problema.</tt>
 A         arroz-solo
 D         arroz
 # ls -l

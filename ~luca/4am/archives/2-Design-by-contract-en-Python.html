@@ -13,7 +13,7 @@
 
 <script type="text/javascript" src="http://www.lug.fi.uba.ar/~luca/4am/plugin/ls-js"></script><link rel="stylesheet" type="text/css" href="http://www.lug.fi.uba.ar/~luca/4am/plugin/print.css" media="print" /><link rel="start" href="http://www.lug.fi.uba.ar/~luca/4am/" title="4am" />
 <link rel="up" href="http://www.lug.fi.uba.ar/~luca/4am/" title="4am" />
-<link rel="prev" href="http://www.lug.fi.uba.ar/~luca/4am/archives/1-Genesis.html" title="Génesis" />
+<link rel="prev" href="http://www.lug.fi.uba.ar/~luca/4am/archives/1-Genesis.html" title="GÃ©nesis" />
 <link rel="next" href="http://www.lug.fi.uba.ar/~luca/4am/archives/3-Mudanza-de-sistema-de-blog.html" title="Mudanza de sistema de blog" />
 <link rel="shortcut icon" href="/~luca/4am/uploads/4am" />
 </head>
@@ -47,12 +47,12 @@
             <div class="serendipity_entry_body">
                 <p>Bueno, aca va el primer post no institucional.</p>
 
-<p>Yo me quería ir a dormir temprano, pero no, resulta que cuando me estaba yendo cayo Luca con una pregunta de los decorators de Python porque estaba haciendo algunos para soportar design by contract (eso de pre y post condiciones que se habla tanto de Eiffel pero que nadie usa), idea que, a todo esto, a mi mucho no me atrae.</p>
+<p>Yo me querÃ­a ir a dormir temprano, pero no, resulta que cuando me estaba yendo cayo Luca con una pregunta de los decorators de Python porque estaba haciendo algunos para soportar design by contract (eso de pre y post condiciones que se habla tanto de Eiffel pero que nadie usa), idea que, a todo esto, a mi mucho no me atrae.</p>
 
 
             </div>
 
-                        <div class="serendipity_entry_extended"><a id="extended"></a><p>Lo que él quería hacer era poner las pre y post condiciones adentro de la función, algo así como:</p>
+                        <div class="serendipity_entry_extended"><a id="extended"></a><p>Lo que Ã©l querÃ­a hacer era poner las pre y post condiciones adentro de la funciÃ³n, algo asÃ­ como:</p>
 
 
 <pre><code>@contract
@@ -63,9 +63,9 @@ def f(x):
         assert ret &gt; x
 
     return (x + 1) / x</code></pre>
-<p>El tema es que las funciones <tt>pre()</tt> y <tt>post()</tt> se definen cuando se comienza a ejecutar <tt>f()</tt>, por lo que no son accesibles desde afuera y por ende el decorator normal no sirve. Ponerlas afuera es trivial, y hay un ejemplo dando vueltas en el <a target="_self" href="http://www.artima.com/weblogs/viewpost.jsp?thread=86641">blog de Guido van Rossum</a> (y también hay <a target="_self" href="http://www.python.org/peps/pep-0316.html">un PEP</a> que propone embeber las pre y post condiciones en los docstrings, <strong>horriiiiible</strong>!).</p>
+<p>El tema es que las funciones <tt>pre()</tt> y <tt>post()</tt> se definen cuando se comienza a ejecutar <tt>f()</tt>, por lo que no son accesibles desde afuera y por ende el decorator normal no sirve. Ponerlas afuera es trivial, y hay un ejemplo dando vueltas en el <a target="_self" href="http://www.artima.com/weblogs/viewpost.jsp?thread=86641">blog de Guido van Rossum</a> (y tambiÃ©n hay <a target="_self" href="http://www.python.org/peps/pep-0316.html">un PEP</a> que propone embeber las pre y post condiciones en los docstrings, <strong>horriiiiible</strong>!).</p>
 
-<p>Después de un rato de hacer pruebas y ver como se le podía encontrar la vuelta para lograr una sintaxis digerible y útil, quedo así:</p>
+<p>DespuÃ©s de un rato de hacer pruebas y ver como se le podÃ­a encontrar la vuelta para lograr una sintaxis digerible y Ãºtil, quedo asÃ­:</p>
 
 
 <pre><code>@contract
@@ -79,14 +79,14 @@ def f(x):
                 assert ret &gt; 0
 
         return (x + 1) / x</code></pre>
-<p>Lo cual tiene algunas ventajas, en especial permite independizar el nombre de la pre y post condición, y no definir cualquiera de las dos, además de poder ubicarlas en cualquier orden (aunque la precondición correrá en el momento en el que se la defina).</p>
+<p>Lo cual tiene algunas ventajas, en especial permite independizar el nombre de la pre y post condiciÃ³n, y no definir cualquiera de las dos, ademÃ¡s de poder ubicarlas en cualquier orden (aunque la precondiciÃ³n correrÃ¡ en el momento en el que se la defina).</p>
 
-<p>El decorator <tt>contract()</tt> define una clase <i>wrapper</i> que envolverá a la función en cuestión, con dos métodos especiales: uno para ejecutar la precondición y otro para registrar la postcondición, que se ejecutara cuando se termine de correr el código principal.<br />
-Entonces, el decorator precond solo ejecuta la función que decora, y postcond registra la función decorada en la clase <i>wrapper</i> (por esto es que toma como parametro a <tt>f</tt> (siguiendo el ejemplo).</p>
+<p>El decorator <tt>contract()</tt> define una clase <i>wrapper</i> que envolverÃ¡ a la funciÃ³n en cuestiÃ³n, con dos mÃ©todos especiales: uno para ejecutar la precondiciÃ³n y otro para registrar la postcondiciÃ³n, que se ejecutara cuando se termine de correr el cÃ³digo principal.<br />
+Entonces, el decorator precond solo ejecuta la funciÃ³n que decora, y postcond registra la funciÃ³n decorada en la clase <i>wrapper</i> (por esto es que toma como parametro a <tt>f</tt> (siguiendo el ejemplo).</p>
 
-<p>El método <tt>__call__()</tt> de la clase <i>wrapper</i> llama al cuerpo de <tt>f()</tt> y luego, antes de devolver, ejecuta la postcondición registrada (de haberla).</p>
+<p>El mÃ©todo <tt>__call__()</tt> de la clase <i>wrapper</i> llama al cuerpo de <tt>f()</tt> y luego, antes de devolver, ejecuta la postcondiciÃ³n registrada (de haberla).</p>
 
-<p>El código esta en un <a target="_self" href="http://users.auriga.wearlab.de/~alb/repos/pymisc">repositorio darcs</a>, aunque consiste de un solo archivito muy simple, por lo que pueden chusmearlo y bajarlo directamente con el navegador.</p>
+<p>El cÃ³digo esta en un <a target="_self" href="http://users.auriga.wearlab.de/~alb/repos/pymisc">repositorio darcs</a>, aunque consiste de un solo archivito muy simple, por lo que pueden chusmearlo y bajarlo directamente con el navegador.</p>
 
 </div>
             
@@ -128,7 +128,7 @@ Entonces, el decorator precond solo ejecuta la función que decora, y postcond re
                 <a id="trackbacks"></a>
                 <div class="serendipity_commentsTitle">Referencias</div>
                     <div class="serendipity_center">
-                        <a rel="nofollow" style="font-weight: normal" href="http://www.lug.fi.uba.ar/~luca/4am/comment.php?type=trackback&amp;entry_id=2" onclick="alert('Este enlace no es para hacer click en &amp;eacute;l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el bot&oacute;n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.'); return false;" title="Este enlace no es para hacer click en &amp;eacute;l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el botón derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.">URI de referencia para esta entrada</a>
+                        <a rel="nofollow" style="font-weight: normal" href="http://www.lug.fi.uba.ar/~luca/4am/comment.php?type=trackback&amp;entry_id=2" onclick="alert('Este enlace no es para hacer click en &amp;eacute;l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el bot&oacute;n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.'); return false;" title="Este enlace no es para hacer click en &amp;eacute;l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el botÃ³n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.">URI de referencia para esta entrada</a>
                     </div>
                     <br />
                             <div class="serendipity_center">No hay referencias</div>
@@ -145,7 +145,7 @@ Entonces, el decorator precond solo ejecuta la función que decora, y postcond re
                 <br />
                         <a id="c1"></a>
     <div class="serendipity_comment serendipity_comment_author_luca " style="padding-left: 0px">
-        <div class="serendipity_commentBody"><p>Dejo un link a una <a target="_self" href="http://www.nongnu.org/pydbc/">implementación de DBC para python usando metaclases</a>.</p>
+        <div class="serendipity_commentBody"><p>Dejo un link a una <a target="_self" href="http://www.nongnu.org/pydbc/">implementaciÃ³n de DBC para python usando metaclases</a>.</p>
 
 </div>
         <div class="serendipity_comment_source">
@@ -164,7 +164,7 @@ Entonces, el decorator precond solo ejecuta la función que decora, y postcond re
                 
                 
                 <br />
-                <div class="serendipity_commentsTitle">Añadir comentario</div>
+                <div class="serendipity_commentsTitle">AÃ±adir comentario</div>
                 <div class="serendipityCommentForm">
     <a id="serendipity_CommentForm"></a>
     <form id="serendipity_comment" action="/~luca/4am/index.php?url=archives/2-Design-by-contract-en-Python.html#feedback" method="post">
@@ -176,7 +176,7 @@ Entonces, el decorator precond solo ejecuta la función que decora, y postcond re
         </tr>
 
         <tr>
-            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_email">Correo electrónico</label></td>
+            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_email">Correo electrÃ³nico</label></td>
             <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_email" name="serendipity[email]" value="" /></td>
         </tr>
 
@@ -230,7 +230,7 @@ document.getElementById('serendipity_commentform_url').value   = getCommentCooki
         <tr>
             <td>&#160;</td>
             <td class="serendipity_commentsLabel">
-                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]"  /><label for="checkbox_remember">¿Recordar la información? </label>
+                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]"  /><label for="checkbox_remember">Â¿Recordar la informaciÃ³n? </label>
                     <br />
                 <input id="checkbox_subscribe" type="checkbox" name="serendipity[subscribe]"  /><label for="checkbox_subscribe">Suscribirse a esta entrada</label>
                 </td>
@@ -239,7 +239,7 @@ document.getElementById('serendipity_commentform_url').value   = getCommentCooki
 
        <tr>
             <td>&#160;</td>
-            <td><input type="submit" name="serendipity[submit]" value="Enviar comentario" /> <input type="submit" name="serendipity[preview]" value="Previsualización" /></td>
+            <td><input type="submit" name="serendipity[submit]" value="Enviar comentario" /> <input type="submit" name="serendipity[preview]" value="PrevisualizaciÃ³n" /></td>
         </tr>
     </table>
     </form>
@@ -294,19 +294,19 @@ document.write(d);
                     </script></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_categories_plugin">
-        <h3 class="serendipitySideBarTitle serendipity_categories_plugin">Categorías</h3>        <div class="serendipitySideBarContent"><div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/10-Charlas" title="Charlas" style="padding-left: 0px">Charlas</a></div>
-<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/2-Codigo" title="Código" style="padding-left: 0px">Código</a></div>
+        <h3 class="serendipitySideBarTitle serendipity_categories_plugin">CategorÃ­as</h3>        <div class="serendipitySideBarContent"><div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/10-Charlas" title="Charlas" style="padding-left: 0px">Charlas</a></div>
+<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/2-Codigo" title="CÃ³digo" style="padding-left: 0px">CÃ³digo</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/8-C++" title="C++" style="padding-left: 6px">C++</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/3-Python" title="Python" style="padding-left: 6px">Python</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/1-Institucional" title="Institucional" style="padding-left: 0px">Institucional</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/12-Sistema-Operativo" title="Sistema Operativo" style="padding-left: 0px">Sistema Operativo</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/11-Filesystems" title="Filesystems" style="padding-left: 6px">Filesystems</a></div>
-<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/5-Teoria-de-Lenguaje" title="Teoría de Lenguaje" style="padding-left: 0px">Teoría de Lenguaje</a></div>
+<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/5-Teoria-de-Lenguaje" title="TeorÃ­a de Lenguaje" style="padding-left: 0px">TeorÃ­a de Lenguaje</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/9-Concurrencia" title="Concurrencia" style="padding-left: 6px">Concurrencia</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/7-Design-By-Contract" title="Design By Contract" style="padding-left: 6px">Design By Contract</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/4-Garbage-Collection" title="Garbage Collection" style="padding-left: 6px">Garbage Collection</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/6-Reference-Counting" title="Reference Counting" style="padding-left: 12px">Reference Counting</a></div>
-<br /><a href="/~luca/4am/index.php" title="Todas las categorías">Todas las categorías</a></div>
+<br /><a href="/~luca/4am/index.php" title="Todas las categorÃ­as">Todas las categorÃ­as</a></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_archives_plugin">
         <h3 class="serendipitySideBarTitle serendipity_archives_plugin">Archivos</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/archives/2007/12.html" title="December 2007">December 2007</a><br />
@@ -329,14 +329,14 @@ document.write(d);
     </div>
     <div class="serendipitySideBarItem container_serendipity_html_nugget_plugin">
         <h3 class="serendipitySideBarTitle serendipity_html_nugget_plugin">Licencia</h3>        <div class="serendipitySideBarContent"><!-- Creative Commons License -->
-<p>Estos artículos se publican bajo la licencia
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">Atribución-CompartirDerivadasIgual 2.5 Argentina</a>.</p>
+<p>Estos artÃ­culos se publican bajo la licencia
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">AtribuciÃ³n-CompartirDerivadasIgual 2.5 Argentina</a>.</p>
 <div style="text-align: center"><a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ar/deed.es_AR"><img alt="Creative Commons License" border="0" src="http://www.lug.fi.uba.ar/~luca/4am/uploads/somerights20.gif" /></a></div>
 <!-- /Creative Commons License -->
 </div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_superuser_plugin">
-        <h3 class="serendipitySideBarTitle serendipity_superuser_plugin">Administración del Blog</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/admin" title="Abre ventana de conexión">Abre ventana de conexión</a></div>
+        <h3 class="serendipitySideBarTitle serendipity_superuser_plugin">AdministraciÃ³n del Blog</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/admin" title="Abre ventana de conexiÃ³n">Abre ventana de conexiÃ³n</a></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_plug_plugin">
         <h3 class="serendipitySideBarTitle serendipity_plug_plugin">Basado en</h3>        <div class="serendipitySideBarContent"><div class="serendipityPlug">

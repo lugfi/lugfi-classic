@@ -47,29 +47,29 @@
                 <p>9P es un protocolo para compartir recursos distribuidos, desarrollado como parte del gran sistema operativo <a target="_self" href="http://www.cs.bell-labs.com/plan9dist/">plan9</a>. En particular, uno de sus principales usos es el de compartir archivos, de forma similar a NFS. Para mas informacion, pueden ver el <a target="_self" href="http://plan9.bell-labs.com/magic/man2html/5/0intro">manpage introductorio</a> y la <a target="_self" href="http://v9fs.sourceforge.net/rfc/">documentacion de v9fs</a>.<br />
 9P2000 es la version revisada de 9P, incluida en la cuarta edicion de plan9 (e Inferno), y contiene numerosas mejoras al protocolo original.</p>
 
-<p>Recientemente, en la version 2.6.14, se incluyó en linux v9fs, que es la implementación de un cliente de 9P2000 (aunque tambien soporta 9P), lo cual nos permite nativamente montar los archivos que sirve un server 9P2000, que bien puede ser plan9, o desde Linux la aplicación u9fs.</p>
+<p>Recientemente, en la version 2.6.14, se incluyÃ³ en linux v9fs, que es la implementaciÃ³n de un cliente de 9P2000 (aunque tambien soporta 9P), lo cual nos permite nativamente montar los archivos que sirve un server 9P2000, que bien puede ser plan9, o desde Linux la aplicaciÃ³n u9fs.</p>
 
 
             </div>
 
-                        <div class="serendipity_entry_extended"><a id="extended"></a><p>Es bastante simple y liviano, y posee caracteristicas muy interesantes, algunas de las cuales se mencionan en  <a target="_self" href="http://kerneltrap.org/node/5339">kerneltrap</a>, y otras en un paper publicado en USENIX 2005 bajo el titulo de &quot;Grave Robbers from Outer Space - Using 9P2000 Under Linux&quot; por Eric Van Hensbergen y Ron Minnich (aparece si lo buscan en Google y lo ven desde el cache, porque sino es pago). Tambien hay un artículo muy interesante en <a target="_self" href="http://lwn.net/Articles/137439/">LWN</a>.</p>
+                        <div class="serendipity_entry_extended"><a id="extended"></a><p>Es bastante simple y liviano, y posee caracteristicas muy interesantes, algunas de las cuales se mencionan en  <a target="_self" href="http://kerneltrap.org/node/5339">kerneltrap</a>, y otras en un paper publicado en USENIX 2005 bajo el titulo de &quot;Grave Robbers from Outer Space - Using 9P2000 Under Linux&quot; por Eric Van Hensbergen y Ron Minnich (aparece si lo buscan en Google y lo ven desde el cache, porque sino es pago). Tambien hay un artÃ­culo muy interesante en <a target="_self" href="http://lwn.net/Articles/137439/">LWN</a>.</p>
 
-<p>Si bien no es un reemplazo completo de NFS, dado que no tiene varias de las caracteristicas mas avanzadas de POSIX, puede ser muy útil como una alternativa simple y práctica para compartir cosas rápidamente. Ademas al ser tan transparente no tiene mucho problema exportando devices o archivos raros.</p>
+<p>Si bien no es un reemplazo completo de NFS, dado que no tiene varias de las caracteristicas mas avanzadas de POSIX, puede ser muy Ãºtil como una alternativa simple y prÃ¡ctica para compartir cosas rÃ¡pidamente. Ademas al ser tan transparente no tiene mucho problema exportando devices o archivos raros.</p>
 
 <hr />
-<p>Como no abunda documentación al respecto, vamos a ver una pequeña guia de como poner un server y montar un filesystem completamete desde Linux.</p>
+<p>Como no abunda documentaciÃ³n al respecto, vamos a ver una pequeÃ±a guia de como poner un server y montar un filesystem completamete desde Linux.</p>
 
 <p>Supongamos que tenemos dos compus, una con la IP 192.168.26.1 (que hara de cliente) y otra con la IP 192.168.26.2 (que hara de server).</p>
 
-<p>Por empezar, instalaremos u9fs, que es la aplicacion que sirve los archivos, en el server. Para ello lo bajamos de la página de [v9fs.sf.net v9fs] (si tenemos Gentoo podemos usar directamente el <a target="_self" href="http://bugs.gentoo.org/show_bug.cgi?id=88665">ebuild</a>, que por ahora esta en el bugzilla), lo compilamos con <em>make</em> y lo instalamos con <em>make install</em>, quedando instalado el binario en <em>/usr/sbin/u9fs</em>.</p>
+<p>Por empezar, instalaremos u9fs, que es la aplicacion que sirve los archivos, en el server. Para ello lo bajamos de la pÃ¡gina de [v9fs.sf.net v9fs] (si tenemos Gentoo podemos usar directamente el <a target="_self" href="http://bugs.gentoo.org/show_bug.cgi?id=88665">ebuild</a>, que por ahora esta en el bugzilla), lo compilamos con <em>make</em> y lo instalamos con <em>make install</em>, quedando instalado el binario en <em>/usr/sbin/u9fs</em>.</p>
 
-<p>Como u9fs no es un server stand-alone sino que usa xinetd (o inetd, o cualquiera de sus amigos), necesitaremos configurarlos a tal efecto. Para el caso de xinetd, pueden encontrar un <a target="_self" href="http://bugs.gentoo.org/attachment.cgi?id=71357&action=view">ejemplo</a>, o en el manual incluido en la distribución.</p>
+<p>Como u9fs no es un server stand-alone sino que usa xinetd (o inetd, o cualquiera de sus amigos), necesitaremos configurarlos a tal efecto. Para el caso de xinetd, pueden encontrar un <a target="_self" href="http://bugs.gentoo.org/attachment.cgi?id=71357&action=view">ejemplo</a>, o en el manual incluido en la distribuciÃ³n.</p>
 
 <p>Una cosa que hay que decidir es como autenticar los usuarios en el server. Hay tres alternativas:<br />
 <ul>
     <li><em>none</em>, que no autentica</li>
     <li><em>rhosts</em>, que usa rhosts</li>
-    <li><em>p9any</em>, que usa mecanismos de autenticación de plan9.</li>
+    <li><em>p9any</em>, que usa mecanismos de autenticaciÃ³n de plan9.</li>
 </ul>
 <br />
 Vamos a usar rhosts, que es simple.</p>
@@ -129,7 +129,7 @@ $ chmod 600 $HOME/.rhosts</code></pre>
                 <a id="trackbacks"></a>
                 <div class="serendipity_commentsTitle">Referencias</div>
                     <div class="serendipity_center">
-                        <a rel="nofollow" style="font-weight: normal" href="http://www.lug.fi.uba.ar/~luca/4am/comment.php?type=trackback&amp;entry_id=11" onclick="alert('Este enlace no es para hacer click en &amp;eacute;l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el bot&oacute;n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.'); return false;" title="Este enlace no es para hacer click en &amp;eacute;l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el botón derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.">URI de referencia para esta entrada</a>
+                        <a rel="nofollow" style="font-weight: normal" href="http://www.lug.fi.uba.ar/~luca/4am/comment.php?type=trackback&amp;entry_id=11" onclick="alert('Este enlace no es para hacer click en &amp;eacute;l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el bot&oacute;n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.'); return false;" title="Este enlace no es para hacer click en &amp;eacute;l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el botÃ³n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.">URI de referencia para esta entrada</a>
                     </div>
                     <br />
                             <div class="serendipity_center">No hay referencias</div>
@@ -152,7 +152,7 @@ $ chmod 600 $HOME/.rhosts</code></pre>
                 
                 
                 <br />
-                <div class="serendipity_commentsTitle">Añadir comentario</div>
+                <div class="serendipity_commentsTitle">AÃ±adir comentario</div>
                 <div class="serendipityCommentForm">
     <a id="serendipity_CommentForm"></a>
     <form id="serendipity_comment" action="/~luca/4am/index.php?url=archives/11-9P-y-v9fs.html#feedback" method="post">
@@ -164,7 +164,7 @@ $ chmod 600 $HOME/.rhosts</code></pre>
         </tr>
 
         <tr>
-            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_email">Correo electrónico</label></td>
+            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_email">Correo electrÃ³nico</label></td>
             <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_email" name="serendipity[email]" value="" /></td>
         </tr>
 
@@ -217,7 +217,7 @@ document.getElementById('serendipity_commentform_url').value   = getCommentCooki
         <tr>
             <td>&#160;</td>
             <td class="serendipity_commentsLabel">
-                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]"  /><label for="checkbox_remember">¿Recordar la información? </label>
+                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]"  /><label for="checkbox_remember">Â¿Recordar la informaciÃ³n? </label>
                     <br />
                 <input id="checkbox_subscribe" type="checkbox" name="serendipity[subscribe]"  /><label for="checkbox_subscribe">Suscribirse a esta entrada</label>
                 </td>
@@ -226,7 +226,7 @@ document.getElementById('serendipity_commentform_url').value   = getCommentCooki
 
        <tr>
             <td>&#160;</td>
-            <td><input type="submit" name="serendipity[submit]" value="Enviar comentario" /> <input type="submit" name="serendipity[preview]" value="Previsualización" /></td>
+            <td><input type="submit" name="serendipity[submit]" value="Enviar comentario" /> <input type="submit" name="serendipity[preview]" value="PrevisualizaciÃ³n" /></td>
         </tr>
     </table>
     </form>
@@ -281,19 +281,19 @@ document.write(d);
                     </script></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_categories_plugin">
-        <h3 class="serendipitySideBarTitle serendipity_categories_plugin">Categorías</h3>        <div class="serendipitySideBarContent"><div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/10-Charlas" title="Charlas" style="padding-left: 0px">Charlas</a></div>
-<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/2-Codigo" title="Código" style="padding-left: 0px">Código</a></div>
+        <h3 class="serendipitySideBarTitle serendipity_categories_plugin">CategorÃ­as</h3>        <div class="serendipitySideBarContent"><div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/10-Charlas" title="Charlas" style="padding-left: 0px">Charlas</a></div>
+<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/2-Codigo" title="CÃ³digo" style="padding-left: 0px">CÃ³digo</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/8-C++" title="C++" style="padding-left: 6px">C++</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/3-Python" title="Python" style="padding-left: 6px">Python</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/1-Institucional" title="Institucional" style="padding-left: 0px">Institucional</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/12-Sistema-Operativo" title="Sistema Operativo" style="padding-left: 0px">Sistema Operativo</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/11-Filesystems" title="Filesystems" style="padding-left: 6px">Filesystems</a></div>
-<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/5-Teoria-de-Lenguaje" title="Teoría de Lenguaje" style="padding-left: 0px">Teoría de Lenguaje</a></div>
+<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/5-Teoria-de-Lenguaje" title="TeorÃ­a de Lenguaje" style="padding-left: 0px">TeorÃ­a de Lenguaje</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/9-Concurrencia" title="Concurrencia" style="padding-left: 6px">Concurrencia</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/7-Design-By-Contract" title="Design By Contract" style="padding-left: 6px">Design By Contract</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/4-Garbage-Collection" title="Garbage Collection" style="padding-left: 6px">Garbage Collection</a></div>
 <div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/6-Reference-Counting" title="Reference Counting" style="padding-left: 12px">Reference Counting</a></div>
-<br /><a href="/~luca/4am/index.php" title="Todas las categorías">Todas las categorías</a></div>
+<br /><a href="/~luca/4am/index.php" title="Todas las categorÃ­as">Todas las categorÃ­as</a></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_archives_plugin">
         <h3 class="serendipitySideBarTitle serendipity_archives_plugin">Archivos</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/archives/2007/11.html" title="November 2007">November 2007</a><br />
@@ -316,14 +316,14 @@ document.write(d);
     </div>
     <div class="serendipitySideBarItem container_serendipity_html_nugget_plugin">
         <h3 class="serendipitySideBarTitle serendipity_html_nugget_plugin">Licencia</h3>        <div class="serendipitySideBarContent"><!-- Creative Commons License -->
-<p>Estos artículos se publican bajo la licencia
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">Atribución-CompartirDerivadasIgual 2.5 Argentina</a>.</p>
+<p>Estos artÃ­culos se publican bajo la licencia
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">AtribuciÃ³n-CompartirDerivadasIgual 2.5 Argentina</a>.</p>
 <div style="text-align: center"><a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ar/deed.es_AR"><img alt="Creative Commons License" border="0" src="http://www.lug.fi.uba.ar/~luca/4am/uploads/somerights20.gif" /></a></div>
 <!-- /Creative Commons License -->
 </div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_superuser_plugin">
-        <h3 class="serendipitySideBarTitle serendipity_superuser_plugin">Administración del Blog</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/admin" title="Abre ventana de conexión">Abre ventana de conexión</a></div>
+        <h3 class="serendipitySideBarTitle serendipity_superuser_plugin">AdministraciÃ³n del Blog</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/admin" title="Abre ventana de conexiÃ³n">Abre ventana de conexiÃ³n</a></div>
     </div>
     <div class="serendipitySideBarItem container_serendipity_plug_plugin">
         <h3 class="serendipitySideBarTitle serendipity_plug_plugin">Basado en</h3>        <div class="serendipitySideBarContent"><div class="serendipityPlug">
