@@ -1,0 +1,1806 @@
+\documentclass[12pt,notitlepage]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{a4}
+\usepackage[spanish]{babel}
+\setlength{\headheight}{17pt}
+\setlength{\headsep}{14pt}
+\setlength{\textheight}{42\baselineskip}
+\setlength{\footskip}{26pt}
+\usepackage[hang,bf]{caption}
+\usepackage{fancyhdr}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{lastpage}
+\usepackage{slashbox}
+\usepackage{dcolumn}
+\usepackage{tabularx}
+\usepackage{tabulary}
+\usepackage{booktabs}
+\usepackage{ifpdf}
+\pagestyle{fancy}
+
+
+
+
+\ifpdf
+	\usepackage{thumbpdf}
+	\usepackage[pdftex]{graphicx}
+	\usepackage{rotating}	%Debe ponerse después de graphicx para que no de error, porque rotating antes de cargarse llama a graphicx
+	\usepackage[pdftex]{hyperref}
+\else
+	\usepackage[dvips]{graphicx,hyperref}
+	\usepackage{rotating}	%Debe ponerse después de graphicx para que no de error, porque rotating antes de cargarse llama a graphicx
+\fi
+
+
+\usepackage[acronym,sanitize={name=false,description=false,symbol=false}]{glossaries}
+
+\hypersetup{pdftitle={Tablas en LaTeX},
+pdfsubject={Tutorial LaTeX},
+pdfauthor={Raúl Alberto Mata Botana},
+pdfproducer={pdflatex},
+bookmarksnumbered={false},
+pdfstartview={FitH},
+bookmarksopen={false}
+}
+
+
+
+\title {\bf{Tablas en \LaTeX}\\
+	\small{Versión 1.00}
+	 }
+\author{Raúl Mata Botana\\
+		email: matabotanar (at) gmail.com}
+\date{agosto del 2008}
+
+\lhead{}
+\chead{}
+\rhead{Tablas en \LaTeX}
+\lfoot{}
+\cfoot{}
+\rfoot{{página \thepage{} de \pageref{LastPage}}}
+
+\hyphenation{}
+
+\begin{document}
+
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\listtablename}{Índice de tablas}
+
+
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\DeclareGraphicsExtensions{.jpg, .png, .eps}
+
+\maketitle
+
+\nocite{*}
+\bibliographystyle{plain}
+
+
+\section*{Copyright}
+
+\begin{quote}
+Copyright (c) 2008 Raúl Mata Botana. Se otorga permiso para copiar, distribuir y/o modificar este documento bajo los términos de la Licencia de Documentación Libre de GNU, Versión 1.2 o cualquier otra versión posterior publicada por la Free Software Foundation; sin Secciones Invariantes ni Textos de Cubierta Delantera ni Textos de Cubierta Trasera. Una copia de la licencia está incluida en la sección titulada GNU Free Documentation License.
+\end{quote}
+
+\section{Introducción}
+
+Muchos tutoriales describen la construcción de tablas en \LaTeX, pero la mayoría de ellos se limitan a explicar las opciones básicas. En este documento intentaré mostrar las distintas opciones que existen para el diseño de tablas y ejemplificando cada caso.
+
+\section{El entorno \emph{tabbing}}
+
+Este entorno de trabajo no genera exáctamente tablas, pero permite presentar texto encolumnado, de manera similar a como lo haría un tabulador.
+
+Del entorno de trabajo se entra y se sale mediante los comandos \verb+\begin{tabbing}+ y \verb+\end{tabbing}+ respectivamente. Cuenta con los siguientes comandos:
+
+\begin{center}
+\begin{tabular}{l l}
+\verb'\=' &Fija la posición de los tabuladores\\
+\verb'\>' &Salta al siguiente tabulador\\
+\verb'\\' &Fin de línea\\
+\verb'\kill' &Si una línea finaliza con este comando no se imprime\\
+\verb'\+' &Hace que la línea sig. empiece en el tabulador sig. al previsto\\
+\verb'\-' &Hace que la línea sig. empiece en el tabulador anterior al previsto\\
+\verb'\<' &Salta al tabulador anterior\\
+\verb+\'+ &Hace que el texto anterior se justifique a derecha\\
+\verb'\`' &Hace que el texto que sigue vaya hacia el margen derecho\\
+\end{tabular}
+\end{center}
+
+\subsection{Ejemplo 1}
+
+Si ponemos:
+
+\begin{verbatim}
+\begin{tabbing}
+Nombre \= Apellido \= Padrón\\
+Esteban \> Quito \> 80000\\
+Elena \> Nito \> 80001\\
+Olga \> Sana \> 80002\\
+\end{tabbing}
+\end{verbatim}
+
+Lo que obtendremos es:
+
+\begin{tabbing}
+Nombre \= Apellido \= Padrón\\
+Esteban \> Quito \> 80000\\
+Elena \> Nito \> 80001\\
+Olga \> Sana \> 80002\\
+\end{tabbing}
+
+
+\subsection{Ejemplo 2}
+
+También podemos fijar el ancho de las columnas:
+
+\begin{verbatim}
+\begin{tabbing}
+\hspace*{2cm} \= \hspace*{5cm} \= \hspace*{3cm} \kill
+Nombre \> Apellido \> Padrón\\
+Esteban \> Quito \> 80000\\
+Elena \> Nito \> 80001\\
+Olga \> Sana \> 80002\\
+\end{tabbing}
+\end{verbatim}
+
+Obteniendo:
+
+\begin{tabbing}
+\hspace*{2cm} \= \hspace*{5cm} \= \hspace*{3cm} \kill
+Nombre \> Apellido \> Padrón\\
+Esteban \> Quito \> 80000\\
+Elena \> Nito \> 80001\\
+Olga \> Sana \> 80002\\
+\end{tabbing}
+
+\subsection{Ejemplo 3}
+
+Ahora una opción más compleja
+
+\begin{verbatim}
+\begin{tabbing}
+\hspace{5cm} \= \hspace{5cm} \= \kill
+Columna uno \> Columna 2 \> Columna 3 \\
+\> Segunda        \> Tercera \\
+\hspace{1.5cm} \\  %línea en blanco
+Texto de primera columna que pisa la segunda \>\> Tercer columna \\
+\> Texto segunda y tercera columa \\
+\hspace{1.5cm} \\  %línea en blanco
+xxxxxxxxxxx \= xxxxxxxxxxx \= xxxxxxxxxxx \= \kill  %seteo nuevos tabuladores
+Col 1 \>Col 2 \> Col 3 \> Col 4 \+\\
+Dos \> Tres  \> Cuatro  \\
+\< Uno \> Dos \> Tres  \> Cuatro\\
+Dos \> Tres  \> Cuatro  \- \\
+Uno \> Dos \> Tres  \> Cuatro\\
+Uno \> Dos \' \> Tres  \` Cuatro\\
+\end{tabbing}
+\end{verbatim}
+
+\begin{tabbing}
+\hspace{5cm} \= \hspace{5cm} \= \kill
+Columna uno \> Columna 2 \> Columna 3 \\
+\> Segunda        \> Tercera \\
+\hspace{1.5cm} \\  %línea en blanco
+Texto de primera columna que pisa la segunda \>\> Tercer columna \\
+\> Texto segunda y tercera columa \\
+\hspace{1.5cm} \\  %línea en blanco
+xxxxxxxxxxx \= xxxxxxxxxxx \= xxxxxxxxxxx \= \kill  %seteo nuevos tabuladores
+Col 1 \>Col 2 \> Col 3 \> Col 4 \+\\
+Dos \> Tres  \> Cuatro  \\
+\< Uno \> Dos \> Tres  \> Cuatro\\
+Dos \> Tres  \> Cuatro  \- \\
+Uno \> Dos \> Tres  \> Cuatro\\
+Uno \> Dos \' \> Tres  \` Cuatro\\
+\end{tabbing}
+
+\section{El entorno \emph{tabular}}
+
+Este entorno de trabajo nos permite trabajar con muchas más posibilidades que el entorno tabbing. Tiene dos formatos posibles que son los siguientes:
+
+\begin {verbatim}
+\begin{tabular}[posición]{columnas}
+columna 1 & columna 2 & columna n \\
+...
+...
+...
+\end{tabular}
+\end{verbatim}
+
+ó
+
+\begin{verbatim}
+\begin{tabular*}{ancho}[posición]{columnas}
+columna 1 & columna 2 & columna n \\
+...
+...
+...
+\end{tabular*}
+\end{verbatim}
+
+\begin{tabular}{l p{11.5cm}}
+columnas & Determina la cantidad de columnas y su posición \\
+& l alínea a izquierda\\
+& c centra\\
+& r alínea a derecha\\
+& \verb+|+ colocado entre dos columnas genera una línea vertical\\
+& \verb+p{ancho}+ Establece el ancho de una columna\\
+& \verb+@{texto}+ Inserta el texto entre columnas\\
+& \verb+@{\hspace{ancho}}+ Inserta espacio entre columnas\\
+& \verb+*{num}{cols}+ num establece la cantidad de columnas y cols el formato de las columnas (que puede ser una expresión)\\
+posición & Determina la posición de la tabla con respecto al texto \\
+& b pone la parte inferior de la tabla en la base del texto (opción por defecto)\\
+& c pone la mitad de la tabla en la base del texto\\
+& t pone la parte superior de la tabla en la base del texto\\
+ancho & Establece el ancho de la tabla\\
+\& & Salta a la siguiente columna\\
+\verb+\\+ & Salta a la siguiente fila\\
+\verb+\hline+ & Genera una línea horizontal\\
+\verb+\cline(n-m)+ & Genera una línea horizontal desde el inico de la columna n al fin de la m\\
+\verb+\vline+ & Genera una línea vertical a lo largo de una fila\\
+\end{tabular}
+
+Una vez que ya hemos detallado las distintas opciones del entorno tabular pasemos a ver algunos ejemplos.
+
+\subsection{Ejemplo 1}
+
+Tabla básica sin borde. Al poner:
+
+\begin{verbatim}
+\begin{tabular}{l c r}
+columna 1 & columna 2 & columna 3 \\ 
+col 1 & col 2 & col 3\\
+\end{tabular}
+\end{verbatim}
+
+Veremos entonces la primer columna alineada a izquierda, la segunda centrada y la tercera alineada a derecha:
+
+\begin{tabular}{l c r}
+columna 1 & columna 2 & columna 3 \\ 
+col 1 & col 2 & col 3\\
+\end{tabular}
+
+\subsection{Ejemplo 2}
+
+Tabla básica con borde doble en el exterior y simple adentro. Al poner:
+
+\begin{verbatim}
+\begin{tabular}{||l | c | r||}
+\hline
+\hline
+columna 1 & columna 2 & columna 3 \\ 
+\hline
+col 1 & col 2 & col 3\\
+\hline
+\end{tabular}
+\end{verbatim}
+
+Veremos entonces:
+
+\begin{tabular}{||l | c | r||}
+\hline
+\hline
+columna 1 & columna 2 & columna 3 \\ 
+\hline
+col 1 & col 2 & col 3\\
+\hline
+\hline
+\end{tabular}
+
+\subsection{Ejemplo 3}
+
+Veamos un ejemplo un poco más complejo, crearemos una tabla de 3 filas por 3 columnas, que las columnas 1 y 2 estén serparadas por `` xx '', que la columna 3 esté separada en filas.
+
+\begin{verbatim}
+\begin{tabular}{l @{ xx } c @{\hspace{1cm}}|p{4cm}|}
+\cline{3-3}
+columna 1 & columna 2 & columna 3  esto lo pongo de relleno para 
+remarcar que el ancho de la columna es de 4 cm\\\cline{3-3}
+col 1 & col 2 & col 3 \\\cline{3-3}
+columnita 1 & columnita 2 & columnita 3 \\ \cline{3-3}
+\end{tabular}
+\end{verbatim}
+
+Veremos entonces:
+
+\begin{tabular}{l @{ xx } c @{\hspace{1cm}}|p{4cm}|}
+\cline{3-3}
+columna 1 & columna 2 & columna 3  esto lo pongo de relleno para remarcar que el ancho de la columna es de 4 cm\\\cline{3-3}
+col 1 & col 2 & col 3 \\\cline{3-3}
+columnita 1 & columnita 2 & columnita 3 \\ \cline{3-3}
+\end{tabular}
+
+\subsection{El entorno ``tabular*''}
+
+Veamos un pequeño ejemplo:
+
+\verb+@{\extracolsep {longitud}}+ Nos permite establecer un espacio en blanco entre columnas de la longuitud dada.
+
+\begin{verbatim}
+\begin{tabular*}{10 cm}{|l|l@{\extracolsep{\fill}}r|}
+\hline
+&Desde&Hasta\\
+\hline
+Ruta 2&Buenos Aires & Mar del Plata\\
+Ruta 7&Buenos Aires &Mendoza\\
+\hline
+\end{tabular*}
+\end{verbatim}
+
+\begin{tabular*}{10 cm}{|l|l@{\extracolsep{\fill}}r|}
+\hline
+&Desde&Hasta\\
+\hline
+Ruta 2&Buenos Aires & Mar del Plata\\
+Ruta 7&Buenos Aires &Mendoza\\
+\hline
+\end{tabular*}
+
+\subsection{Alineación de decimales}
+
+Este es un ejemplo muy sencillo, la parte entera la alineamos a derecha, la decimal a izquierda y los separamos por ``@\{.\}''.
+
+\begin{verbatim}
+\begin{tabular}{|l | r@{,}l |}
+\hline
+Producto 1 & 11 & 1\\
+\hline
+Producto 2 & 2 & 22\\
+\hline
+Total & 13 & 32\\
+\hline
+\end{tabular}
+\end{verbatim}
+
+\begin{tabular}{|l | r@{,}l |}
+\hline
+Producto 1 & 11 & 1\\
+\hline
+Producto 2 & 2 & 22\\
+\hline
+Total & 13 & 32\\
+\hline
+\end{tabular}
+
+\subsection{El paquete \emph{dcolumn}\cite{dcolumn}}
+
+Con en método que usamos en el ejemplo anterior, si bien logramos el resultado esperado, en realidad lo que hicimos fue utilizar un pequeño truco donde uníamos 2 columnas.
+
+Esto puede tener alguna complicación, por ejemplo si la columna que lleva una alineación decimal tiene un encabezado.
+
+Para solucionar este problema existe el paquete \emph{dcolumn}.
+
+La sintaxis es la siguiente:
+
+\begin{verbatim}
+D{separador 1}{separador 2}{decimales}
+\end{verbatim}
+
+
+\begin{tabularx}{\textwidth}{l X}
+separador 1 & Es el que usaremos en el código para separar la parte entera de la decimal.\\
+separador 2 & Es lo que \LaTeX nos mostrará en la salida para separar la parte entera de la decimal.\\
+decimales & Es la cantidad de decimales que se mostrarán en la salida, si el valor es ``-1'' no se limitará la cantidad de cimales en la salida.\\
+\end{tabularx}
+
+Previamente, en el encabezado debemos declarar el paquete:
+
+\begin{verbatim}
+\usepackage{dcolumn}
+\end{verbatim}
+
+Veamos como sería el ejemplo anterior:
+
+\begin{verbatim}
+\begin{tabular}{|l | D{.}{,}{-1} |}
+\hline
+Producto 1 & 11.1\\
+\hline
+Producto 2 & 2.22\\
+\hline
+Total & 13.32\\
+\hline
+\end{tabular}
+\end{verbatim}
+
+\begin{tabular}{|l |  D{.}{,}{-1} |}
+\hline
+Producto 1 & 11.1\\
+\hline
+Producto 2 & 2.22\\
+\hline
+Total & 13.32\\
+\hline
+\end{tabular}
+
+
+\subsection{Alineación vertical de la tabla}
+
+\subsubsection{Alineación de la parte superior de la tabla con la base del texto}
+
+En el siguiente ejemplo podremos ver como la tabla queda alineada con la base del texto.
+
+\begin{verbatim}
+Hola mundo
+\begin{tabular}[t]{|l |c |r|}
+\hline
+pos 1 & pos 2 & pos 3 \\ 
+\hline
+posición 1 & posición 2 & posición 3 \\
+\hline
+\end{tabular}
+\end{verbatim}
+
+
+Hola mundo
+\begin{tabular}[t]{|l |c |r|}
+\hline
+pos 1 & pos 2 & pos 3 \\ 
+\hline
+posición 1 & posición 2 & posición 3 \\
+\hline
+\end{tabular}
+
+\subsubsection{Alineación del centro de la tabla con la base del texto}
+
+En otro ejemplo vemos como la tabla queda centrada verticalmente con el texto.
+
+\begin{verbatim}
+Hola mundo
+\begin{tabular}[c]{|l| r| c|}
+\hline
+pos 1 & pos 2 & pos 3 \\
+\hline
+posición 1 & posición 2 & posición 3 \\
+\hline
+\end{tabular}
+\end{verbatim}
+
+Hola mundo
+\begin{tabular}[c]{|l| r| c|}
+\hline
+pos 1 & pos 2 & pos 3 \\
+\hline
+posición 1 & posición 2 & posición 3 \\
+\hline
+\end{tabular}
+
+\subsubsection{Alineación de la base de la tabla con la base del texto}
+
+\begin{verbatim}
+Hola mundo
+\begin{tabular}[b]{| l | c| r |}
+\hline
+pos 1 & pos 2 & pos 3 \\
+\hline
+posición 1 & posición 2 & posición 3 \\
+\hline
+\end{tabular}
+\end{verbatim}
+
+Hola mundo
+\begin{tabular}[b]{| l | c| r |}
+\hline
+pos 1 & pos 2 & pos 3 \\
+\hline
+posición 1 & posición 2 & posición 3 \\
+\hline
+\end{tabular}
+
+\subsection{Alineación diferenciada en una misma columna}
+
+En los ejemplos que vimos hasta ahora la alineación de una misma columna era la misma para todas sus celdas.
+
+Si necesitamos una alineación paricular para cada celda, lo que podemos hacer es poner el texto dentro de una caja.
+
+Veamos un ejemplo:
+
+\begin{verbatim}
+\begin{tabular}{|l|l|}
+\hline
+celda 1 &celda 2\\
+\hline
+celda 3 &\makebox[2.5cm][c]{celda 4}\\
+\hline
+celda 5 &\makebox[2.5cm][r]{celda 6}\\
+\hline
+\end{tabular}
+\end{verbatim}
+
+Obtenemos como resultado:
+
+\begin{tabular}{|l|l|}
+\hline
+celda 1 &celda 2\\
+\hline
+celda 3 &\makebox[2.5cm][c]{celda 4}\\
+\hline
+celda 5 &\makebox[2.5cm][r]{celda 6}\\
+\hline
+\end{tabular}
+
+\section{Uniendo celdas}
+
+\subsection{Celdas de varias columnas}
+
+Si queremos unir varias columnas, debemos usar el comando ``multicolum''. Este tiene la siguiente sintaxis:
+
+\begin{verbatim}
+\multicolumn{columnas}{posición}{texto}
+\end{verbatim}
+
+\begin{tabular}{l p{11.5cm}}
+columnas & Indica cuantas columnas tendrá de ancho la celda.\\
+posición & Indica la alineación del texto.\\
+texto & Indica el contenido de la celda.\\
+\end{tabular}
+
+\subsubsection{Ejemplo celdas multicolumnas}
+
+\begin{verbatim}
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{3}{|c|}{multicolumna 1-3}\\
+\hline
+\multicolumn{2}{|c|}{multicolumna 1-2} & columna3\\
+\hline
+columna 1 & \multicolumn{2}{|c|}{multicolumna 2-3}\\
+\hline
+\end{tabular}
+\end{verbatim}
+
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{3}{|c|}{multicolumna 1-3}\\
+\hline
+\multicolumn{2}{|c|}{multicolumna 1-2} & columna3\\
+\hline
+columna 1 & \multicolumn{2}{|c|}{multicolumna 2-3}\\
+\hline
+\end{tabular}
+
+
+\subsection{Uniendo varias filas}
+
+Para unir varias filas debemos usar el comando ``multirow''\cite{multirow}. Este tiene la siguiente sintaxis:
+
+\begin{verbatim}
+\multirow{filas}{ancho}[movimiento vertical]{texto}
+\end{verbatim}
+
+Además el paquete ``multirow'' debe ser declarado al principio del documento.
+
+\begin{verbatim}
+\usepackage{multirow}
+\end{verbatim}
+
+\begin{tabular}{l p{10cm}}
+columnas & Indica cuantas filas tendrá de alto la celda.\\
+ancho & Indica el ancho de la columna, si se pone asterisco tendrá el ancho por defecto.\\
+movimiento vertical & Sirve para alinear el texto verticalmente(opcional).\\
+texto & Indica el contenido de la celda.\\
+\end{tabular}
+
+\subsubsection{Ejemplo celdas multifilas}
+
+\begin{verbatim}
+\begin{tabular}{|c|c|c|}
+\hline
+\multirow{3}{4cm}{multifila 1-3} & \multirow{2}{*}[3 mm]
+{multifila 1-2} & columna 3\\
+\cline{3-3}
+& & \multirow{2}{*}[-3 mm]{multifila 2-3}\\
+\cline{2-2}
+& columna 2 & \\
+\hline
+\end{tabular}
+\end{verbatim}
+
+\begin{tabular}{|c|c|c|}
+\hline
+\multirow{3}{4cm}{multifila 1-3} & \multirow{2}{*}[3 mm]{multifila 1-2} & columna 3\\
+\cline{3-3}
+& & \multirow{2}{*}[-3 mm]{multifila 2-3}\\
+\cline{2-2}
+& columna 2 & \\
+\hline
+\end{tabular}
+
+
+\section{Dividiendo celdas en diagonal}
+
+Para poder hacer divisiones diagonales en las tablas debemos usar el paquete ``slashbox'', por lo tanto debemos agregar en el encabezado del archivo fuente la siguiente declaración:
+
+\begin{verbatim}
+\usepackage{slashbox}
+\end{verbatim}
+
+Cuando tenemos que dividir una celda usamos el siguiente comando:
+
+\begin{verbatim}
+\backslashbox{izquierda}{derecha}
+\end{verbatim}
+
+Donde ``izquierda'' y ``derecha'' será el contenido de la celda a cada lado de la línea diagonal.
+
+Veamos un ejemplo:
+
+\begin{verbatim}
+\begin{tabular}{|l|r|r|r|}
+\hline
+\backslashbox{origen}{destino} & Buenos Aires & Córdoba & Rosario \\
+\hline
+Buenos Aires & 0 Km & 716 Km & 318 Km\\
+\hline 
+Córdoba & 716 Km & 0 Km &  398 Km\\
+\hline
+Rosario & 318 Km & 398 Km & 0Km\\
+\hline
+\end{tabular}
+\end{verbatim}
+
+\begin{tabular}{|l|r|r|r|}
+\hline
+\backslashbox{origen}{destino} & Buenos Aires & Córdoba & Rosario \\
+\hline
+Buenos Aires & 0 Km & 716 Km & 318 Km\\
+\hline 
+Córdoba & 716 Km & 0 Km &  398 Km\\
+\hline
+Rosario & 318 Km & 398 Km & 0Km\\
+\hline
+\end{tabular}
+
+
+\section{Pongamos un poco de color}
+
+Para poder colorear las tablas debemos usar el paquete \emph{colortbl}\cite{colortbl}, por lo tanto debemos agregar en el encabezado del archivo fuente:
+
+\begin{verbatim}
+\usepackage{colortbl}
+\end{verbatim}
+
+\subsection{Columnas en color}
+
+Para colorear las columnas disponemos del comando ``columncolor'', el mismo posee la siguiente sintaxis:
+
+\begin{verbatim}
+\columncolor[color model]{color}[left overhang][right overhang]
+\end{verbatim}
+
+\begin{tabular}{l p{11cm}}
+color model& Especifíca el modelo de color a usar, estos pueden ser rgb (red, green, blue), cmyk (cyan, magenta, yellow, black), hsb(Hue, Saturation, Brightness) o gray (gris). ``hsb'' no puede ser usado con pdf\LaTeX\\
+color & Es una especificación al modelo de color dado. Esto es muy conveniente si uno quiere utilizarlo sin definirlo anteriormente. Los colores predefinidos son: black, white, red, green, blue, cyan, magenta y yellow.\\
+left overhang & Controla la distancia que el color debe exceder hacia la izquierda la entrada de la tabla más ancha.\\
+right overhang & Controla la distancia que el color debe exceder hacia la derecha la entrada de la tabla más ancha.\\
+\end{tabular}
+
+El comando \verb+columncolor+ solo puede ser usado en la definición de una columna o con el entorno multicolumn. El modo de usarlo es:
+
+\verb+>{\columncolor[model color]{color} ...}+
+
+\subsubsection{Distintos modelos de color}
+
+Ahora veremos un ejemplo en el que aplicamos todos los modelos de color, en la columna 1 utilizamos el modelo rgb, en la columa 2 cmyk, en la columna 3 gray, en la columna 4 un color predefinido y en la columna 5 un color que definimos préviamente.
+
+\begin{verbatim}
+\definecolor{micolor}{rgb}{0,1,0.5}
+
+\begin{tabular}{|>{\columncolor[rgb]{0.7,0,0.7}} c |
+	>{\columncolor[cmyk]{0.8,0.5,0.4,0.1}}c |
+	>{\columncolor[gray]{0.7}}c |
+	>{\columncolor{blue}}c |
+	>{\columncolor{micolor}} c|}
+\hline
+Col 1 & Col 2 & Col 3 & Col 4 & Col 5 \\
+\hline
+rgb & cmyk & gray & predefinido & definido por nosotros\\
+\hline
+\end{tabular}
+\end{verbatim}
+
+
+\definecolor{micolor}{rgb}{0,1,0.5}
+
+\begin{tabular}{|>{\columncolor[rgb]{0.7,0,0.7}} c |>{\columncolor[cmyk]{0.8,0.5,0.4,0.1}}c |>{\columncolor[gray]{0.7}}c |>{\columncolor{blue}}c |>{\columncolor{micolor}} c|}
+\hline
+Col 1 & Col 2 & Col 3 & Col 4 & Col 5 \\
+\hline
+rgb & cmyk & gray & predefinido & definido por nosotros\\
+\hline
+\end{tabular}
+
+\subsubsection{Coloreando el entorno multicolumn}
+
+Veamos directamente un pequeño ejemplo:
+
+\begin{verbatim}
+\begin{tabular}{|c|c|}
+\hline
+\multicolumn{2}{|>{\columncolor{red}}c|}{multicolumna 1-2}\\
+\hline
+\multicolumn{1}{|>{\columncolor{green}}c|}{columna 1} & 
+\multicolumn{1}{|>{\columncolor{yellow}}c|}{columna 2}\\
+\hline
+\end{tabular}
+\end{verbatim}
+
+\begin{tabular}{|c|c|}
+\hline
+\multicolumn{2}{|>{\columncolor{red}}c|}{multicolumna 1-2}\\
+\hline
+\multicolumn{1}{|>{\columncolor{green}}c|}{columna 1} & \multicolumn{1}{|>{\columncolor{yellow}}c|}{columna 2}\\
+\hline
+\end{tabular}
+
+\subsubsection{Determinando el ancho del color}
+
+Como vimos en el ejemplo anterior si no definimos nada, el color ocupa todo el ancho de la columna. Ahora veremos un ejemplo que nos muestra como modificar eso.
+
+\begin{verbatim}
+\begin{tabular}{| >{\columncolor[rgb]{1,1,0}}l | 
+>{\columncolor[rgb]{0,1,1}[0cm][0cm]} l | 
+>{\columncolor[rgb]{1,0,1}[.5\tabcolsep][.5\tabcolsep]} l|}
+\hline
+Enrique & Cerse\\
+\hline
+Clara & Boya\\
+\hline
+Ana & Conda\\
+\hline
+\end{tabular}
+\end{verbatim}
+
+\begin{tabular}{| >{\columncolor[rgb]{1,1,0}}l | >{\columncolor[rgb]{0,1,1}[0cm][0cm]} l |>{\columncolor[rgb]{1,0,1}[.5\tabcolsep][.5\tabcolsep]} l|}
+\hline
+Integrante 1 & Enrique & Cerse\\
+\hline
+Integrante 2 &Clara & Boya\\
+\hline
+Integrante 3 & Ana & Conda\\
+\hline
+\end{tabular}
+
+
+En este ejemplo vimos los dos extremos, la primer columna totalmente coloreada, la segunda columna con el color ajustado al texto y la tercer columna colorea hasta la mitad del espacio que queda entre la palabra más ancha y el ancho de la columna.
+
+Como siempre las unidades de medida pueden ser mm, cm, in, pt, em y ex.
+
+\subsection{Filas en color}
+
+La sintaxis es similar a la de las columnas, pero más sencilla:
+
+\verb+\rowcolor[model color]{color}+
+
+Los parámetros ``model color'' y ``color'' tienen los mismos significados que en ``columncolor''.
+
+Veamos un ejemplo:
+
+\begin{verbatim}
+\begin{tabular}{|l|l|}
+\hline
+\rowcolor[cmyk]{1,1,0,0}Abraham & Lapuerta\\
+\hline
+\rowcolor[rgb]{0,1,1}Roque & Fort\\
+\hline
+\rowcolor[gray]{0.9}Eva & Dirse\\
+\hline
+\end{tabular}
+\end{verbatim}
+
+\begin{tabular}{|l|l|}
+\hline
+\rowcolor[cmyk]{1,1,0,0}Abraham & Lapuerta\\
+\hline
+\rowcolor[rgb]{0,1,1}Roque & Fort\\
+\hline
+\rowcolor[gray]{0.9}Eva & Dirse\\
+\hline
+\end{tabular}
+
+
+\subsection{Coloreando celdas individuales}
+
+El paquete \emph{colortbl} también permite colorear las celdas una a una.
+
+La sintáxis es la siguiente:
+
+\verb+\cellcolor[modelo color]{color}+
+
+Veamos un ejemplo sencillo:
+
+\begin{verbatim}
+\begin{tabular}{|l|l|}
+\hline
+\cellcolor[cmyk]{1,1,0,0}Abraham & \cellcolor{red}Lapuerta\\
+\hline
+\cellcolor[rgb]{0,1,1}Roque & \cellcolor{blue}Fort\\
+\hline
+\cellcolor[gray]{0.9}Eva & \cellcolor{green}Dirse\\
+\hline
+\end{tabular}
+\end{verbatim}
+
+Obtenemos como resultado:
+
+\begin{tabular}{|l|l|}
+\hline
+\cellcolor[cmyk]{1,1,0,0}Abraham & \cellcolor{red}Lapuerta\\
+\hline
+\cellcolor[rgb]{0,1,1}Roque & \cellcolor{blue}Fort\\
+\hline
+\cellcolor[gray]{0.9}Eva & \cellcolor{green}Dirse\\
+\hline
+\end{tabular}
+
+
+\section{Elementos flotantes}
+
+Si nosotros generásemos una tabla con el entorno tabular, esta intentará ubicarse debajo del texto en el que se encuentra en el código fuente, si no entrase en la página actual se colocará en la siguiente, dejando en blanco el espacio en la hoja anterior. Esto no quedaría muy bien, pero lo podemos solucionar con el entorno ``table'', que lo que hace es convertir la tabla en flotante. Su sintaxis es la siguiente:
+
+\begin{verbatim}
+\begin{table}[posición]
+\begin{tabular}
+...
+...
+...
+\end{tabular}
+\caption[Descripción corta]{Descripción larga}
+\end{table}
+\end{verbatim}
+
+\begin{tabular}{l p{12cm}}
+posición& Especifíca donde \LaTeX intentará colocar la tabla, tiene las siguientes opciones y se puede poner una secuencia de varias:\\
+&b: Intentará ponerla en el fondo de la página\\
+&h: Intentará ponerla en la misma posición en que se encuentra en el código fuente\\
+&t: Intentará ponerla al principio de la página\\
+&p: La pondrá en una página que contenga solo elementos flotantes\\
+&!: Ignorar la mayoría de las restricciones impuestas por \LaTeX\\
+caption& Especifica una leyenda para la tabla\\
+&Descripción larga: Leyenda que aparecerá bajo la tabla\\
+&Descripción corta: Leyenda alternativa que aparecerá el la lista de tablas
+\end{tabular}
+
+Realicemos un pequeño ejemplo:
+
+\begin{verbatim}
+\begin{table}[!hbt]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Nombre & Apellido\\
+\hline
+Juan & Perez\\
+José & Lopez\\
+Carlos & García\\
+\hline
+\end{tabular}
+\caption{Listado de alumnos}
+\end{center}
+\end{table}
+\end{verbatim}
+
+Y obtendremos:
+
+\begin{table}[!hbt]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Nombre & Apellido\\
+\hline
+Juan & Perez\\
+José & Lopez\\
+Carlos & García\\
+\hline
+\end{tabular}
+\caption{Listado de alumnos}
+\end{center}
+\end{table}
+
+
+\section{Rotando las tablas}
+
+Existe más de una manera de rotar una tabla, aquí voy a explicar las dos que yo uso, dependiendo de lo que precise. Si queremos rotar una tabla ( o algunas otras cosas) debemos usar el paquete \emph{rotating}\cite{rotating}, por lo tanto debemos agregar en el encabezado del archivo fuente la siguiente declaración:
+
+\begin{verbatim}
+\usepackage{rotating}
+\end{verbatim}
+
+La primer opción es usar el entorno \emph{sydeways}, lo que hace simplemente es rotar la tabla 90º.
+
+Para verlo mejor hagamos un ejemplo:
+
+\begin{verbatim}
+\begin{center}
+\begin{sideways}
+\begin{tabular}{|l|r|r|}
+\hline
+ &columna 1&columna 2\\
+\hline
+fila 1 & $a_{11}$ & $a_{12}$\\
+\hline
+fila 2 & $a_{21}$ & $a_{22}$\\
+\hline
+\end{tabular}
+\end{sideways}
+\end{center}
+\end{verbatim}
+
+Como resultado conseguimos lo siguiente:
+
+\begin{center}
+\begin{sideways}
+\begin{tabular}{|l|r|r|}
+\hline
+ &columna 1&columna 2\\
+\hline
+fila 1 & $a_{11}$ & $a_{12}$\\
+\hline
+fila 2 & $a_{21}$ & $a_{22}$\\
+\hline
+\end{tabular}
+\end{sideways}
+\end{center}
+
+
+
+Otra manera es crear un entorno flotante análogo al entorno \emph{table}, esto se logra mediante el entorno \emph{sydewatstable}. Tiene una desventaja, siempre ocupará una página completa, por lo tanto si la hoja anterior no está completa la llenará con el texto que le sigue a la tabla.
+
+Veamos un ejemplo:
+
+\begin{verbatim}
+\begin{sidewaystable}
+\begin{center}
+\begin{tabular}{|l|r|r|}
+\hline
+ &columna 1&columna 2\\
+\hline
+fila 1 & $a_{11}$ & $a_{12}$\\
+\hline
+fila 2 & $a_{21}$ & $a_{22}$\\
+\hline
+\end{tabular}
+\caption{Esta tabla está rotada.}
+\label{tablaside}
+\end{center}
+\end{sidewaystable}
+\end{verbatim}
+
+
+El resultado podemos verlo en la tabla \ref{tablaside}.
+
+\begin{sidewaystable}
+\begin{center}
+\begin{tabular}{|l|r|r|}
+\hline
+ &columna 1&columna 2\\
+\hline
+fila 1 & $a_{11}$ & $a_{12}$\\
+\hline
+fila 2 & $a_{21}$ & $a_{22}$\\
+\hline
+\end{tabular}
+\caption{Esta tabla está rotada.}
+\label{tablaside}
+\end{center}
+\end{sidewaystable}
+
+\subsection{Rotando el texto de las celdas}
+
+Para rotar el texto de una celda también podemos usar el entorno \emph{sideways}. No tiene complicaciones, mostremos un ejemplo directamente.
+
+\begin{verbatim}
+\begin{center}
+\begin{tabular}{|l|r|r|}
+\hline
+ &\begin{sideways}columna 1\end{sideways}&\begin{sideways}columna 2
+ \end{sideways}\\
+\hline
+fila 1 & $a_{11}$ & $a_{12}$\\
+\hline
+fila 2 & $a_{21}$ & $a_{22}$\\
+\hline
+\end{tabular}
+\end{center}
+\end{verbatim}
+
+Como resultado obtenemos lo siguiente:
+
+\begin{center}
+\begin{tabular}{|l|r|r|}
+\hline
+ &\begin{sideways}columna 1\end{sideways}&\begin{sideways}columna 2\end{sideways}\\
+\hline
+fila 1 & $a_{11}$ & $a_{12}$\\
+\hline
+fila 2 & $a_{21}$ & $a_{22}$\\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Redimensionando tablas}
+
+Es probable que en alguna ocasión necesitemos cambiar el tamaño de nuestra tabla. Para esto el paquete \emph{graphicx} nos proporciona dos comandos \emph{scalebox} y \emph{resizebox}.
+
+Para utilizarlos debemos declarar en el encabezado el paquete \emph{graphicx}\cite{graphicx}.
+
+\begin{verbatim}
+\usepackage{graphicx}
+\end{verbatim}
+
+\subsection{El comando \emph{scalebox}}
+
+Este comando permite escalar una tabla, tiene el siguiente formato:
+
+\begin{verbatim}
+\scalebox{escala horizonal}[escala vertical]{argumento}
+\end{verbatim}
+
+Donde:
+
+\begin{tabular}{l p{10,5cm}}
+escala horizontal: &Es el factor por el que se multiplicará el ancho original de la tabla. En caso de que no se especifique el escalado veritical, este factor se aplicará tanto a la escala horizontal como vertical.\\
+escala vertical: &Es el factor por el que se multiplicará la altura original de la tabla.\\
+argumento: &Es lo que queremos escalar, en nuestro caso la tabla
+\end{tabular}
+
+\subsubsection{Ejemplo 1}
+
+Especificando diferentes escalas para el ancho y alto de la tabla.
+
+\begin{verbatim}
+\scalebox{1.5}[2]{
+\begin{tabular}{|r|l|l|}
+\hline
+&columna 1&columna 2\\
+\hline
+fila 1& celda 1&celda 2\\
+\hline
+fila 2& celda 3&celda 4\\
+\hline
+\end{tabular}}
+\end{verbatim}
+
+Obtenemos como resultado:
+
+\scalebox{1.5}[2]{
+\begin{tabular}{|r|l|l|}
+\hline
+&columna 1&columna 2\\
+\hline
+fila 1& celda 1&celda 2\\
+\hline
+fila 2& celda 3&celda 4\\
+\hline
+\end{tabular}}
+
+
+\subsubsection{Ejemplo 2}
+
+Especificando una misma escala para el ancho y alto de la tabla.
+
+\begin{verbatim}
+\scalebox{0.5}{
+\begin{tabular}{|r|l|l|}
+\hline
+&columna 1&columna 2\\
+\hline
+fila 1& celda 1&celda 2\\
+\hline
+fila 2& celda 3&celda 4\\
+\hline
+\end{tabular}}
+\end{verbatim}
+
+Obtenemos como resultado:
+
+\scalebox{0.5}{
+\begin{tabular}{|r|l|l|}
+\hline
+&columna 1&columna 2\\
+\hline
+fila 1& celda 1&celda 2\\
+\hline
+fila 2& celda 3&celda 4\\
+\hline
+\end{tabular}}
+
+\subsubsection{Ejemplo 3}
+
+Si ponemos un valor negativo invertirá la tabla.
+
+\begin{verbatim}
+\scalebox{-1}{
+\begin{tabular}{|r|l|l|}
+\hline
+&columna 1&columna 2\\
+\hline
+fila 1& celda 1&celda 2\\
+\hline
+fila 2& celda 3&celda 4\\
+\hline
+\end{tabular}}
+\end{verbatim}
+
+Obtenemos como resultado:
+
+\scalebox{-1}{
+\begin{tabular}{|r|l|l|}
+\hline
+&columna 1&columna 2\\
+\hline
+fila 1& celda 1&celda 2\\
+\hline
+fila 2& celda 3&celda 4\\
+\hline
+\end{tabular}}
+
+\subsection{El comando \emph{resizebox}}
+
+Este comando permite especificar las dimensiones reales en que quedará el objeto. Tiene 2 formatos, su sintaxis es la siguiente:
+
+\begin{verbatim}
+\resizebox{ancho}{altura}{argumento}
+\resizebox*{ancho}{altura}{argumento}
+\end{verbatim}
+
+Según la documentación del paquete \emph{graphicx}, el parámetro \emph{altura} especifica la altura del objeto. Pero si el objeto fue rotado el parámetro \emph{altura} se refiere a la altura más la profundidad. Para que el parámetro \emph{altura} especifique solo la altura aunque la tabla esté rotada, debe usarse el comando \emph{resizebox*} en lugar de \emph{resizebox}.
+
+A pesar de lo que dice la documentación del paquete \emph{graphicx}, no pude hacer que \emph{resizebox} obtenga la altura correcta, en cambio si pude lograrlo con \emph{resizebox*}. Por lo tanto en este tutorial siempre usaré este último.
+
+Donde:
+
+\begin{tabular}{l p{11,5cm}}
+ancho: &Define el ancho de la tabla.\\
+altura: &Define la altura de la tabla.\\
+argumento: &Es el objeto que queremos redimensionar, en nuestro caso la tabla.\\
+\end{tabular}
+
+Cuando en los parámetros \emph{ancho} o \emph{altura} se escribe el signo ``!'' en lugar de una medida indica que mantenga las proporciones respecto a la medida especificada.
+
+\subsubsection{Ejemplo 1}
+
+Acá especificamos ancho y alo de la tabla igual a 3 cm.
+
+\begin{verbatim}
+\resizebox*{3cm}{3cm}{
+\begin{tabular}{|r|l|l|}
+\hline
+&columna 1&columna 2\\
+\hline
+fila 1& celda 1&celda 2\\
+\hline
+fila 2& celda 3&celda 4\\
+\hline
+\end{tabular}}
+\end{verbatim}
+
+Obtenemos como resultado:
+
+\resizebox*{3cm}{3cm}{
+\begin{tabular}{|r|l|l|}
+\hline
+&columna 1&columna 2\\
+\hline
+fila 1& celda 1&celda 2\\
+\hline
+fila 2& celda 3&celda 4\\
+\hline
+\end{tabular}}
+
+\subsubsection{Ejemplo 2}
+
+En este ejemplo solo especificamos la altura y se calcula el ancho de manera proporcinal.
+
+\begin{verbatim}
+\resizebox*{!}{3cm}{
+\begin{tabular}{|r|l|l|}
+\hline
+&columna 1&columna 2\\
+\hline
+fila 1& celda 1&celda 2\\
+\hline
+fila 2& celda 3&celda 4\\
+\hline
+\end{tabular}}
+\end{verbatim}
+
+Obtenemos como resultado:
+
+\resizebox*{!}{3cm}{
+\begin{tabular}{|r|l|l|}
+\hline
+&columna 1&columna 2\\
+\hline
+fila 1& celda 1&celda 2\\
+\hline
+fila 2& celda 3&celda 4\\
+\hline
+\end{tabular}}
+
+\subsubsection{Ejemplo 3}
+
+En este ejemplo especificamos un ancho igual al 80\% del ancho total del texto.
+
+\begin{verbatim}
+\resizebox*{.8\textwidth}{!}{
+\begin{tabular}{|r|l|l|}
+\hline
+&columna 1&columna 2\\
+\hline
+fila 1& celda 1&celda 2\\
+\hline
+fila 2& celda 3&celda 4\\
+\hline
+\end{tabular}}
+\end{verbatim}
+
+Obtenemos como resultado:
+
+\resizebox*{.8\textwidth}{!}{
+\begin{tabular}{|r|l|l|}
+\hline
+&columna 1&columna 2\\
+\hline
+fila 1& celda 1&celda 2\\
+\hline
+fila 2& celda 3&celda 4\\
+\hline
+\end{tabular}}
+
+\section{Tablas largas}
+
+Si intentásemos crear un tabla que ocupe más de una página, veríamos que \LaTeX la genera de manera erronea. Es por este motivo que se creó el entorno \emph{longtable}\cite{longtable}. Para poder usarlo, debemos definir en la cabecera del documento:
+
+\begin{verbatim}
+\usepackage{longtable}
+\end{verbatim}
+
+El entorno \emph{longtable} se puede ver como una mezcla de los entornos ``tabular'' y ``table'' (que veremos más adelante). Las columanas se definen de igual manera que en el entorno ``tabular'' y las filas se separan por \textbackslash\textbackslash, con la salvedad que se puede poner una unidad de longuitud después del comando por ejemplo:
+
+\verb+\\[3cm]+
+
+Esto generará un salto de línea de la medida especificada entre corchetes. No se permite alinear la tabla con respecto al texto con los argumentos [t], [b] o [c] como en el entorno tabular.
+
+Acepta los siguientes comandos:
+
+\begin{tabular}{l p{11.5 cm}}
+endfirsthead & Es la cabecera de la primera fila solo en la primer página.\\
+endhead & Es la cabecera de la primera fila para todas las páginas salvo la primera.\\
+endlastfood & Es el pie de tabla para la última página.\\
+endfoot & Es el pie de tabla para todas las páginas salvo la última.\\
+caption{} & Numerará la tabla y le pondrá la leyenda entre llaves.\\
+caption[]{} & Numerará la tabla, le pondrá la leyenda entre llaves y en la lista de tablas especificará el texto entre corchetes, si no se especifica entre corchetes no se agragará a la lista de tablas.\\
+caption*{} & Pondrá la leyenda entre llaves, pero no la agragará a la lista de tablas.\\
+footnote & Pone una nota al pie, no puede ser usado en cabeceras o pie de tabla.\\
+footnotemark & Pone una marca de nota al pie en la cabecera o pie de tabla.\\
+footnotetext & Pone la nota al pie, se debe usar en el cuerpo de la tabla.\\
+\end{tabular}
+
+\begin{verbatim}
+\begin{longtable}{|l|l|}
+\hline
+\multicolumn{2}{|c|}{Primera fila de primera hoja} \\
+\hline
+\endfirsthead
+\hline
+\multicolumn{2}{|c|}{Primera fila de todas las hojas} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{Última fila de la última hoja\footnotemark[2]
+  }\\
+\hline
+\caption{Tabla larga}
+\endlastfoot
+\hline
+\multicolumn{2}{|c|}{Última fila de todas hojas} \\
+\hline
+\endfoot
+\footnotetext[2]{footnote del pie de tabla.}
+uno & dos\\[4cm]
+\hline
+tres\footnote{footnote, no puede ser usado en el entorno 
+``tabular''.} & cuatro\\
+\hline
+cinco & seis\\[2cm]
+\end{longtable}
+\end{verbatim}
+
+\begin{longtable}{|l|l|}
+\hline
+\multicolumn{2}{|c|}{Primera fila de primera hoja} \\
+\hline
+\endfirsthead
+\hline
+\multicolumn{2}{|c|}{Primera fila de todas las hojas} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{Última fila de la última hoja\footnotemark[2]  }\\
+\hline
+\caption{Tabla larga}
+\endlastfoot
+\hline
+\multicolumn{2}{|c|}{Última fila de todas hojas} \\
+\hline
+\endfoot
+\footnotetext[2]{footnote del pie de tabla.}
+uno & dos\\[4cm]
+\hline
+tres\footnote{footnote, no puede ser usado en el entorno ``tabular''.} & cuatro\\
+\hline
+cinco & seis\\[2cm]
+\end{longtable}
+
+\section{Tablas de ancho fijo}
+
+\subsection{El paquete \emph{tabularx}\cite{tabularx}}
+
+El paquete \emph{tabularx} permite definir el ancho de una tabla de la misma manera que con el entorno \emph{tabular*}. Sin embargo, el entorno \emph{tabular*} tiene un problema, si el texto es más ancho que la tabla nos dará un resultado indeseado como vemos en el siguiente ejemplo:
+
+\begin{verbatim}
+\begin{tabular*}{5cm}{|l|r|}
+\hline
+Alumno & Padrón\\
+\hline
+Carlos Gardel & 80546\\
+\hline
+Aníbal Troilo & 80547\\
+\hline
+Homero Manzi & 80548\\
+\hline
+Enrique Santos Discépolo & 80549\\
+\hline
+\end{tabular*}
+\end{verbatim}
+
+\begin{tabular*}{5cm}{|l|r|}
+\hline
+Alumno & Padrón\\
+\hline
+Carlos Gardel & 80546\\
+\hline
+Aníbal Troilo & 80547\\
+\hline
+Homero Manzi & 80548\\
+\hline
+Enrique Santos Discépolo & 80549\\
+\hline
+\end{tabular*}
+
+Esto se debe a que \emph{tabular*} consigue el ancho deseado completando con espacios en blanco, pero si el ancho del texto fuese mayor que el ancho de la tabla, \emph{tabular*} no puede resolver el problema.
+
+Para remediar este inconveniente, lo que hace el paquete \emph{tabularx} es ajustar el ancho de las columnas indicadas con la letra \textbf{``X''}.
+
+Para poder usar el paquete \emph{tabularx}, previemente debemos declararlo en el encabezado:
+
+\begin{verbatim}
+\usepackage{tabularx}
+\end{verbatim}
+
+El entorno \emph{tabularx} solo se aplicará a las columnas indicadas con la letra \textbf{``X''}.
+
+Vemos ahora como cambia el ejemplo anterior en un entorno \emph{tabularx}:
+
+\begin{verbatim}
+\begin{tabularx}{5cm}{|X|r|}
+\hline
+Alumno & Padrón\\
+\hline
+Carlos Gardel & 80546\\
+\hline
+Aníbal Troilo & 80547\\
+\hline
+Homero Manzi\footnote{El paquete \emph{tabularx} permite el uso de 
+notas al pie} & 80548\\
+\hline
+Enrique Santos Discépolo & 80549\\
+\hline
+\end{tabularx}
+\end{verbatim}
+
+\begin{tabularx}{5cm}{|X|r|}
+\hline
+Alumno & Padrón\\
+\hline
+Carlos Gardel & 80546\\
+\hline
+Aníbal Troilo & 80547\\
+\hline
+Homero Manzi\footnote{El paquete \emph{tabularx} permite el uso de notas al pie} & 80548\\
+\hline
+Enrique Santos Discépolo & 80549\\
+\hline
+\end{tabularx}
+
+El paquete \emph{tabularx} tiene problemas de compatibilidad con el entorno \emph{verbatim}.
+
+\subsection{El paquete \emph{tabulary}\cite{tabulary}}
+
+El paquete \emph{tabularx}, sólo permite que el texto de las columnas cuyo ancho se ajustan automáticamente quede alineado a izquierda. Para corregir este inconveniente, existe el paquete \emph{tabulary}.
+
+Como siempre debemos declarar el paquete en el encabezado:
+
+\begin{verbatim}
+\usepackege{tabulary}
+\end{verbatim}
+
+Veamos un ejemplo:
+
+\begin{verbatim}
+\begin{tabulary}{10cm}{|L|C|R|J|}
+\hline
+Ejemplo de celda alineada a izquierda& Ejemplo de celda con texto
+centrado & Ejemplo de celda alineada a derecha & Ejemplo de celda
+contexto justificado\\
+\hline
+\end{tabulary}
+\end{verbatim}
+
+\begin{tabulary}{10cm}{|L|C|R|J|}
+\hline
+Ejemplo de celda alineada a izquierda& Ejemplo de celda con texto centrado & Ejemplo de celda alineada a derecha & Ejemplo de celda contexto justificado\\
+\hline
+\end{tabulary}
+
+Si hay mucha diferencia de tamaño entre las columnas, el resultado que muestra el entorno \emph{tabulary} puede no ser el esperado, ya que algunas columnas pueden ser demasiado anchas y otras demasiado angostas.
+
+Para solucionar este problema podemos definir un ancho máximo y un ancho mínimo para las columnas.
+
+Para definir el ancho mínimo usamos el parámetro:
+
+\verb+\tymin=+
+
+Por omisión este parámetro viene definido como:
+
+\verb+\tymin=0pt+
+
+Para definir el ancho máximo usamos el parámetro:
+
+\verb+\tymax=+
+
+Por omisión este parámetro viene definido como:
+
+\verb+\tymax=\maxdimen+
+
+\subsubsection{Algunos inconvenientes con \emph{tabulary}}
+
+Este paquete parece tener problemas cuando el ancho del texto no es mayor que el ancho de la hoja, de manera que no respeta el ancho que se define.
+
+Veamos por ejemplo el mismo ejemplo que usamos en \emph{tabularx}:
+
+\begin{verbatim}
+\begin{tabulary}{5cm}{|L|R|}
+\hline
+Alumno & Padrón\\
+\hline
+Carlos Gardel & 80546\\
+\hline
+Aníbal Troilo & 80547\\
+\hline
+Homero Manzi & 80548\\
+\hline
+Enrique Santos Discépolo & 80549\\
+\hline
+\end{tabulary}
+\end{verbatim}
+
+\begin{tabulary}{5cm}{|L|R|}
+\hline
+Alumno & Padrón\\
+\hline
+Carlos Gardel & 80546\\
+\hline
+Aníbal Troilo & 80547\\
+\hline
+Homero Manzi & 80548\\
+\hline
+Enrique Santos Discépolo & 80549\\
+\hline
+\end{tabulary}
+
+Podemos apreciar que el ancho real es 6,79 cm, y no 5 cm como habíamos indicado.
+
+Otro inconveniente que tiene este paquete es que las notas al pie no funcionan muy bien.
+
+El entorno \emph{multicolumn} puede ser usado, si el texto no supera el ancho calculado de la columna.
+
+El entorno \emph{verb} tiene problemas con este paquete, de manera similar a los que tenía \emph{tabularx}.
+
+
+\section{Embelleciendo las tablas}
+
+\subsection{El paquete \emph{booktabs}\cite{booktabs}}
+
+Este paquete básicamente brinda una serie de alternativas para cambiar el aspecto de las líneas horizontales en las tablas.
+
+Para poder usar este paquete previamente debemos especificarlo en el emcabezado:
+
+\begin{verbatim}
+\usepackage{booktabs}
+\end{verbatim}
+
+Incorpora 5 nuevos comandos, que son los siguientes:
+
+\begin{tabular}{p{4cm} p{9.3cm}}
+\verb+\+toprule[espesor]: & se utiliza para líneas cabecera, opcionalmente se puede especificar un espesor determinado.\\
+\verb+\+midrule[espesor]: & se utiliza para líneas que separan filas comunes, opcionalmente se puede especificar un espesor determinado.\\
+\verb+\+bottomrule[espesor]: & se utiliza para líneas de fin de tabla, opcionalmente se puede especificar un espesor determinado.\\
+\verb+\+cmidrule[espesor] (recorte) \{cola-colb\}: & se utiliza para crear líneas que no atraviesen todas las columnas, opcionalmente se puede especificar un espesor determinado. El parámetro \emph{recorte} especifica si la línea se recorta a la izquierda y/o a la derecha y en que proporción. Los parámetros \emph{cola} y \emph{colb} indican de que columna a que columna va la línea.\\
+\verb+\+addlinespace[espesor]: & se usa para especificar espacio en blanco entre filas, opcionalmente se puede especificar un espesor determinado.\\
+\end{tabular}
+
+\subsubsection{Ejemplo 1}
+
+Veamos un ejemplo simple:
+
+\begin{verbatim}
+\begin{tabular}{l c r}
+\toprule
+&columna 1 &columna 2\\
+\midrule
+fila 1& celda 11 & celda 12\\
+\cmidrule{2-3}
+fila 2& celda 21 & celda 22\\
+\addlinespace
+fila 3 & celda 31 &celda 32\\
+\bottomrule
+\end{tabular}
+\end{verbatim}
+
+Obtenemos como resultado:
+
+\begin{tabular}{l c r}
+\toprule
+&columna 1 &columna 2\\
+\midrule
+fila 1& celda 11 & celda 12\\
+\cmidrule{2-3}
+fila 2& celda 21 & celda 22\\
+\addlinespace
+fila 3 & celda 31 &celda 32\\
+\bottomrule
+\end{tabular}
+
+\subsubsection{Ejemplo 2}
+
+En el ejemplo anterior vimos un ejemplo básico con los parámetros por omisión. Cambiemos ahora alguno de esos valores, de manera bien exagerada para que la diferencia sea evidente.
+
+\begin{verbatim}
+\begin{tabular}{l c r}
+\toprule[3mm]
+&columna 1 &columna 2\\
+\midrule[2mm]
+fila 1& celda 11 & celda 12\\
+\cmidrule[4mm](lr{5mm}){2-3}
+fila 2& celda 21 & celda 22\\
+\cmidrule{2-3}
+fila 3& celda 31 & celda 32\\
+\addlinespace[10mm]
+fila 4 & celda 41 &celda 42\\
+\bottomrule[5mm]
+\end{tabular}
+\end{verbatim}
+
+Obtenemos como resultado:
+
+\begin{tabular}{l c r}
+\toprule[3mm]
+&columna 1 &columna 2\\
+\midrule[2mm]
+fila 1& celda 11 & celda 12\\
+\cmidrule[4mm](lr{5mm}){2-3}
+fila 2& celda 21 & celda 22\\
+\cmidrule{2-3}
+fila 3& celda 31 & celda 32\\
+\addlinespace[10mm]
+fila 4 & celda 41 &celda 42\\
+\bottomrule[5mm]
+\end{tabular}
+
+
+\subsubsection{Ejemplo 3}
+
+Un ejemplo más real podría ser el siguiente:
+
+\begin{verbatim}
+\begin{tabular}{l r r r}
+\toprule[0.8mm]
+&enero&febrero &total\\
+\cmidrule(l){2-4}
+Juan&40& 60 & 100 \$\\
+\midrule
+Pedro&70& 30 & 100 \$\\
+\cmidrule[0.5mm](l){4-4}
+& & & 200 \$ \\
+\bottomrule[0.8mm]
+\end{tabular}
+\end{verbatim}
+
+Obtenemos como resultado:
+
+\begin{tabular}{l r r r}
+\toprule[0.8mm]
+&enero&febrero &total\\
+\cmidrule(l){2-4}
+Juan&40& 60 & 100 \$\\
+\midrule
+Pedro&70& 30 & 100 \$\\
+\cmidrule[0.5mm](l){4-4}
+& & & 200 \$ \\
+\bottomrule[0.8mm]
+\end{tabular}
+
+\section{Cambiando el aspecto de las líneas}
+
+Existen una serie de comandos que nos permiten cambiar el aspecto de las líneas. Para definirlos debemos usar el siguiente formato:
+
+\begin{verbatim}
+\setlength{\parametro}{valor}
+\begin{tabular}
+....
+\end{tabular}
+\end{verbatim}
+
+Descripción de los comandos:
+
+\begin{tabular}{l p{10,8cm}}
+arrayrulewidth:& Es el grosor de las líneas de la tabla. Por omisión este valor es \emph{0,4pt}.\\
+doublerulesep:& Es la separación entre líneas dobles, ya sean estas horizontales o verticales.\\
+tabcolsep:& Es la mitad del ancho de separación entre dos columnas.\\
+\end{tabular}
+
+Si quisieramos cambiar la distancia entre filas debemos usar el comando \emph{arraystretch}:
+
+\begin{tabular}{l p{11,3cm}}
+arraystretch:& Es la separación entre filas. Su valor por omisión es 1. Si pusieramos por ejemplo 1.5, aumentaríamos la separación un 50.\\
+\end{tabular}
+
+Lo definimos de la siguiente manera:
+
+\begin{verbatim}
+\renewcommand{\arraystrech}{valor}
+\end{verbatim}
+
+Estas modificaciones pueden hacerse en el preámbulo, donde afectarán a todo el documento o dentro del entorno, donde solo afectará a este.
+
+Veamos algunos ejemplos:
+
+\subsection{Ejemplo 1}
+
+\begin{verbatim}
+%Acá cambiamos la separación entre columnas
+{\setlength{\tabcolsep}{10mm}
+%Acá cambiamos el grosor de las líneas
+{\setlength{\arrayrulewidth}{2mm}
+\begin{tabular}{| l | l |}
+\hline
+celda 1 & celda 2\\
+\hline
+celda 3 & celda 4\\
+\hline
+\end{tabular}
+}}
+\end{verbatim}
+
+%Acá cambiamos la separación entre columnas
+{\setlength{\tabcolsep}{10mm}
+%Acá cambiamos el grosor de las líneas
+{\setlength{\arrayrulewidth}{2mm}
+\begin{tabular}{| l | l |}
+\hline
+celda 1 & celda 2\\
+\hline
+celda 3 & celda 4\\
+\hline
+\end{tabular}
+}}
+
+\subsection{Ejemplo 2}
+
+\begin{verbatim}
+\begin{center}
+%Acá cambiamos la separación entre filas
+\renewcommand{\arraystretch}{2.5}
+%Acá cambiamos la separación entre filas dobles
+{\setlength{\doublerulesep}{2mm}
+\begin{tabular}{|| l | l ||}
+\hline
+\hline
+celda 1 & celda 2\\
+\hline
+celda 3 & celda 4\\
+\hline
+\hline
+\end{tabular}
+}
+\end{center}
+\end{verbatim}
+
+\begin{center}
+%Acá cambiamos la separación entre filas
+\renewcommand{\arraystretch}{2.5}
+%Acá cambiamos la separación entre filas dobles
+{\setlength{\doublerulesep}{2mm}
+\begin{tabular}{|| l | l ||}
+\hline
+\hline
+celda 1 & celda 2\\
+\hline
+celda 3 & celda 4\\
+\hline
+\hline
+\end{tabular}
+}
+\end{center}
+
+\section{Cambiando la leyenda de las tablas}
+
+Si en el entorno ``table'' usamos el comando ``caption'', este pondrá la leyenda ``Cuadro'' con el número de tabla correspondiente. En castellano es más común llamarlo ``Tabla'' en lugar de ``Cuadro'', esto podemos modificarlo con el siguiente comando después de \verb+\begin{document}+:
+
+\begin{verbatim}
+\renewcommand{\tablename}{Tabla}
+\end{verbatim}
+
+Si además queremos cambiar ``Índice de cuadros'' por ``Índice de tablas'', debemos usar el comando:
+
+\begin{verbatim}
+\renewcommand{\listtablename}{Índice de tablas}
+\end{verbatim}
+
+\section{Resultados inesperados}
+
+\begin{quote}
+Este inconveniente me lo hizo notar \emph{Leg Babouyes}.
+\end{quote}
+
+Supongamos que queremos colorear una celda multifila como en el siguiente ejemplo:
+
+\begin{verbatim}
+\begin{tabular}{|>{\columncolor{red}}c|c|}
+\hline
+\multirow{2}{2cm}{celda} &  celda 2\\
+\cline{2-2}
+& celda 3\\
+\hline
+\end{tabular}
+\end{verbatim}
+
+El resultado que obtendremos, será:
+
+\begin{tabular}{|>{\columncolor{red}}c|c|}
+\hline
+\multirow{2}{2cm}{celda} &  celda 2\\
+\cline{2-2}
+& celda 3\\
+\hline
+\end{tabular}
+
+Esto se debe a que las celdas se colorean una a una, entonces, la segunda celda de la multifila se colorea después de haber escrito el texto que se hizo junto con la primer celda, por eso queda tapado.
+
+Una de las posibles soluciones pasa por escribir el texto en la segunda celda y desplazarlo hacia arriba, de la siguiente manera:
+
+\begin{verbatim}
+\begin{tabular}{|>{\columncolor{red}}c|c|}
+\hline
+ &  celda 2\\
+\cline{2-2}
+\multirow{2}{2cm}[5mm ]{celda} & celda 3\\
+\hline
+\end{tabular}
+\end{verbatim}
+
+\begin{tabular}{|>{\columncolor{red}}c|c|}
+\hline
+ &  celda 2\\
+\cline{2-2}
+\multirow{2}{2cm}[5mm ]{celda} & celda 3\\
+\hline
+\end{tabular}
+
+\bibliography{tablas}
+
+\end{document}

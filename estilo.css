@@ -1,0 +1,278 @@
+BODY
+{
+  color: #333333;
+  background-color: #EFE7D6;
+}
+
+BLOCKQUOTE
+{
+  font-style: italic;
+}
+
+TR.borde-sup
+{
+  background-color: #ffffff;
+}
+
+TR.borde-inf
+{
+  background-color: #cccccc;
+}
+
+TR.contenido
+{
+  background-color: white;
+}
+
+INPUT
+{
+  font-size: 8pt;
+}
+
+H1
+{
+  background-color: #eeeeee;
+  color: black;
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 8pt;
+  font-weight: bold;
+  padding: 1pt;
+  margin-top: 10pt;
+  margin-bottom: 5pt;
+  border: thin solid black;
+  text-align: center;
+}
+
+.delimitador
+{
+  background-color: #eeeeee;
+  color: black;
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 8pt;
+  font-weight: bold;
+  padding: 1pt;
+  margin-bottom: 10pt;
+  border: thin solid black;
+  text-align: center;
+}
+
+.delimitador2
+{
+  background-color: #cccccc;
+  color: black;
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 9pt; 
+  font-weight: bold;
+}
+
+.barra
+{
+  background-color: #EFE7D6;
+  color: white;
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 9pt;
+  padding: 2;
+  
+  
+}
+
+DIV.menu
+{
+  background-color: #eeeeee;
+  color: #000000;
+  border: thin solid black;
+}
+
+.menu
+{
+  background-color: #EFE7D6;
+  color: #000000;
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 8pt ;
+  font-weight: normal;
+  border: none;
+}
+
+A.menu
+{ 
+  background-color: #eeeeee;
+  color: black;
+  text-decoration: none ;
+} 
+
+A.menu:hover
+{ 
+  background-color: #eeeeee;
+  text-decoration: underline ;
+} 
+
+.cuerpo
+{
+  background-color: white;
+  color: black;
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 8pt ;
+  font-weight: normal;
+  border: none;
+}
+
+.polltitle
+{
+  background-color: #cccccc;
+  color: black;
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 8pt ;
+  font-weight: normal;
+  border: none;
+}
+
+.noticia
+{
+  background-color: white;
+  color: #666666;
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 8pt ;
+  font-weight: normal;
+  text-alignment: center;
+  border: none;
+}
+
+.fecha-noticia
+{
+  color: #ff9900;
+  font-size: 8pt;
+  font-style: italic;
+}
+
+.hora-noticia
+{
+  color: black;
+}
+
+.noticia2
+{
+  color: #ff9900;
+}
+
+.epigrafe
+{
+  background-color: white;
+  color: gray;
+  font-family: Times, serif;
+  font-size: 8pt;
+  font-weight: bolder;
+  font-style: italic;
+  border: none;
+  clear: both;
+}
+
+.adorno-barra
+{
+  color: black;
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 8pt;
+  font-weight: bolder;
+}
+
+.lateral
+{
+  background-color: #cccccc;
+  color: black;
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 8pt ;
+  font-weight: bolder
+  text-align: center;
+}
+
+.adorno-lateral
+{
+  color: black;
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 8pt ;
+  font-weight: bolder;
+  text-align: center;
+}
+
+A.barra
+{ 
+  color: #8B4513;
+  text-decoration: none ;
+} 
+
+A.barra:hover
+{ 
+  text-decoration: underline ;
+} 
+
+A
+{ 
+  color: #8B4513;
+  text-decoration: none ;
+} 
+
+A:hover
+{ 
+  text-decoration: underline ;
+} 
+
+.credencial
+{
+  background-color: #cccccc;
+  color: black;
+  font-family: fixed;
+  font-size: 8pt;
+}
+
+.formulario
+{
+  background-color: #cccccc;
+  color: black;
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 8pt ;
+  font-weight: bolder
+  padding: 10;
+}
+
+INPUT.formulario
+{
+  font-size: 8pt;
+}
+
+TEXTAREA.formulario
+{
+  background-color: white;
+  font-size: 8pt ;
+}
+
+.cronograma
+{
+  background-color: white;
+  color: #000000;
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 8pt ;
+  font-weight: normal;
+  text-alignment: left;
+  border: none;
+}
+
+.cronograma-hora
+{
+  background-color: white;
+  color: #000000;
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 8pt ;
+  font-weight: normal;
+  text-alignment: center;
+}
+
+.cronograma-cuerpo
+{
+  background-color: white;
+  color: #000000;
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 8pt ;
+  font-weight: normal;
+  text-alignment: left;
+}
+
+

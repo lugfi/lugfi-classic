@@ -1,0 +1,1040 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- INICIO $Id: default-cabecera.php,v 1.9 2007-03-06 11:50:54 des Exp $ -->
+
+<html lang="es">
+
+<head>
+
+<title>::: Herramientas para ingeniería :::</title>
+
+<!-- INICIO $Id: default-estilo.php,v 1.5 2005/05/22 20:49:28 luca Exp $ -->
+  <link rel="stylesheet" href="../../css/lugfi.css" type="text/css">
+  <!-- FIN $Id: default-estilo.php,v 1.5 2005/05/22 20:49:28 luca Exp $ -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Description" content="Herramientas para ingeniería">
+<link rel="shortcut icon" href="../../favicon.ico">
+
+</head>
+
+<!-- FIN $Id: default-head.php,v 1.3 2006/11/23 19:55:33 lugfi Exp $ -->
+
+
+<body>
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%" align="center">
+<tr><td width="100%" height="100%" class="LugFI-Top">
+
+ <table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tr><td width="52%" class="LugFI-LogoLeft">
+
+ <!-- Beg Logo -->
+ <a href="../..">
+ <img src="../../logos/logo.png" alt="Logo LugFi" border="0" class="bottom"></a>
+ <!-- End Logo -->
+
+ </td>
+
+ <td width="48%" class="LugFI-LogoRight">
+
+ <!-- INICIO $Id: default-banner.php,v 1.9 2007-01-06 00:21:04 des Exp $ -->
+
+  <!-- Beg Marco Banners -->
+  <!-- Defino un marco para banners estandares de 234x60 -->
+
+  <table border="0" cellpadding="1" cellspacing="0" width="234" align="center">
+  <tr><td width="100%" class="LugFI-BannerDiv1" height="62">
+
+   <table border="0" cellpadding="1" cellspacing="0" width="100%">
+   <tr><td width="100%" class="LugFI-BannerDiv2" height="61">
+
+    <table border="0" cellpadding="1" cellspacing="0" width="100%">
+    <tr><td width="100%" class="LugFI-BannerDiv3" height="60">
+
+    <a href="http://jornadas.grulic.org.ar/7"><img src="../../images/Banner_JRSL2007.png" alt="7as Jornadas Regionales de Software Libre" border="0" class="bottom"></a>
+
+    </td></tr>
+    </table>
+
+   </td></tr>
+   </table>
+
+  </td></tr>
+  </table>
+
+  <!-- End Marco Banners -->
+
+<!-- FIN $Id: default-banner.php,v 1.9 2007-01-06 00:21:04 des Exp $ -->
+
+ </td></tr>
+ </table>
+
+</td></tr>
+
+
+<tr><td width="100%" class="LugFI-TopNavBar">
+
+<!-- Beg StatBar -->
+
+ <table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tr><td width="28%" class="LugFI-StatBar-Left">
+ &nbsp;:: Tuesday 17, July 2007 - Argentina ::
+ </td>
+
+ <td width="44%" class="LugFI-StatBar-Center">
+  :: Sueter ke mis mesages pashan po el coretor otójraf
+		-- Stepi taglines. 
+ ::
+ </td>
+
+ <td width="28%" class="LugFI-StatBar-Right">
+ <form method="post" action="/cgi-bin/htsearch">
+  <input type=hidden name=config value="htdig">
+  <input type="text" name="words" value="Ingresar busqueda" onFocus="this.value=''" class="Top_Search">
+  <input type="submit" name="submit" value="Buscar" class="Top_Search_Button">
+ </form>
+ </td></tr>
+ </table>
+
+
+<!-- End StatBar -->
+
+</td></tr>
+
+<tr><td width="100%" class="LugFI-TopNavBar">
+
+<!-- Beg StatBar -->
+<!-- INICIO $Id: default-barra.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+
+<!-- Beg StatBar -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../acerca/" class="Section">Acerca de</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../documentos/" class="Section">Documentos
+</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../eventos/" class="Section">Eventos
+</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../integrantes/" class="Section">Integrantes</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../listas/" class="Section">Listas</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../proyectos/" class="Section">Proyectos
+</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../servicios/" class="Section">Servicios
+</A>
+ <b>::</b>
+</td>
+</tr>
+</table>
+
+<!-- FIN $Id: default-barra.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- End StatBar -->
+
+</td></tr>
+</table>
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+<tr><td width="100%" class="LugFI-Contenedor">
+<!-- Beg Contenedor -->
+
+<!-- INICIO $Id: default-menu.php,v 1.4 2004/07/25 19:49:08 luca Exp $ -->
+
+
+ <table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tr><td width="20%" class="LugFI-SideBar">
+
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <!-- Beg NavLink-->
+		 
+       
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../">Página Inicial
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../">Documentos del LugFi
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../faq-lugfi/">FAQ General del LUGFI
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../faq-subversion/">Introducción a Subversion
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../gateway/">Configuración de un Gateway
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../lista-herramientas/">Programas para ingeniería
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../tp-generico/">TPs en LaTeX
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../tablas/">Tablas en LaTeX
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../scms/">SCMs
+</a>
+</td></tr>
+
+  
+
+<!-- FIN $Id: default-menu.php,v 1.4 2004/07/25 19:49:08 luca Exp $ -->
+
+  <!-- End NavLink-->
+
+  <tr><td width="100%" class="LugFI-MenuDivA">
+  &nbsp;
+  </td></tr>
+
+  <!-- Encuestas -->
+    
+  </table>
+
+ </td>
+
+ <td valign="top" width="80%" height="100%">
+ <!-- Beg Contenido -->
+     
+  <table border="0" cellpadding="0" cellspacing="0" width="99%" align="center">
+  <tr><td width="100%" height="100%" class="LugFI-Principal">
+    
+
+<!--
+                                    -->
+<!-- FIN $Id: default-cabecera.php,v 1.9 2007-03-06 11:50:54 des Exp $ -->
+
+<P>
+
+<P>
+<H1 ALIGN="CENTER">Lista de herramientas libres para Ingenier&#237;a</H1>
+<DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG><A NAME="tex2html1"
+  HREF="mailto:dessaya@fi.uba.ar">Diego Essaya</A></STRONG></P>
+</DIV>
+
+<P>
+<BR>
+
+<H2><A NAME="SECTION00010000000000000000">
+&#205;ndice General</A>
+</H2>
+<!--Table of Contents-->
+
+<UL CLASS="TofC">
+<LI><A NAME="tex2html87"
+  HREF="index.php#SECTION00020000000000000000">1 Introducción</A>
+<LI><A NAME="tex2html88"
+  HREF="index.php#SECTION00030000000000000000">2 Lista de software</A>
+<UL>
+<LI><A NAME="tex2html89"
+  HREF="index.php#SECTION00031000000000000000">2.1 Creación de documentos e informes</A>
+<LI><A NAME="tex2html90"
+  HREF="index.php#SECTION00032000000000000000">2.2 Edición de imágenes / bitmaps</A>
+<LI><A NAME="tex2html91"
+  HREF="index.php#SECTION00033000000000000000">2.3 Gráfica de datos / funciones matemáticas</A>
+<LI><A NAME="tex2html92"
+  HREF="index.php#SECTION00034000000000000000">2.4 Sistemas de álgebra y cálculo simbólico</A>
+<LI><A NAME="tex2html93"
+  HREF="index.php#SECTION00035000000000000000">2.5 Herramientas/Lenguajes de cálculo numérico</A>
+<LI><A NAME="tex2html94"
+  HREF="index.php#SECTION00036000000000000000">2.6 Compiladores/Intérpretes</A>
+<LI><A NAME="tex2html95"
+  HREF="index.php#SECTION00037000000000000000">2.7 Entornos de programación (IDEs - Integrated Development Environments)</A>
+<LI><A NAME="tex2html96"
+  HREF="index.php#SECTION00038000000000000000">2.8 Debugging</A>
+<LI><A NAME="tex2html97"
+  HREF="index.php#SECTION00039000000000000000">2.9 Herramientas auxiliares para programación</A>
+<LI><A NAME="tex2html98"
+  HREF="index.php#SECTION000310000000000000000">2.10 Redes</A>
+<LI><A NAME="tex2html99"
+  HREF="index.php#SECTION000311000000000000000">2.11 Electrónica</A>
+</UL></UL>
+<!--End of Table of Contents-->
+<P>
+
+<H1><A NAME="SECTION00020000000000000000">
+<SPAN CLASS="arabic">1</SPAN> Introducci&#243;n</A>
+</H1>
+
+<P>
+En este documento se ha recopilado una lista del software disponible para 
+ingenier&#237;a. A menos que se indique lo contrario, todas las herramientas 
+listadas son <A NAME="tex2html2"
+  HREF="http://www.fsf.org">software libre</A>.
+
+<P>
+En lugar de usar software pirateado (como muchas veces nos obligan en las 
+mismas c&#225;tedras), deber&#237;amos tratar de comenzar a usar software libre,
+sobre todo en una instituci&#243;n educativa como la Universidad de Buenos Aires.
+Algunos de estos programas son tanto o m&#225;s poderosos que los com&#250;nmente
+utilizados. Casi todos est&#225;n disponibles para GNU/Linux, y muchos de ellos 
+tambi&#233;n para Windows.
+
+<P>
+La lista de ning&#250;n modo est&#225; completa. Si encontr&#225;s alg&#250;n programa que no
+est&#225; listado aqu&#237;, cre&#233;s que es de utilidad para ingenier&#237;a y adem&#225;s es 
+software libre, por favor avisanos.
+
+<P>
+
+<H1><A NAME="SECTION00030000000000000000">
+<SPAN CLASS="arabic">2</SPAN> Lista de software</A>
+</H1>
+
+<P>
+
+<H2><A NAME="SECTION00031000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Creaci&#243;n de documentos e informes</A>
+</H2>
+<DL>
+<DT><STRONG><A NAME="tex2html3"
+  HREF="http://www.openoffice.org">OpenOffice.org</A></STRONG></DT>
+<DD>Es una suite de oficina inspirada en la de Microsoft.
+		Si est&#225;s totalmente acostumbrado a las herramientas de M$, 
+		&#233;sta es tu opci&#243;n. Adem&#225;s trae el OpenOffice Draw, que es un 
+		programa de dibujo vectorial similar al Corel Draw.
+
+<P>
+Hay muchos otros paquetes similares
+		(<A NAME="tex2html8"
+  HREF="http://www.koffice.org">KOffice</A>,
+
+<A NAME="tex2html9"
+  HREF="http://siag.nu/index.shtml">SIAG Office</A>,
+
+<A NAME="tex2html10"
+  HREF="http://www.gnome.org/gnome-office/">GNOME Office</A>...)
+
+y tambi&#233;n programas como
+		<A NAME="tex2html11"
+  HREF="http://www.abisource.com">Abiword</A>
+y
+		<A NAME="tex2html12"
+  HREF="http://www.gnome.org/projects/gnumeric/">Gnumeric</A>,
+
+todos con sus pros y sus contras.
+
+<P>
+No digas que no hay para elegir... :)
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html4"
+  HREF="http://www.latex-project.org/">LaTeX</A></STRONG></DT>
+<DD>&#191;Realmente pens&#225;s hacer el informe de tu tesis en M$ Word...?
+
+<P>
+LaTeX es un lenguaje para crear documentos. El m&#233;todo es 
+		bastante similar a la creaci&#243;n de un programa. Ten&#233;s que 
+		escribir el ``c&#243;digo fuente'' de tu documento (en cualquier 
+		editor de texto plano), y despu&#233;s compilarlo. Tiene una fuerte 
+		orientaci&#243;n a las matem&#225;ticas, permitiendo escribir f&#243;rmulas y 
+		s&#237;mbolos de todo tipo. Adem&#225;s, es totalmente estable. 
+
+<P>
+La curva de aprendizaje es inversa a la de programas como M$ 
+		Word: al principio cuesta arrancar, pero una vez que te 
+		sent&#237;s c&#243;modo, pod&#233;s hacer un informe t&#233;cnico de calidad 
+		profesional en poco tiempo. 
+
+<P>
+El formato de los documentos creados en LaTeX es generalmente 
+		Postscript (PS) o PDF, pero pueden ser f&#225;cilmente convertidos 
+		a otros formatos como HTML o incluso texto plano.
+		Este documento fue creado en LaTeX.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html5"
+  HREF="http://kile.sourceforge.net/">Kile</A></STRONG></DT>
+<DD>Sirve para editar archivos fuente de LaTeX, con
+		syntax highlighting y macros para los comandos LaTeX m&#225;s
+		utilizados. Ayuda much&#237;simo en el ciclo de editar/compilar/ver
+		resultado.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html6"
+  HREF="http://www.lyx.org/">LyX</A></STRONG></DT>
+<DD>Es un front-end de LaTeX, casi WYSIWYG (What You See Is What 
+		You Get), permitiendo crear documentos con la calidad de 
+		LaTeX, pero con la facilidad de los procesadores de textos 
+		usuales.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html7"
+  HREF="http://www.docbook.org/">DocBook</A></STRONG></DT>
+<DD>Es otro lenguaje de creaci&#243;n de documentos similar a LaTeX, 
+		pero basado en XML / SGML.
+</DD>
+</DL>
+
+<P>
+
+<H2><A NAME="SECTION00032000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Edici&#243;n de im&#225;genes / bitmaps</A>
+</H2>
+<DL>
+<DT><STRONG><A NAME="tex2html13"
+  HREF="http://www.gimp.org">The GIMP</A></STRONG></DT>
+<DD>Es <SPAN  CLASS="textit">el</SPAN> programa de edici&#243;n de bitmaps. Le pisa los
+		talones al Photoshop.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html14"
+  HREF="http://www.lysator.liu.se/~alla/dia/">Dia</A></STRONG></DT>
+<DD>Permite dibujar todo tipo de diagramas, grafos, cuadros
+		sin&#243;pticos, etc, que pueden ser exportados a Postscript
+		(para incluir, por ejemplo, en un documento LaTeX).
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html15"
+  HREF="http://www.xfig.org/">XFig</A></STRONG></DT>
+<DD>Es un programa para crear gr&#225;ficos vectoriales (es decir,
+		para dibujo general). Las im&#225;genes creadas
+		pueden ser convertidas a muchos formatos usando el programa
+		transfig. Permite incluir f&#243;rmulas de LaTeX en los dibujos,
+		por lo que es ideal para acompa&#241;ar los documentos LaTeX con
+		figuras.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html16"
+  HREF="http://www.inkscape.org/">Inkscape</A></STRONG></DT>
+<DD>Un programa de dibujo vectorial, similar al Corel Draw.
+</DD>
+</DL>
+
+<P>
+
+<H2><A NAME="SECTION00033000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> Gr&#225;fica de datos / funciones matem&#225;ticas</A>
+</H2>
+<DL>
+<DT><STRONG><A NAME="tex2html17"
+  HREF="http://www.gnuplot.info/">Gnuplot</A></STRONG></DT>
+<DD>Puede graficar datos num&#233;ricos o funciones matem&#225;ticas, en
+		2D y 3D. Es muy flexible y totalmente configurable, pero para
+		usarlo bien hay que aprender el lenguaje, ya que es un programa
+		manejado mediante l&#237;nea de comandos.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html18"
+  HREF="http://kile.sourceforge.net">Kile</A></STRONG></DT>
+<DD>Ya fue mencionado, pero ac&#225; est&#225; de nuevo, porque trae
+		un front-end gr&#225;fico para gnuplot. Significa que pod&#233;s usar 
+		gnuplot sin aprender los comandos.
+</DD>
+</DL>
+
+<P>
+
+<H2><A NAME="SECTION00034000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> Sistemas de &#225;lgebra y c&#225;lculo simb&#243;lico</A>
+</H2>
+<DL>
+<DT><STRONG><A NAME="tex2html19"
+  HREF="http://www.ma.utexas.edu/maxima.html">Maxima</A></STRONG></DT>
+<DD>Es un sistema de &#225;lgebra bastante completo.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html20"
+  HREF="http://www.xs4all.nl/~apinkus/yacas.html">YACAS</A></STRONG></DT>
+<DD>Otro sistema de &#225;lgebra, de prop&#243;sito general, liviano y 
+		f&#225;cil de usar.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html21"
+  HREF="http://www.parigp-home.de/">Pari-GP</A></STRONG></DT>
+<DD>Es un paquete para teor&#237;a num&#233;rica asistida por computadora.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html22"
+  HREF="http://www-fourier.ujf-grenoble.fr/~parisse/giac.html">Giac/XCas</A></STRONG></DT>
+<DD>Otro sistema de &#225;lgebra, disponible como un programa independiente,
+		o bien como una librer&#237;a C++.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html23"
+  HREF="http://www.lightlink.com/computer/math/">Mathomatic</A></STRONG></DT>
+<DD>Un sistema de &#225;lgebra de prop&#243;sito general, altamente portable.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html24"
+  HREF="http://qalculate.sourceforge.net">Qalculate!</A></STRONG></DT>
+<DD>A primera vista parece una calculadora de escritorio sencilla, pero
+		bajo su interfaz simple e intuitiva se esconde un paquete matem&#225;tico
+		muy completo y f&#225;cil de usar, que permite hacer c&#225;lculo num&#233;rico y
+		simb&#243;lico, conversi&#243;n de unidades, gr&#225;ficos (usando gnuplot) y muchas
+		cosas m&#225;s.
+</DD>
+</DL>
+
+<P>
+
+<H2><A NAME="SECTION00035000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> Herramientas/Lenguajes de c&#225;lculo num&#233;rico</A>
+</H2>
+<DL>
+<DT><STRONG><A NAME="tex2html25"
+  HREF="http://www.octave.org/">Octave</A></STRONG></DT>
+<DD>Un sistema de c&#225;lculo num&#233;rico muy completo con un lenguaje casi
+		compatible con Matlab. Utiliza a Gnuplot como back-end para graficar.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html26"
+  HREF="http://www.scilab.org/">Scilab</A></STRONG></DT>
+<DD>Otro paquete de c&#225;lculo num&#233;rico. Tal vez ofrece m&#225;s funcionalidades
+		que Octave, pero su lenguaje es menos compatible con Matlab.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html27"
+  HREF="http://web.mit.edu/afs/athena/software/yorick_v1.5.12/yorick/1.5/doc/">Yorick</A></STRONG></DT>
+<DD>Es un lenguaje de programaci&#243;n interpretado, para c&#225;lculos y 
+		simulaciones num&#233;ricas.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html28"
+  HREF="http://pdl.perl.org">PDL</A></STRONG></DT>
+<DD>Perl Data Language a&#241;ade al lenguaje Perl la habilidad
+		de almacenar y manipular grandes cantidade de datos en 
+		arreglos <SPAN  CLASS="textit">n</SPAN>-dimensionales, que son el pan y la manteca de la
+		computaci&#243;n cient&#237;fica. La idea es transformar a Perl en
+		un lenguaje num&#233;rico similar a Matlab. Se incluye un entorno
+		interactivo de l&#237;nea de comandos, adem&#225;s del m&#243;dulo Perl
+		(PDL) para usar en scripts.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html29"
+  HREF="http://mathsrv.ku-eichstaett.de/MGF/homes/grothmann/euler/euler.html">Euler</A></STRONG></DT>
+<DD>Es un laboratorio num&#233;rico y un lenguaje de programaci&#243;n.
+		El sistema puede manejar n&#250;meros, vectores y matrices reales,
+		complejos y en forma de intervalos.
+
+<P>
+Tambi&#233;n existe una versi&#243;n con interfaz gr&#225;fica,
+		<A NAME="tex2html30"
+  HREF="http://euler.sourceforge.net">Euler for GTK+</A>.
+</DD>
+</DL>
+
+<P>
+
+<H2><A NAME="SECTION00036000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">6</SPAN> Compiladores/Int&#233;rpretes</A>
+</H2>
+<DL>
+<DT><STRONG><A NAME="tex2html31"
+  HREF="http://gcc.gnu.org/">gcc</A></STRONG></DT>
+<DD>GNU Compiler Collection, (y no GNU C Compiler).
+		Es el compilador de GNU, que contiene front-ends para C, C++, 
+		Objective-C, Fortran, Java, y Ada.
+
+<P>
+Est&#225; incluido en cualquier distribuci&#243;n de GNU/Linux (de hecho, casi 
+		todo el sistema operativo se compila en gcc).
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html32"
+  HREF="http://www.freepascal.org/">Free Pascal</A></STRONG></DT>
+<DD>Es un compilador Pascal sem&#225;nticamente compatible con TP&nbsp;7.0, 
+		as&#237; como la mayor&#237;a de las versiones de Delphi.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html33"
+  HREF="http://www.gnu-pascal.de/gpc/h-index.html">GNU Pascal</A></STRONG></DT>
+<DD>El compilador Pascal de GNU, que utiliza a gcc como back-end. 
+		Es compatible con Borland Pascal, y soporta muchas de sus 
+		unidades (units).
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html34"
+  HREF="http://www.gnu.org/software/perl/perl.html">Perl</A></STRONG></DT>
+<DD>Perl es un lenguaje interpretado de alto nivel, optimizado
+		para procesar archivos de texto arbitrarios, extraer 
+		datos de ellos, e imprimir informes basados en esa
+		informaci&#243;n.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html35"
+  HREF="http://www.python.org">Python</A></STRONG></DT>
+<DD>Un lenguaje de programaci&#243;n interpretado, interactivo y
+		orientado a objetos, que combina una gran potencia con
+		una alta claridad en la sintaxis. Esta caracter&#237;stica
+		hace que Python sea ideal, tanto para el que est&#225; dando
+		sus primeros pasos en programaci&#243;n, como para el 
+		programador avanzado.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html36"
+  HREF="http://www.php.net/">PHP</A></STRONG></DT>
+<DD>Lenguaje de programaci&#243;n interpretado, fuertemente orientado a 
+		desarrollo web.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html37"
+  HREF="http://www.gnu.org/software/gprolog/gprolog.html">gprolog</A></STRONG></DT>
+<DD>Un int&#233;rprete/compilador Prolog, que cumple casi completamente
+		con el est&#225;ndar ISO Prolog, a&#241;adiendo algunas extensiones
+		bastante &#250;tiles. Incluye resoluci&#243;n de condiciones
+		sobre dominios finitos (FD), y una potente interfaz
+		bidireccional entre Prolog y C.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html38"
+  HREF="http://www.swi-prolog.org/">SWI-Prolog</A></STRONG></DT>
+<DD>Otro int&#233;rprete/compilador Prolog con licencia libre. Incluye
+		recolector de basura (garbage collection) e interfaz C/C++, y 
+		ofrece una buena performance general.
+</DD>
+</DL>
+
+<P>
+
+<H2><A NAME="SECTION00037000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">7</SPAN> Entornos de programaci&#243;n (IDEs - Integrated Development 
+Environments)</A>
+</H2>
+<DL>
+<DT><STRONG><A NAME="tex2html39"
+  HREF="http://www.anjuta.org/">Anjuta</A></STRONG></DT>
+<DD>Es un IDE para crear aplicaciones GNOME/Gtk+ con
+		Glade, o simplemente para crear aplicaciones gen&#233;ricas, en 
+		C/C++, o cualquier otro lenguaje.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html40"
+  HREF="http://www.kdevelop.org/">KDevelop</A></STRONG></DT>
+<DD>Puede generar aplicaciones gen&#233;ricas, o GUIs usando
+		Qt, KDE o GNOME, en C/C++.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html41"
+  HREF="http://delphi.about.com/cs/kylix/">Kylix</A></STRONG></DT>
+<DD>Kylix := Delphi in [Linux]. Es software propietario, pero el
+		Kylix Personal Edition es gratuito.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html42"
+  HREF="http://www.vim.org/">ViM</A>
+/
+	<A NAME="tex2html43"
+  HREF="http://www.gnu.org/software/emacs/">Emacs</A></STRONG></DT>
+<DD>Son dos editores de texto plano tan flexibles que pueden 
+		utilizarse como entornos de programaci&#243;n para pr&#225;cticamente 
+		cualquier lenguaje.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html44"
+  HREF="http://quanta.sourceforge.net/">Quanta Plus</A></STRONG></DT>
+<DD>Es un entorno de desarrollo para HTML con soporte PHP. Est&#225; 
+		dise&#241;ado para el desarrollo r&#225;pido de sitios web.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html45"
+  HREF="http://www.eclipse.org/">Eclipse</A></STRONG></DT>
+<DD>Un entorno de desarrollo integrado, especialmente orientado
+		a proyectos en Java.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html46"
+  HREF="http://www.mono-project.com/">Mono</A></STRONG></DT>
+<DD>Entorno de desarrollo .NET.
+</DD>
+</DL>
+
+<P>
+
+<H2><A NAME="SECTION00038000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">8</SPAN> Debugging</A>
+</H2>
+<DL>
+<DT><STRONG><A NAME="tex2html47"
+  HREF="http://sources.redhat.com/gdb/">gdb</A></STRONG></DT>
+<DD>El debugger de GNU.
+		Puede depurar cualquier programa compilado en gcc con
+		la opci&#243;n <code>-g</code>. Se maneja mediante l&#237;nea de comandos.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html48"
+  HREF="http://www.gnu.org/software/ddd/">DDD</A></STRONG></DT>
+<DD>Data Display Debugger es un front-end gr&#225;fico muy completo 
+		para varios debuggers, incluyendo el gdb, y para varios 
+		lenguajes (C/C++, Java, Pascal...).
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html49"
+  HREF="http://sources.redhat.com/insight/">insight</A></STRONG></DT>
+<DD>Es otro front-end gr&#225;fico para gdb.
+</DD>
+</DL>
+
+<P>
+
+<H2><A NAME="SECTION00039000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">9</SPAN> Herramientas auxiliares para programaci&#243;n</A>
+</H2>
+<DL>
+<DT><STRONG><A NAME="tex2html50"
+  HREF="http://www.doxygen.org/">Doxygen</A></STRONG></DT>
+<DD>Sistema para generar autom&#225;ticamente la documentaci&#243;n de programas
+		escritos en C/C++.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html51"
+  HREF="http://uml.sf.net/">Umbrello</A></STRONG></DT>
+<DD>Modelador UML.
+
+<P>
+</DD>
+<DT><STRONG>
+		<A NAME="tex2html52"
+  HREF="http://www.gnu.org/software/rcs/rcs.html">RCS</A>
+/
+		<A NAME="tex2html53"
+  HREF="http://www.gnu.org/software/cvs/">CVS</A>
+/
+		<A NAME="tex2html54"
+  HREF="http://subversion.tigris.org/">Subversion</A>
+/
+		<A NAME="tex2html55"
+  HREF="http://abridgegame.org/darcs/">Darcs</A></STRONG></DT>
+<DD>Sistemas de control de versiones.
+</DD>
+</DL>
+
+<P>
+
+<H2><A NAME="SECTION000310000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">10</SPAN> Redes</A>
+</H2>
+<DL>
+<DT><STRONG><A NAME="tex2html56"
+  HREF="http://www.ethereal.com/">Ethereal</A></STRONG></DT>
+<DD>Sniffer y analizador de tr&#225;fico de red, gr&#225;fico.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html57"
+  HREF="http://www.tcpdump.org/">tcpdump</A></STRONG></DT>
+<DD>Sniffer y analizador de tr&#225;fico de red, de consola.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html58"
+  HREF="http://httpd.apache.org/">Apache</A></STRONG></DT>
+<DD>Servidor web.
+</DD>
+</DL>
+
+<P>
+
+<H2><A NAME="SECTION000311000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">11</SPAN> Electr&#243;nica</A>
+</H2>
+<DL>
+<DT><STRONG><A NAME="tex2html59"
+  HREF="http://www-cad.eecs.berkeley.edu/">Spice</A></STRONG></DT>
+<DD>Es la versi&#243;n original del programa de simulaci&#243;n creado en
+		la Universidad de California, Berkeley.
+		Se maneja mediante l&#237;nea de comandos, as&#237; que no esperes ver un
+		programa de dibujo de esquem&#225;ticos con lucecitas y colores.
+
+<P>
+El circuito a simular debe ser ingresado en un archivo de 
+		texto, y el Spice se limita a simularlo y entregarte los 
+		resultados. El paquete viene con nutmeg, que es un programa 
+		que sirve para interpretar y graficar los datos de la 
+		simulaci&#243;n, pero no es demasiado flexible.
+
+<P>
+Debido a problemas de licenciamiento, el Spice no puede ser 
+		distribuido en binarios, as&#237; que es necesario bajar el c&#243;digo 
+		fuente y compilarlo. Si us&#225;s Debian, en:
+
+<P>
+<A NAME="tex2html68"
+  HREF="http://www.eda.ei.tum.de/~mcp/spicedeb/">http://www.eda.ei.tum.de/~mcp/spicedeb/</A>
+<P>
+se explica c&#243;mo crear un paquete .deb a partir del c&#243;digo 
+		fuente del spice3f5.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html60"
+  HREF="http://ngspice.sourceforge.net/">ngspice</A></STRONG></DT>
+<DD>Es un proyecto que tiene como objetivo crear una versi&#243;n
+		mejorada del spice (con algunos bugs arreglados) y con 
+		licencia GPL. 
+		El paquete viene con ngnutmeg, que es similar al nutmeg del 
+		spice. Sirve para graficar los datos de salida de las 
+		simulaciones.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html61"
+  HREF="http://www.gnu.org/software/gnucap/">Gnucap</A></STRONG></DT>
+<DD>GNU Circuit Analysis Package.
+		Este simulador no est&#225; basado en Spice, y su funcionamiento
+		es algo diferente. La principal ventaja de esto es que se 
+		trata de un software enteramente libre. Se incluyen modelos 
+		para BJT, MOSFET y diodos.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html62"
+  HREF="http://arrakis.gforge.lug.fi.uba.ar/">Oregano</A></STRONG></DT>
+<DD>Es un front-end gr&#225;fico para spice, ngspice o Gnucap. Permite dibujar
+		los circuitos con una interfaz amigable y simularlos f&#225;cilmente.
+
+<P>
+Richard Hult, el autor de Oregano, abandon&#243; el proyecto hace alg&#250;n
+		tiempo, y algunos miembros del LUGFI decidieron continuarlo. Aun
+		est&#225; en desarrollo.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html63"
+  HREF="http://www.lis.inpg.fr/realise_au_lis/kicad/">Kicad</A></STRONG></DT>
+<DD>Un grupo de programas para la creaci&#243;n de esquem&#225;ticos y circuitos
+		impresos. La interfaz es similar a la de Orcad.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html64"
+  HREF="http://www.staticfreesoft.com/">Electric</A></STRONG></DT>
+<DD>Es un sistema de dibujo asistido, simulaci&#243;n y producci&#243;n 
+		de circuitos el&#233;ctricos, muy completo y sofisticado, pero 
+		tambi&#233;n bastante dif&#237;cil de usar.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html65"
+  HREF="http://www-2.cs.cmu.edu/~hansen/tkgate/">TkGate</A></STRONG></DT>
+<DD>Es un simulador de circuitos digitales, con una interfaz
+		amigable e intuitiva, y varias caracter&#237;sticas interesantes,
+		como un compilador gen&#233;rico de microc&#243;digo/macroc&#243;digo
+		para crear archivos de inicializaci&#243;n de memorias.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html66"
+  HREF="http://bach.ece.jhu.edu/~tim/programs/xcircuit/">Xcircuit</A></STRONG></DT>
+<DD>Es un programa que permite dibujar circuitos el&#233;ctricos (aunque
+		puede ser utilizado tambi&#233;n para dibujar otras cosas). Es 
+		liviano, f&#225;cil de usar y produce resultados con calidad
+		profesional y en formato EPS, por lo que resulta ideal para 
+		incluir circuitos en documentos LaTeX. Tambi&#233;n permite 
+		generar archivos Spice para simular el circuito.
+
+<P>
+</DD>
+<DT><STRONG><A NAME="tex2html67"
+  HREF="http://www.geda.seul.org/">gEDA</A></STRONG></DT>
+<DD>GPL Electronic Design Automation.
+		La buena noticia es que GNU/Linux ya cuenta con
+		un sistema integrado de dise&#241;o electr&#243;nico,
+		que contiene herramientas para creaci&#243;n de esquem&#225;ticos, 
+		simulaci&#243;n y producci&#243;n de circuitos, distribuido
+		&#237;ntegramente como software libre. La mala noticia es que 
+		aun est&#225; en fase de desarrollo.
+
+<P>
+</DD>
+<DT><STRONG>Programaci&#243;n de microcontroladores</STRONG></DT>
+<DD>Una lista (no completa) de los distintos ensambladores, compiladores,
+		simuladores, depuradores y programadores de micros:
+
+<P>
+<A NAME="tex2html69"
+  HREF="http://sdcc.sourceforge.net">sdcc</A>,
+
+<A NAME="tex2html70"
+  HREF="http://plit.de/asem-51/">ASEM-51</A>,
+
+<A NAME="tex2html71"
+  HREF="http://savannah.nongnu.org/projects/uisp/">uisp</A>,
+
+<A NAME="tex2html72"
+  HREF="http://www.colargol.tihlde.hist.no/~jonah/el/avrp.html">avrp</A>,
+
+...
+</DD>
+</DL>
+
+<P>
+<BR><HR>
+<ADDRESS>
+Diego Essaya
+2005-03-26
+</ADDRESS>
+<!-- INICIO $Id: default-pie.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+
+  </td></tr>
+  </table>
+
+ <!-- End Contenido -->
+ </td></tr>
+ </table>
+
+
+<!-- End Contenedor -->
+</td></tr>
+</table>
+
+       
+<p>
+	    
+<!-- Epígrafe -->
+<!-- /Epígrafe -->
+
+<p>
+
+<!-- ## Footer ## -->
+<table cellspacing="0" width="80%" align="center">
+<tr><td width="100%" class="Footer_Frame">
+
+ <table cellspacing="0" width="90%" align="center">
+ <tr><td width="49%" class="Footer_Frame">
+
+ 
+  <table cellspacing="0" width="90%" align="center">
+  <tr><td width="100%" class="Footer_Devel">
+  <a href="../.." >LUGFI</a>
+  &copy; Copyleft 2002-2007 - Bajo Licencia GPL
+  </td></tr>
+  </table>
+
+  
+ </td>
+ 
+ <td width="2%" class="Footer_Frame">
+ &nbsp;|&nbsp;
+ </td>
+
+ <td width="49%" class="Footer_Frame">
+  
+  <table cellspacing="0" width="90%" align="center">
+  <tr><td width="50%" class="Footer_Devel">
+  <!-- INICIO $Id: default-epigrafe.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<DIV CLASS="epigrafe" ALIGN="center">
+    Última actualización: Fri Sep 22 19:04:39 2006</DIV>
+<!-- FIN $Id: default-epigrafe.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+  </td></tr>
+  </table>
+ 
+ </td></tr>
+
+ </table>
+
+</td></tr>
+</table>
+<!-- / ## Footer ## -->
+
+</body>
+</html>
+<!-- FIN $Id: default-pie.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->

@@ -1,0 +1,474 @@
+%
+%		 Lista de herramientas libres para Ingeniería
+%
+%		      Diego Essaya <dessaya@fi.uba.ar>
+%
+% Para compilar
+% -------------
+% 
+% Requerimientos: LaTeX, con los paquetes babel, helvet, hyperref y 
+%		 html (que viene con html2latex).
+%
+% Primero hay que hacer 'latex lista-herramientas.tex' varias (¿3?) veces 
+% hasta que no tire ningún warning . Es para que se generen las referencias 
+% cruzadas y todo eso...
+%
+% Después, para generar la versión HTML:
+% 
+%   latex2html -split 0 -ascii_mode -no_navigation -no_auto_link \ 
+%     -show_section_numbers -toc_depth 5 -no_subdir lista-herramientas.tex
+%
+% Para generar el PDF:
+%
+%   dvipdf lista-herramientas.dvi
+%
+
+\documentclass[11pt,twoside,a4paper]{article}
+\usepackage[latin1] {inputenc}
+\usepackage[spanish]{babel}
+\usepackage{html}
+
+%begin{latexonly}
+\usepackage{fullpage}
+
+% Fuente Helvetica por default:
+\usepackage{helvet}
+\renewcommand\familydefault{\sfdefault}
+
+% El paquete hyperref debe ser el último de todos:
+\usepackage[hyperindex=true,latex2html=true,dvips=true,a4paper=true,colorlinks=true,urlcolor=blue,breaklinks=true,bookmarks=true,bookmarksnumbered=true]{hyperref}
+
+%end{latexonly}
+
+
+\title{Lista de herramientas libres para Ingeniería}
+
+\author{\htmladdnormallink{Diego Essaya}{mailto:dessaya@fi.uba.ar}}
+
+
+
+\begin{document}
+
+% Por si alguien quiere poner la palabra LUGFI con un estilo lindo, o algo así,
+% defino:
+\newcommand{\lugfi}{LUGFI}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introducción}
+
+En este documento se ha recopilado una lista del software disponible para 
+ingeniería. A menos que se indique lo contrario, todas las herramientas 
+listadas son \htmladdnormallink{software libre}{http://www.fsf.org}.
+
+En lugar de usar software pirateado (como muchas veces nos obligan en las 
+mismas cátedras), deberíamos tratar de comenzar a usar software libre,
+sobre todo en una institución educativa como la Universidad de Buenos Aires.
+Algunos de estos programas son tanto o más poderosos que los comúnmente
+utilizados. Casi todos están disponibles para GNU/Linux, y muchos de ellos 
+también para Windows.
+
+La lista de ningún modo está completa. Si encontrás algún programa que no
+está listado aquí, creés que es de utilidad para ingeniería y además es 
+software libre, por favor avisanos.
+
+\section{Lista de software}
+
+\subsection{Creación de documentos e informes}
+\begin{description}
+	\item[\htmladdnormallink{OpenOffice.org}{http://www.openoffice.org}]
+		Es una suite de oficina inspirada en la de Microsoft.
+		Si estás totalmente acostumbrado a las herramientas de M\$, 
+		ésta es tu opción. Además trae el OpenOffice Draw, que es un 
+		programa de dibujo vectorial similar al Corel Draw.
+
+		Hay muchos otros paquetes similares
+		(\htmladdnormallink{KOffice}{http://www.koffice.org},
+		\htmladdnormallink{SIAG Office}{http://siag.nu/index.shtml},
+		\htmladdnormallink{GNOME Office}
+		{http://www.gnome.org/gnome-office/}...)
+		y también programas como
+		\htmladdnormallink{Abiword}{http://www.abisource.com} y
+		\htmladdnormallink{Gnumeric}
+		{http://www.gnome.org/projects/gnumeric/},
+		todos con sus pros y sus contras.
+
+		No digas que no hay para elegir... :)
+
+	\item[\htmladdnormallink{LaTeX}{http://www.latex-project.org/}]
+		¿Realmente pensás hacer el informe de tu tesis en M\$ Word...?
+
+		LaTeX es un lenguaje para crear documentos. El método es 
+		bastante similar a la creación de un programa. Tenés que 
+		escribir el ``código fuente'' de tu documento (en cualquier 
+		editor de texto plano), y después compilarlo. Tiene una fuerte 
+		orientación a las matemáticas, permitiendo escribir fórmulas y 
+		símbolos de todo tipo. Además, es totalmente estable. 
+
+		La curva de aprendizaje es inversa a la de programas como M\$ 
+		Word: al principio cuesta arrancar, pero una vez que te 
+		sentís cómodo, podés hacer un informe técnico de calidad 
+		profesional en poco tiempo. 
+
+		El formato de los documentos creados en LaTeX es generalmente 
+		Postscript (PS) o PDF, pero pueden ser fácilmente convertidos 
+		a otros formatos como HTML o incluso texto plano.
+		Este documento fue creado en LaTeX.
+
+	\item[\htmladdnormallink{Kile}{http://kile.sourceforge.net/}]
+		Sirve para editar archivos fuente de LaTeX, con
+		syntax highlighting y macros para los comandos LaTeX más
+		utilizados. Ayuda muchísimo en el ciclo de editar/compilar/ver
+		resultado.
+
+	\item[\htmladdnormallink{LyX}{http://www.lyx.org/}]
+		Es un front-end de LaTeX, casi WYSIWYG (What You See Is What 
+		You Get), permitiendo crear documentos con la calidad de 
+		LaTeX, pero con la facilidad de los procesadores de textos 
+		usuales.
+
+	\item[\htmladdnormallink{DocBook}{http://www.docbook.org/}]
+		Es otro lenguaje de creación de documentos similar a LaTeX, 
+		pero basado en XML / SGML.
+\end{description}
+
+
+\subsection{Edición de imágenes / bitmaps}
+\begin{description}
+	\item[\htmladdnormallink{The GIMP}{http://www.gimp.org}]
+		Es \emph{el} programa de edición de bitmaps. Le pisa los
+		talones al Photoshop.
+	
+	\item[\htmladdnormallink{Dia}{http://www.lysator.liu.se/~alla/dia/}]
+		Permite dibujar todo tipo de diagramas, grafos, cuadros
+		sinópticos, etc, que pueden ser exportados a Postscript
+		(para incluir, por ejemplo, en un documento LaTeX).
+	
+	\item[\htmladdnormallink{XFig}{http://www.xfig.org/}]
+		Es un programa para crear gráficos vectoriales (es decir,
+		para dibujo general). Las imágenes creadas
+		pueden ser convertidas a muchos formatos usando el programa
+		transfig. Permite incluir fórmulas de LaTeX en los dibujos,
+		por lo que es ideal para acompañar los documentos LaTeX con
+		figuras.
+	
+	\item[\htmladdnormallink{Inkscape}{http://www.inkscape.org/}]
+		Un programa de dibujo vectorial, similar al Corel Draw.
+\end{description}
+
+
+\subsection{Gráfica de datos / funciones matemáticas}
+\begin{description}
+	\item[\htmladdnormallink{Gnuplot}{http://www.gnuplot.info/}]
+		Puede graficar datos numéricos o funciones matemáticas, en
+		2D y 3D. Es muy flexible y totalmente configurable, pero para
+		usarlo bien hay que aprender el lenguaje, ya que es un programa
+		manejado mediante línea de comandos.
+
+	\item[\htmladdnormallink{Kile}{http://kile.sourceforge.net}]
+		Ya fue mencionado, pero acá está de nuevo, porque trae
+		un front-end gráfico para gnuplot. Significa que podés usar 
+		gnuplot sin aprender los comandos.
+\end{description}
+
+
+\subsection{Sistemas de álgebra y cálculo simbólico}
+\begin{description}
+	\item[\htmladdnormallink{Maxima}{http://www.ma.utexas.edu/maxima.html}]
+		Es un sistema de álgebra bastante completo.
+
+	\item[\htmladdnormallink{YACAS}
+		{http://www.xs4all.nl/~apinkus/yacas.html}]
+		Otro sistema de álgebra, de propósito general, liviano y 
+		fácil de usar.
+
+	\item[\htmladdnormallink{Pari-GP}{http://www.parigp-home.de/}]
+		Es un paquete para teoría numérica asistida por computadora.
+
+	\item[\htmladdnormallink{Giac/XCas}
+		{http://www-fourier.ujf-grenoble.fr/~parisse/giac.html}]
+		Otro sistema de álgebra, disponible como un programa independiente,
+		o bien como una librería C++.
+
+	\item[\htmladdnormallink{Mathomatic}
+		{http://www.lightlink.com/computer/math/}]
+		Un sistema de álgebra de propósito general, altamente portable.
+	
+	\item[\htmladdnormallink{Qalculate!}{http://qalculate.sourceforge.net}]
+		A primera vista parece una calculadora de escritorio sencilla, pero
+		bajo su interfaz simple e intuitiva se esconde un paquete matemático
+		muy completo y fácil de usar, que permite hacer cálculo numérico y
+		simbólico, conversión de unidades, gráficos (usando gnuplot) y muchas
+		cosas más.
+\end{description}
+
+
+\subsection{Herramientas/Lenguajes de cálculo numérico}
+\begin{description}
+	\item[\htmladdnormallink{Octave}{http://www.octave.org/}]
+		Un sistema de cálculo numérico muy completo con un lenguaje casi
+		compatible con Matlab. Utiliza a Gnuplot como back-end para graficar.
+
+	\item[\htmladdnormallink{Scilab}{http://www.scilab.org/}]
+		Otro paquete de cálculo numérico. Tal vez ofrece más funcionalidades
+		que Octave, pero su lenguaje es menos compatible con Matlab.
+
+	\item[\htmladdnormallink{Yorick}
+		{http://web.mit.edu/afs/athena/software/yorick_v1.5.12/yorick/1.5/doc/}]
+		Es un lenguaje de programación interpretado, para cálculos y 
+		simulaciones numéricas.
+
+	\item[\htmladdnormallink{PDL}{http://pdl.perl.org}]
+		Perl Data Language añade al lenguaje Perl la habilidad
+		de almacenar y manipular grandes cantidade de datos en 
+		arreglos \emph{n}-dimensionales, que son el pan y la manteca de la
+		computación científica. La idea es transformar a Perl en
+		un lenguaje numérico similar a Matlab. Se incluye un entorno
+		interactivo de línea de comandos, además del módulo Perl
+		(PDL) para usar en scripts.
+
+	\item[\htmladdnormallink{Euler}
+		{http://mathsrv.ku-eichstaett.de/MGF/homes/grothmann/euler/euler.html}]
+		Es un laboratorio numérico y un lenguaje de programación.
+		El sistema puede manejar números, vectores y matrices reales,
+		complejos y en forma de intervalos.
+
+		También existe una versión con interfaz gráfica,
+		\htmladdnormallink{Euler for GTK+}{http://euler.sourceforge.net}.
+\end{description}
+
+
+\subsection{Compiladores/Intérpretes}
+\begin{description}
+	\item[\htmladdnormallink{gcc}{http://gcc.gnu.org/}]
+		GNU Compiler Collection, (y no GNU C Compiler).
+		Es el compilador de GNU, que contiene front-ends para C, C++, 
+		Objective-C, Fortran, Java, y Ada.
+
+		Está incluido en cualquier distribución de GNU/Linux (de hecho, casi 
+		todo el sistema operativo se compila en gcc).
+
+	\item[\htmladdnormallink{Free Pascal}{http://www.freepascal.org/}]
+		Es un compilador Pascal semánticamente compatible con TP~7.0, 
+		así como la mayoría de las versiones de Delphi.
+
+	\item[\htmladdnormallink{GNU Pascal}
+		{http://www.gnu-pascal.de/gpc/h-index.html}]
+		El compilador Pascal de GNU, que utiliza a gcc como back-end. 
+		Es compatible con Borland Pascal, y soporta muchas de sus 
+		unidades (units).
+
+	\item[\htmladdnormallink{Perl}
+		{http://www.gnu.org/software/perl/perl.html}]
+		Perl es un lenguaje interpretado de alto nivel, optimizado
+		para procesar archivos de texto arbitrarios, extraer 
+		datos de ellos, e imprimir informes basados en esa
+		información.
+
+	\item[\htmladdnormallink{Python}{http://www.python.org}]
+		Un lenguaje de programación interpretado, interactivo y
+		orientado a objetos, que combina una gran potencia con
+		una alta claridad en la sintaxis. Esta característica
+		hace que Python sea ideal, tanto para el que está dando
+		sus primeros pasos en programación, como para el 
+		programador avanzado.
+
+	\item[\htmladdnormallink{PHP}{http://www.php.net/}]
+		Lenguaje de programación interpretado, fuertemente orientado a 
+		desarrollo web.
+
+	\item[\htmladdnormallink{gprolog}
+		{http://www.gnu.org/software/gprolog/gprolog.html}]
+		Un intérprete/compilador Prolog, que cumple casi completamente
+		con el estándar ISO Prolog, añadiendo algunas extensiones
+		bastante útiles. Incluye resolución de condiciones
+		sobre dominios finitos (FD), y una potente interfaz
+		bidireccional entre Prolog y C.
+
+	\item[\htmladdnormallink{SWI-Prolog}{http://www.swi-prolog.org/}]
+		Otro intérprete/compilador Prolog con licencia libre. Incluye
+		recolector de basura (garbage collection) e interfaz C/C++, y 
+		ofrece una buena performance general.
+\end{description}
+
+
+\subsection{Entornos de programación (IDEs - Integrated Development 
+Environments)}
+\begin{description}
+	\item[\htmladdnormallink{Anjuta}{http://www.anjuta.org/}]
+		Es un IDE para crear aplicaciones GNOME/Gtk+ con
+		Glade, o simplemente para crear aplicaciones genéricas, en 
+		C/C++, o cualquier otro lenguaje.
+
+	\item[\htmladdnormallink{KDevelop}{http://www.kdevelop.org/}]
+		Puede generar aplicaciones genéricas, o GUIs usando
+		Qt, KDE o GNOME, en C/C++.
+
+	\item[\htmladdnormallink{Kylix}{http://delphi.about.com/cs/kylix/}]
+		Kylix := Delphi in [Linux]. Es software propietario, pero el
+		Kylix Personal Edition es gratuito.
+
+	\item[\htmladdnormallink{ViM}{http://www.vim.org/} /
+	\htmladdnormallink{Emacs}{http://www.gnu.org/software/emacs/}]
+		Son dos editores de texto plano tan flexibles que pueden 
+		utilizarse como entornos de programación para prácticamente 
+		cualquier lenguaje.
+
+	\item[\htmladdnormallink{Quanta Plus}{http://quanta.sourceforge.net/}]
+		Es un entorno de desarrollo para HTML con soporte PHP. Está 
+		diseñado para el desarrollo rápido de sitios web.
+
+	\item[\htmladdnormallink{Eclipse}{http://www.eclipse.org/}]
+		Un entorno de desarrollo integrado, especialmente orientado
+		a proyectos en Java.
+	
+	\item[\htmladdnormallink{Mono}{http://www.mono-project.com/}]
+		Entorno de desarrollo .NET.
+\end{description}
+
+
+\subsection{Debugging}
+\begin{description}
+	\item[\htmladdnormallink{gdb}{http://sources.redhat.com/gdb/}]
+		El debugger de GNU.
+		Puede depurar cualquier programa compilado en gcc con
+		la opción \verb|-g|. Se maneja mediante línea de comandos.
+
+	\item[\htmladdnormallink{DDD}{http://www.gnu.org/software/ddd/}]
+		Data Display Debugger es un front-end gráfico muy completo 
+		para varios debuggers, incluyendo el gdb, y para varios 
+		lenguajes (C/C++, Java, Pascal...).
+
+	\item[\htmladdnormallink{insight}{http://sources.redhat.com/insight/}]
+		Es otro front-end gráfico para gdb.
+\end{description}
+
+
+\subsection{Herramientas auxiliares para programación}
+\begin{description}
+	\item[\htmladdnormallink{Doxygen}{http://www.doxygen.org/}]
+		Sistema para generar automáticamente la documentación de programas
+		escritos en C/C++.
+	
+	\item[\htmladdnormallink{Umbrello}{http://uml.sf.net/}]
+		Modelador UML.
+
+	\item[
+		\htmladdnormallink{RCS}{http://www.gnu.org/software/rcs/rcs.html} /
+		\htmladdnormallink{CVS}{http://www.gnu.org/software/cvs/} /
+		\htmladdnormallink{Subversion}{http://subversion.tigris.org/} /
+		\htmladdnormallink{Darcs}{http://abridgegame.org/darcs/}]
+		Sistemas de control de versiones.
+\end{description}
+
+
+\subsection{Redes}
+\begin{description}
+	\item[\htmladdnormallink{Ethereal}{http://www.ethereal.com/}]
+		Sniffer y analizador de tráfico de red, gráfico.
+	
+	\item[\htmladdnormallink{tcpdump}{http://www.tcpdump.org/}]
+		Sniffer y analizador de tráfico de red, de consola.
+	
+	\item[\htmladdnormallink{Apache}{http://httpd.apache.org/}]
+		Servidor web.
+\end{description}
+
+
+\subsection{Electrónica}
+\begin{description}
+	\item[\htmladdnormallink{Spice}{http://www-cad.eecs.berkeley.edu/}]
+		Es la versión original del programa de simulación creado en
+		la Universidad de California, Berkeley.
+		Se maneja mediante línea de comandos, así que no esperes ver un
+		programa de dibujo de esquemáticos con lucecitas y colores.
+
+		El circuito a simular debe ser ingresado en un archivo de 
+		texto, y el Spice se limita a simularlo y entregarte los 
+		resultados. El paquete viene con nutmeg, que es un programa 
+		que sirve para interpretar y graficar los datos de la 
+		simulación, pero no es demasiado flexible.
+
+		Debido a problemas de licenciamiento, el Spice no puede ser 
+		distribuido en binarios, así que es necesario bajar el código 
+		fuente y compilarlo. Si usás Debian, en:
+
+		\htmladdnormallink{http://www.eda.ei.tum.de/~mcp/spicedeb/}
+			{http://www.eda.ei.tum.de/~mcp/spicedeb/}
+
+		se explica cómo crear un paquete .deb a partir del código 
+		fuente del spice3f5.
+
+	\item[\htmladdnormallink{ngspice}{http://ngspice.sourceforge.net/}]
+		Es un proyecto que tiene como objetivo crear una versión
+		mejorada del spice (con algunos bugs arreglados) y con 
+		licencia GPL. 
+		El paquete viene con ngnutmeg, que es similar al nutmeg del 
+		spice. Sirve para graficar los datos de salida de las 
+		simulaciones.
+
+	\item[\htmladdnormallink{Gnucap}{http://www.gnu.org/software/gnucap/}]
+		GNU Circuit Analysis Package.
+		Este simulador no está basado en Spice, y su funcionamiento
+		es algo diferente. La principal ventaja de esto es que se 
+		trata de un software enteramente libre. Se incluyen modelos 
+		para BJT, MOSFET y diodos.
+
+	\item[\htmladdnormallink{Oregano}{http://arrakis.gforge.lug.fi.uba.ar/}]
+		Es un front-end gráfico para spice, ngspice o Gnucap. Permite dibujar
+		los circuitos con una interfaz amigable y simularlos fácilmente.
+
+		Richard Hult, el autor de Oregano, abandonó el proyecto hace algún
+		tiempo, y algunos miembros del \lugfi{} decidieron continuarlo. Aun
+		está en desarrollo.
+
+	\item[\htmladdnormallink{Kicad}
+		{http://www.lis.inpg.fr/realise_au_lis/kicad/}]
+		Un grupo de programas para la creación de esquemáticos y circuitos
+		impresos. La interfaz es similar a la de Orcad.
+
+	\item[\htmladdnormallink{Electric}{http://www.staticfreesoft.com/}]
+		Es un sistema de dibujo asistido, simulación y producción 
+		de circuitos eléctricos, muy completo y sofisticado, pero 
+		también bastante difícil de usar.
+
+	\item[\htmladdnormallink{TkGate}
+		{http://www-2.cs.cmu.edu/~hansen/tkgate/}]
+		Es un simulador de circuitos digitales, con una interfaz
+		amigable e intuitiva, y varias características interesantes,
+		como un compilador genérico de microcódigo/macrocódigo
+		para crear archivos de inicialización de memorias.
+
+	\item[\htmladdnormallink{Xcircuit}
+		{http://bach.ece.jhu.edu/~tim/programs/xcircuit/}]
+		Es un programa que permite dibujar circuitos eléctricos (aunque
+		puede ser utilizado también para dibujar otras cosas). Es 
+		liviano, fácil de usar y produce resultados con calidad
+		profesional y en formato EPS, por lo que resulta ideal para 
+		incluir circuitos en documentos LaTeX. También permite 
+		generar archivos Spice para simular el circuito.
+
+	\item[\htmladdnormallink{gEDA}{http://www.geda.seul.org/}]
+		GPL Electronic Design Automation.
+		La buena noticia es que GNU/Linux ya cuenta con
+		un sistema integrado de diseño electrónico,
+		que contiene herramientas para creación de esquemáticos, 
+		simulación y producción de circuitos, distribuido
+		íntegramente como software libre. La mala noticia es que 
+		aun está en fase de desarrollo.
+	
+	\item[Programación de microcontroladores]
+		Una lista (no completa) de los distintos ensambladores, compiladores,
+		simuladores, depuradores y programadores de micros:
+	
+		\htmladdnormallink{sdcc}{http://sdcc.sourceforge.net},
+		\htmladdnormallink{ASEM-51}{http://plit.de/asem-51/},
+		\htmladdnormallink{uisp}{http://savannah.nongnu.org/projects/uisp/},
+		\htmladdnormallink{avrp}{http://www.colargol.tihlde.hist.no/~jonah/el/avrp.html},
+		...
+\end{description}
+
+\end{document}
+

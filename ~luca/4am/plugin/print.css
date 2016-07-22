@@ -1,0 +1,43 @@
+body, div {
+	font-size:	10pt;
+	font-family:	serif; }
+
+.serendipity_entry {
+	background: 	white;
+	color:		black; 
+	margin-bottom:	8em; }
+
+h4.serendipity_title {
+	font-family:	sans-serif;
+	font-weight:	bold;
+	font-size:	14pt; }
+
+a {
+	text-decoration: underline;
+	color:		black; }
+
+.serendipity_entry a:link:after,
+.serendipity_entry a:visited:after {
+   	content: 	" (" attr(href) ") ";
+   	font-size: 	90%; }
+
+.serendipity_entry a[href^="/"]:after {
+  	content: 	" (http://www.lug.fi.uba.ar/~luca/4am/" attr(href) ") "; }
+
+#serendipityLeftSideBar,
+#serendipityRightSideBar,
+#sidebar {
+	display:	none; }
+
+.serendipity_babelfish,
+.serendipity_entryFooter
+ {
+	display:	none; }
+
+.serendipity_comments
+ {
+	display:	none; }
+
+#serendipity_banner,
+.serendipityCommentForm {
+	display:	none; }

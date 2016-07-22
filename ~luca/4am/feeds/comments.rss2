@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<rss version="2.0" 
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:admin="http://webns.net/mvcb/"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+   xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+   xmlns:content="http://purl.org/rss/1.0/modules/content/"
+   >
+<channel>
+    <title>4am - Comentarios</title>
+    <link>http://www.lug.fi.uba.ar/~luca/4am/</link>
+    <description>4am - Si no tiene solución, no es un problema...</description>
+    <dc:language>es</dc:language>
+    <admin:errorReportsTo rdf:resource="mailto:" />
+    <generator>Serendipity 1.3 - http://www.s9y.org/</generator>
+    
+    <image>
+        <url>http://www.lug.fi.uba.ar/~luca/4am/templates/default/img/s9y_banner_small.png</url>
+        <title>RSS: 4am - Comentarios - 4am - Si no tiene solución, no es un problema...</title>
+        <link>http://www.lug.fi.uba.ar/~luca/4am/</link>
+        <width>100</width>
+        <height>21</height>
+    </image>
+
+<item>
+    <title>Pablo Antonio: What To Know Before Debating Type Systems</title>
+    <link>http://www.lug.fi.uba.ar/~luca/4am/archives/15-What-To-Know-Before-Debating-Type-Systems.html#c5</link>
+            <category></category>
+    
+    <comments>http://www.lug.fi.uba.ar/~luca/4am/archives/15-What-To-Know-Before-Debating-Type-Systems.html#comments</comments>
+    <wfw:comment>http://www.lug.fi.uba.ar/~luca/4am/wfwcomment.php?cid=15</wfw:comment>
+
+    
+
+    <author>pabloa@gmail.com (Pablo Antonio)</author>
+    <content:encoded>
+    &lt;p&gt;Ya quedó en mis bookmarks para pegarle una leída cuando tenga más tiempo. Gracias :)&lt;/p&gt;
+
+ 
+    </content:encoded>
+
+    <pubDate>Tue, 13 May 2008 11:57:35 -0300</pubDate>
+    <guid isPermaLink="false">http://www.lug.fi.uba.ar/~luca/4am/archives/15-guid.html#c5</guid>
+    
+</item>
+<item>
+    <title>luca: Design by contract en Python</title>
+    <link>http://www.lug.fi.uba.ar/~luca/4am/archives/2-Design-by-contract-en-Python.html#c1</link>
+            <category></category>
+    
+    <comments>http://www.lug.fi.uba.ar/~luca/4am/archives/2-Design-by-contract-en-Python.html#comments</comments>
+    <wfw:comment>http://www.lug.fi.uba.ar/~luca/4am/wfwcomment.php?cid=2</wfw:comment>
+
+    
+
+    <author>luca@llucax.hn.org (luca)</author>
+    <content:encoded>
+    &lt;p&gt;Dejo un link a una &lt;a href=&quot;http://www.nongnu.org/pydbc/&quot; onclick=&quot;window.open(this.href, &#039;_blank&#039;); return false;&quot;&gt;implementación de DBC para python usando metaclases&lt;/a&gt;.&lt;/p&gt;
+
+ 
+    </content:encoded>
+
+    <pubDate>Sat, 30 Jul 2005 23:39:48 -0300</pubDate>
+    <guid isPermaLink="false">http://www.lug.fi.uba.ar/~luca/4am/archives/2-guid.html#c1</guid>
+    
+</item>
+
+</channel>
+</rss>

@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+    <title>La aventura de contar referencias  - 4am</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15" />
+    <meta name="Powered-By" content="Serendipity v.0.8.2" />
+    <link rel="stylesheet" type="text/css" href="http://www.lug.fi.uba.ar/~luca/4am/serendipity.css" />
+    <link rel="alternate"  type="application/rss+xml" title="4am RSS feed" href="http://www.lug.fi.uba.ar/~luca/4am/feeds/index.rss2" />
+    <link rel="alternate"  type="application/x.atom+xml"  title="4am Atom feed"  href="http://www.lug.fi.uba.ar/~luca/4am/feeds/atom.xml" />
+    <link rel="pingback" href="http://www.lug.fi.uba.ar/~luca/4am/comment.php?type=pingback&amp;entry_id=4" />
+
+<script type="text/javascript" src="http://www.lug.fi.uba.ar/~luca/4am/plugin/ls-js"></script><link rel="stylesheet" type="text/css" href="http://www.lug.fi.uba.ar/~luca/4am/plugin/print.css" media="print" /><link rel="start" href="http://www.lug.fi.uba.ar/~luca/4am/" title="4am" />
+<link rel="up" href="http://www.lug.fi.uba.ar/~luca/4am/" title="4am" />
+<link rel="prev" href="http://www.lug.fi.uba.ar/~luca/4am/archives/3-Mudanza-de-sistema-de-blog.html" title="Mudanza de sistema de blog" />
+<link rel="next" href="http://www.lug.fi.uba.ar/~luca/4am/archives/5-SH.html" title="SH" />
+<link rel="shortcut icon" href="/~luca/4am/uploads/4am" />
+</head>
+
+<body>
+
+<div id="serendipity_banner">
+    <h1><a class="homelink1" href="http://www.lug.fi.uba.ar/~luca/4am/">La aventura de contar referencias</a></h1>
+    <h2><a class="homelink2" href="http://www.lug.fi.uba.ar/~luca/4am/">4am</a></h2>
+</div>
+
+<table id="mainpane">
+    <tr>
+        <td id="content" valign="top"><!-- CONTENT START -->
+
+
+<!-- ENTRIES START -->
+    
+
+        <div class="serendipity_Entry_Date">
+                <h3 class="serendipity_date">Monday,  1 de August del 2005</h3>
+        
+                <h4 class="serendipity_title"><a href="/~luca/4am/archives/4-La-aventura-de-contar-referencias.html">La aventura de contar referencias</a></h4>
+
+        <div class="serendipity_entry serendipity_entry_author_Leandro-Lucarella ">
+                        <span class="serendipity_entryIcon">
+                                                <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/6-Reference-Counting"><img class="serendipity_entryIcon" title="Reference Counting: 2 + 2 = 5" alt="Reference Counting" src="/~luca/4am/uploads/categorias/counter.png" /></a>
+                                        </span>
+            
+            <div class="serendipity_entry_body">
+                <p>Todo empezó hace mucho, mucho tiempo (finales de 2004) en una de las famosas reuniones del <a target="_self" href="http://www.lug.fi.uba.ar/">LUGFI</a> en la L11. Con la excusa de la confección de un <a target="_self" href="http://www.fi.uba.ar/materias/7542/enunciados/20051/ej4.pdf">ejercicio</a> sobre <a target="_self" href="http://www.boost.org/libs/smart_ptr/smart_ptr.htm">smart pointers</a> para <a target="_self" href="http://www.fi.uba.ar/materias/7542/">taller</a> empecé a hablar con Alberto sobre el tema (en particular sobre la detección y liberación de ciclos). Esto duró apenas unos días, hasta hace cosa de un par de semanas, cuando se avivó la llama =)</p>
+
+
+            </div>
+
+                        <div class="serendipity_entry_extended"><a id="extended"></a><p>Sin dudas tuvo que ver la cursada de <i>Teoría de Lenguaje</i>, una materia relativamente nueva y por demás interesante, en donde vimos un resumen sobre las técnicas principales de recolección de basura y nos llevamos un <a target="_self" href="http://www.cs.kent.ac.uk/people/staff/rej/gcbook/gcbook.html">muy buen libro</a> de <a target="_self" href="http://www.cs.kent.ac.uk/people/staff/rej/">Richards Jones</a> y Rafael Lins. Pero sin dudas la gota que rebalsó el vaso fue la charla que dio este último en la facultad.</p>
+
+<p>En fin, después de bastante trabajo y de ser consumidos por el tema, hemos sacados un par de cosas en limpio, que voy a presentar brevemente y cronológicamente, según las fuimos <i>descubriendo</i>:</p>
+
+<dl>
+    <dt>SH</dt>
+        <dd>es una optimización muy simple para evitar lo más posible salir a recorrer en búsqueda de ciclos.</dd>
+    <dt>L+</dt>
+        <dd>es sin dudas lo mejor que salió de todo esto; es un algoritmo para detección y limpieza de ciclos en dos pasadas. Después de terminarlo Alberto se dio cuenta que es muy similar al algoritmo de Lins (podría llegar a verse incluso como una optimización), aunque no me basé (al menos concientemente =) en él cuando lo pensé.</dd>
+    <dt>VL</dt>
+        <dd>este algoritmo fue pensado como una optimización sobre la primera pasada del <strong>L+</strong>. Es capaz de detectar y limpiar en una sola pasada algunos casos puntuales, como aquellos en los que no hayan ciclos o que hayan <i>ciclos simples</i>; para el resto de los casos hay que correr la segunda pasada del <strong>L+</strong>.</dd>
+    <dt>L+-</dt>
+        <dd>este algoritmo es similar al <strong>VL</strong> en cuanto a objetivo, también busca optimizar el <strong>L+</strong> para que se puedan hacer más cosas en la primera pasada. Es capaz de detectar varios casos (pero no todos) en los cuales no hay que hacer ninguna limpieza, de manera tal de no ser necesaria la segunda pasada del <strong>L+</strong>.</dd>
+</dl>
+<p>Este es un pantallado general a modo de resumen. En los próximos <i>posts</i> iremos describiendo detalladamente cada algoritmo, en lo posible incluyendo una implementación de referencia simple.</p>
+
+</div>
+            
+            
+            <div class='serendipity_entryFooter'>
+                Publicado por <a href="http://www.lug.fi.uba.ar/~luca/4am/authors/1-Leandro-Lucarella">Leandro Lucarella</a>
+                                   en <a href="http://www.lug.fi.uba.ar/~luca/4am/categories/6-Reference-Counting">Reference Counting</a>                
+                                    a las
+                 <a href="/~luca/4am/archives/4-La-aventura-de-contar-referencias.html">04:24</a>
+
+                                                            | <a href="/~luca/4am/archives/4-La-aventura-de-contar-referencias.html#comments">Comentarios (0)</a>
+                                    
+                                                            | <a href="/~luca/4am/archives/4-La-aventura-de-contar-referencias.html#trackbacks">Referencia (1)</a>
+                                    
+                
+                <br /> Ver como pdf:  <a href="http://www.lug.fi.uba.ar/~luca/4am/plugin/articlepdf_4"> esta entrada </a> | <a href="http://www.lug.fi.uba.ar/~luca/4am/plugin/monthpdf_200508"> este mes </a> | <a href="http://www.lug.fi.uba.ar/~luca/4am/plugin/blogpdf"> Blog completo </a>
+            </div>
+        </div>
+        <!--
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                 xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+                 xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <rdf:Description
+                 rdf:about="http://www.lug.fi.uba.ar/~luca/4am/feeds/ei_4.rdf"
+                 trackback:ping="http://www.lug.fi.uba.ar/~luca/4am/comment.php?type=trackback&amp;entry_id=4"
+                 dc:title="La aventura de contar referencias"
+                 dc:identifier="http://www.lug.fi.uba.ar/~luca/4am/archives/4-La-aventura-de-contar-referencias.html" />
+        </rdf:RDF>
+        -->
+        
+
+                    
+            
+            
+            
+            
+            <div class="serendipity_comments">
+                <br />
+                <a id="trackbacks"></a>
+                <div class="serendipity_commentsTitle">Referencias</div>
+                    <div class="serendipity_center">
+                        <a rel="nofollow" style="font-weight: normal" href="http://www.lug.fi.uba.ar/~luca/4am/comment.php?type=trackback&amp;entry_id=4" onclick="alert('Este enlace no es para hacer click en &amp;eacute;l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el bot&oacute;n derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.'); return false;" title="Este enlace no es para hacer click en &amp;eacute;l. Contiene la URI de referencia para esta entrada. Puedes usar esta URI para enviar &quot;ping-&quot; y &quot;trackbacks&quot; desde tu propio blog a esta entrada. Para copiar el enlace, haz click con el botón derecho y selecciona &quot;Copy Shortcut&quot; en Internet Explorer o &quot;Copy Link Location&quot; en Mozilla.">URI de referencia para esta entrada</a>
+                    </div>
+                    <br />
+                            <div class="serendipity_comment">
+        <div class="serendipity_commentBody">
+            <a href="http://www.lug.fi.uba.ar/~luca/4am/archives/9-VL.html" >VL</a><br />
+            Volvemos al conteo de referencias, ahora con el algoritmo que hemos llamado VL. El nombre surge de un flag al cual no sabía que nombre ponerle, y a falta de mejor nombre, al hablar con Alberto, le decía valor_loco (VL para ahorrar palabras).
+
+Bien la idea
+        </div>
+        <div class="serendipity_comment_source">
+            <b>Weblog:</b> 4am<br />
+            <b>Tracked:</b> Aug 09, 00:47
+                </div>
+    </div>
+
+            </div>
+        
+                    <div class="serendipity_comments">
+                <br />
+                <a id="comments"></a>
+                <div class="serendipity_commentsTitle">Comentarios</div>
+                <div class="serendipity_center">Mostrar comentarios como
+                                    (<a href="/~luca/4am/index.php?url=archives/4-La-aventura-de-contar-referencias.html&amp;serendipity[cview]=linear#comments">Plano</a> | Hilos)
+                                </div>
+                <br />
+                        <div class="serendipity_center">No hay comentarios</div>
+
+
+                                <a id="feedback"></a>
+
+                
+                
+                <br />
+                <div class="serendipity_commentsTitle">Añadir comentario</div>
+                <div class="serendipityCommentForm">
+    <a id="serendipity_CommentForm"></a>
+    <form id="serendipity_comment" action="/~luca/4am/index.php?url=archives/4-La-aventura-de-contar-referencias.html#feedback" method="post">
+    <div><input type="hidden" name="serendipity[entry_id]" value="4" /></div>
+    <table border="0" width="100%" cellpadding="3">
+        <tr>
+            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_name">Nombre</label></td>
+            <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_name" name="serendipity[name]" value="" size="30" /></td>
+        </tr>
+
+        <tr>
+            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_email">Correo electrónico</label></td>
+            <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_email" name="serendipity[email]" value="" /></td>
+        </tr>
+
+        <tr>
+            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_url">URL personal</label></td>
+            <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_url" name="serendipity[url]" value="" /></td>
+        </tr>
+
+        <tr>
+            <td class="serendipity_commentsLabel"><label for="serendipity_replyTo">En respuesta a</label></td>
+            <td class="serendipity_commentsValue"><select id="serendipity_replyTo" name="serendipity[replyTo]"><option value="0">[ Nivel superior ]</option></select></td>
+        </tr>
+
+        <tr>
+            <td class="serendipity_commentsLabel"><label for="serendipity_commentform_comment">Comentario</label></td>
+            <td class="serendipity_commentsValue">
+                <textarea rows="10" cols="40" id="serendipity_commentform_comment" name="serendipity[comment]"></textarea><br />
+                <script type="text/javascript">
+function getCommentCookie(name) {
+    var dc = document.cookie;
+    var prefix = 'serendipity[' + name + "]=";
+    var begin = dc.indexOf("; " + prefix);
+    if (begin == -1) {
+        begin = dc.indexOf(prefix);
+        if (begin != 0) return '';
+    } else {
+        begin += 2;
+    }
+    var end = document.cookie.indexOf(";", begin);
+    if (end == -1) {
+        end = dc.length;
+    }
+    
+    value = unescape(dc.substring(begin + prefix.length, end));
+    if (value && value != null) { 
+        return value;
+    } else {
+        return '';
+    }
+}
+
+document.getElementById('serendipity_commentform_name').value  = getCommentCookie('name');
+document.getElementById('serendipity_commentform_email').value = getCommentCookie('email');
+document.getElementById('serendipity_commentform_url').value   = getCommentCookie('url');
+</script>
+<div class="serendipity_commentDirection">Se acepta formato <a href="http://wiki.ciaweb.net/yawiki/index.php?area=Text_Wiki&amp;page=SamplePage">Wiki</a></div><div class="serendipity_commentDirection"><br />To prevent automated Bots from commentspamming, please enter the string you see in the image below in the appropriate input box. Your comment will only be submitted if the strings match. Please ensure that your browser supports and accepts cookies, or your comment cannot be verified correctly.<br /><img src="http://www.lug.fi.uba.ar/~luca/4am/plugin/captcha_5fc3a1adcda1f44df1391adc3badfdbb" title="Enter the string you see here in the input box!" alt="CAPTCHA" class="captcha" /><br /><label for="captcha">Enter the string from the spam-prevention image above: </label><br /><input type="text" size="5" name="serendipity[captcha]" value="" id="captcha" /></div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>&#160;</td>
+            <td class="serendipity_commentsLabel">
+                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]"  /><label for="checkbox_remember">¿Recordar la información? </label>
+                    <br />
+                <input id="checkbox_subscribe" type="checkbox" name="serendipity[subscribe]"  /><label for="checkbox_subscribe">Suscribirse a esta entrada</label>
+                </td>
+       </tr>
+
+
+       <tr>
+            <td>&#160;</td>
+            <td><input type="submit" name="serendipity[submit]" value="Enviar comentario" /> <input type="submit" name="serendipity[preview]" value="Previsualización" /></td>
+        </tr>
+    </table>
+    </form>
+</div>
+
+                            </div>
+        
+        
+            </div>
+    
+    <div class='serendipity_entryFooter' style="text-align: center">
+    
+    
+    
+    <br /> Ver como pdf:  <a href="http://www.lug.fi.uba.ar/~luca/4am/plugin/articlepdf_4"> esta entrada </a> | <a href="http://www.lug.fi.uba.ar/~luca/4am/plugin/monthpdf_200712"> este mes </a> | <a href="http://www.lug.fi.uba.ar/~luca/4am/plugin/blogpdf"> Blog completo </a>
+    </div>
+<!-- ENTRIES END -->
+
+
+<!-- CONTENT END --></td>
+        <td id="serendipityRightSideBar" valign="top">    <div class="serendipitySideBarItem container_serendipity_plugin_authors">
+        <h3 class="serendipitySideBarTitle serendipity_plugin_authors">4am es ...</h3>        <div class="serendipitySideBarContent"><a style="white-space: nowrap" href="http://www.lug.fi.uba.ar/~luca/4am/authors/1-Leandro-Lucarella">Leandro Lucarella</a><br /><a style="white-space: nowrap" href="http://www.lug.fi.uba.ar/~luca/4am/authors/2-Alberto-Bertogli">Alberto Bertogli</a><br /></div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_plugin_linklist">
+        <h3 class="serendipitySideBarTitle serendipity_plugin_linklist">Amigos de la casa</h3>        <div class="serendipitySideBarContent"><script language="javascript" src="http://www.lug.fi.uba.ar/~luca/4am/plugin/dtree.js" type="text/javascript"></script><script type="text/javascript">
+        <!--
+        d = new dTree("d","http://www.lug.fi.uba.ar/~luca/4am/plugins/serendipity_event_linklist");
+d.config.useSelection=false;
+d.config.useCookies=false;
+d.config.useIcons=false;
+d.config.useStatusText=true;
+d.config.target="_self";
+d.add(0,-1,"");
+d.add(1,0,"LUGFI","http://www.lug.fi.uba.ar/");
+d.add(3,0,"Planet LUGFI","http://planet.lug.fi.uba.ar/");
+document.write(d);
+        //-->
+        </script></div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_quicksearch_plugin">
+        <h3 class="serendipitySideBarTitle serendipity_quicksearch_plugin">Buscar</h3>        <div class="serendipitySideBarContent"><form id="searchform" action="/~luca/4am/index.php" method="get">
+    <div>
+        <input type="hidden"  name="serendipity[action]" value="search" />
+        <input alt="Buscar" type="text"   id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" size="13" />
+    </div>
+    <div id="LSResult" style="display: none;"><div id="LSShadow"></div></div>
+</form>
+<script type="text/javascript">
+                    lsbase = "http://www.lug.fi.uba.ar/~luca/4am/plugin/ls?";
+                    waittext = "Wait, sending request...";
+                    addLoadEvent(liveSearchInit);
+                    </script></div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_categories_plugin">
+        <h3 class="serendipitySideBarTitle serendipity_categories_plugin">Categorías</h3>        <div class="serendipitySideBarContent"><div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/10-Charlas" title="Charlas" style="padding-left: 0px">Charlas</a></div>
+<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/2-Codigo" title="Código" style="padding-left: 0px">Código</a></div>
+<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/8-C++" title="C++" style="padding-left: 6px">C++</a></div>
+<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/3-Python" title="Python" style="padding-left: 6px">Python</a></div>
+<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/1-Institucional" title="Institucional" style="padding-left: 0px">Institucional</a></div>
+<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/12-Sistema-Operativo" title="Sistema Operativo" style="padding-left: 0px">Sistema Operativo</a></div>
+<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/11-Filesystems" title="Filesystems" style="padding-left: 6px">Filesystems</a></div>
+<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/5-Teoria-de-Lenguaje" title="Teoría de Lenguaje" style="padding-left: 0px">Teoría de Lenguaje</a></div>
+<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/9-Concurrencia" title="Concurrencia" style="padding-left: 6px">Concurrencia</a></div>
+<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/7-Design-By-Contract" title="Design By Contract" style="padding-left: 6px">Design By Contract</a></div>
+<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/4-Garbage-Collection" title="Garbage Collection" style="padding-left: 6px">Garbage Collection</a></div>
+<div style="padding-bottom: 2px;"><a href="/~luca/4am/categories/6-Reference-Counting" title="Reference Counting" style="padding-left: 12px">Reference Counting</a></div>
+<br /><a href="/~luca/4am/index.php" title="Todas las categorías">Todas las categorías</a></div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_archives_plugin">
+        <h3 class="serendipitySideBarTitle serendipity_archives_plugin">Archivos</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/archives/2007/12.html" title="December 2007">December 2007</a><br />
+<a href="/~luca/4am/archives/2007/11.html" title="November 2007">November 2007</a><br />
+<a href="/~luca/4am/archives/2007/10.html" title="October 2007">October 2007</a><br />
+<a href="/~luca/4am/">Recientes...</a><br />
+<a href="http://www.lug.fi.uba.ar/~luca/4am/archive">Antiguos...</a>
+</div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_syndication_plugin">
+        <h3 class="serendipitySideBarTitle serendipity_syndication_plugin">Sindica este blog</h3>        <div class="serendipitySideBarContent">        <div style="padding-bottom: 2px;">
+            <a href="/~luca/4am/feeds/index.rss1"><img src="/~luca/4am/templates/default/img/xml.gif" alt="XML" style="border: 0px" /></a>
+            <a href="/~luca/4am/feeds/index.rss1">RSS 1.0 feed</a>
+        </div>
+        <div style="padding-bottom: 2px;">
+            <a href="/~luca/4am/feeds/comments.rss2"><img src="/~luca/4am/templates/default/img/xml.gif" alt="XML" style="border: 0px" /></a>
+            <a href="/~luca/4am/feeds/comments.rss2"><span style="white-space: nowrap">RSS 2.0 Comentarios</span></a>
+        </div>
+</div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_html_nugget_plugin">
+        <h3 class="serendipitySideBarTitle serendipity_html_nugget_plugin">Licencia</h3>        <div class="serendipitySideBarContent"><!-- Creative Commons License -->
+<p>Estos artículos se publican bajo la licencia
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">Atribución-CompartirDerivadasIgual 2.5 Argentina</a>.</p>
+<div style="text-align: center"><a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/ar/deed.es_AR"><img alt="Creative Commons License" border="0" src="http://www.lug.fi.uba.ar/~luca/4am/uploads/somerights20.gif" /></a></div>
+<!-- /Creative Commons License -->
+</div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_superuser_plugin">
+        <h3 class="serendipitySideBarTitle serendipity_superuser_plugin">Administración del Blog</h3>        <div class="serendipitySideBarContent"><a href="/~luca/4am/admin" title="Abre ventana de conexión">Abre ventana de conexión</a></div>
+    </div>
+    <div class="serendipitySideBarItem container_serendipity_plug_plugin">
+        <h3 class="serendipitySideBarTitle serendipity_plug_plugin">Basado en</h3>        <div class="serendipitySideBarContent"><div class="serendipityPlug">
+    <a title="Basado en Serendipity" href="http://www.s9y.org/"><img src="/~luca/4am/templates/default/img/s9y_banner_small.png" alt="Serendipity PHP Weblog" style="border: 0px" /></a>
+</div>
+</div>
+    </div>
+</td>
+    </tr>
+</table>
+
+
+
+</body>
+</html>

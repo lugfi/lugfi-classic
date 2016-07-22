@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<title>darcs :: Ejemplo 3</title>
+<link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+<body>
+
+<h2>Ejemplo 3 - Chocamos</h2>
+
+Si bien si somos ordenados al trabajar no deberia darse comunmente, los
+conflictos entre merges son un tema muy importante porque si no son manejados
+correctamente pueden acarrear serios problemas en el repositorio.<br>
+Veamos como generar uno simple, y como corregirlo.<p>
+
+Vamos a arrancar con un repositorio base del cual hacemos get para obtener dos
+repositorios independientes, en los cuales realizamos cambios de forma
+aislada.<br>
+
+<pre>
+<tt class=nota>Partimos de una base comun; mostramos los cambios</tt>
+# cd base
+# darcs chan
+Wed May 18 02:57:06 ART 2005  Base &lt;base@ej.com.ar&gt;
+  * Agregamos el archivo inicial.
+<tt class=nota>Mostramos un poco del archivo "cancion"</tt>
+# cat cancion
+Tú surgías desde el Cono Sur
+y venías desde antes,
+con el amor al mundo bien adentro.
+Fuk unx kstrkllx quk tk puso xquí
+y tk hizo dk kstk pukblo.
+Dk grxtitud nxcikron muchos hombrks
+quk iguxl quk tú,
+no qukríxn quk tk fukrxs
+y son otros desde entonces.
+[...]
+# cd ..
+#
+<tt class=nota>Hacemos un get de base, creando un nuevo repo A</tt>
+# darcs get base A
+Copying patch 1 of 1... done!
+Finished getting.
+#
+<tt class=nota>Y ahora creamos B</tt>
+# darcs get base B
+Copying patch 1 of 1... done!
+Finished getting.
+#
+</pre>
+
+<pre>
+<tt class=nota>Tenemos tres repos iguales, vamos a hacer un cambio en A y a
+arreglar un poco el archivo de arriba.</tt>
+# cd A
+# vi cancion
+<tt class=nota>Uno de los problemas con el archivo es que algunas 'a's estan
+cambiadas por 'x's, editamos para arreglar eso; y luego hacemos un record</tt>
+# darcs record
+[...]
+# darcs changes --last=1
+Wed May 18 03:01:42 ART 2005  Fulano A &lt;a@fulano.com.ar&gt;
+  * Arreglar la letra A.
+# cd ..
+#
+<tt class=nota>Vamos ahora a hacer un cambio en B.</tt>
+# cd B
+# vi cancion
+<tt class=nota>Como antes, arreglamos "cancion", cambiando 'k's por 'e's</tt>
+# darcs record
+[...]
+# darcs changes --last=1
+Wed May 18 03:08:00 ART 2005  Fulano B &lt;b@fulano.com.ar&gt;
+  * Arreglar la letra E.
+# cd ..
+#
+</pre>
+
+Miremos un poco como estan los archivos hasta ahora.<br>
+
+<pre>
+<tt class=nota>El archivo base</tt>
+# cat base/cancion
+Tú surgías desde el Cono Sur
+y venías desde antes,
+con el amor al mundo bien adentro.
+Fuk unx kstrkllx quk tk puso xquí
+y tk hizo dk kstk pukblo.
+Dk grxtitud nxcikron muchos hombrks
+quk iguxl quk tú,
+no qukríxn quk tk fukrxs
+y son otros desde entonces.
+[...]
+#
+<tt class=nota>El archivo del repositorio A</tt>
+# cat A/cancion
+Tú surgías desde el Cono Sur
+y venías desde antes,
+con el amor al mundo bien adentro.
+Fuk una kstrklla quk tk puso aquí
+y tk hizo dk kstk pukblo.
+Dk gratitud nacikron muchos hombrks
+quk igual quk tú,
+no qukrían quk tk fukras
+y son otros desde entonces.
+[...]
+#
+<tt class=nota>El archivo del repositorio B</tt>
+# cat B/cancion
+Tú surgías desde el Cono Sur
+y venías desde antes,
+con el amor al mundo bien adentro.
+Fue unx estrellx que te puso xquí
+y te hizo de este pueblo.
+De grxtitud nxcieron muchos hombres
+que iguxl que tú,
+no queríxn que te fuerxs
+y son otros desde entonces.
+[...]
+#
+</pre>
+
+Vamos a tratar de incorporar los cambios de B en A.
+
+<pre>
+# cd A
+# darcs pull ../B
+Wed May 18 03:08:00 ART 2005  Fulano B &lt;b@fulano.com.ar&gt;
+  * Arreglar la letra E.
+Shall I pull this patch? (1/1) [ynWvxqadjk], or ? for help: y
+We have conflicts in the following files:
+./cancion
+Finished pulling and applying.
+#
+</pre>
+
+Como vemos, nos dijo que habia conflictos en el archivo. Esto es esperable,
+dado que darcs solo no puede resolver los cambios pues afectan a las mismas
+lineas de los archivos, y no hay una forma en la que pueda aplicar los cambios
+sin garantizar que no se generan problemas.<p>
+Por eso nos avisa, para que nosotros "conciliemos" los dos cambios y dejemos
+una version valida. Entonces vemos que hay en el archivo con conflictos, y lo
+editamos para dejar una version definitiva.<br>
+
+<pre>
+# cat cancion
+Tú surgías desde el Cono Sur
+y venías desde antes,
+con el amor al mundo bien adentro.
+v v v v v v v
+Fue unx estrellx que te puso xquí
+y te hizo de este pueblo.
+De grxtitud nxcieron muchos hombres
+que iguxl que tú,
+no queríxn que te fuerxs
+*************
+Fuk una kstrklla quk tk puso aquí
+y tk hizo dk kstk pukblo.
+Dk gratitud nacikron muchos hombrks
+quk igual quk tú,
+no qukrían quk tk fukras
+^ ^ ^ ^ ^ ^ ^
+y son otros desde entonces.
+[...]
+#
+<tt class=nota>Nos encierra entre "v v v v" y "^ ^ ^ ^" las dos "versiones",
+una de cada cambio, y espera que nosotros dejemos una definitiva, para lo cual
+editamos. En este caso tenemos que hacer varios reemplazos a mano para que
+quede una version completa.</tt>
+# vi cancion
+# cat cancion
+Tú surgías desde el Cono Sur
+y venías desde antes,
+con el amor al mundo bien adentro.
+Fue una estrella que te puso aquí
+y te hizo de este pueblo.
+De gratitud nacieron muchos hombres
+que igual que tú,
+no querían que te fueras
+y son otros desde entonces.
+[...]
+#
+<tt class=nota>Entonces hacemos un record, para grabar este patch
+"conciliador"</tt>
+# darcs record
+[...]
+#
+<tt class=nota>Vemos todo el historial de cambios</tt>
+# darcs changes
+Wed May 18 03:21:22 ART 2005  Fulano A &lt;a@fulano.com.ar&gt;
+  * Conciliamos el conflicto.
+
+Wed May 18 03:08:00 ART 2005  Fulano B &lt;b@fulano.com.ar&gt;
+  * Arreglar la letra E.
+
+Wed May 18 03:01:42 ART 2005  Fulano A &lt;a@fulano.com.ar&gt;
+  * Arreglar la letra A.
+
+Wed May 18 02:57:06 ART 2005  Base &lt;base@ej.com.ar&gt;
+  * Agregamos el archivo inicial.
+#
+</pre>
+
+</body>
+</html>
+

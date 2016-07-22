@@ -1,0 +1,282 @@
+%% LyX 1.3 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[spanish]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{a4wide}
+\IfFileExists{url.sty}{\usepackage{url}}
+                      {\newcommand{\url}{\texttt}}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+ \newenvironment{lyxcode}
+   {\begin{list}{}{
+     \setlength{\rightmargin}{\leftmargin}
+     \setlength{\listparindent}{0pt}% needed for AMS classes
+     \raggedright
+     \setlength{\itemsep}{0pt}
+     \setlength{\parsep}{0pt}
+     \normalfont\ttfamily}%
+    \item[]}
+   {\end{list}}
+
+\usepackage{babel}
+\addto\extrasspanish{\bbl@deactivate{~}}
+\makeatother
+\begin{document}
+
+\title{Subversion FAQ}
+
+
+\author{Leandro Lucarella <llucare@fi.uba.ar>}
+
+
+\date{\$Id: faq-subversion.lyx 37 2003-08-06 02:37:18Z llucare \$}
+
+\maketitle
+Este documento pretende explicar brevemente el uso \emph{básico} del
+subversion \url{http://subversion.tigris.org/} (o svn). Como nació
+en el LUGFI \url{http://www.fi.uba.ar/lug/}, la mayoría de los ejemplos
+y explicaciones están orientadas al uso de su repositorio. De todas
+maneras creo que el documento es bastante general como para servirle
+a otra gente también. \\
+También aclaro que esto no pretende ser una traducción del Manual de Subversion \url{http://svnbook.red-bean.com/}.
+Cualquiera de los temas aquí tratados pueden ampliados en dicho manual,
+que recomiendo leer (al menos por arriba) muy enfáticamente.
+
+\tableofcontents{}
+
+
+\section{Uso básico.}
+
+
+\subsection{Ya tengo una cuenta de svn, ¿y ahora?}
+
+Ahora asumo que ya tenés el svn andando también. Si no es el caso
+y usas Debian (\texttt{unstable}), hacé un:
+
+\begin{lyxcode}
+\#~apt-get~install~subversion
+\end{lyxcode}
+Listo, ya tenés el subversion. Si usas otra distro, buscá si está
+disponible un paquete (seguramente sí) y si no vas a tener que compilarlo
+vos. En la página del subversion podés encontrar paquetes precompilados \url{http://subversion.tigris.org/servlets/ProjectDocumentList}
+para las distros más populares.
+
+
+\subsubsection{¿Y si uso Debian \texttt{stable}? En la página web del subversion
+solo está el código fuente y binarios RPM ¿qué bajo?}
+
+Yo diría que pruebes con el código fuente. O probá de apuntar tu \texttt{/etc/apt/sources.list}
+al \texttt{unstable} y fijate si no te tiene que actualizar media
+distribución para bajar el paquete. Es un paquete que (creo que) no
+tiene muchas dependencias, así que con un poco de suerte...
+
+
+\subsection{Ya tengo mi cuenta de svn y mi \texttt{svn} andando ¿y ahora?}
+
+Ahora podés hacer un \emph{checkout} del repositorio, solamente escribí
+esto:
+
+\begin{lyxcode}
+\$~svn~co~http://svn.llucax.hn.org/svn/lugfi/tronco~lugfi-www
+\end{lyxcode}
+(Reemplaza el \texttt{http://svn.llucax.hn.org/svn/lugfi/tronco} por
+el repositorio que quieras bajar y el \texttt{lugfi} del final por
+el directorio en donde querés que baje todo)
+
+Esto te va a crear un subdirectorio \texttt{lugfi-www} después de
+preguntarte tu usuario y password. En ese subdirectorio está todos
+los archivos de sitio.
+
+
+\subsection{¿Cómo modifico un archivo?}
+
+Entrá al subdirectorio lugfi-www y editalo con tu editor favorito!
+Hacé de cuenta que estás trabajando en un subdirectorio cualquiera.
+Modificá todos los archivos que quieras, el repositorio no se va a
+modificar hasta que hagas un \emph{commit}.
+
+
+\subsection{¿Qué es un \texttt{commit}?}
+
+Con el comando \texttt{commit} del \texttt{svn} se \emph{suben} los
+cambios al repositorio. Es recomendado hacer un \texttt{update} antes:
+
+\begin{lyxcode}
+.../lugfi-www/\$~svn~up
+
+{[}...{]}
+
+At~revision~30.
+
+.../lugfi-www/\$~svn~ci~{[}archivos{]}
+
+A~archivo
+
+M~archivo
+
+{[}...{]}
+\end{lyxcode}
+El \texttt{svn ci} (commit) te va a abrir tu editor favorito (o se
+va a quejar si no puede hacerlo) para que escribas un mensaje comentando
+qué es lo que cambiaste. !Por favor, tratá de ser lo más descriptivo
+posible!
+
+
+\subsection{¿Qué es un \texttt{update}?}
+
+El comando \texttt{update} se encarga de poner al día nuestra copia
+local del repositorio. Si alguien hizo algún cambio después de que
+lo hayamos bajado, este comando nos lo actualiza de una forma \emph{barata},
+ya que sólo baja los cambios (no todo el repositorio de nuevo).
+
+\begin{lyxcode}
+\$~svn~up~{[}<archivo>{]}
+\end{lyxcode}
+\texttt{<archivo>} es opcional (como en prácticamente todos los comandos
+de \texttt{svn}), si no se especifica, se toma el directorio actual.
+
+
+\subsection{¿Cómo sé que cosas cambiaron/van a cambiar antes de hacer un \texttt{commit}/\texttt{update}?}
+
+Para tener un pantallazo, el comando \texttt{status} es tu mejor amigo:
+
+\begin{lyxcode}
+\$~svn~st
+\end{lyxcode}
+Si querés ver qué cosa cambió en cada archivo, el comando \texttt{diff}
+es lo que necesitas:
+
+\begin{lyxcode}
+\$~svn~diff~<archivo>
+\end{lyxcode}
+
+\subsection{Me dice algo como que el repositorio está lockeado, ¿Qué pasa?}
+
+Es probable que hayas cortado un comando del \texttt{svn} con \texttt{Ctrl-C}
+o algo así. Probá de hacer un:
+
+\begin{lyxcode}
+\$~svn~cleanup
+\end{lyxcode}
+y si eso no lo soluciona preguntá en lugfi-www.
+
+
+\subsection{¿Cómo agrego/muevo/borro un archivo/directorio?}
+
+Para agregar archivos o directorios (de forma recursiva por defecto)
+está el comando add:
+
+\begin{lyxcode}
+\$~svn~add~miarchivo~midirectorio
+
+A~miarchivo
+
+A~midirectorio
+\end{lyxcode}
+Para mover (renombrar) un archivo o directorio es casi igual que lo
+que hacés frecuentemente, sólo que hay que agregar antes el svn:
+
+\begin{lyxcode}
+\$~svn~mv~miarchivo~milindoarchivo
+
+D~miarchivo
+
+A+~milindoarchivo
+
+\$~svn~rm~otroarchivo
+
+D~otroarchivo
+\end{lyxcode}
+Todos estos cambios (y cualquier cambio que hagas) no se subirá al
+repositorio hasta que no hagas un \texttt{commit}.
+
+
+\subsection{¡Ups! Rompí algo, ¿cómo hago para volver atrás?}
+
+Si todavía no hiciste un commit, es fácil, simplemente escribí:
+
+\begin{lyxcode}
+\$~svn~revert~{[}<archivo>{]}
+\end{lyxcode}
+Si ya hiciste el \emph{commit}, tendrías que hacer un \texttt{merge}
+con la versión anterior pero eso escapa a los objetivos de este documento.
+
+
+\subsection{¿Qué son esas cosas raras \texttt{\$id\$}, \texttt{\$date\$}, etc?}
+
+Son \emph{keywords}, es decir, palabras clave que el \texttt{svn}
+puede traducir a propiedades del documento. En realidad van con mayúscula
+la primera letra pero lo puse a propósito mal para que en el título
+no lo expanda. A continuación las escribo bien así son expandidas
+y ven el significado de cada una:
+
+\begin{lyxcode}
+\$Id:~faq-subversion.lyx~37~2003-08-06~02:37:18Z~llucare~\$
+
+\$Date:~2003-08-05~23:37:18~-0300~(Tue,~05~Aug~2003)~\$
+
+\$Rev:~37~\$
+
+\$URL:~http://svn.llucax.hn.org:81/svn/lugfi/tronco/proyectos/faq\_website.lyx~\$
+
+\$Author:~llucare~\$
+\end{lyxcode}
+
+\subsection{¿Por qué a mí no me expande los \emph{keywords}?}
+
+El \texttt{svn} por defecto no expande nada para evitar problemas
+indeseables, tengan en cuenta que en especial al trabajar con PHP
+(o Perl) se usa mucho el signo \$ y si usamos una variable \texttt{\$Id}
+y luego otra es probable que lo expanda. Es por esto que recomiendo
+altamente \textbf{no} utilizar nombres de variable en PHP que empiecen
+con Mayúsculas (para evitar problemas con futuros \emph{keywords}
+también). En fin, en caso de querer que expanda los \emph{keywords}
+hay que decirlo explícitamente, seteando la propiedad especial (los
+archivos además del contenido pueden tener propiedades arbitrarias)
+llamada \texttt{svn:keywords}:
+
+\begin{lyxcode}
+\$~svn~ps~svn:keywords~{}``Id~Date~Author''~<archivo>
+\end{lyxcode}
+Donde \texttt{{}``Id Date Author''} puede ser en realidad cualquier
+combinación de \emph{keywords} que queramos expandir. También podemos
+hacer un:
+
+\begin{lyxcode}
+\$~svn~pe~svn:keywords~<archivo>
+\end{lyxcode}
+Para que abra nuestro editor favorito y escribir en él los \emph{keywords}
+a expandir.
+
+\textbf{Es importante que no expandan keywords en archivos binarios,
+porque pueden tener la mala suerte de que les parta el archivo al
+medio al expandir algo no deseado.}
+
+
+\subsection{¿Hay una forma más fácil de poner los \emph{keywords}?}
+
+No que conozca, pero para simplificar un poco las cosas (y considerando
+que siempre expando los mismos \emph{keywords}) me hice dos \emph{micro-scripts}:
+
+\begin{lyxcode}
+\textbf{svnkw:}
+
+\#!/bin/sh
+
+svn~ps~svn:keywords~{}``Id~Date~Author~Rev~URL''~{}``\$@''
+\end{lyxcode}
+que setea los \emph{keywords} y
+
+\begin{lyxcode}
+\textbf{svnaddkw:}
+
+\#!/bin/sh
+
+svn~add~{}``\$@''
+
+svn~ps~svn:keywords~{}``Id~Date~Author~Rev~URL''~{}``\$@''
+\end{lyxcode}
+que agrega los archivos y setea los \emph{keywords}.
+\end{document}

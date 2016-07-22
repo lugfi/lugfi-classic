@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<title>darcs :: Ejemplo 2</title>
+<link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+<body>
+
+<h2>Ejemplo 2 - Vemos la luz</h2>
+
+Ahora que ya sabemos operar con las cosas mas comunes, vamos a ver como
+interactuamos con otros repositorios, sean o no nuestros.<p>
+
+El primer ejemplo va a ser obtener un repositorio existente, que esta
+publicado por web. Recordemos que darcs no depende de como se publiquen,
+podrian ser locales, remotos por web, etc. Si en lugar de hacer esto,
+hicieramos un "cp -a", o nos lo pasaran en un archivo comprimido seria igual
+de valido.<br>
+Vamos a usar un repositorio real, chico y con pocos cambios.<br>
+
+<pre>
+# darcs get http://auriga.wearlab.de/~alb/repos/libfilo
+Copying patch 23 of 23... done!
+Applying patches to the "working" directory...
+..............................................
+Finished getting.
+#
+<tt class=nota>Vemos que se bajo el repo</tt>
+# ls -l
+total 12
+4 drwxr-xr-x  5 root root 4096 May 18 00:46 libfilo
+# cd libfilo
+# ls -l
+total 44
+drwxr-xr-x  7 root root  4096 May 18 00:50 _darcs
+drwxr-xr-x  2 root root  4096 May 18 00:50 doc
+-rw-r--r--  1 root root  1150 May 18 00:50 INSTALL
+-rw-r--r--  1 root root 12706 May 18 00:50 libfilo.c
+-rw-r--r--  1 root root  2084 May 18 00:50 libfilo.h
+-rw-r--r--  1 root root  1077 May 18 00:50 Makefile
+-rw-r--r--  1 root root  1159 May 18 00:50 README
+drwxr-xr-x  2 root root  4096 May 18 00:50 tests
+#
+<tt class=nota>Revisamos los ultimos 5 cambios, de chusmas nomas</tt>
+# darcs changes --last=5
+Wed Apr 27 18:39:46 ART 2005  Alberto Bertogli &lt;albertogli@telpin.com.ar&gt;
+  tagged 0.11
+
+Wed Apr 27 18:10:46 ART 2005  Jose Aureliano Buendia &lt;jaureliano@buendia.com&gt;
+  * Force the library to be compiled with LFS support.
+
+Wed Apr 27 18:10:15 ART 2005  Remedios Moscote &lt;remedios@moscote.com&gt;
+  * Update the README to add the new manpage.
+
+Wed Apr 27 18:04:24 ART 2005  Alberto Bertogli &lt;albertogli@telpin.com.ar&gt;
+  * Add an INSTALL document.
+
+Wed Apr 27 18:04:09 ART 2005  Alberto Bertogli &lt;albertogli@telpin.com.ar&gt;
+  * Add manpage support in the Makefile.
+#
+</pre>
+
+Notemos que el ultimo cambio es distinto, se llama "tag" y lo usamos para
+versionar el repositorio, poniendole marcas con nombres a medida que
+querramos, que refieren al estado del repositorio en ese momento. Se hacen con
+"darcs tag".<p>
+
+Un rato despues queremos actualizar nuestro repositorio, bajandonos cualquier
+cambio que este en el remoto que nosotros no tengamos.<br>
+
+<pre>
+<tt class=nota>Le pasamos como primer parametro el repositorio del cual
+queremos ver los cambios, y si lo omitimos usa el ultimo que usamos.</tt>
+# darcs pull
+Pulling from "http://auriga.wearlab.de/~alb/repos/libfilo"...
+No remote changes to pull in!
+#
+<tt class=nota>No habia nada que traer! Pero mas tarde, volvemos a probar</tt>
+# darcs pull
+Wed May 18 01:01:00 ART 2005  Amaranta Buendia &lt;amaranta@buendia.com&gt;
+  * Sacar prints de debug innecesarios.
+Shall I pull this patch? (1/1) [ynWvxqadjk], or ? for help: y
+Finished pulling and applying.
+#
+</pre>
+
+Ahora trabajamos un poco nosotros en el repositorio, haciendo algunos records
+como ya vimos. Y despues de un rato, cuando estamos conformes, decidimos
+mandarle a un amigo nuestro los cambios, para que los mire y nos diga que le
+parecen.<br>
+Vamos a hacer dos alternativas: o dejar que darcs mande el mail directamente,
+o que nos genere un archivo que nosotros mandamos como attach con nuestro
+mailer.<br>
+El envio siempre se hace respecto de un repositorio remoto, y mandamos lo que
+esta en el nuestro que no este en el otro. En este caso enviamos contra el
+publicado.<br>
+
+<pre>
+<tt class=nota>Alternativa 1: darcs manda el mail</tt>
+# darcs send http://users.auriga.wearlab.de/~alb/repos/libfilo
+Wed May 18 01:01:00 ART 2005  Aureliano Buendia &lt;aureliano@buendia.com&gt;
+  * Un cambio poco relevante.
+Shall I send this patch? (1/1) [ynWvxqadjk], or ? for help: y
+
+What is the target email address? Arcadio Buendia &lt;arcadio@buendia.com&gt;
+Successfully sent patch bundle to Arcadio Buendia &lt;arcadio@buendia.com&gt;.
+#
+<tt class=nota>Aca, el mail se le envio a Arcadio con esos cambios</tt>
+</pre>
+
+<pre>
+<tt class=nota>Alternativa 2: darcs nos deja un archivo para enviar adjunto</tt>
+# darcs send -o /tmp/enviar http://users.auriga.wearlab.de/~alb/repos/libfilo
+Wed May 18 01:01:00 ART 2005  Aureliano Buendia &lt;aureliano@buendia.com&gt;
+  * Un cambio poco relevante.
+Shall I send this patch? (1/1) [ynWvxqadjk], or ? for help: y
+#
+<tt class=nota>Aca nos dejo el archivo "/tmp/enviar" con los cambios
+seleccionados</tt>
+</pre>
+
+Ahora pensemos que a nosotros nos llega un mail con los cambios en un archivo
+adjunto, el cual grabamos en /tmp/para_aplicar y queremos aplicar a nuestro
+repositorio.<br>
+
+<pre>
+# darcs apply /tmp/para_aplicar
+Finished applying...
+#
+<tt class=nota>Termino de aplicar, miramos el changelog de curiosos nomas</tt>
+# darcs chan --last=2
+Wed May 18 00:24:00 ART 2005  Apolinar Moscote &lt;apolinar@moscote.com&gt;
+  * Reordenamos las funciones, porque si.
+
+Wed May 18 01:01:00 ART 2005  Aureliano Buendia &lt;aureliano@buendia.com&gt;
+  * Un cambio poco relevante.
+#
+</pre>
+
+No hay muchas mas operaciones básicas que estas, la gracia del asunto esta en
+como la combinacion de las mismas puede presentar situaciones delicadas, que
+vamos a ver un poco en el siguiente y ultimo ejemplo.<p>
+
+</body>
+</html>
+

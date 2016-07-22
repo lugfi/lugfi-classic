@@ -1,0 +1,502 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- INICIO $Id: default-cabecera.php,v 1.9 2007-03-06 11:50:54 des Exp $ -->
+
+<html lang="es">
+
+<head>
+
+<title>::: Introducción a sistemas de control de versiones, ejemplos de darcs :::</title>
+
+<!-- INICIO $Id: default-estilo.php,v 1.5 2005/05/22 20:49:28 luca Exp $ -->
+  <link rel="stylesheet" href="../../../../css/lugfi.css" type="text/css">
+  <link rel="stylesheet" href="../../style-notitas.css" type="text/css">
+<!-- FIN $Id: default-estilo.php,v 1.5 2005/05/22 20:49:28 luca Exp $ -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Description" content="Introducción a sistemas de control de versiones, ejemplos de darcs">
+<link rel="shortcut icon" href="../../../../favicon.ico">
+
+</head>
+
+<!-- FIN $Id: default-head.php,v 1.3 2006/11/23 19:55:33 lugfi Exp $ -->
+
+
+<body>
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%" align="center">
+<tr><td width="100%" height="100%" class="LugFI-Top">
+
+ <table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tr><td width="52%" class="LugFI-LogoLeft">
+
+ <!-- Beg Logo -->
+ <a href="../../../..">
+ <img src="../../../../logos/logo.png" alt="Logo LugFi" border="0" class="bottom"></a>
+ <!-- End Logo -->
+
+ </td>
+
+ <td width="48%" class="LugFI-LogoRight">
+
+ <!-- INICIO $Id: default-banner.php,v 1.9 2007-01-06 00:21:04 des Exp $ -->
+
+  <!-- Beg Marco Banners -->
+  <!-- Defino un marco para banners estandares de 234x60 -->
+
+  <table border="0" cellpadding="1" cellspacing="0" width="234" align="center">
+  <tr><td width="100%" class="LugFI-BannerDiv1" height="62">
+
+   <table border="0" cellpadding="1" cellspacing="0" width="100%">
+   <tr><td width="100%" class="LugFI-BannerDiv2" height="61">
+
+    <table border="0" cellpadding="1" cellspacing="0" width="100%">
+    <tr><td width="100%" class="LugFI-BannerDiv3" height="60">
+
+    <a href="http://www.cafeconf.org/2007/"><img src="../../../../images/Banner_Cafeconf2007.png" alt="6tas. Conferencias Abiertas de Software Libre y GNU/Linux" border="0" class="bottom"></a>
+
+    </td></tr>
+    </table>
+
+   </td></tr>
+   </table>
+
+  </td></tr>
+  </table>
+
+  <!-- End Marco Banners -->
+
+<!-- FIN $Id: default-banner.php,v 1.9 2007-01-06 00:21:04 des Exp $ -->
+
+ </td></tr>
+ </table>
+
+</td></tr>
+
+
+<tr><td width="100%" class="LugFI-TopNavBar">
+
+<!-- Beg StatBar -->
+
+ <table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tr><td width="28%" class="LugFI-StatBar-Left">
+ &nbsp;:: Saturday 23, February 2008 - Argentina ::
+ </td>
+
+ <td width="44%" class="LugFI-StatBar-Center">
+  :: ¡Ah! Aquellos DLLs estaban ocupando mucho espacio.
+		-- Www.frases.com. 
+ ::
+ </td>
+
+ <td width="28%" class="LugFI-StatBar-Right">
+ <form method="post" action="/cgi-bin/htsearch">
+  <input type=hidden name=config value="htdig">
+  <input type="text" name="words" value="Ingresar busqueda" onFocus="this.value=''" class="Top_Search">
+  <input type="submit" name="submit" value="Buscar" class="Top_Search_Button">
+ </form>
+ </td></tr>
+ </table>
+
+
+<!-- End StatBar -->
+
+</td></tr>
+
+<tr><td width="100%" class="LugFI-TopNavBar">
+
+<!-- Beg StatBar -->
+<!-- INICIO $Id: default-barra.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+
+<!-- Beg StatBar -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../../acerca/" class="Section">Acerca de</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../../documentos/" class="Section">Documentos
+</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../../eventos/" class="Section">Eventos
+</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../../integrantes/" class="Section">Integrantes</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../../listas/" class="Section">Listas</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../../proyectos/" class="Section">Proyectos
+</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../../servicios/" class="Section">Servicios
+</A>
+ <b>::</b>
+</td>
+</tr>
+</table>
+
+<!-- FIN $Id: default-barra.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- End StatBar -->
+
+</td></tr>
+</table>
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+<tr><td width="100%" class="LugFI-Contenedor">
+<!-- Beg Contenedor -->
+
+<!-- INICIO $Id: default-menu.php,v 1.4 2004/07/25 19:49:08 luca Exp $ -->
+
+
+ <table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tr><td width="20%" class="LugFI-SideBar">
+
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <!-- Beg NavLink-->
+		 
+       
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../../../">Página Inicial
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../../">Documentos del LugFi
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../../faq-lugfi/">FAQ General del LUGFI
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../../faq-subversion/">Introducción a Subversion
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../../gateway/">Configuración de un Gateway
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../../lista-herramientas/">Programas para ingeniería
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../../tp-generico/">TPs en LaTeX
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../../tablas/">Tablas en LaTeX
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../../scms/">SCMs
+</a>
+</td></tr>
+
+  
+
+<!-- FIN $Id: default-menu.php,v 1.4 2004/07/25 19:49:08 luca Exp $ -->
+
+  <!-- End NavLink-->
+
+  <tr><td width="100%" class="LugFI-MenuDivA">
+  &nbsp;
+  </td></tr>
+
+  <!-- Encuestas -->
+    
+  </table>
+
+ </td>
+
+ <td valign="top" width="80%" height="100%">
+ <!-- Beg Contenido -->
+     
+  <table border="0" cellpadding="0" cellspacing="0" width="99%" align="center">
+  <tr><td width="100%" height="100%" class="LugFI-Principal">
+    
+
+<!--
+                                    -->
+<!-- FIN $Id: default-cabecera.php,v 1.9 2007-03-06 11:50:54 des Exp $ -->
+
+<h2>Ejemplo 2 - Vemos la luz</h2>
+
+Ahora que ya sabemos operar con las cosas mas comunes, vamos a ver como
+interactuamos con otros repositorios, sean o no nuestros.<p>
+
+El primer ejemplo va a ser obtener un repositorio existente, que esta
+publicado por web. Recordemos que svn tiene varios métodos de acceso
+(local, ssh, protocolo propio, protocolo sobre webdav).<br>
+Vamos a usar un repositorio real, chico y con pocos cambios.<br>
+
+<pre>
+# svn co svn+ssh://luca@svn.llucax.com.ar/var/lib/svn/test wc_test
+Password:
+A  wc_test/link
+A  wc_test/mkfilter
+Revisión obtenida: 1
+# cd wc_test
+#
+<tt class=nota>Vemos que se bajo el repo</tt>
+# ls -l
+total 4
+lrwxrwxrwx  1 guestlabi guestlabi   8 2005-05-18 15:55 link -&gt; mkfilter
+-rwxr-xr-x  1 guestlabi guestlabi 427 2005-05-18 15:55 mkfilter
+#
+</pre>
+
+Para obtener la última versión...
+
+<pre>
+# svn update
+<tt class=nota>No hay nada nuevo</tt>
+En la revisión 1.
+#
+</pre>
+
+Un rato más tarde, luego de que alguien modificó un archivo:
+
+<pre>
+# svn update
+<tt class=nota>Obtenemos los últimos chagesets.</tt>
+M  arroz-solo
+Actualizado a la revisión 4.
+#
+</pre>
+
+Ahora hacemos unos cambios, pero alguien más estuvo haciendo cambios y los
+aplicó antes que nosotros. No importa, subversion, mientras pueda, hará un
+merge.
+
+<pre>
+# svn ci -m Cambios.
+<tt class=nota>Como cambió el mismo archivo que nosotros, antes debemos hacer un
+update para que pueda hacer un merge de los cambios en el servidor a los
+nuestros).</tt>
+Enviando       wc/trunk/arroz-solo
+svn: Falló el commit (detalles a continuación):
+svn: Out of date: '/trunk/arroz-solo' in transaction '6'
+# svn update
+<tt class=nota>Hace el merge sin problemas (notar la G).</tt>
+G  arroz-solo
+Actualizado a la revisión 5.
+#
+</pre>
+
+Finalmente, nuestro grupo humano no es perfecto, hubo falta de comunicación y 2
+personas corregimos el mismo error (o un error en la misma línea, por ejemplo).
+Subversion no puede hacer cargo de la situación y nos dice que hay conflicto.
+
+<pre>
+# svn up
+<tt class=nota>No puede hacer el merge, <strong>PROBLEMAS</strong> (notar la C).</tt>
+C  wc/trunk/arroz-solo
+Actualizado a la revisión 6.
+#
+<tt class=nota>Subversion nos deja varios elementos para solucionar el problema:</tt>
+# ls
+ls -l
+total 16
+-rw-rw----  1 luca luca 471 2005-05-19 18:02 arroz-solo
+<tt class=nota>El archivo con marcas de los conflictos (ya lo veremos en más detalle)</tt>
+-rw-rw----  1 luca luca 369 2005-05-19 18:02 arroz-solo.mine
+<tt class=nota>Mi versión del archivo.</tt>
+-rw-rw----  1 luca luca 362 2005-05-19 18:02 arroz-solo.r5
+<tt class=nota>La versión base de archivo, de donde surgió mi version y la nueva
+con la que tiene el conflicto.</tt>
+-rw-rw----  1 luca luca 362 2005-05-19 18:02 arroz-solo.r6
+<tt class=nota>La versión nueva del archivo que provoca el conflicto con mis
+cambios.</tt>
+# cat arroz-solo
+
+poner agua a hervir con sal (ponerle bastante sal)
+
+cuando hierva agregar el arroz y bajar un poco el fuego
+
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; .mine
+<tt class=nota>Hasta el "=======" es como está en mi versión.</tt>
+cuando este, sacalo colandolo bajo agua fria para cortar la cocción
+=======
+<tt class=nota>Hasta el "&gt;&gt;&gt;&gt;&gt;&gt;&gt; .r6" es como está en la nueva versión.</tt>
+cuando este, sacalo colandolo bajo agua fría para cortar la coccion
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; .r6
+
+ponerle aceite, puede ser de oliva; poner tambien un chorrin en la fuente
+antes, abajo del arroz
+
+cuatro tazas de agua x una de arroz
+una taza de arroz por persona (salen 2 platos)
+
+Listo!
+
+<tt class=nota>Si me olvido que hubo un conflicto y quiero hacer un commit, el
+svn no me deja.</tt>
+# svn ci
+svn: Falló el commit (detalles a continuación):
+svn: Abortando el commit: '/mnt/burns/luca/documentos/charla_scm/ejemplos/svn/wc/trunk/arroz-solo' queda en conflicto
+#
+<tt class=nota>Editamos el archivo para eliminar el conflicto.</tt>
+# vi arroz-solo
+[...]
+# svn diff
+# svn diff
+Index: arroz-solo
+===================================================================
+colordiff 1.0.4 (http://colordiff.sourceforge.net/)
+(C)2002-2004 Dave Ewart, davee@sungate.co.uk
+
+--- arroz-solo  (revisión: 6)
++++ arroz-solo  (copia de trabajo)
+@@ -3,7 +3,7 @@
+
+ cuando hierva agregar el arroz y bajar un poco el fuego
+
+ -cuando este, sacalo colandolo bajo agua fría para cortar la coccion
+ +cuando este, sacalo colandolo bajo agua fría para cortar la cocción
+
+  ponerle aceite, puede ser de oliva; poner tambien un chorrin en la fuente
+  antes, abajo del arroz
+#
+<tt class=nota>Finalmente avisamos al svn que resolvimos el conflicto (es
+análogo a borrar todos los archivos que creó para resolverlo)</tt>
+# svn resolved arroz-solo
+Se resolvió el conflicto de 'arroz-solo'
+# ls
+arroz-solo
+<tt class=nota>Y hacemos el commit.</tt>
+# svn ci -m "Corregido tilde"
+Enviando       trunk/arroz-solo
+Transmitiendo contenido de archivos .
+Commit de la revisión 7.
+#
+</pre>
+
+Listo, esta es uno de los problemas más complejos que se pueden presentar usando
+subversion, sin incluir los merges entre 2 branches, pero no tienen más magia
+que esto: si funciona bien, todos felices, si no, a resolver conflictos!
+
+<!-- INICIO $Id: default-pie.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+
+  </td></tr>
+  </table>
+
+ <!-- End Contenido -->
+ </td></tr>
+ </table>
+
+
+<!-- End Contenedor -->
+</td></tr>
+</table>
+
+       
+<p>
+	    
+<!-- Epígrafe -->
+<!-- /Epígrafe -->
+
+<p>
+
+<!-- ## Footer ## -->
+<table cellspacing="0" width="80%" align="center">
+<tr><td width="100%" class="Footer_Frame">
+
+ <table cellspacing="0" width="90%" align="center">
+ <tr><td width="49%" class="Footer_Frame">
+
+ 
+  <table cellspacing="0" width="90%" align="center">
+  <tr><td width="100%" class="Footer_Devel">
+  <a href="../../../.." >LUGFI</a>
+  &copy; Copyleft 2002-2008 - Bajo Licencia GPL
+  </td></tr>
+  </table>
+
+  
+ </td>
+ 
+ <td width="2%" class="Footer_Frame">
+ &nbsp;|&nbsp;
+ </td>
+
+ <td width="49%" class="Footer_Frame">
+  
+  <table cellspacing="0" width="90%" align="center">
+  <tr><td width="50%" class="Footer_Devel">
+  <!-- INICIO $Id: default-epigrafe.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<DIV CLASS="epigrafe" ALIGN="center">
+    Última actualización: Fri Sep 22 19:04:40 2006</DIV>
+<!-- FIN $Id: default-epigrafe.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+  </td></tr>
+  </table>
+ 
+ </td></tr>
+
+ </table>
+
+</td></tr>
+</table>
+<!-- / ## Footer ## -->
+
+</body>
+</html>
+<!-- FIN $Id: default-pie.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->

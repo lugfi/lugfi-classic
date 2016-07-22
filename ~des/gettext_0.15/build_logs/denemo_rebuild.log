@@ -1,0 +1,38 @@
+Reading package lists...
+Building dependency tree...
+0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+Reading package lists...
+Building dependency tree...
+dpkg-buildpackage: source package is denemo
+dpkg-buildpackage: source version is 0.7.5-3
+dpkg-buildpackage: source changed by Guenter Geiger (Debian/GNU) <geiger@debian.org>
+dpkg-buildpackage: host architecture i386
+dpkg-buildpackage: source version without epoch 0.7.5-3
+ debian/rules clean
+/usr/share/cdbs/1/rules/buildcore.mk:68: Parsing denemo-0.7.5.tar.gz...
+test -x debian/rules
+test "`id -u`" = 0
+rm -rf build-tree
+rm debian/stamp-denemo-0.7.5.tar.gz
+rm: cannot remove `debian/stamp-denemo-0.7.5.tar.gz': No such file or directory
+make: [cleanbuilddir] Error 1 (ignored)
+/usr/bin/make -C build-tree/denemo-0.7.5 -k distclean
+make: *** build-tree/denemo-0.7.5: No such file or directory.  Stop.
+make: [makefile-clean] Error 2 (ignored)
+rm -f debian/stamp-makefile-build
+rm -f debian/stamp-autotools-files
+/usr/bin/make -f debian/rules reverse-config
+make[1]: Entering directory `/home/des/denemo-0.7.5'
+/usr/share/cdbs/1/rules/buildcore.mk:68: Parsing denemo-0.7.5.tar.gz...
+make[1]: Nothing to be done for `reverse-config'.
+make[1]: Leaving directory `/home/des/denemo-0.7.5'
+if [ "reverse-patches" = "reverse-patches" ]; then rm -f debian/stamp-patched; fi
+patches: debian/patches/00_disable_redo.patch debian/patches/02_fix_playback.patch
+Trying reverse patch debian/patches/02_fix_playback.patch at level 1 ... 0 ... 2 ... failure.
+make: *** [reverse-patches] Error 1
+Build command 'cd denemo-0.7.5 && dpkg-buildpackage -b -uc' failed.
+E: Child process failed
+Skipping already downloaded file 'denemo_0.7.5-3.dsc'
+Skipping already downloaded file 'denemo_0.7.5.orig.tar.gz'
+Skipping already downloaded file 'denemo_0.7.5-3.diff.gz'
+Need to get 0B of source archives.

@@ -1,0 +1,378 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- INICIO $Id: default-cabecera.php,v 1.9 2007-03-06 11:50:54 des Exp $ -->
+
+<html lang="es">
+
+<head>
+
+<title>::: Fotos de thin-clients, 1er encuentro (13/06/2003) :::</title>
+
+<!-- INICIO $Id: default-estilo.php,v 1.5 2005/05/22 20:49:28 luca Exp $ -->
+  <link rel="stylesheet" href="../../../../css/lugfi.css" type="text/css">
+  <!-- FIN $Id: default-estilo.php,v 1.5 2005/05/22 20:49:28 luca Exp $ -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Description" content="Fotos de thin-clients, 1er encuentro (13/06/2003)">
+<link rel="shortcut icon" href="../../../../favicon.ico">
+
+</head>
+
+<!-- FIN $Id: default-head.php,v 1.3 2006/11/23 19:55:33 lugfi Exp $ -->
+
+
+<body>
+
+<table border="0" cellpadding="1" cellspacing="0" width="100%" align="center">
+<tr><td width="100%" height="100%" class="LugFI-Top">
+
+ <table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tr><td width="52%" class="LugFI-LogoLeft">
+
+ <!-- Beg Logo -->
+ <a href="../../../..">
+ <img src="../../../../logos/logo.png" alt="Logo LugFi" border="0" class="bottom"></a>
+ <!-- End Logo -->
+
+ </td>
+
+ <td width="48%" class="LugFI-LogoRight">
+
+ <!-- INICIO $Id: default-banner.php,v 1.9 2007-01-06 00:21:04 des Exp $ -->
+
+  <!-- Beg Marco Banners -->
+  <!-- Defino un marco para banners estandares de 234x60 -->
+
+  <table border="0" cellpadding="1" cellspacing="0" width="234" align="center">
+  <tr><td width="100%" class="LugFI-BannerDiv1" height="62">
+
+   <table border="0" cellpadding="1" cellspacing="0" width="100%">
+   <tr><td width="100%" class="LugFI-BannerDiv2" height="61">
+
+    <table border="0" cellpadding="1" cellspacing="0" width="100%">
+    <tr><td width="100%" class="LugFI-BannerDiv3" height="60">
+
+    <a href="http://jornadas.grulic.org.ar/7"><img src="../../../../images/Banner_JRSL2007.png" alt="7as Jornadas Regionales de Software Libre" border="0" class="bottom"></a>
+
+    </td></tr>
+    </table>
+
+   </td></tr>
+   </table>
+
+  </td></tr>
+  </table>
+
+  <!-- End Marco Banners -->
+
+<!-- FIN $Id: default-banner.php,v 1.9 2007-01-06 00:21:04 des Exp $ -->
+
+ </td></tr>
+ </table>
+
+</td></tr>
+
+
+<tr><td width="100%" class="LugFI-TopNavBar">
+
+<!-- Beg StatBar -->
+
+ <table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tr><td width="28%" class="LugFI-StatBar-Left">
+ &nbsp;:: Sunday 10, June 2007 - Argentina ::
+ </td>
+
+ <td width="44%" class="LugFI-StatBar-Center">
+  :: SeR²qu®lehace mAlelcaféalte‘lado?
+		-- Www.frases.com. 
+ ::
+ </td>
+
+ <td width="28%" class="LugFI-StatBar-Right">
+ <form method="post" action="/cgi-bin/htsearch">
+  <input type=hidden name=config value="htdig">
+  <input type="text" name="words" value="Ingresar busqueda" onFocus="this.value=''" class="Top_Search">
+  <input type="submit" name="submit" value="Buscar" class="Top_Search_Button">
+ </form>
+ </td></tr>
+ </table>
+
+
+<!-- End StatBar -->
+
+</td></tr>
+
+<tr><td width="100%" class="LugFI-TopNavBar">
+
+<!-- Beg StatBar -->
+<!-- INICIO $Id: default-barra.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+
+<!-- Beg StatBar -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../../acerca/" class="Section">Acerca de</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../../documentos/" class="Section">Documentos
+</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../../eventos/" class="Section">Eventos
+</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../../integrantes/" class="Section">Integrantes</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../../listas/" class="Section">Listas</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../../proyectos/" class="Section">Proyectos
+</A>
+ <b>::</b>
+</td>
+
+<td width="14%" class="LugFI-TopLinks">
+ <b>::</b>
+ <A href="../../../../servicios/" class="Section">Servicios
+</A>
+ <b>::</b>
+</td>
+</tr>
+</table>
+
+<!-- FIN $Id: default-barra.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- End StatBar -->
+
+</td></tr>
+</table>
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+<tr><td width="100%" class="LugFI-Contenedor">
+<!-- Beg Contenedor -->
+
+<!-- INICIO $Id: default-menu.php,v 1.4 2004/07/25 19:49:08 luca Exp $ -->
+
+
+ <table border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tr><td width="20%" class="LugFI-SideBar">
+
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <!-- Beg NavLink-->
+		 
+       
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../../">Proyectos del LugFi
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../">ThinClients en el LABI
+</a>
+</td></tr>
+
+   
+<tr><td width="100%" class="LugFI-MenuSec">
+&nbsp;
+<span style="MenuSection">»</span>
+<a class="Menu" href="../../fotos/">Fotos
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../fotos/2003-06-13/" class="MLink" >1er encuentro (13/06/2003)
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../fotos/2003-06-20/" class="MLink" >2do encuentro (20/06/2003)
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../fotos/2003-06-27/" class="MLink" >3er encuentro (27/06/2003)
+</a>
+</td></tr>
+
+<tr><td width="100%" class="LugFI-MenuLink">
+
+&nbsp;&nbsp;::<a href="../../fotos/2003-07-04/" class="MLink" >4to encuentro (04/07/2003)
+</a>
+</td></tr>
+
+  
+
+<!-- FIN $Id: default-menu.php,v 1.4 2004/07/25 19:49:08 luca Exp $ -->
+
+  <!-- End NavLink-->
+
+  <tr><td width="100%" class="LugFI-MenuDivA">
+  &nbsp;
+  </td></tr>
+
+  <!-- Encuestas -->
+    
+  </table>
+
+ </td>
+
+ <td valign="top" width="80%" height="100%">
+ <!-- Beg Contenido -->
+     
+  <table border="0" cellpadding="0" cellspacing="0" width="99%" align="center">
+  <tr><td width="100%" height="100%" class="LugFI-Principal">
+    
+
+<!--
+                                    -->
+<!-- FIN $Id: default-cabecera.php,v 1.9 2007-03-06 11:50:54 des Exp $ -->
+<!-- INICIO $Id: foto.php,v 1.1 2004/07/20 02:25:58 luca Exp $ -->
+<!-- INICIO $Id: default-titulo.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<span class="LugFI-Span_Titulo">:: Fotos de thin-clients, 1er encuentro (13/06/2003) ::</span>
+<br>
+<!-- FIN $Id: default-titulo.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<br />
+<div align="center">
+  <!-- INICIO $Id: default-foto.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<IMG alt="05 Empezamos a tratar de hacer andar nuestro modesta (y futura) terminal X.jpg" src="./05 Empezamos a tratar de hacer andar nuestro modesta (y futura) terminal X.jpg">
+<P>05 Empezamos a tratar de hacer andar nuestro modesta (y futura) terminal X.jpg</P>
+<P align="center"><!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F01+Emi+se+sienta+a+jugar+en+lo+que+sera+el+servidor+de+aplicaciones.jpg" class="cuerpo" title="01 Emi se sienta a jugar en lo que sera el servidor de aplicaciones.jpg">1</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F02+La+muchachada+mira+antentamente.jpg" class="cuerpo" title="02 La muchachada mira antentamente.jpg">2</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F03+Cada+vez+llega+mas+gente.jpg" class="cuerpo" title="03 Cada vez llega mas gente.jpg">3</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F04+Emi+sonrie+mientras+alguien+se+decide+a+documentar.jpg" class="cuerpo" title="04 Emi sonrie mientras alguien se decide a documentar.jpg">4</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+5 | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F06+El+cooler+no+va+ni+pa+tras.jpg" class="cuerpo" title="06 El cooler no va ni pa tras.jpg">6</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F07+Nos+consiguen+un+ventilador+de+fuente+para+hacer+de+cooler%2C+problema+resuelto%21+%3A%29.jpg" class="cuerpo" title="07 Nos consiguen un ventilador de fuente para hacer de cooler, problema resuelto! :).jpg">7</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F08+Empezamos+a+jugar+con+la+config+del+Netstation.jpg" class="cuerpo" title="08 Empezamos a jugar con la config del Netstation.jpg">8</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F09+Algo+hacemos+con+el+mc.jpg" class="cuerpo" title="09 Algo hacemos con el mc.jpg">9</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F10+Llega+nuestro+documentador+oficial+y+empieza+con+sus+labores.jpg" class="cuerpo" title="10 Llega nuestro documentador oficial y empieza con sus labores.jpg">10</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F11+Ricky+toma+el+control+y+a+falta+de+un+pucho+mastica+un+disquete+en+el+que+estara+la+imagen+booteable.jpg" class="cuerpo" title="11 Ricky toma el control y a falta de un pucho mastica un disquete en el que estara la imagen booteable.jpg">11</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F12+Primer+fracaso%2C+nuestra+terminal+X+no+encuentra+el+kernel+%3A%28.jpg" class="cuerpo" title="12 Primer fracaso, nuestra terminal X no encuentra el kernel :(.jpg">12</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F13+Primera+victoria%2C+la+terminal+comienza+el+booteo%21.jpg" class="cuerpo" title="13 Primera victoria, la terminal comienza el booteo!.jpg">13</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F14+Continua+el+booteo+y+nos+vamos+emocionando.jpg" class="cuerpo" title="14 Continua el booteo y nos vamos emocionando.jpg">14</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F15+El+servidor+DHCP+y+TFTP+estan+a+pleno%21.jpg" class="cuerpo" title="15 El servidor DHCP y TFTP estan a pleno!.jpg">15</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F16+Pero+algo+falla%2C+la+tristeza+impide+capturar+bien+el+mensaje+de+error+%3A%28.jpg" class="cuerpo" title="16 Pero algo falla, la tristeza impide capturar bien el mensaje de error :(.jpg">16</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F17+Pero+no+nos+rendimos+y+vamos+de+nuevo.jpg" class="cuerpo" title="17 Pero no nos rendimos y vamos de nuevo.jpg">17</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F18+Definitivamente%2C+jamas+cargamos+el+blackbox.jpg" class="cuerpo" title="18 Definitivamente, jamas cargamos el blackbox.jpg">18</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F19+Creo+que+esto+es+un+telnet+hecho+a+mano+desde+una+consola.jpg" class="cuerpo" title="19 Creo que esto es un telnet hecho a mano desde una consola.jpg">19</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F20+Ricky%2C+Luca+y+Efe+para+la+posteridad%2C+en+el+fondo+un+futuro+intregrante+del+LUGFI.jpg" class="cuerpo" title="20 Ricky, Luca y Efe para la posteridad, en el fondo un futuro intregrante del LUGFI.jpg">20</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F21+Segundo+exito%21+Creanlo+o+no%2C+despues+de+remar+un+rato+logramos+abrir+una+sesion+de+telnet+via+Netstation.jpg" class="cuerpo" title="21 Segundo exito! Creanlo o no, despues de remar un rato logramos abrir una sesion de telnet via Netstation.jpg">21</A> | <!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<!-- INICIO $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<A href="?id=.%2F22+Pero+seguimos+con+problemas+para+levantar+el+X+%3A%28.jpg" class="cuerpo" title="22 Pero seguimos con problemas para levantar el X :(.jpg">22</A><!-- FIN $Id: default-album-lista-item.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+</P>
+<!-- FIN $Id: default-foto.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+</div>
+<!-- FIN $Id: foto.php,v 1.1 2004/07/20 02:25:58 luca Exp $ -->
+<!-- INICIO $Id: default-pie.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+
+  </td></tr>
+  </table>
+
+ <!-- End Contenido -->
+ </td></tr>
+ </table>
+
+
+<!-- End Contenedor -->
+</td></tr>
+</table>
+
+       
+<p>
+	    
+<!-- Epígrafe -->
+<!-- /Epígrafe -->
+
+<p>
+
+<!-- ## Footer ## -->
+<table cellspacing="0" width="80%" align="center">
+<tr><td width="100%" class="Footer_Frame">
+
+ <table cellspacing="0" width="90%" align="center">
+ <tr><td width="49%" class="Footer_Frame">
+
+ 
+  <table cellspacing="0" width="90%" align="center">
+  <tr><td width="100%" class="Footer_Devel">
+  <a href="../../../.." >LUGFI</a>
+  &copy; Copyleft 2002-2007 - Bajo Licencia GPL
+  </td></tr>
+  </table>
+
+  
+ </td>
+ 
+ <td width="2%" class="Footer_Frame">
+ &nbsp;|&nbsp;
+ </td>
+
+ <td width="49%" class="Footer_Frame">
+  
+  <table cellspacing="0" width="90%" align="center">
+  <tr><td width="50%" class="Footer_Devel">
+  <!-- INICIO $Id: default-epigrafe.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+<DIV CLASS="epigrafe" ALIGN="center">
+    Última actualización: Fri Sep 22 19:05:17 2006</DIV>
+<!-- FIN $Id: default-epigrafe.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->
+  </td></tr>
+  </table>
+ 
+ </td></tr>
+
+ </table>
+
+</td></tr>
+</table>
+<!-- / ## Footer ## -->
+
+</body>
+</html>
+<!-- FIN $Id: default-pie.php,v 1.2 2004/04/28 04:09:24 emiliano Exp $ -->

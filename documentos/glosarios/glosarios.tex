@@ -1,0 +1,1139 @@
+\documentclass[12pt,notitlepage]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{a4}
+\usepackage[spanish]{babel}
+\setlength{\headheight}{17pt}
+\setlength{\headsep}{14pt}
+\setlength{\textheight}{42\baselineskip}
+\setlength{\footskip}{26pt}
+\usepackage[hang,bf]{caption}
+\usepackage{fancyhdr}
+\usepackage{longtable}
+\usepackage{makeidx}
+\usepackage{ifpdf}
+\usepackage[spanish, noprefix]{nomencl}
+\pagestyle{fancy}
+\usepackage{lastpage}
+\usepackage{babelbib}
+
+
+\ifpdf
+	\usepackage{thumbpdf}
+	\usepackage[pdftex]{graphicx}
+	\usepackage{rotating}	%Debe ponerse después de graphicx para que no de error, porque rotating antes de cargarse llama a graphicx
+	\usepackage[pdftex]{hyperref}
+\else
+	\usepackage[dvips]{graphicx,hyperref}
+	\usepackage{rotating}	%Debe ponerse después de graphicx para que no de error, porque rotating antes de cargarse llama a graphicx
+\fi
+
+
+\usepackage[acronym,sanitize={name=false,description=false,symbol=false}]{glossaries}
+
+\hypersetup{pdftitle={Nomenclatura, glosarios y acrónimos en LaTeX},
+pdfsubject={Tutorial LaTeX},
+pdfauthor={Raúl Mata Botana},
+pdfpagemode=UseNone,
+pdfproducer={pdflatex},
+bookmarksnumbered=false,
+pdfview={Fit}, pdfstartview={FitH},
+bookmarksopen={false}
+}
+
+
+\title {\bf{Nomenclatura, glosarios y acrónimos en \LaTeX}\\
+	\small{Versión 0.51}
+	 }
+\author{Raúl Mata Botana\\
+		email: matabotanar@gmail.com}
+\date{mayo del 2008}
+
+\lhead{}
+\chead{}
+\rhead{Nomenclatura, glosarios y acrónimos en \LaTeX}
+\lfoot{}
+\cfoot{}
+\rfoot{{página \thepage{} de \pageref{LastPage}}}
+
+\hyphenation{}
+
+\renewcommand{\nomlabel}[1]{\textbf{#1}\hfil}	%Esto centra los simbolos
+\renewcommand{\nomentryend}{.}	%Pone un punto luego de la descripción
+
+\newglossary{ejemplo001}{o01}{i01}{Glosario}
+
+\newglossary{ejemplo002}{o02}{i02}{Glosario}
+
+\newglossary{ejemplo003}{o03}{i03}{Glosario}
+
+\newglossary{ejemplo004}{o04}{i04}{Glosario}
+
+\newglossary{ejemplo005}{o05}{i05}{Glosario}
+
+\newglossary{ejemplo006}{o06}{i06}{Nuevo glosario}
+
+\makeindex
+
+\makenomenclature
+
+\makeglossaries
+
+
+\newglossaryentry{ice}{name=glaciar,description={Masa de hielo acumulada en las zonas de las cordilleras por encima del límite de las nieves perpetuas y cuya parte inferior se desliza muy lentamente, como si fuese un río de hielo},type=ejemplo001}
+\newglossaryentry{ice2}{name=glaciar,description={Masa de hielo acumulada en las zonas de las cordilleras por encima del límite de las nieves perpetuas y cuya parte inferior se desliza muy lentamente, como si fuese un río de hielo},first=rio congelado,type=ejemplo002,}
+\newglossaryentry{grieta}{name=rimaya,description={apertura larga y estrecha en el extremo superior de un glaciar de circo. Esta apertura se produce en verano, cuando la cabecera del glaciar se desprende de la pared del circo o del hielo que la adhiere a ella}, text= gran grieta al borde de la pared, first=abertura en el hielo,plural=aberturas en el hielo,type=ejemplo002}
+\newglossaryentry{nuna}{name=nunatak,description={es un pico montañoso que emerge del territorio cubierto por un glaciar sin estar cubierto de hielo él mismo.}, first=islote rocoso, text=pequeño pico,type=ejemplo003}
+\newglossaryentry{ser}{name=serac,description={bloque grande de hielo fragmentado en importantes grietas y perteneciente a un glaciar, cuya rotura se debe al movimiento del hielo por zonas de grandes pendientes}, first= bloque de hielo,type=ejemplo003}
+\newglossaryentry{alud}{name=avalancha,description={desplazamiento súbito y violento ladera abajo, de una importante porción de nieve},first=importate masa de nieve que se desplazaba,type=ejemplo004}
+\newglossaryentry{crampon}{name=crampones,description={elementos metálicos adaptables a la suela de determinados tipos de bota para posibilitar o mejorar la adherencia de ésta a superficies heladas o nevadas},first=crampones de 12 puntas,symbol=pasan por testeo 3 $\sigma$,type=ejemplo005}
+\newacronym{ohm}{$\Omega$}{Resistencia eléctrica}
+\newglossaryentry{pend}{name=péndulo,description={sistema físico ideal constituido por un hilo inextensible y de masa despreciable, sostenido por su extremo superior de un punto fijo, con una masa puntual en su extremo inferior que oscila libremente en el vacío}, type=ejemplo006}
+
+
+
+\begin{document}
+
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\DeclareGraphicsExtensions{.jpg, .png, .eps}
+
+\maketitle
+
+\nocite{*}
+\bibliographystyle{babplain}
+
+\section*{Copyright}
+
+\begin{quote}
+Copyright (c) 2008 Raúl Mata Botana. Se otorga permiso para copiar, distribuir y/o modificar este documento bajo los términos de la Licencia de Documentación Libre de GNU, Versión 1.2 o cualquier otra versión posterior publicada por la Free Software Foundation; sin Secciones Invariantes ni Textos de Cubierta Delantera ni Textos de Cubierta Trasera. Una copia de la licencia está incluida en la sección titulada GNU Free Documentation License.
+\end{quote}
+
+\section{Introducción}
+
+Un día, mi amigo Jorge Graña que estaba escribiendo su tesis de ingeniería me consulta sobre cómo generar glosarios en \LaTeX. Era algo que nunca había utilizado, entonces me puse a investigar un poco para poder ayudarlo y con la información recolectada decidí crear este tutorial.
+
+Existen varios paquetes para crear glosarios, el paquete \emph{gloss} usa BiB\TeX, pero no va a ser incluido en este tutorial, ya que existe mucha documentación sobre BiB\TeX y al incluir BiB\TeX, este tutorial excedería su propósito.
+
+Otro paquete es \emph{glosstex}, este permite tratar glosarios, acrónimos y listas ordenadas en general. Lamentablemente la documentación de este paquete no es actualizada desde 1997, por lo que prefiero descartarlo por ahora.
+
+El paquete \emph{glossary} permite la inclusión de glosarios y acrónimos, pero tampoco lo describiré porque fué reemplazado por otro, el paquete \emph{glossaries}.
+
+El paquete \emph{nomencl}, fué diseñado para crear una nomenclatura o lista de simbolos.
+
+Por lo arriba expuesto, intentaré explicar los paquetes \emph{nomencl} y \emph{glossaries}.
+
+\section{El paquete \emph{nomencl}\cite{nomencl}}
+
+\subsection{Declaración del paquete \emph{nomencl}}
+
+Para poder usar este paquete, debemos declararlo en el encabezado. Esto se hace con la siguiente sentencia:
+
+\begin{verbatim}
+\usepackage[opciones]{nomencl}
+\end{verbatim}
+
+\subsubsection{Opciones del paquete \emph{nomencl}}
+
+\begin{description}
+
+\item[refeq:] La frase ``véase la equación (\verb+<+eq\verb+>+)'' es agregada a toda entrada en la nomenclatura donde \verb+<+eq\verb+>+ es el número de la última ecuación que está delante del correespondiente comando \verb+\nomenclature+\\
+
+\item[norefeq:] No se imprime valor de la ecuación (valor por omisión)\\
+
+\item[refpage:] La frase ``página \verb+<+nro.\verb+>+'' será asociada a toda entrada en la nomenclatura.\\
+
+\item[norefpage:] No se imprime valor de la página (valor por omisión)\\
+
+\item[prefix:] Ordena la nomenclatura alfabéticamente (valor por omisión)\\
+
+\item[noprefix:] No ordena la nomenclatura alfabéticamente\\
+
+\item[intoc:] Inserta la nomenclatura en el índice\\
+
+\item[nointoc:] No inserta la nomenclatura en el índice (valor por omisión)\\
+
+\item[compatible:] Las viejas versiones de \LaTeX requiren esta opción para poder compilar, reemplazan los comandos \verb+\makeglossary+ y  \verb+\printglossary+, por \verb+\makenomenclature+ and \verb+\printnomenclature+ respectivamente\\
+
+\item[nocompatible:] No compatible con las versiones viejas (valor por omisión)\\
+
+\item[spanish:] Además soporta los siguientes lenguajes english (valor por omisión), croatian, danish, french, german, italian, polish, portuguese, russian, ukrainian\\
+
+\end{description}
+
+
+\subsection{El comando \emph{makenomenclature}}
+
+El comando \verb+\makenomenclature+ debe ponerse en el preámbulo, de esta manera le indica a \LaTeX que abra el archivo nomenclatura (``archivo.nlo'') correspondiente al ``archivo.tex'' y escriba la información de los comandos \verb+\nomenclature+ de ese archivo.
+
+\subsection{El comando \emph{nomenclature}}
+
+Este comando se utiliza para declarar cada símbolo que tiene que ser incluido en la lista de nomenclaturas.
+
+Su sintaxis es la siguiente:
+
+\verb+\nomenclature[prefix]{símbolo}{descripción}+
+
+\begin{description}
+
+\item[prefix] Las entradas pueden ser separadas en 3 grupos \emph{``numbers''}, \emph{``strings''} y \emph{``symbols''}, que serán ordenadas según fueron mencionadas, si la opción noprefix fué declarada. Si usamos \emph{MakeIndex} con la opción \emph{-g}, el orden será \emph{``symbols''}, \emph{``strings''} y luego \emph{``numbers''}. Podemos generar nuestros propio ordenamiento, si al paquete le especificamos la opción ``noprefix''.\\
+
+\item[símbolo] Es la entrada a ser referenciada.\\
+
+\item[descripción] Es la descripción de la entrada referenciada.\\
+
+\end{description}
+
+
+\subsection{El comando \emph{printnomenclature}}
+
+Este comando ordena la impresión de la nomenclatura declarada previamente.
+
+Su sintaxis es la siguiente:
+
+\verb+\printnomenclature+
+
+\subsection{Compilando nuestro documento}
+
+Es muy probable que te hayas querido apurar, hayas creado un pequeño ejemplo y lo hayas compilado llamando a \LaTeX $\ $o a Pdf\LaTeX, fuiste a ver el resultado y no hayas encontrado la nomenclatura impresa. Esto se debe a que para que el paquete funcione tenés que invocar a \emph{MakeIndex} para que ordene las entradas.
+
+El procedimiento es el siguiente:
+
+\begin{verbatim}
+latex archivo.tex
+makeindex archivo.nlo -s nomencl.ist -o archivo.nls
+latex archivo.tex
+\end{verbatim}
+
+O en si lo prefieren:
+
+\begin{verbatim}
+pdflatex archivo.tex
+makeindex archivo.nlo -s nomencl.ist -o archivo.nls
+pdflatex archivo.tex
+\end{verbatim}
+
+\subsection{Ejemplos}
+
+\subsubsection{Ejemplo 1}
+
+Empecemos por un ejemplo muy sencillo:
+
+\begin{verbatim}
+\documentclass[12pt,notitlepage]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{a4}
+\usepackage[spanish]{babel}
+\usepackage[spanish]{nomencl}
+
+\makenomenclature
+
+\begin{document}
+
+\begin{equation}
+x(t)=x_0+v_0*t+\frac{1}{2}a_0*t^2
+\end{equation}
+
+\nomenclature{x}{Es la posición en un instante \emph{t}}
+\nomenclature{$x_0$}{Es la posición para $t=0$}
+\nomenclature{$v_0$}{Es la velocidad para $t=0$}
+\nomenclature{$a_0$}{Es la aceleración para $t=0$}
+\nomenclature{t}{Es el tiempo}
+
+\printnomenclature
+
+\end{document}
+\end{verbatim}
+
+\textbf{Obtendremos como resultado lo siguiente:}
+
+\begin{equation}
+x(t)=x_0+v_0*t+\frac{1}{2}a_0*t^2
+\end{equation}
+
+\nomenclature{$x$}{Es la posición en un instante \emph{t}}
+\nomenclature{$x_0$}{Es la posición para $t=0$}
+\nomenclature{$v_0$}{Es la velocidad para $t=0$}
+\nomenclature{$a_0$}{Es la aceleración para $t=0$}
+\nomenclature{$t$}{Es el tiempo}
+
+\printnomenclature
+
+Por lo que pudieron ver este paquete es muy básico y no presenta complejidad, por lo que los invito a probar las distintas variantes.
+
+\section{El paquete \emph{glossaries}\cite{glossaries}}
+
+\subsection{Declarando el paquete \emph{glossaries}}
+
+Para poder usar este paquete, debemos declararlo en el emcabezado. Esto se hace con la siguiente sentencia:
+
+\begin{verbatim}
+\usepackage[opciones]{glossaries}
+\end{verbatim}
+
+En caso de tener que usar también los paquetes \emph{hyperref} o \emph{html}, estos deben ser declarados previamente.
+
+\begin{verbatim}
+\usepackage{hyperref}
+\usepackage[opciones]{glossaries}
+\end{verbatim}
+
+o
+
+\begin{verbatim}
+\usepackage{html}
+\usepackage[opciones]{glossaries}
+\end{verbatim}
+
+\subsubsection{Opciones del paquete \emph{glossaries}}
+
+\begin{description}
+\item[toc:] Agrega el glosario al índice alfabético.
+
+\item[numberline:] Cuando es usado con \emph{toc}, este agrega el número de línea en el final del argumento de \verb+ \addcontentsline+. Este alineará la entrada de la tabla del índice alfabético con los títulos de las secciones numeradas. Si \emph{toc} no es usada \emph{numberline} no tiene efecto. Si \emph{toc} es usada sin esta opción los titulos serán alineados con los números de sección en lugar de los títulos de las secciones.
+
+\item[acronym:] Crea un listado separado de los acrónimos.
+
+\item[section:] Es una opción del tipo \emph{section=``valor''}. EL valor debería ser el nombre de una unidad seccional \emph{(por ej. chapter)}. Está opción hará que el glosario aparezca en la nombrada unidad seccional. Si se omite esta opción aparecerá en \emph{chapter} en caso de existir, de lo contrario aparecerá en \emph{section}.
+
+\item[numberedsection:] Los glosarios son colocados por omisión en unidades seccionales sin numerar, pero esto puede ser cambiado con la opción \emph{numberedsection}, que puede tomar 3 valores \emph{``false''},\emph{``nolabel''} o \emph{``autolabel''}. La opción \emph{``false''} será no numerada, la opción \emph{``nolabel''} será numerada pero no etiquetada, mientras que la opción \emph{``autolabel''} será numerada y etiquetada. Si es usado \emph{numberedsection=autolabel} a cada glosario se le da una etiqueta que coincide con el tipo de glosario. El glosario por omisión es etiquetado como \emph{main}, la lista de acrónimos es etiquetada como \emph{acronym} y los glosarios adicionales son etiquetados en el primer argumento obligatorio a \verb+\newglossary+.
+
+\item[style:] Define el estilo del glosario, es del tipo \emph{style=``valor''}. Los valores que puede tomar son los siguientes: list,  listgroup, listhypergroup, altlist, altlistgroup, altlisthypergroup, listdotted, long, longborder, longheader, longheaderborder, long3col, long3colborder, long3colheader, long3colheaderborder, long4col, long4colborder, long4colheader, long4colheaderborder, super, superborder, superheader, superheaderborder, super3col, super3colborder, super3colheader, super3colheaderborder, super4col, super4colborder, super4colheader, super4colheaderborder.
+
+\item[nonumberlist:] Por omisión, cada entrada en el glosario es asociada a una lista de números, que refiere a las páginas donde la entrada ha sido usada. La lista de números puede ser eliminada usando la opción \emph{nonumberlist}.
+
+\item[counter:] Esta opción es del tipo \emph{counter=``valor''}. Donde \emph{``valor''} debería ser el nombre del valor por omisión a usarse en la lista de números.
+
+\item[sanitize:] Esta opción es del tipo \emph{sanitize=``valor''}. Por omisión, el paquete \emph{glossaries} ``desinfecta'' los valores de las claves \emph{name}, \emph{description} y \emph{symbol}, usadas cuando se define una entrada de glosario. Esto puede conducir a un resultado inesperado si se trata de mostrar estos valores en el texto del documento. La ``desinfección'' puede ser desactivada usando la opción \emph{sanitize} del paquete. Por ejemplo:
+
+\begin{verbatim}
+\usepackage[sanitize={name=false,description=false,
+symbol=true}]{glossaries}
+\end{verbatim}
+
+\item[babel:]  El valor por omisión de esta opción es ``true'', por lo tanto si no se declara los títulos serán traducidos en el idioma especificado por \emph{Babel}. En el caso de no querer esta opción debe declararse \emph{``babel=false''}.
+
+\item[description:] Esta opción cambia la definición de \verb+\newacronym+ para permitir una descripción.
+
+\item[footnote:] Esta opción cambia la definición de \verb+\newacronym+ y la manera en la que el acrónimo es mostrado.
+
+\item[smallcaps:] Esta opción cambia la definición de \verb+\newacronym+ y la manera en la que el acrónimo es mostrado.
+
+\item[dua:] Esta opción cambia la definición de \verb+\newacronym+ y la manera en la que los acrónimos son expandidos.
+
+\end{description}
+
+
+\subsection{El comando \emph{makeglossaries}}
+
+El comando \verb+\makeglossaries+ debe ponerse en el preámbulo, de esta manera le indica a \LaTeX $\ $que las entradas del glosarios sean escritas en el archivo de glosario (``archivo.glo'') correspondiente al ``archivo.tex''.
+
+\subsection{Generando entradas del glosario}
+
+Para definir entradas del glosario debemos utilizar el siguiente comando:
+
+\verb+\newglossaryentry{etiqueta}{lista de claves}+
+
+Como mínimo debemos definir dos clave: \emph{name} y \emph{description}
+
+La lista completa de las claves es la que se muestra a continuación:
+
+\begin{description}
+\item[name:] El el nombre de la entrada (como aparecerá en el glosario).
+
+\item[description:] Es una breve descripción de este término (que aparecerá en el glosario).
+
+\item[descriptionplural:] Es la forma plural de la descripción. Si se omite tomará \emph{description}.
+
+\item[text:] Esta entrada aparecerá en el texto del documento cuando se use \verb+\gls+. Si es omitida, se tomará el valor de la clave \emph{description}.
+
+\item[first:] Esta entrada aparecerá en el texto del documento la primera vez que se use el comando \verb+\gls+. Si este comando se omite el valor de la clave \emph{text} será usado.
+
+\item[plural:] Esta entrada aparecerá en el texto cuando \verb+\glspl+ o \verb+\glsplural+ sea usado. Si este comando se omite, el valor es obtenido agragando una ``s'' al valor de \emph{text}.
+
+\item[firstplural:] Esta entrada es igual que plural, pero es solo válida para la primera vez que se llame a \verb+\glspl+ o \verb+\glsplural+.
+
+\item[symbol:] Este campo permite especificar un símbolo asociado, pero la mayoría de los estilos de glosario ignoran este valor.
+
+\item[symbolplural:] Es la forma plural de \emph{symbol}.
+
+\item[sort:] Este valor indica como makeindex debería ordenar las entradas. Si es omitido el valor es adoptado por el campo name.
+
+\item[type:] Este el el tipo de glosario al cual pertenece esta entrada. Si se omite, el valor por omisión será \emph{type=main}. El tipo de lista de acrónimos será dado por \verb+\acronymtype+ que será \emph{main} o \emph{acronym}, dependiendo de las opciones del paquete acronym que fueron usadas.
+\end{description}
+
+\subsubsection{Generando entradas de acrónimos}
+
+Para ingresar una nueva entrada acrónimo debemos utilizar el siguiente comando:
+
+\verb+\newacronym[lista de claves]{etiqueta}{abreviatura}{forma larga}+
+
+Los acrónimos pueden ser usados exáctamente igual que cualquier entrada de glosario. Por ejemplo, la siguiente definición del acrónimo IDN:
+
+\verb+\newacronym{idn}{IDN}{identification number}+
+
+Es equivalente a:
+
+\begin{verbatim}
+\newglossaryentry{idn}{type=\acronymtype,
+name={IDN},
+description={identification number},
+text={IDN},
+first={identification number (IDN)},
+plural={IDNs},
+firstplural={identification numbers (IDNs)}}
+\end{verbatim}
+
+
+\subsection{Enlaces a las entradas de glosario}
+
+\subsubsection{El comando \emph{glslink}}
+
+\verb+\glslink[<opciones>]{<etiqueta>}{<texto>}+
+
+Agregará \verb+<texto>+ en el documento es este punto y agregará una línea en el archivo glosario asociado para la entrada de glosario dada por \verb+<etiqueta>+. El argumento opcional \verb+<opciones>+ debe ser una lista del tipo \verb+<clave>=<valor>+, los valores \verb+<clave>+ pueden ser los siguientes: \emph{format, counter} o \emph{hyper}.
+
+Existe la variante \verb+\gloslink*+
+
+\verb+\glslink* [<opciones>]{<etiqueta>}{<texto>}+
+
+Es equivalente a \verb+\glslink+ pero la opción \emph{hyper} siempre es igual a \emph{false}.
+
+\subsubsection{El comando \emph{gls}}
+
+\verb+\gls[<opciones>]{<etiqueta>}[<insertar>]+
+
+Es igual a \verb+\glslink+, excepto que el enlace del texto es determinado es valor del \emph{text} y la clave \emph{first} provista cuando la entrada fue definida usando \verb+\newglossaryentry+. Hay dos variantes con mayusculas:
+
+\verb+\Gls[<opciones>]{<etiqueta>}[<insertar>]+
+
+\verb+\GLS[<opciones>]{<etiqueta>}[<insertar>]+
+
+las que hacen la primer o todas las letras del texto mayúsculas respectivamente.
+
+El argumento opcional final \verb+<insertar>+, permite insertar algún texto adicional en el link de texto. Por omisión, se agregará \verb+<insertar>+ al final del enlace texto. El primer argumento \verb+<opciones>+ es igual al de \verb+\glslink+.
+
+También hay formas plural análogas:
+
+\verb+\glspl[<opciones>]{<etiqueta>}[<insertar>]+
+
+\verb+\Glspl[<opciones>]{<etiqueta>}[<insertar>]+
+
+\verb+\GLSpl[<opciones>]{<etiqueta>}[<insertar>]+
+
+Estos tres últimos comandos agregan una ``s'' a la última palabra insertada. Por lo tanto NO será útil para poner en plural palabras terminadas en consonante o frases.
+
+\subsubsection{El comando \emph{glstext}}
+
+
+El comando \verb+\glstext+ es similar \verb+\gls+ excepto que siempre usa el valor de la clave \emph{text} y no marca la entrada como que fue usada.
+
+\verb+\glstext[<opciones>]{<etiqueta>}[<insertar>]+
+
+También tiene sus correspondientes comando en mayúsculas:
+
+\verb+\Glstext[<opciones>]{<etiqueta>}[<insertar>]+
+
+\verb+\GLStext[<opciones>]{<etiqueta>}[<insertar>]+
+
+
+\subsubsection{El comando \emph{glsfirst}}
+
+El comando \verb+\glsfirst+ es similar \verb+\gls+ excepto que siempre usa el valor de la clave \emph{first} y no marca la entrada como que fue usada.
+
+\verb+\glsfirst[<opciones>]{<etiqueta>}[<insertar>]+
+
+También tiene sus correspondientes comando en mayúsculas:
+
+\verb+\Glsfirst[<opciones>]{<etiqueta>}[<insertar>]+
+
+\verb+\GLSfirst[<opciones>]{<etiqueta>}[<insertar>]+
+
+
+\subsubsection{El comando \emph{glsplural}}
+
+El comando \verb+\glsplural+ es similar \verb+\glspl+ excepto que no marca la entrada como que fue usada.
+
+\verb+\glsplural[<opciones>]{<etiqueta>}[<insertar>]+
+
+También tiene sus correspondientes comando en mayúsculas:
+
+\verb+\Glsplural[<opciones>]{<etiqueta>}[<insertar>]+
+
+\verb+\GLSplural[<opciones>]{<etiqueta>}[<insertar>]+
+
+
+\subsubsection{El comando \emph{glsfirstplural}}
+
+El comando \verb+\glsfirstplural+ es similar \verb+\gls+ excepto que siempre usa el valor de la clave \emph{firstplural} y no marca la entrada como que fue usada.
+
+\verb+\glsfirstplural[<opciones>]{<etiqueta>}[<insertar>]+
+
+También tiene sus correspondientes comando en mayúsculas:
+
+\verb+\Glsfirstplural[<opciones>]{<etiqueta>}[<insertar>]+
+
+\verb+\GLSfirstplural[<opciones>]{<etiqueta>}[<insertar>]+
+
+\subsubsection{El comando \emph{glsname}}
+
+El comando \verb+\glsname+ es similar \verb+\gls+ excepto que siempre usa el valor de la clave \emph{name} y no marca la entrada como que fue usada.
+
+\begin{quote}
+Nota: Si se quiere usar este comando se deberá deshabilitar la opción \emph{sanitization}.
+
+\verb+\usepackage[sanitize={name=false}]{glossaries}+
+\end{quote}
+
+\verb+\glsname[<opciones>]{<etiqueta>}[<insertar>]+
+
+También tiene sus correspondientes comando en mayúsculas:
+
+\verb+\Glsname[<opciones>]{<etiqueta>}[<insertar>]+
+
+\verb+\GLSname[<opciones>]{<etiqueta>}[<insertar>]+
+
+
+\subsubsection{El comando \emph{glssymbol}}
+
+
+El comando \verb+\glssymbol+ es similar \verb+\gls+ excepto que siempre usa el valor de la clave \emph{symbol} y no marca la entrada como que fue usada.
+
+\begin{quote}
+Nota: Si se quiere usar este comando se deberá deshabilitar la opción \emph{sanitization}.
+
+\verb+\usepackage[sanitize={symbol=false}]{glossaries}+
+\end{quote}
+
+\verb+\glssymbol[<opciones>]{<etiqueta>}[<insertar>]+
+
+También tiene sus correspondientes comando en mayúsculas:
+
+\verb+\Glssymbol[<opciones>]{<etiqueta>}[<insertar>]+
+
+\verb+\GLSsymbol[<opciones>]{<etiqueta>}[<insertar>]+
+
+
+\subsubsection{El comando \emph{glsdesc}}
+
+El comando \verb+\glsdesc+ es similar \verb+\gls+ excepto que siempre usa el valor de la clave \emph{description} y no marca la entrada como que fue usada.
+
+\begin{quote}
+Nota: Si se quiere usar este comando se deberá deshabilitar la opción \emph{sanitization}.
+
+\verb+\usepackage[sanitize={description=false}]{glossaries}+
+\end{quote}
+
+
+\verb+\glsdesc[<opciones>]{<etiqueta>}[<insertar>]+
+
+También tiene sus correspondientes comando en mayúsculas:
+
+\verb+\Glsdesc[<opciones>]{<etiqueta>}[<insertar>]+
+
+\verb+\GLSdesc[<opciones>]{<etiqueta>}[<insertar>]+
+
+
+\subsection{Imprimiendo los glosarios}
+
+Si quisieramos imprimir todas las entradas de glosario declaradas previamente debemos usar el comando \emph{printglossaries}
+
+Su sintaxis es la siguiente:
+
+\verb+\printglossaries+
+
+También tenemos la opción de imprimir cada glosario de manera independiente, esto se hace con el comando \emph{printglossary}.
+
+Su sintaxis es la siguiente:
+
+\verb+\printglossary[opciones]+
+
+\subsubsection{Opciones de \emph{printglossary}}
+
+\begin{description}
+\item[type] El valor de esta clave especifica el glosario que se imprimirá. Si se omite, el glosario por omisión es asumido. Por ejemplo, para imprimir la lista de acrónimos:
+
+\verb+\printglossary[type=\acronymtype]+
+
+\item[title] Este es el título del glosario (sobreescribiendo el título declarado en la definición del glosario).
+
+\item[toctitle] Este es el título que aparecerá en el índice(si la opción \emph{toc} del paquete fué especificada). Si se omite, se usará el el título del glosario.
+
+\item[style] Especifica que estilo será usado para este glosario, sobreescribiendo el estilo declarado previamente o la definición de \verb+\glossarystyle+.
+\end{description}
+
+
+\subsection{Compilando nuestro documento}
+
+Al igual que en el caso del paquete \emph{nomencl} el solo hecho de llamar a \LaTeX $\ $ o a PDF\LaTeX no hará que el glosario aparezca impreso. Existen 2 maneras de compilarlo con el script PERL \emph{makeglossaries} o llamando a \emph{MakeIndex}.
+
+Si tenemos PERL instalado, el procedimiento es el siguiente:
+
+\begin{verbatim}
+latex archivo.tex
+makeglossaries archivo.tex
+latex archivo.tex
+\end{verbatim}
+
+En caso de que no tengamos PERL instalado, se debe complilar de la siguiente manera:
+
+\begin{verbatim}
+latex archivo.tex
+makeindex -s archivo.ist -t archivo.glg -o archivo.gls archivo.glo
+% Si tenemos acrónimos declarados, debemos agregar otra línea de
+% Makeindex
+makeindex -s archivo.ist -t archivo.alg -o archivo.acr archivo.acn
+latex archivo.tex
+\end{verbatim}
+
+
+Si se desea generar directamente la salida en Pdf, simplemente cambiamos \LaTeX $\ $ por Pdf\LaTeX.
+
+\begin{verbatim}
+pdflatex archivo.tex
+makeglossaries archivo.tex
+pdflatex archivo.tex
+\end{verbatim}
+
+o:
+
+\begin{verbatim}
+pdflatex archivo.tex
+makeindex -s archivo.ist -t archivo.glg -o archivo.gls archivo.glo
+% Si tenemos acrónimos declarados, debemos agregar otra línea de
+% Makeindex
+makeindex -s archivo.ist -t archivo.alg -o archivo.acr archivo.acn
+pdflatex archivo.tex
+\end{verbatim}
+
+\subsection{Manos a la obra}
+
+Por ahora vimos la descripción de muchos comandos y es muy probable de que no sea muy claro como usarlos,veamos algunos ejemplos.
+
+\subsubsection{Ejemplo con \emph{glslink}}
+
+Veamos un ejemplo muy simple usando \emph{glslink}. 
+
+\begin{verbatim}
+\documentclass[12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{a4}
+\usepackage[spanish]{babel}
+%Declaramos el paquete glossaries
+\usepackage{glossaries}
+%Escribimos las entradas en el archivo de glosario
+\makeglossaries
+%Declaramos una entrada en el glosarios
+\newglossaryentry{ice}{name=glaciar,description={Masa de hielo 
+acumulada en las zonas de las cordilleras por encima del límite 
+de las nieves perpetuas y cuya parte inferior se desliza 
+muy lentamente, como si fuese un río de hielo}}
+
+\begin{document}
+%Enlazamos la entrada del glosario
+Los montañistas atravesaron el \glslink{ice}{enorme masa de hielo
+en mitad de la noche} en mitad de la noche.
+%Imprimimos el glosario
+\printglossaries
+\end{document}
+\end{verbatim}
+
+\textbf{Obtendremos como resultado:}
+
+Los montañistas atravesaron el \glslink{ice}{enorme masa de hielo} en mitad de la noche.
+
+\printglossary[type=ejemplo001]
+
+
+\subsubsection{Ejemplo con \emph{gls, Gls, GLS, glspl, Glspl y GLSpl}}
+
+Ahora veamos diferentes opciones con los comandos \emph{gls, Gls, GLS, glspl, Glspl y GLSpl}. 
+
+\begin{verbatim}
+\documentclass[12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{a4}
+\usepackage[spanish]{babel}
+%Declaramos el paquete glossaries
+\usepackage{glossaries}
+%Escribimos las entradas en el archivo de glosario
+\makeglossaries
+%Declaramos una entrada en el glosarios
+
+\newglossaryentry{ice}{name=glaciar,description={Masa de hielo 
+acumulada en las zonas de las cordilleras por encima del límite
+de las nieves perpetuas y cuya parte inferior se desliza muy
+lentamente, como si fuese un río de hielo},first=rio congelado}
+
+
+%En este caso en la declaración agregamos la opción "text"
+
+\newglossaryentry{grieta}{name=rimaya,description={apertura larga
+y estrecha en el extremo superior de un glaciar de circo. Esta
+apertura se produce en verano, cuando la cabecera del glaciar se
+desprende de la pared del circo o del hielo que la adhiere a ella},
+text= gran grieta al borde de la pared, plural=aberturas en el
+hielo}
+
+\begin{document}
+%Enlazamos la entrada del glosario
+%Por ser la primera vez que se invoca a "ice", grieta será
+%reemplazado por el texto definido en la opción "first" declarada
+%en \newglossaryentry
+Los montañistas atravesaron el \gls{ice} en mitad de la noche.
+
+%Con la primer letra en mayúsculas
+Los montañistas atravesaron el \Gls{ice} en mitad de la noche.
+
+%Con todas las letras en mayúsculas
+Los montañistas atravesaron el \GLS{ice} en mitad de la noche.
+
+%Con la opción "text" en la declaración
+Llegaron a la \gls{grieta} { con sus pesadas mochilas} con las 
+primeras luces del día.
+
+Llegaron a la \Gls{grieta} con las primeras luces del día.
+
+Llegaron a la \GLS{grieta} con las primeras luces del día.
+
+Llegaron a la \glspl{grieta} con las primeras luces del día.
+
+Llegaron a la \Glspl{grieta} con las primeras luces del día.
+
+Llegaron a la \GLSpl{grieta} con las primeras luces del día.
+
+
+%Imprimimos el glosario
+\printglossaries
+\end{document}
+\end{verbatim}
+
+\textbf{Obtendremos como resultado:}
+
+Los montañistas atravesaron el \gls{ice2} en mitad de la noche.
+
+Los montañistas atravesaron el \Gls{ice2} en mitad de la noche.
+
+Los montañistas atravesaron el \GLS{ice2} en mitad de la noche.
+
+Llegaron a la \gls{grieta} { con sus pesadas mochilas} con las primeras luces del día.
+
+Llegaron a la \Gls{grieta} con las primeras luces del día.
+
+Llegaron a la \GLS{grieta} con las primeras luces del día.
+
+Llegaron a la \glspl{grieta} con las primeras luces del día.
+
+Llegaron a la \Glspl{grieta} con las primeras luces del día.
+
+Llegaron a la \GLSpl{grieta} con las primeras luces del día.
+
+\begin{quote}
+NOTA: los comandos glspl, Glspl y GLSpl son equivalentes a glsplural, Glsplural y GLSplural, con la diferencia que estos últimos 3 no marcan la entrada como que fué usada.
+Si la clave opción \emph{plural} no fué declarada le agragará un ``s'' al final de la primer letra, por lo que no funcionará bien si se trata de una palabra que termine en consonante o de una frase.
+\end{quote}
+
+
+\printglossary[type=ejemplo002]
+
+\subsubsection{Ejemplo con \emph{glstext, Glstext, GLStext, glsfirst, Glsfirst y GLSfirst}}
+
+En este ejemplo podemos ver como funcionan los comandos \emph{glstext, glsfirst} y sus variantes.
+
+\begin{verbatim}
+\documentclass[12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{a4}
+\usepackage[spanish]{babel}
+%Declaramos el paquete glossaries
+\usepackage{glossaries}
+%Escribimos las entradas en el archivo de glosario
+\makeglossaries
+%Declaramos una entrada en el glosarios
+\newglossaryentry{nuna}{name=nunatak,description={es un pico 
+montañoso que emerge del territorio cubierto por un glaciar sin 
+estar cubierto de hielo él mismo}, first=islote rocoso, text=
+pequeño pico}
+
+\newglossaryentry{ser}{name=serac,description={bloque grande de
+hielo fragmentado en importantes grietas y perteneciente a un
+glaciar, cuya rotura se debe al movimiento del hielo por zonas de
+grandes pendientes}, first= bloque de hielo}
+
+
+\begin{document}
+%Enlazamos la entrada del glosario
+A lo lejos podían ver un \glstext{nuna}, que emergía en el glaciar.
+
+A lo lejos podían ver un \Glstext{nuna}, que emergía en el glaciar.
+
+A lo lejos podían ver un \GLStext{nuna}, que emergía en el glaciar.
+
+A lo lejos podían ver un \gls{nuna}, que emergía en el glaciar.
+
+La cordada caminaba con rapidez para escapar del gran \glsfirst{ser}.
+
+La cordada caminaba con rapidez para escapar del gran \Glsfirst{ser}.
+
+La cordada caminaba con rapidez para escapar del gran \GLSfirst{ser}.
+%Lo toma como si fuese la primer llamada a "ser", por eso toma el 
+%valor de la clave first
+La cordada caminaba con rapidez para escapar del gran \gls{ser}.
+%Ahora ya no toma el valor de la clave "first"
+La cordada caminaba con rapidez para escapar del gran \gls{ser}.
+%Imprimimos el glosario
+\printglossaries
+\end{document}
+\end{verbatim}
+
+\textbf{La salida de este ejemplo será:}
+
+A lo lejos podían ver un \glstext{nuna}, que emergía en el glaciar.
+
+A lo lejos podían ver un \Glstext{nuna}, que emergía en el glaciar.
+
+A lo lejos podían ver un \GLStext{nuna}, que emergía en el glaciar.
+
+A lo lejos podían ver un \gls{nuna}, que emergía en el glaciar.
+
+La cordada caminaba con rapidez para escapar del gran \glsfirst{ser}.
+
+La cordada caminaba con rapidez para escapar del gran \Glsfirst{ser}.
+
+La cordada caminaba con rapidez para escapar del gran \GLSfirst{ser}.
+
+La cordada caminaba con rapidez para escapar del gran \gls{ser}.
+
+La cordada caminaba con rapidez para escapar del gran \gls{ser}.
+
+\printglossary[type=ejemplo003]
+
+Los comandos \emph{glsfirstplural}, \emph{Glsfirstplural} y \emph{GLSfirstplural} son muy similares a \emph{glsfirst}, \emph{Glsfirst} y \emph{GLSfirst} respectivamente, obviamente preparados para una salida plural, los invito a ustedes a probarlos.
+
+\subsubsection{Ejemplo con \emph{glsname, Glsname y GLSname}}
+
+De manera similar a los ejemplos anteriores acá tenemos un ejemplo del uso de los comandos \emph{glsname, Glsname y GLSname}.
+
+\begin{verbatim}
+\documentclass[12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{a4}
+\usepackage[spanish]{babel}
+%Declaramos el paquete glossaries, debemos poner la opción "santize"
+%para que los acentos aparescan correctamente.
+\usepackage[sanitize={description=false}]{glossaries}
+%Escribimos las entradas en el archivo de glosario
+\makeglossaries
+%Declaramos una entrada en el glosarios
+
+\newglossaryentry{alud}{name=avalancha,description={desplazamiento
+súbito y violento ladera abajo, de una importante porción de nieve}
+,first=importate masa de nieve que se desplazaba}
+
+\begin{document}
+%Enlazamos la entrada del glosario
+De repente, los montañistas fueron sorprendidos por una \glsname{alud}.
+
+De repente, los montañistas fueron sorprendidos por una \Glsname{alud}.
+
+De repente, los montañistas fueron sorprendidos por una \GLSname{alud}.
+
+De repente, los montañistas fueron sorprendidos por una \gls{alud}.
+
+De repente, los montañistas fueron sorprendidos por una \Gls{alud}.
+
+De repente, los montañistas fueron sorprendidos por una \GLS{alud}.
+
+%Imprimimos el glosario
+\printglossaries
+\end{document}
+\end{verbatim}
+
+
+\textbf{Como resultado obtendremos:}
+
+De repente, los montañistas fueron sorprendidos por una \glsname{alud}.
+
+De repente, los montañistas fueron sorprendidos por una \Glsname{alud}.
+
+De repente, los montañistas fueron sorprendidos por una \GLSname{alud}.
+
+De repente, los montañistas fueron sorprendidos por una \gls{alud}.
+
+De repente, los montañistas fueron sorprendidos por una \Gls{alud}.
+
+De repente, los montañistas fueron sorprendidos por una \GLS{alud}.
+
+\printglossary[type=ejemplo004]
+
+\subsubsection{Ejemplo con \emph{glssymbol, Glssymbol, GLSsymbol, glsdesc, Glsdesc y GLSdesc}}
+
+Ahora veamos un ejemplo con \emph{glssymbol, Glssymbol, GLSsymbol, glsdesc, Glsdesc y GLSdesc}
+
+\begin{verbatim}
+\documentclass[12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{a4}
+\usepackage[spanish]{babel}
+%Declaramos el paquete glossaries, debemos poner la opción "santize"
+%para que los símbolos matemáticos y los acéntos aparescan correntamente.
+\usepackage[sanitize={description=false, symbol=false}]{glossaries}
+%Escribimos las entradas en el archivo de glosario
+\makeglossaries
+%Declaramos una entrada en el glosarios
+
+\newglossaryentry{crampon}{name=crampones,description={elementos
+metálicos adaptables a la suela de determinados tipos de bota
+para posibilitar o mejorar la adherencia de ésta a superficies
+heladas o nevadas}, first=crampones de 12 puntas,symbol=pasan
+por testeo 3 $\sigma$}
+
+\begin{document}
+%Enlazamos la entrada del glosario
+Algunos \gls{crampon} \glssymbol{crampon}.
+
+Algunos \gls{crampon} \Glssymbol{crampon}.
+
+Algunos \gls{crampon} \GLSsymbol{crampon}.
+
+Se colocaron los \Glsdesc{crampon} y comenzaron a escalar el
+corredor de hielo.
+
+Se colocaron los \GLSdesc{crampon} y comenzaron a escalar el
+corredor de hielo.
+
+%Imprimimos el glosario
+\printglossaries
+\end{document}
+\end{verbatim}
+
+\textbf{Nuestra salida en este caso será:}
+
+Algunos \gls{crampon} \glssymbol{crampon}.
+
+Algunos \gls{crampon} \Glssymbol{crampon}.
+
+Algunos \gls{crampon} \GLSsymbol{crampon}.
+
+Se colocaron los \Glsdesc{crampon} y comenzaron a escalar el corredor de hielo.
+
+Se colocaron los \GLSdesc{crampon} y comenzaron a escalar el corredor de hielo.
+
+\printglossary[type=ejemplo005]
+
+Como podemos ver, las opciones para enlazar entradas del glosario son muchas (demasiadas para mi gusto). Salvo para algún caso concreto muy especial yo recomiendo usar siempre el comando \emph{gls}.
+
+\subsection{Ejemplo con acrónimos}
+
+En este ejemplo vemos el uso de acrónimos:
+
+\begin{verbatim}
+\documentclass[12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{a4}
+\usepackage[spanish]{babel}
+%Declaramos el paquete glossaries
+\usepackage[acronym, sanitize={name=false, description=false,
+symbol=false}]{glossaries}
+%Escribimos las entradas en el archivo de glosario
+\makeglossaries
+%Declaramos una entrada en el glosarios
+
+\newacronym{ohm}{$\Omega$}{Resistencia eléctrica}
+
+\begin{document}
+%Enlazamos la entrada del glosario
+Se denomina \gls{ohm} de una sustancia, a la oposición que encuentra
+la corriente eléctrica para circular a través de dicha sustancia.
+
+La \glsdesc{ohm} se representa con la letra griega \glsname{ohm}.
+
+La \gls{ohm} se define como la relación entre la tensión y la
+corriente elétrica.
+
+%Imprimimos el glosario
+\printglossaries
+\end{document}
+\end{verbatim}
+
+\textbf{Obtendremos como resultado:}
+
+Se denomina \gls{ohm} de una sustancia, a la oposición que encuentra la corriente eléctrica para circular a través de dicha sustancia.
+
+La \glsdesc{ohm} se representa con la letra griega \glsname{ohm}.
+
+La \gls{ohm} se define como la relación entre la tensión y la corriente elétrica.
+
+\printglossary[type=\acronymtype]
+
+Los invito a probar las opciones \emph{description, footnote, smallcaps} y \emph{dua} del paquete \emph{glossaries} que modifican la forma en que se presentan los acrónimos.
+
+\subsection{Definiendo nuevos glosarios}
+
+Para definir un nuevo glosario debemos utilizar el siguiente comando:
+
+\verb+\newglossary[log-ext]{nombre}{in-ext}{out-ext}{titulo}[contador]+
+
+\begin{description}
+\item[log-ext:] Especifica la extesión para el archivo de transcripción de \emph{Makeindex} (esta información solo es usada por \emph{makeglossaries} que toma la información desde el archivo auxiliar).
+\item[nombre:] Es el nombre asignado a este glosario.
+\item[in-ext:] Especifica la extensión del archivo de entrada para el glosario.
+\item[out-ext:]  Especifica la extensión del archivo de salida para el glosario.
+\item[titulo:] Es el título del glosario.
+\item[contador:] Especifica que contador se usará para las lista de números asociadas.
+\end{description}
+
+Por ejemplo el glosario principal es automáticamente definido como:
+
+\verb+\newglossary{main}{gls}{glo}{\glossaryname}+
+
+Por lo tanto puede ser identificado por la etiqueta \emph{main}. Usando la opción \emph{acronym} del paquete es equivalente a:
+
+\verb+\newglossary[alg]{acronym}{acr}{acn}{\acronymname}+
+
+el cual puede ser identificado por la etiqueta \emph{acronym}.
+
+\subsubsection{Definiendo las entradas de un nuevo glosario}
+
+Como haciamos anteriormente para definir una nueva entrada debemos utilizar el comando \emph{newglossaryentry}, pero en este caso también debemos especificar el tipo de glosario:
+
+\begin{verbatim}
+\newglossaryentry{entrada}{name=nombre,description=Descripción,
+type=tipo_de_glosario}
+\end{verbatim}
+
+\subsubsection{Imprimiendo un nuevo glosario}
+
+Para imprimir un nuevo glosario, debemos utilizar el comando \emph{printglossary}. Su sintaxis es la siguiente:
+
+\verb+\printglossary[type=tipo_de_glossario]+
+
+\subsubsection{Compilando un nuevo glosario}
+
+Por cada glosario nuevo que querramos agregar debemos llamar una vez más a \emph{makeindex} cambiandole un par de parámetros.
+
+\verb+makeindex -s archivo.ist -t archivo.glg -o archivo.out-ext $archivo.in-ext+
+
+Donde:
+
+\begin{description}
+\item[in-ext:] Especifica la extensión del archivo de entrada para el glosario, definida en el comando \emph{newglossary}.
+\item[out-ext:]  Especifica la extensión del archivo de salida para el glosario, definida en el comando \emph{newglossary}.
+
+\end{description}
+
+En caso de llamar a \emph{makeglossaries} este resolverá todo solo.
+
+\subsubsection{Ejemplo de un nuevo glosario}
+
+Un ejemplo fácil y gráfico podría ser el siguiente:
+
+\begin{verbatim}
+\documentclass[12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{a4}
+\usepackage[spanish]{babel}
+%Declaramos el paquete glossaries
+\usepackage{glossaries}
+
+%Declaramos un nuevo glosario
+\newglossary{ejemplo}{o01}{i01}{Nuevo glosario}
+%Escribimos las entradas en el archivo de glosario
+\makeglossaries
+%Declaramos una entrada en el glosario
+\newglossaryentry{pend}{name=péndulo,description={sistema físico
+ideal constituido por un hilo inextensible y de masa despreciable,
+sostenido por su extremo superior de un punto fijo, con una masa
+puntual en su extremo inferior que oscila libremente en el vacío},
+type=ejemplo}
+\begin{document}
+%Enlazamos la entrada del glosario
+Algunas aplicaciones del \gls{pend} son la medición del tiempo, el
+metrónomo y la plomada. 
+%Imprimimos el glosario
+\printglossary[type=ejemplo]
+\end{document}
+\end{verbatim}
+
+\textbf{Como resultado obtendremos:}
+
+Algunas aplicaciones del \gls{pend} son la medición del tiempo, el metrónomo y la plomada. 
+
+\printglossary[type=ejemplo006]
+
+
+\subsection{Preámbulo del glosario}
+
+Podemos agregar información al comienzo del glosario mediante la redefinición de comando \emph{glossarypreamble}. Por ejemplo:
+
+\begin{verbatim}
+\renewcommand{\glossarypreamble{Glosario del Capítulo 1.}}
+\end{verbatim}
+
+Esto hará que se imprima esta leyenda al comienzo de cada glosario. Si queremos cambiarlo luego de que un glosario haya sido impreso debemos hacer lo siguiente:
+
+\begin{verbatim}
+\renewcommand{\glossarypreamble}{Glosario del Capítulo 1.}]
+\printglossary[type=capitulo1]
+\renewcommand{\glossarypreamble{}}
+\end{verbatim}
+
+
+
+\subsection{Epílogo del glosario}
+
+De forma análoga a como hicimos con el preámbulo podemos agregar un epílogo al glosario, esto lo hacemos mediante la redefinición del comando \emph{glossarypostamble}, de la siguiente manera:
+
+\begin{verbatim}
+\renewcommand{\glossarypostamble{Fin del epílogo del Capítulo 1.}}
+\end{verbatim}
+
+Igual que en el caso anterior, esto se imprimirá cada vez que se imprima un glosario. Si deseamos que solo se imprima en uno, debemos volverlo a definir de la siguiente manera:
+
+\begin{verbatim}
+\renewcommand{\glossarypostamble{Fin del epílogo del Capítulo 1.}}
+\printglossary[type=capitulo1]
+\renewcommand{\glossarypostamble{}}
+\end{verbatim}
+
+\subsection{Estilos de glosario}
+
+Cuando definimos el paquete \emph{glossaries}, podemos definir el estilo. Algunos de los posible estilos son los siguientes:
+
+\begin{description}
+\item[list:] El estilo \emph{list} usa el entorno \emph{description}. La entreda \emph{name} en el argumento opcional del comando \verb+\item+. Seguido de \emph{description} y después la lista de números de páginas en las que aparece esa entrada.
+\item[listgroup:] Es similar a \emph{list}, pero los grupos de glosarios tienen cabeceras.
+\item[listhypergroup:] Es similar a \emph{listgroup}, pero tiene un grupo de enlaces a las listas de grupos.
+\item[altlist:] Es similar a \emph{list}, pero la descripción es ubicada en el renglón siguiente.
+\item[altlistgroup:] Es similar a \emph{listgroup}, pero la descripción es ubicada en el renglón siguiente.
+\item[altlisthypergroup:] Es similar a \emph{listhypergroup}, pero la descripción es ubicada en el renglón siguiente.
+\item[listdotted:] Este estilo usa el entorno \emph{description}. Cada entrada comienza con \verb+\item[]+, seguida por \emph{name} seguida por una línea punteada, seguida por \emph{description}. En este estilo no aparece la lista de números de páginas donde aparece la untada, como así tampoco aparece \emph{symbol}.
+\item[long:] Usa el entorno \emph{longtable}. Tiene dos columnas, la primer columna tiene el parámetro \emph{name} de la entrada y la segunda columna tiene el parámetro \emph{description}.
+\item[longborder:] Es similar a \emph{long}, pero tiene líneas horizontales y verticales alrededor.
+\item[longheader:] Es similar a \emph{long}, pero con una cabecera por columna.
+\item[longheaderborder:] Es la conbinación de las dos anteriores.
+\item[long3col:] Es similar a \emph{long}, pero contiene 3 columas. La tercer columna, contendrá la lista de números de páginas a las que está asociada la entrada.
+\item[long3colborder:] Es similar a \emph{long3col}, pero esta rodeada de líneas horizontales y verticales.
+\item[long3colheader:] Es similar a \emph{long3col}, pero con una cabecera por columna.
+\item[long3colheaderborder:] Es la combinación de las 2 anteriores.
+\item[long4col]: Es similar a \emph{long3col}, pero con una columna original. En este caso la primer columna será \emph{name}, la segunda columna será \emph{description}, la tercer columna será \emph{symbol} y la cuarta la lista de páginas.
+\item[long4colborder:] Es similar a \emph{long4col}, pero rodeado de líneas horizontales y verticales.
+\item[long4colheader:] Es similar a \emph{long4col}, pero con cabeceras por columnas.
+\item[long4colheaderborder:] Es la combinación de las 2 anteriores.
+\item[super:] Este estilo usa el entorno \emph{supertabular}, tiene 2 columnas. La primera contiene a \emph{name}, la segunda a \emph{description}, seguido de la lista de números de páginas donde aparece la entrada.
+\item[superborder:] Es similar a \emph{super}, pero está rodeado de líneas horizontales y verticales.
+\item[superheader:] Es similar a \emph{super}, pero con cabeceras por columanas.
+\item[superheaderborder:] Es la combinación de las 2 anteriores.
+\item[super3col:] Es similar a \emph{super}, pero contiene 3 columnas. La primera contendrá \emph{name}, la segunda \emph{description} y la tercera la lista de páginas donde aparece la entrada.
+\item[super3colborder:] Es similar a \emph{super3col}, pero está rodeada de líneas horizontales y verticales.
+\item[super3colheader:] Es similar a \emph{super3col}, pero con cabeceras por columnas.
+\item[super3colheaderborder:] Es la combinación de las 2 anteriores.
+\item[super4col:] Es similar a \emph{super3col}, pero con una columna original. En este caso la primer columna será \emph{name}, la segunda columna será \emph{description}, la tercer columna será \emph{symbol} y la cuarta la lista de páginas.
+\item[super4colborder:] Es similar a \emph{super4col}, pero está rodeado de líneas horizontales y verticales.
+\item[super4colheader:] Es similar a \emph{super4col}, pero con cabeceras por columnas.
+\item[super4colheaderborder:] Es la combinación de las 2 anteriores.
+\end{description}
+
+
+\bibliography{glosarios}
+
+\end{document}

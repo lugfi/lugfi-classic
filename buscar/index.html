@@ -1,0 +1,303 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- INICIO $Id: default-cabecera.php 2 2003-03-23 06:14:52Z llucare $ -->
+
+<HTML lang="es">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- INICIO $Id: default-head.php 2 2003-03-23 06:14:52Z llucare $ -->
+<HEAD>
+  <TITLE>::: Búsqueda avanzada :::</TITLE>
+  <META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <META name="Description" content="Opciones de búsqueda avanzada de htdig">
+  <LINK rel="SHORTCUT ICON" href="../favicon.ico">
+  <!-- INICIO $Id: default-estilo.php 2 2003-03-23 06:14:52Z llucare $ -->
+  <LINK rel="stylesheet" href="../estilo.css" type="text/css">
+<!-- FIN $Id: default-estilo.php 2 2003-03-23 06:14:52Z llucare $ -->
+</HEAD>
+<!-- FIN $Id: default-head.php 2 2003-03-23 06:14:52Z llucare $ -->
+
+<BODY>
+<TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+<TBODY>
+  <!-- Borde curvo superior -->
+  <TR class="borde-sup">
+    <TD><IMG src="../arriba-izq.gif" alt=""></TD>
+    <TD><DIV align="right"><IMG src="../arriba-der.gif"></DIV></TD>
+  </TR>
+  <!-- /Borde curvo superior -->
+
+  <!-- Banner y Logo -->
+  <TR class="contenido">
+    <TD>
+    </TD>
+    <TD valign="top">
+      <DIV align="center">
+      <A href=".."><IMG src="../logos/logo.gif" border="0"></A> 
+      </DIV>
+    </TD>
+  </TR>
+  <!-- /Banner y Logo -->
+
+  <TR class="contenido">
+    <TD colspan="2" height="5"> </TD>
+  </TR>
+  <TR class="delimitador">
+    <TD colspan="2" height="5"> </TD>
+  </TR>
+
+  <!-- Barra de botones -->
+  <!-- INICIO $Id: default-barra.php 2 2003-03-23 06:14:52Z llucare $ -->
+<TR>
+  <TD colspan="2">
+    <TABLE bgcolor="#ffffff" border="0" cellspacing="1" width="100%">
+    <TBODY>
+      <TR class="barra">
+        <TD class="barra" width="14%">
+<DIV class="barra" align="center">
+<SPAN class="adorno-barra">::</SPAN>
+<A href="../acerca/" class="barra">Acerca de</A>
+<SPAN class="adorno-barra">::</SPAN>
+</DIV>
+</TD>
+<TD class="barra" width="14%">
+<DIV class="barra" align="center">
+<SPAN class="adorno-barra">::</SPAN>
+<A href="../documentos/" class="barra">Documentos
+</A>
+<SPAN class="adorno-barra">::</SPAN>
+</DIV>
+</TD>
+<TD class="barra" width="14%">
+<DIV class="barra" align="center">
+<SPAN class="adorno-barra">::</SPAN>
+<A href="../gforge/" class="barra">Gforge
+</A>
+<SPAN class="adorno-barra">::</SPAN>
+</DIV>
+</TD>
+<TD class="barra" width="14%">
+<DIV class="barra" align="center">
+<SPAN class="adorno-barra">::</SPAN>
+<A href="../integrantes/" class="barra">Integrantes</A>
+<SPAN class="adorno-barra">::</SPAN>
+</DIV>
+</TD>
+<TD class="barra" width="14%">
+<DIV class="barra" align="center">
+<SPAN class="adorno-barra">::</SPAN>
+<A href="../listas/" class="barra">Listas</A>
+<SPAN class="adorno-barra">::</SPAN>
+</DIV>
+</TD>
+<TD class="barra" width="14%">
+<DIV class="barra" align="center">
+<SPAN class="adorno-barra">::</SPAN>
+<A href="../noticias/" class="barra">Noticias</A>
+<SPAN class="adorno-barra">::</SPAN>
+</DIV>
+</TD>
+<TD class="barra" width="14%">
+<DIV class="barra" align="center">
+<SPAN class="adorno-barra">::</SPAN>
+<A href="../proyectos/" class="barra">Proyectos
+</A>
+<SPAN class="adorno-barra">::</SPAN>
+</DIV>
+</TD>
+      </TR>
+    </TBODY>
+    </TABLE>
+  </TD>
+</TR>
+<!-- FIN $Id: default-barra.php 2 2003-03-23 06:14:52Z llucare $ -->
+  <!-- /Barra de botones -->
+
+  <TR class="delimitador2">
+    <TD colspan="6" height="5"> </TD>
+  </TR>
+
+  <!-- Contenido principal -->
+  <TR>
+    <TD colspan="2">
+      <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+      <TBODY>
+        <TR>
+          <!-- Barra lateral -->
+          <td width="166" rowspan="2" valign="top" class="lateral">
+            <!-- Buscador -->
+            <!-- INICIO $Id: default-buscador.php 2 2003-03-23 06:14:52Z llucare $ -->
+<FORM  action="/cgi-bin/htsearch" method="post">
+    <DIV class="lateral" align="center"><BR>
+        <B><SPAN class="adorno-lateral">::</SPAN> B&nbsp;u&nbsp;s&nbsp;c&nbsp;a&nbsp;d&nbsp;o&nbsp;r <SPAN class="adorno-lateral">::</SPAN></B>
+        <INPUT type="hidden" name="config" value="htdig">
+        <INPUT type="hidden" name="restrict" value="http://www.fi.uba.ar/lug/">
+        <!-- POR AHORA BUSCA SOLO EN LA WEB
+        <INPUT type="hidden" name="restrict" value="http://www.fi.uba.ar/pipermail/lug/"-->
+        <BR>
+        <INPUT type="text" size="15" name="words">
+        <INPUT type="submit" name="Submit" value="Buscar">
+        <BR>
+	<SMALL><A href="../buscar/">Opciones avanzadas...</A></SMALL>
+    </DIV>
+</FORM>
+<!-- FIN $Id: default-buscador.php 2 2003-03-23 06:14:52Z llucare $ -->
+            <!-- /Buscador -->
+
+            <!-- Kernel Watcher -->
+                        <!-- /Kernel Watcher -->
+
+            <!-- Menú -->
+            <!-- INICIO $Id: default-menu.php 2 2003-03-23 06:14:52Z llucare $ -->
+<TABLE class="menu" cellpadding="3" cellspacing="2" width="100%">
+<TBODY>
+  <TR>
+    <TD class="delimitador" align="center">
+      <SPAN class="adorno-lateral">::</SPAN> M&nbsp;e&nbsp;n&nbsp;ú <SPAN class="adorno-lateral">::</SPAN>
+            </TD></TR>
+<TR><TD class="menu"><DIV class="menu">&nbsp;<STRONG>::</STRONG>
+<A class="menu" href="./../">Página Inicial
+</A></DIV>
+          </TD>
+  </TR>
+</TBODY>
+</TABLE>
+<!-- FIN $Id: default-menu.php 2 2003-03-23 06:14:52Z llucare $ -->
+            <!-- /Menú -->
+
+            <!-- Navegador -->
+                        <!-- /Navegador -->
+
+            <TABLE class="menu" cellpadding="3" cellspacing="2" width="100%">
+            <TBODY>
+              <TR class="delimitador">
+                <TD height="5"></TD>
+              </TR>
+            </TBODY>
+            </TABLE>
+            <!-- Encuesta -->
+                        <!-- /Encuesta -->
+          </TD>
+          <!-- /Barra lateral -->
+
+		  <TD class="cuerpo"  width="50" align="left" valign="top"><img src="../body-arriba-izq.gif" align="left"></TD>
+          <!-- Cuerpo -->
+         <TD  class="cuerpo" valign="top" rowspan="2">
+          <BR>
+<!-- FIN $Id: default-cabecera.php 2 2003-03-23 06:14:52Z llucare $ -->
+<!-- INICIO $Id: index.php 11 2003-04-01 06:56:04Z rmarkie $ -->
+<!-- INICIO $Id: default-titulo.php 2 2003-03-23 06:14:52Z llucare $ -->
+<H1><SPAN class="adorno-lateral">::</SPAN> B&nbsp;ú&nbsp;s&nbsp;q&nbsp;u&nbsp;e&nbsp;d&nbsp;a&nbsp; &nbsp; a&nbsp;v&nbsp;a&nbsp;n&nbsp;z&nbsp;a&nbsp;d&nbsp;a <SPAN class="adorno-lateral">::</SPAN></H1>
+<!-- FIN $Id: default-titulo.php 2 2003-03-23 06:14:52Z llucare $ -->
+<P>
+    Este es un buscador que busca en el contenido de todas las páginas web
+    públicamente disponibles del website. Si querés buscar en toda Internet,
+    probá <A href="http://www.google.com">Google</A>. Si Google no lo
+    encuentra, no existe.
+</P>
+<P>
+    <FORM method="post" action="/cgi-bin/htsearch">
+        <INPUT type=hidden name=config value="htdig">
+        Concordar:
+        <SELECT name="method">
+            <OPTION value="and">Todas las palabras
+            <OPTION value="or">Cualquier palabra
+            <OPTION value="boolean">Expresión lógica
+        </SELECT>
+        &nbsp;&nbsp;Ordenado por:
+        <SELECT name="sort">
+            <OPTION value="score">Puntaje
+            <OPTION value="time">Fecha
+            <OPTION value="title">Título
+            <OPTION value="revscore">Puntaje inverso
+            <OPTION value="revtime">Fecha inversa
+            <OPTION value="revtitle">Título inverso
+        </SELECT>
+        <BR>
+        Formato:
+        <SELECT name="format">
+            <OPTION value="builtin-long">Largo
+            <OPTION value="builtin-short">Corto
+        </SELECT>
+        <BR>
+        Expresión:
+        <INPUT type="text" size="30" name="words" value="">
+        <INPUT type="submit" value="Buscar">
+        &nbsp;&nbsp;
+        <!-- Por ahora solo puede buscar en la web -->
+        <INPUT type="hidden" name="restrict" value="http://www.fi.uba.ar/lug/">
+        <!-- INPUT type="radio" name="restrict" value="http://www.fi.uba.ar/lug/|http://www.fi.uba.ar/pipermail/lug/" selected> En todos lados
+        <INPUT type="radio" name="restrict" value="http://www.fi.uba.ar/lug/"> En la web
+        &nbsp;&nbsp;
+        <INPUT type="radio" name="restrict" value="http://www.fi.uba.ar/pipermail/lug/"> En las listas -->
+    </FORM>
+</P>
+
+<!-- INICIO $Id: default-titulo.php 2 2003-03-23 06:14:52Z llucare $ -->
+<H1><SPAN class="adorno-lateral">::</SPAN> ¿&nbsp;N&nbsp;o&nbsp; &nbsp; e&nbsp;n&nbsp;c&nbsp;o&nbsp;n&nbsp;t&nbsp;r&nbsp;á&nbsp;s&nbsp; &nbsp; l&nbsp;o&nbsp; &nbsp; q&nbsp;u&nbsp;e&nbsp; &nbsp; b&nbsp;u&nbsp;s&nbsp;c&nbsp;á&nbsp;s&nbsp;? <SPAN class="adorno-lateral">::</SPAN></H1>
+<!-- FIN $Id: default-titulo.php 2 2003-03-23 06:14:52Z llucare $ -->
+<P>
+    Los índices del buscador se regeneran cada 2 o 3 días, así que el
+    contenido muy reciente probablemente no aparezca en ninguna búsqueda.
+</P>
+<P>
+    Probá la opción de búsqueda por expresión lógica. Podés combinar palabras
+    a buscar con los operadores <KBD>and</KBD>, <KBD>or</KBD>, <KBD>not</KBD>
+    y paréntesis.
+</P>
+<BR/>
+<DIV align="right">
+    Usamos el
+    <a href="http://www.fi.uba.ar/fiuba/buscador/index.html">buscador de la Facultad</a>
+    implementado con <A href="http://www.htdig.org/"><IMG src="gearlogo-small.gif"
+    align="middle" alt="ht://Dig" border="0"></A>
+</DIV>
+<!-- FIN $Id: index.php 11 2003-04-01 06:56:04Z rmarkie $ -->
+<!-- INICIO $Id: default-pie.php 2 2003-03-23 06:14:52Z llucare $ -->
+            <BR/>
+            <BR/>
+            <BR/>
+            <!-- Epígrafe -->
+            <!-- INICIO $Id: default-epigrafe.php 2 2003-03-23 06:14:52Z llucare $ -->
+<DIV CLASS="epigrafe" ALIGN="center">
+    Última actualización: dom 09 nov 2003 23:55:35 ART</DIV>
+<!-- FIN $Id: default-epigrafe.php 2 2003-03-23 06:14:52Z llucare $ -->
+            <!-- /Epígrafe -->
+            <BR/>
+
+          </TD>
+          <!-- /Cuerpo -->
+
+          <TD class="cuerpo" width="50">
+          </TD>
+        </TR>
+        <TR>
+        	<td width="50" align="left" valign="bottom" class="cuerpo">
+   	          	<img src="../body-abajo-izq.gif" align="left">
+   	        </TD>
+   	        <TD class="cuerpo" colspan="2">
+   	        </TD>
+        </TR>
+      </TBODY>
+      </TABLE>
+    </TD>
+  </TR>
+  <!-- /Contenido principal -->
+
+  <!-- Copyleft -->
+  <TR>
+    <TD class="delimitador2" colspan="2">
+      <DIV align="center">LUGFI &copy; Copyleft 2002-2003 - Bajo Licencia GPL</DIV>
+    </TD>
+  </TR>
+  <!-- /Copyleft -->
+
+  <!-- Borde curvo inferior -->
+  <TR class="borde-inf">
+    <TD valign="bottom"><IMG src="../abajo-izq.gif"></TD>
+    <TD><DIV align="right"><IMG src="../abajo-der.gif"></DIV></TD>
+  </TR>
+  <!-- /Borde curvo inferior -->
+</TBODY>
+</TABLE>
+</BODY>
+</HTML>
+<!-- FIN $Id: default-pie.php 2 2003-03-23 06:14:52Z llucare $ -->

@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.4: http://docutils.sourceforge.net/" />
+<title>doityourself 0.4.1 -- User manual</title>
+<style type="text/css">
+
+body {
+	font-family: Verdana, sans-serif;
+	text-align:justify
+}
+div.document {
+	width:40em;
+	margin-top:1cm;
+	margin-bottom:1cm;
+	margin-left:auto;
+	margin-right:auto;
+}
+h1.title {
+	background-color: #788dbf;
+	border-color: #495473;
+	color: #000000;
+    text-align: center;
+	border-bottom: none;
+	margin-top: 0;
+}
+h1 {
+	border-bottom: solid;
+	margin-top: 2em;
+	color: #495473;
+}
+h2 {
+	margin-top: 1.5em;
+	color: #495473;
+}
+h3 {
+	margin-top: 1.5em;
+	color: #495473;
+}
+pre {
+	margin-top: 1.5em;
+	background-color: #e0e0f0;
+	font-family: Courier, monospace;
+}
+p.topic-title {
+	font-weight: bold;
+}
+dt {
+	font-weight: bold;
+	margin-top: 1em;
+}
+
+</style>
+</head>
+<body>
+<div class="document" id="doityourself-0-4-1-user-manual">
+<h1 class="title">doityourself 0.4.1 -- User manual</h1>
+<p>This document explains the interface between <strong>doityourself</strong> and the back-end
+scripts. You should not need to read it completely; just take a look at the
+example scripts provided, and you will hopefully get the idea.</p>
+<p><strong>doityourself</strong> is a generic desklet controlled by a user-made back-end
+script.  It runs on top of <a class="reference" href="http://adesklets.sf.net">adesklets</a>, which is a framework for X Window
+desklets seamlessly integrated into the desktop.</p>
+<p><strong>doityourself</strong> provides a yet easier way to write a desklet. To achieve this,
+you have to write a back-end script (in any language) with a predefined
+behavior.  The script will be called periodically to perform some test or
+action, and to write some output which will be displayed in the desklet.</p>
+<p>See the README file for more information about last changes, known bugs
+and contact information.</p>
+<div class="contents topic">
+<p class="topic-title first"><a id="contents" name="contents">Contents</a></p>
+<ul class="simple">
+<li><a class="reference" href="#getting-started-your-first-desklet" id="id2" name="id2">Getting started: Your first desklet</a></li>
+<li><a class="reference" href="#the-configuration-file" id="id3" name="id3">The configuration file</a></li>
+<li><a class="reference" href="#user-scripts" id="id4" name="id4">User scripts</a><ul>
+<li><a class="reference" href="#markups" id="id5" name="id5">Markups</a></li>
+<li><a class="reference" href="#context-variables" id="id6" name="id6">Context variables</a></li>
+<li><a class="reference" href="#widgets" id="id7" name="id7">Widgets</a><ul>
+<li><a class="reference" href="#rows-and-columns" id="id8" name="id8">Rows and columns</a></li>
+<li><a class="reference" href="#alignment-of-widgets" id="id9" name="id9">Alignment of widgets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference" href="#script-interface" id="id10" name="id10">Script interface</a><ul>
+<li><a class="reference" href="#arguments" id="id11" name="id11">Arguments</a></li>
+<li><a class="reference" href="#the-test-value-context-variable" id="id12" name="id12">The test_value context variable</a></li>
+<li><a class="reference" href="#autoclear-and-autorender" id="id13" name="id13">autoclear and autorender</a></li>
+<li><a class="reference" href="#return-value" id="id14" name="id14">Return value</a></li>
+</ul>
+</li>
+<li><a class="reference" href="#reference-guide" id="id15" name="id15">Reference guide</a><ul>
+<li><a class="reference" href="#general-context-variables" id="id16" name="id16">General context variables</a></li>
+<li><a class="reference" href="#the-widgets" id="id17" name="id17">The widgets</a><ul>
+<li><a class="reference" href="#text" id="id18" name="id18">Text</a></li>
+<li><a class="reference" href="#horizontal-and-vertical-spaces" id="id19" name="id19">Horizontal and vertical spaces</a></li>
+<li><a class="reference" href="#horizontal-and-vertical-lines" id="id20" name="id20">Horizontal and vertical lines</a></li>
+<li><a class="reference" href="#bar-meters" id="id21" name="id21">Bar meters</a></li>
+<li><a class="reference" href="#images" id="id22" name="id22">Images</a></li>
+<li><a class="reference" href="#buttons" id="id23" name="id23">Buttons</a></li>
+<li><a class="reference" href="#boxes" id="id24" name="id24">Boxes</a></li>
+</ul>
+</li>
+<li><a class="reference" href="#special-commands" id="id25" name="id25">Special commands</a><ul>
+<li><a class="reference" href="#clear" id="id26" name="id26">clear</a></li>
+<li><a class="reference" href="#render" id="id27" name="id27">render</a></li>
+<li><a class="reference" href="#setattr" id="id28" name="id28">setattr</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- section          - - - x 2 -->
+<!-- subsection       === -->
+<!-- subsubsection    - - - -->
+<!-- subsubsubsection ~~~ -->
+<div class="section">
+<h1><a id="getting-started-your-first-desklet" name="getting-started-your-first-desklet">Getting started: Your first desklet</a></h1>
+<p><strong>Come on, I want to create my own desklet NOW!</strong></p>
+<p>Ok, ok... Creating a custom desklet with <strong>doityourself</strong> can be as simple as
+specifying a command in the configuration file. Copy the following
+line in <tt class="docutils literal"><span class="pre">config.txt</span></tt>:</p>
+<pre class="literal-block">
+id0 = { 'rawmode': True, 'script': '/bin/date' }
+</pre>
+<p>run <tt class="docutils literal"><span class="pre">doityourself</span></tt> and <em>voilà</em>! You have your first desklet, which
+shows the current time and date. That was easy, huh?</p>
+<p><strong>Wait! That's not right... it shows the seconds but it doesn't refresh
+every second!</strong></p>
+<p>The update interval is by default 5 seconds, but it can be easily changed:</p>
+<pre class="literal-block">
+id0 = {
+        'rawmode': True,
+        'script': '/bin/date',
+        'test_delay': 1
+}
+</pre>
+<p><strong>Ok, that's better. What about changing appearance?</strong></p>
+<p>That's an easy one too:</p>
+<pre class="literal-block">
+id0 = {
+        'rawmode': True,
+        'script': '/bin/date',
+        'test_delay': 1,
+        'color': '00FF00',
+        'background.color': None,
+}
+</pre>
+<p><strong>What's that 'rawmode' thing? What about those user scripts?</strong></p>
+<p>Setting <tt class="docutils literal"><span class="pre">rawmode</span></tt> to False (the default value) will tell <strong>doityourself</strong> to
+treat the command as a <strong>user script</strong>. User scripts must follow a specific
+behavior which is detailed later in this document. They allow to customize your
+desklet with much greater detail, and include neat things like images, bar
+meters, etc. User scripts are normally located in the <tt class="docutils literal"><span class="pre">scripts/</span></tt> directory.
+Take a look at the provided scripts, and you will get the idea.  Keep reading
+for details.</p>
+</div>
+<div class="section">
+<h1><a id="the-configuration-file" name="the-configuration-file">The configuration file</a></h1>
+<p>As with all desklets in <strong>adesklets</strong>, <tt class="docutils literal"><span class="pre">config.txt</span></tt>, is the file that holds
+configuration values for all instances of doityourself.</p>
+<p>The only mandatory configuration variable is <tt class="docutils literal"><span class="pre">script</span></tt>. It is the filename of
+the user script or command. If a relative path is used, it will be expected to
+be located in the <tt class="docutils literal"><span class="pre">scripts/</span></tt> directory.</p>
+<p><tt class="docutils literal"><span class="pre">rawmode</span></tt> defines the mode of operation. If False (the default),
+<tt class="docutils literal"><span class="pre">script</span></tt> must be a valid user script. Some predefined arguments will be
+passed to it, and its output will be parsed in order to find special formatting
+commands. If <tt class="docutils literal"><span class="pre">rawmode</span></tt> is set to True, <tt class="docutils literal"><span class="pre">script</span></tt> can be any command
+that writes some output to stdout, and no special arguments are passed to it.
+This is useful if you don't want to write a script, and you just want your
+desklet to show the output of a command. Additional arguments for <tt class="docutils literal"><span class="pre">script</span></tt>
+can also be included in raw mode. For example:</p>
+<pre class="literal-block">
+id0 = { 'rawmode': True, 'script': '/bin/uname -a' }
+</pre>
+<p>Additionally, any <a class="reference" href="#context-variables">context variable</a> can be initialized in the
+configuration file. Example:</p>
+<pre class="literal-block">
+id0 = {
+        'rawmode': True,
+        'script': '/bin/date &quot;+%D&quot;',
+        'color': '00FF00',
+        'background.color': None
+}
+</pre>
+</div>
+<div class="section">
+<h1><a id="user-scripts" name="user-scripts">User scripts</a></h1>
+<p>In short, user scripts work as follows: <strong>doityourself</strong> calls the script at
+defined intervals, passing information to it via its arguments. The script
+writes to standard output the commands that generate the desired contents and
+appearance inside the desklet. <strong>doityourself</strong> may also call the script
+to take an action whenever the user clicks on the desklet.</p>
+<p>User scripts can be written in any language, and can be as simple or as
+complex as desired. A simple user script would just write anything to stdout.
+For example:</p>
+<pre class="literal-block">
+#!/bin/bash
+echo Hello, world!
+</pre>
+<p>More complex scripts can be created in order to format the output (ie, assign
+color, alignment) and insert things like images or bar meters.
+To achieve this, <strong>markups</strong> must be used.</p>
+<div class="section">
+<h2><a id="markups" name="markups">Markups</a></h2>
+<p>The formatting commands are divided into <strong>markups</strong> that follow a syntax
+similar to HTML:</p>
+<pre class="literal-block">
+&lt;command [arg1 arg2 ...]/&gt;
+</pre>
+<p>(Remember I said <em>similar</em>, not <em>identical</em> :P)</p>
+<p>There are <strong>three types of markups</strong>, all of them following the same
+general syntax: those which directly modify <strong>context variables</strong>, those
+which generate <strong>widgets</strong>, and <strong>special commands</strong>.</p>
+</div>
+<div class="section">
+<h2><a id="context-variables" name="context-variables">Context variables</a></h2>
+<p>The rendering engine contains a set of <strong>context variables</strong>, such as the
+current font, color, etc. Each context variable has a predefined default value.</p>
+<p>The script can modify context variables using markups. For example, the markup
+<tt class="docutils literal"><span class="pre">&lt;color</span> <span class="pre">'FF0000'/&gt;</span></tt> sets the context variable <tt class="docutils literal"><span class="pre">color</span></tt> to the
+value <tt class="docutils literal"><span class="pre">FF0000</span></tt> which is red. All <strong>Widgets</strong> created after this assignment
+will be red.</p>
+<p>Context variables keep their values throughout the desklet's session. ie,
+in the example above, if no other markup changes the current color, it will
+remain as <tt class="docutils literal"><span class="pre">'FF0000'</span></tt>, even between calls to the script.</p>
+</div>
+<div class="section">
+<h2><a id="widgets" name="widgets">Widgets</a></h2>
+<p>The desklet's window area is composed of a background (which can be filled
+with a color or image), and a group of <strong>widgets</strong>.</p>
+<p>Examples of <strong>widgets</strong> are a string of text, a bar meter, an image...
+Widgets are created using markups, except strings, which are created whenever
+some text not enclosed between <tt class="docutils literal"><span class="pre">&lt;</span></tt> and <tt class="docutils literal"><span class="pre">/&gt;</span></tt> is found. Spaces and
+tabs outside markups are not ignored.</p>
+<div class="section">
+<h3><a id="rows-and-columns" name="rows-and-columns">Rows and columns</a></h3>
+<p>Widgets are organized in <strong>rows</strong> and <strong>columns</strong>. Actually, columns
+contain only a group of one or more rows, and each row contains a group of
+widgets and may include other columns, all of them arranged
+horizontally. As a result, widgets may not overlap each other.</p>
+<p>By default, the window begins containing one column containing one empty row.</p>
+<p>A new row of widgets is started when:</p>
+<blockquote>
+<ul class="simple">
+<li>an empty line is found in the script's output.</li>
+<li>a newline (<tt class="docutils literal"><span class="pre">\n</span></tt>) is found in a non-empty line, and the current
+row contains at least one widget.</li>
+</ul>
+</blockquote>
+<p>You can always escape newlines by prepending a backslash (<tt class="docutils literal"><span class="pre">\</span></tt>) character.</p>
+<p>A new column is started in the current row with the special <tt class="docutils literal"><span class="pre">&lt;col/&gt;</span></tt>
+markup. This column will begin containing one row. If new rows are created,
+they will be contained by this column. You can end the current column (and
+&quot;return&quot; to the previous one) with the <tt class="docutils literal"><span class="pre">&lt;endcol/&gt;</span></tt> markup.</p>
+<p>Here is a example of a user script:</p>
+<pre class="literal-block">
+#!/bin/bash
+
+cat &lt;&lt;EOF
+Hello&lt;image 'dys-color.png' 32 32/&gt;
+&lt;color '00FF00'/&gt;
+&lt;hline -1/&gt;&lt;color 'FFFFFF'/&gt;
+Line 1&lt;col/&gt;
+Line 1.1
+Line 1.2&lt;endcol/&gt;
+
+Line 3
+EOF
+</pre>
+<p>This is the result:</p>
+<img alt="example1.jpg" src="example1.jpg" />
+</div>
+<div class="section">
+<h3><a id="alignment-of-widgets" name="alignment-of-widgets">Alignment of widgets</a></h3>
+<p>Note that in the previous example, widgets in the same row are centered
+vertically. This can be changed with the <tt class="docutils literal"><span class="pre">valign</span></tt> context variable:
+<tt class="docutils literal"><span class="pre">&lt;valign</span> <span class="pre">'top'/&gt;</span></tt> or <tt class="docutils literal"><span class="pre">&lt;valign</span> <span class="pre">'bottom'/&gt;</span></tt>.</p>
+<p>Similarly, the <tt class="docutils literal"><span class="pre">halign</span></tt> context variable controls the alignment of
+rows inside a column. Possible values are: <tt class="docutils literal"><span class="pre">'left'</span></tt> (default),
+<tt class="docutils literal"><span class="pre">'center'</span></tt> and <tt class="docutils literal"><span class="pre">'right'</span></tt>.</p>
+<p>Additionally, there are two special widgets which come in handy to get widgets
+aligned: <tt class="docutils literal"><span class="pre">hspace</span></tt> and <tt class="docutils literal"><span class="pre">vspace</span></tt>.</p>
+<p>The markup <tt class="docutils literal"><span class="pre">&lt;hspace</span> <span class="pre">50/&gt;</span></tt> creates a <strong>horizontal space widget</strong> 50
+pixels wide. Setting the width to -1 will make the widget <strong>autosized</strong>.</p>
+<p>Autosized widgets are expanded to fill the row (or column) completely.
+If you place more than one autosized widget in the same row or column, they
+will be assigned the same size.</p>
+<p>Almost all widgets can have their width and/or height autosized.
+You can use this property in <tt class="docutils literal"><span class="pre">hspace</span></tt>, for example, to center or
+right-align widgets:</p>
+<pre class="literal-block">
+Left-aligned text
+&lt;hspace -1&gt;Centered text&lt;hspace -1&gt;
+&lt;hspace -1&gt;Right-aligned text
+</pre>
+</div>
+</div>
+</div>
+<div class="section">
+<h1><a id="script-interface" name="script-interface">Script interface</a></h1>
+<div class="section">
+<h2><a id="arguments" name="arguments">Arguments</a></h2>
+<p>The script will always receive at least one argument, which can be
+<tt class="docutils literal"><span class="pre">init</span></tt>, <tt class="docutils literal"><span class="pre">test</span></tt>, <tt class="docutils literal"><span class="pre">click</span></tt> or <tt class="docutils literal"><span class="pre">click_widget</span></tt>.</p>
+<p><strong>script init</strong> is called once when the desklet starts. The desklet's ID
+number is passed as the second argument. Normally, the script should write to
+stdout a group of markups to initialize context variables.</p>
+<p><strong>script test</strong> is called right after <strong>script init</strong>, and then
+periodically after a delay. The script can set this delay in seconds via the
+context variable <tt class="docutils literal"><span class="pre">test_delay</span></tt> (eg: <tt class="docutils literal"><span class="pre">&lt;test_delay</span> <span class="pre">10/&gt;</span></tt> sets the delay
+to 10 seconds).</p>
+<p><strong>script click</strong> is called when the <tt class="docutils literal"><span class="pre">window.click_anywhere</span></tt> context
+variable is True (the default), and the user clicks on the desklet.</p>
+<p><strong>script click_widget</strong> is called when the user clicks on a <em>clickable
+widget</em> (currently, the only clickable widget available is the 'button'
+widget). The second argument will be the id of the widget that was clicked.
+Note that <strong>script click</strong> will not be called in this case.</p>
+</div>
+<div class="section">
+<h2><a id="the-test-value-context-variable" name="the-test-value-context-variable">The test_value context variable</a></h2>
+<p><tt class="docutils literal"><span class="pre">test_value</span></tt> is a special context variable, which initially holds
+the value None, and can be set to hold any Python valid expression (a number,
+a string, a list, etc.). If <tt class="docutils literal"><span class="pre">test_value</span></tt> is not None, its value
+will be passed to the script as the <strong>last</strong> argument.</p>
+<p>This variable adds some sort of persistence to the user script: by using
+<tt class="docutils literal"><span class="pre">test_value</span></tt> to hold a value, the script can &quot;remember&quot; things between
+calls.</p>
+</div>
+<div class="section">
+<h2><a id="autoclear-and-autorender" name="autoclear-and-autorender">autoclear and autorender</a></h2>
+<p>By default, before each call to the script with <strong>test</strong>, <strong>click</strong> or
+<strong>click_widget</strong>, the widgets created previously are automatically forgotten.
+Also, after each call to the script with the these arguments, the widgets
+defined in memory are automatically displayed in the window.</p>
+<p>If you set the <tt class="docutils literal"><span class="pre">autoclear</span></tt> context variable to <tt class="docutils literal"><span class="pre">False</span></tt>, widgets you
+have defined will remain in memory between calls to the script, until you use
+the special command <tt class="docutils literal"><span class="pre">&lt;clear/&gt;</span></tt>. Widgets' properties can still be modified
+by using the <a class="reference" href="#setattr">setattr</a> special command.</p>
+<p>Similarly, if you set the <tt class="docutils literal"><span class="pre">autorender</span></tt> context variable to <tt class="docutils literal"><span class="pre">False</span></tt>,
+you will need to use the special command <tt class="docutils literal"><span class="pre">&lt;render/&gt;</span></tt> to display the
+current set of widgets.</p>
+</div>
+<div class="section">
+<h2><a id="return-value" name="return-value">Return value</a></h2>
+<p>In normal operation, the script writes its output to stdout and returns zero.</p>
+<p>If the script returns a non-zero value, stdout will be ignored and its output
+to stderr will be shown as an error message in red.</p>
+</div>
+</div>
+<div class="section">
+<h1><a id="reference-guide" name="reference-guide">Reference guide</a></h1>
+<p>A detailed description of the available widgets, context variables and
+commands follows. For context variables, their default value is indicated.</p>
+<div class="section">
+<h2><a id="general-context-variables" name="general-context-variables">General context variables</a></h2>
+<dl class="docutils">
+<dt>test_delay = 5</dt>
+<dd>Amount of time, in seconds, between calls to <strong>script test</strong>.
+Set it to 0 to disable test calls.</dd>
+<dt>color = 'FFFFFFFF'</dt>
+<dd>Current color. It is a string of four hex values: red, green, blue, opacity.
+The     opacity is optional and defaults to 'FF'; eg, 'FF0000' is opaque red.</dd>
+<dt>window.padding = 5</dt>
+<dd>Space in pixels between the border of the window and the widgets.</dd>
+<dt>window.click_anywhere = True</dt>
+<dd>If False, only clicks on <em>clickable widgets</em> will generate a call to
+<strong>script click_widget</strong>, and clicks on the rest of the desklet's area will
+be ignored.</dd>
+<dt>window.never_shrink = True</dt>
+<dd>If True, the desklet will only change its size when more size is needed.
+Set it to False if the script generates content that varies in size and you
+don't mind the desklet changing its dimensions.</dd>
+<dt>background.color = '1E1E1E64'</dt>
+<dd>Color to be used to fill the desklet's background. Set it to None to
+make the desklet completely transparent.</dd>
+<dt>background.border.color = None</dt>
+<dd>Set it to a color to make the desklet's border visible.</dd>
+<dt>background.border.padding = 0</dt>
+<dd>If the border is visible, this is the space between the drawn border and the
+real desklet's border.</dd>
+<dt>background.image = None</dt>
+<dd>If you want to display an image as background, set this context variable to
+the image's filename. The image should be located in the <tt class="docutils literal"><span class="pre">icons/</span></tt>
+directory.</dd>
+<dt>error = None</dt>
+<dd>If set to a string, this string will be shown as an error message on the
+next render phase. After displaying the error, the <tt class="docutils literal"><span class="pre">error</span></tt> context
+variable will be set to None again.</dd>
+<dt>error.icon = 'error.png'</dt>
+<dd>Error messages can be shown with an icon at the left. Set this context
+variable to None to show only the error message.</dd>
+<dt>error.color = 'FF0000FF'</dt>
+<dd>Color to use for text in error messages.</dd>
+<dt>error.font = 'Vera/10'</dt>
+<dd>Font and fontsize to use for text in error messages. The TTF font
+should be placed in the <tt class="docutils literal"><span class="pre">fonts/</span></tt> directory, or in the system fonts
+path.</dd>
+<dt>test_value = None</dt>
+<dd>The special test value context variable. See
+<a class="reference" href="#the-test-value-context-variable">The test_value context variable</a>.</dd>
+<dt>debug = False</dt>
+<dd>If set to True, doityourself will output special debug information.</dd>
+<dt>id = None</dt>
+<dd>All widgets have an id string (you can see it turning <tt class="docutils literal"><span class="pre">debug</span></tt> to True).
+Id strings are useful in <strong>script click_widget</strong> (see <a class="reference" href="#arguments">Arguments</a>) or
+with the <a class="reference" href="#setattr">setattr</a> special command. By setting this context variable
+to any string, the next created widget will be assigned this id string;
+else, a default id will be assigned.</dd>
+<dt>autoclear = True</dt>
+<dd>Clear the defined widgets before a call to the script. See
+<a class="reference" href="#autoclear-and-autorender">autoclear and autorender</a>.</dd>
+<dt>autorender = True</dt>
+<dd>Display the defined widgets after a call to the script. See
+<a class="reference" href="#autoclear-and-autorender">autoclear and autorender</a>.</dd>
+<dt>widget.min_size = 5</dt>
+<dd>Minimum size, in pixels, that will be assigned to autosized widgets.</dd>
+<dt>valign = 'center'</dt>
+<dd>Alignment of widgets in the same row. Possible values are 'top',
+'center' and 'bottom'.</dd>
+<dt>halign = 'left'</dt>
+<dd>Alignment of rows in the same column. Possible values are 'left',
+'center' and 'right'.</dd>
+<dt>vpadding = 3</dt>
+<dd>Amount of vertical space, in pixels, between widgets.</dd>
+<dt>hpadding = 3</dt>
+<dd>Amount of horizontal space, in pixels, between widgets.</dd>
+</dl>
+</div>
+<div class="section">
+<h2><a id="the-widgets" name="the-widgets">The widgets</a></h2>
+<p>A description of the available widgets follows. For each widget, there are
+three subsections: <strong>Creation</strong>, which explains the markup to be used to
+create that widget, <strong>Context variables</strong>, which enumerates the context
+variables that affect the widget, and <strong>Attributes</strong>, which details
+the attributes that can be modified for that widget using the
+<a class="reference" href="#setattr">setattr</a> markup.</p>
+<p>All widgets have three attributes in common: <strong>width</strong>, <strong>height</strong> and
+<strong>color</strong> which are self-explanatory and will not be included in each
+description.</p>
+<div class="section">
+<h3><a id="text" name="text">Text</a></h3>
+<p><strong>Creation</strong></p>
+<p>A text widget is created by normal text (ie, no markup is needed).</p>
+<p><strong>Context variables</strong></p>
+<dl class="docutils">
+<dt>font = 'Vera/10'</dt>
+<dd><p class="first">Current font and fontsize. The fontsize is mandatory. The TTF font
+should be placed in the <tt class="docutils literal"><span class="pre">fonts/</span></tt> directory, or in the system fonts
+path.</p>
+<p class="last">Examples: 'Vera/14', 'VeraMono/10'.</p>
+</dd>
+</dl>
+<p><strong>Attributes</strong></p>
+<dl class="docutils">
+<dt>text</dt>
+<dd>The text string.</dd>
+<dt>font</dt>
+<dd>Same as the <tt class="docutils literal"><span class="pre">font</span></tt> context variable.</dd>
+</dl>
+</div>
+<div class="section">
+<h3><a id="horizontal-and-vertical-spaces" name="horizontal-and-vertical-spaces">Horizontal and vertical spaces</a></h3>
+<p><strong>Creation</strong></p>
+<pre class="literal-block">
+&lt;hspace width/&gt;
+&lt;vspace width/&gt;
+</pre>
+<p>Both <strong>width</strong> and <strong>height</strong> can be set to -1 to be autosized.</p>
+<p><strong>Context variables</strong></p>
+<p>There are no special context variables for space widgets.</p>
+<p><strong>Attributes</strong></p>
+<p>There are no special attributes for space widgets.</p>
+</div>
+<div class="section">
+<h3><a id="horizontal-and-vertical-lines" name="horizontal-and-vertical-lines">Horizontal and vertical lines</a></h3>
+<p><strong>Creation</strong></p>
+<pre class="literal-block">
+&lt;hline width/&gt;
+&lt;vline height/&gt;
+</pre>
+<p>Both <strong>width</strong> and <strong>height</strong> can be set to -1 to be autosized.</p>
+<p><strong>Context variables</strong></p>
+<dl class="docutils">
+<dt>line.stipple = 0</dt>
+<dd>Size of the stipple. Set it to a non-zero value to create a dashed line.</dd>
+</dl>
+<p><strong>Attributes</strong></p>
+<dl class="docutils">
+<dt>stipple</dt>
+<dd>Same as the <tt class="docutils literal"><span class="pre">line.stipple</span></tt> context variable.</dd>
+</dl>
+</div>
+<div class="section">
+<h3><a id="bar-meters" name="bar-meters">Bar meters</a></h3>
+<p><strong>Creation</strong></p>
+<pre class="literal-block">
+&lt;bar_meter width height [value max]/&gt;
+</pre>
+<p><strong>width</strong> and <strong>height</strong> are the dimensions of the bar. Both can be set
+to -1 to be autosized.</p>
+<p><strong>value</strong> and <strong>max</strong> are optional (default: 0 and 100, respectively).
+They are the actual and maximum value displayable by the meter. Decimal
+numbers can be used.</p>
+<p>Some examples:</p>
+<pre class="literal-block">
+&lt;bar_meter 100 10/&gt;
+&lt;bar_meter -1 10 24.4 128.3/&gt;
+</pre>
+<p><strong>Context variables</strong></p>
+<dl class="docutils">
+<dt>bar_meter.padding = 1</dt>
+<dd>Amount of space, in pixels, between the border and the inner bar.</dd>
+<dt>bar_meter.color = None</dt>
+<dd>Color to be used for the inner bar. If None, the current color is used.</dd>
+<dt>bar_meter.border.color = None</dt>
+<dd>Color to be used for the border. If None, the current color is used.</dd>
+<dt>bar_meter.orientation = 'LR'</dt>
+<dd>Orientation of the bar. Possible values: 'LR' (left to right), 'RL' (right
+to left), 'BT' (bottom to top), 'TB' (top to bottom).</dd>
+<dt>bar_meter.logarithmic = False</dt>
+<dd>If True, a logarithmic scale will be used instead of a linear one. Useful
+for when the values that should be displayed span several orders of
+magnitude. eg, if the actual value is 1.4 and the max value is 10000,
+you won't see anything in the bar meter, unless it is logarithmic.</dd>
+</dl>
+<p><strong>Attributes</strong></p>
+<dl class="docutils">
+<dt>value</dt>
+<dd>The value displayed by the meter.</dd>
+<dt>max</dt>
+<dd>The maximum value displayable by the meter.</dd>
+<dt>color</dt>
+<dd>Same as the <tt class="docutils literal"><span class="pre">bar_meter.color</span></tt> context variable.</dd>
+<dt>border_color</dt>
+<dd>Same as the <tt class="docutils literal"><span class="pre">bar_meter.border.color</span></tt> context variable.</dd>
+<dt>orientation</dt>
+<dd>Same as the <tt class="docutils literal"><span class="pre">bar_meter.orientation</span></tt> context variable.</dd>
+<dt>logarithmic</dt>
+<dd>Same as the <tt class="docutils literal"><span class="pre">bar_meter.logarithmic</span></tt> context variable.</dd>
+</dl>
+</div>
+<div class="section">
+<h3><a id="images" name="images">Images</a></h3>
+<p><strong>Creation</strong></p>
+<pre class="literal-block">
+&lt;image filename [width height]/&gt;
+</pre>
+<p><strong>filename</strong> is a string representing the file name of the image to be shown.
+This file should be placed in the <tt class="docutils literal"><span class="pre">icons/</span></tt> directory.</p>
+<p>If <strong>width</strong> and <strong>height</strong> are set, the image will be scaled to those
+values.</p>
+<p>Some examples:</p>
+<pre class="literal-block">
+&lt;image 'dys-color.png'/&gt;
+&lt;image 'email.png' 24 24/&gt;
+</pre>
+<p><strong>Context variables</strong></p>
+<p>There are no special context variables for image widgets.</p>
+<p><strong>Attributes</strong></p>
+<dl class="docutils">
+<dt>filename</dt>
+<dd>The image's file name.</dd>
+</dl>
+</div>
+<div class="section">
+<h3><a id="buttons" name="buttons">Buttons</a></h3>
+<p>A special image widget that accepts clicks to generate a call to <strong>script
+click_widget</strong>.</p>
+<p>Everything said for image widgets applies to button widgets.</p>
+<p><strong>Creation</strong></p>
+<pre class="literal-block">
+&lt;button filename [width height]/&gt;
+</pre>
+<p><strong>Context variables</strong></p>
+<dl class="docutils">
+<dt>button.highlight = True</dt>
+<dd>Buttons will have a special highlighting effect when pointed at, unless
+created with this context variable set to False.</dd>
+</dl>
+<p><strong>Attributes</strong></p>
+<dl class="docutils">
+<dt>highlight</dt>
+<dd>Same as the <tt class="docutils literal"><span class="pre">button.highlight</span></tt> context variable.</dd>
+</dl>
+</div>
+<div class="section">
+<h3><a id="boxes" name="boxes">Boxes</a></h3>
+<p>Box widgets allow to enclose other widgets inside a rectangle. This rectangle
+can have a fill color and a border color.</p>
+<p><strong>Creation</strong></p>
+<p>Box widgets behave like column widgets (see <a class="reference" href="#rows-and-columns">Rows and Columns</a>):</p>
+<pre class="literal-block">
+&lt;box color border_color/&gt; ... &lt;endbox/&gt;
+</pre>
+<p><strong>color</strong> and <strong>border_color</strong> can both be None.</p>
+<p><strong>Context variables</strong></p>
+<dl class="docutils">
+<dt>box.padding = 5</dt>
+<dd>Space between the border of the box and the contained widgets.</dd>
+</dl>
+<p><strong>Attributes</strong></p>
+<dl class="docutils">
+<dt>border_color</dt>
+<dd>The color to use for the border. (The standard <tt class="docutils literal"><span class="pre">color</span></tt> attribute
+controls the fill color).</dd>
+<dt>padding</dt>
+<dd>Same as the <tt class="docutils literal"><span class="pre">box.padding</span></tt> context variable.</dd>
+</dl>
+</div>
+</div>
+<div class="section">
+<h2><a id="special-commands" name="special-commands">Special commands</a></h2>
+<div class="section">
+<h3><a id="clear" name="clear">clear</a></h3>
+<p><strong>Syntax</strong></p>
+<pre class="literal-block">
+&lt;clear/&gt;
+</pre>
+<p><strong>Description</strong></p>
+<p>A call to this command will clear the currently defined widgets.</p>
+<p>Note that by default the <tt class="docutils literal"><span class="pre">autoclear</span></tt> context variable is True, so
+calling <tt class="docutils literal"><span class="pre">&lt;clear/&gt;</span></tt> is not necessary.</p>
+</div>
+<div class="section">
+<h3><a id="render" name="render">render</a></h3>
+<p><strong>Syntax</strong></p>
+<pre class="literal-block">
+&lt;render/&gt;
+</pre>
+<p><strong>Description</strong></p>
+<p>A call to this command will display the currently defined widgets in the
+desklet's window.</p>
+<p>Note that by default the <tt class="docutils literal"><span class="pre">autorender</span></tt> context variable is True, so
+calling <tt class="docutils literal"><span class="pre">&lt;render/&gt;</span></tt> is not necessary.</p>
+</div>
+<div class="section">
+<h3><a id="setattr" name="setattr">setattr</a></h3>
+<p><strong>Syntax</strong></p>
+<pre class="literal-block">
+&lt;setattr id attribute value/&gt;
+</pre>
+<p><strong>id</strong> is the id string of a currently defined widget.
+<strong>attribute</strong> is the name of an attribute of that widget.
+<strong>value</strong> is the value to which the attribute will be set.</p>
+<p>Examples:</p>
+<pre class="literal-block">
+&lt;setattr 'button0' 'filename' 'email.png'/&gt;
+&lt;setattr 'bar_meter1' 'value' 25/&gt;
+</pre>
+<p><strong>Description</strong></p>
+<p>In normal operation, this command is not needed. But, if <tt class="docutils literal"><span class="pre">autoclear</span></tt> is
+False, and the set of widgets is defined at <strong>init</strong> time, this command,
+maybe in conjunction with the <tt class="docutils literal"><span class="pre">id</span></tt> context variable, can be used to modify
+the attributes of a few widgets and render again, without having to redefine
+the whole set of widgets. For example:</p>
+<pre class="literal-block">
+#!/bin/bash
+
+if [ $1 == 'init' ]; then
+        cat &lt;&lt;-EOF
+        &lt;test_delay 1/&gt;
+        &lt;autoclear False/&gt;
+        This is a bar meter:
+        &lt;id 'MyBar'/&gt;&lt;bar_meter -1 10/&gt;
+        EOF
+        exit 0
+elif [ $1 == 'test' ]; then
+        VALUE=$(( $RANDOM % 100 ))
+        echo &quot;&lt;setattr 'MyBar' 'value' $VALUE/&gt;&quot;
+fi
+</pre>
+<p>If you have a complex set of widgets and on each <strong>test</strong> call you only
+want to modify a few of those widgets, it will be much more efficient to
+use this mechanism, instead of redefining the whole set of widgets every
+time.</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

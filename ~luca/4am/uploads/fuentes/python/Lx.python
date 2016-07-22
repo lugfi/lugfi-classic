@@ -1,0 +1,163 @@
+#
+# Hecho por Alberto Bertogli
+#
+# Modificado por Leandro Lucarella (sáb ago  6 03:57:43 ART 2005)
+#
+
+class Reference:
+	def __init__(self, src, dst):
+		self.src = src
+		self.dst = dst
+
+	def __str__(self):
+		s = "<ref: %s -> %s>" % (self.src, self.dst)
+		return s
+
+	__repr__ = __str__
+
+
+class Object:
+	def __init__(self, name):
+		self.name = name
+		self.refs = []
+		(self.rc, self.mark) = rc_init()
+
+	def __str__(self):
+		return self.name
+
+	def __repr__(self):
+		return "'%s'" % self.name
+
+	def addref(self, dst):
+		ref = Reference(self, dst)
+		self.refs.append(ref)
+		rc_addref(ref)
+
+	def delref(self, dst):
+		for ref in self.refs:
+			if ref.src == self and ref.dst == dst:
+				self.refs.remove(ref)
+				delete(ref)
+				return
+		raise "NotFound"
+
+
+#
+# especial del RC
+#
+
+
+L = set()
+
+
+def free(T):
+	print 'free', T
+
+
+def rc_init():
+	return (0, 0) # (rc, mark)
+
+
+def rc_addref(ref):
+	ref.dst.rc += 1
+	print 'add %s->%s' % (ref.src, ref.dst)
+
+
+def delete(ref):
+	global L
+	T = ref.dst
+	if T.rc == 1: # Al decrementar quedaría en 0, lo borro recursivamente.
+		for U in T.refs:
+			delete(U.dst)
+		free(T)
+	else:
+		mark_dec(T)
+		print '>> ext refs:', list(L)
+		for U in L:
+			print 'delete >> unmark_inc', U
+			unmark_inc(U)
+		L.clear() # vacía la lista
+		unmark_del(T)
+
+
+def mark_dec(T):
+	T.rc -= 1
+	if T.rc == 0:
+		L.discard(T)
+	else:
+		L.add(T)
+	print 'mark_dec >> dec', T, T.rc, list(L)
+	if T.mark == 0:
+		T.mark = 1
+		for U in T.refs:
+			mark_dec(U.dst)
+	else:
+		print 'mark_dec >> skipped', T
+
+
+def unmark_inc(T):
+	T.rc += 1
+	print 'unmark_inc >> inc', T, T.rc
+	if T.mark == 1:
+		T.mark = 0
+		for U in T.refs:
+			unmark_inc(U.dst)
+	else:
+		print 'unmark_inc >> skipped', T
+
+
+def unmark_del(T):
+	if T.mark == 1:
+		T.mark = 0
+		for U in T.refs:
+			unmark_del(U.dst)
+		free(T)
+	else:
+		print 'unmark_del >> skip', T, T.rc
+
+#
+# Ejemplo de corrida
+#
+
+stack = Object('stack')
+A = Object('A')
+B = Object('B')
+C = Object('C')
+D = Object('D')
+E = Object('E')
+F = Object('F')
+G = Object('G')
+H = Object('H')
+I = Object('I')
+J = Object('J')
+K = Object('K')
+
+# Referencias externas
+stack.addref(A)
+stack.addref(E)
+stack.addref(K)
+
+# Referencias internas
+A.addref(B)
+A.addref(D)
+B.addref(A)
+B.addref(C)
+B.addref(G)
+C.addref(B)
+C.addref(D)
+C.addref(H)
+C.addref(I)
+D.addref(A)
+D.addref(C)
+I.addref(J)
+H.addref(J)
+K.addref(H)
+G.addref(E)
+G.addref(F)
+E.addref(F)
+F.addref(G)
+F.addref(J)
+
+# Borro referencia externa a A
+stack.delref(A)
+

@@ -1,0 +1,855 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="es">
+<head>
+<title>Introducción a los sistemas de control de versiones</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+<h1>Introducción a los sistemas de control de versiones</h1>
+
+
+<h2>Tabla de contenido</h2>
+
+<ul>
+  <li><a href="#prologo">Prólogo</a>
+  <li><a href="#proceso">El proceso de desarrollo de software</a>
+  <li><a href="#grupos">Grupos de trabajo</a>
+  <li><a href="#revision">Capacidad de revisión</a>
+  <li><a href="#diff">diff + patch</a>
+  <li><a href="#admin">Sistemas para la administración de código fuente</a>
+  <li><a href="#repos">Manipulando repositorios</a>
+  <li><a href="#historia">Historia de un repositorio</a>
+  <li><a href="#paradigmas">Dos formas de ver a los SCMs</a>
+  <li><a href="#centralizados">SCMs centralizados</a>
+  <li><a href="#distribuidos">SCMs distribuidos</a>
+  <li><a href="#svn">Caso de estudio de SCM Centralizado: Subversion</a>
+  <li><a href="#darcs">Caso de estudio de SCM Distribuido: Darcs</a>
+  <li><a href="#ejemplos">Ejemplos prácticos</a>
+  <li><a href="#repopublico">Montando un repositorio público con darcs</a>
+  <li><a href="#links">Links útiles</a>
+</ul>
+
+
+<a name="prologo"></a>
+<h2>Prólogo</h2>
+
+Este documeto surge inicialmente como material de apoyo para la charla
+<em>SCMs: Mitos y verdades</em> dada en el contexto de las
+<a href="http://www.lug.fi.uba.ar/eventos/2005-charlas/">Charlas
+Irregulares 2005</a> del <a href="http://www.lug.fi.uba.ar/">LUGFI</a>.
+Al ir puliéndolo para publicarlo como
+<a href="http://www.lug.fi.uba.ar/eventos/2005-charlas/documentos/">material
+de la charla</a> (en donde está el audio y las filminas) se fue convirtiendo
+gradualmente cada vez más en un documento <em>importante</em>, por lo que
+decidimos publicarlo en un lugar con protagonismo propio =)<p>
+
+Por favor cualquier duda, consulta o sugerencia avisar a
+<a href="mailto:llucare@fi.uba.ar">Leandro Lucarella</a> y/o a
+<a href="mailto:albertogli@telpin.com.ar">Alberto Bertogli</a>.<p>
+
+También hay un
+<a href="http://users.auriga.wearlab.de/~alb/repos/charla_scm/">repositorio
+darcs</a> con la última versión de estos documentos para ser
+consultado y a través del cual pueden mandarnos fácilmente algún patch con
+correcciones o sugerencias ;)<p>
+
+
+<a name="proceso"></a>
+<h2>El proceso de desarrollo de software</h2>
+
+Creo que es importante empezar mencionando que el desarrollo de software es
+un proceso inherentemente social y creativo, y como tal tenemos que hacernos
+de la idea de que la mayoría de los problemas que acarrea son de esta
+índole.<p>
+
+Comencemos por sentar una base común acerca de como se suele desarrollar
+software. Esto no tiene nada que ver con todas esas metodologías horrorosas
+(Extreme programming, Unified Process, etc., etc.), sino con como, en el
+fondo, se realiza ese proceso desde el punto de vista de la evolución del
+código.<p>
+
+Ya sea que trabajemos en grupo o de forma individual, todos comenzamos con una
+hoja en blanco y una idea en la cabeza, que a medida que progresamos va
+tomando forma.<p>
+
+En el caso del software, nosotros en esta charla nos vamos a concentrar un
+poco en el código fuente, y no vamos a hablar tanto del tema de diseño o
+arquitectura de software porque no nos atañe, robaría mucho tiempo y podemos
+enfocarnos en lo que queremos explicar sin necesidad de entrar en esos
+temas.<p>
+
+Por lo tanto, nosotros arrancamos con un directorio vacío, en el cual vamos
+escribiendo, construyendo nuestro software de forma incremental e iterativa,
+corrigiendo nuestros propios errores a medida que aparecen, y agregando cosas
+nuevas cuando se nos place.<p>
+
+Detengamonos un poco acá y miremos mejor que pasa con nuestro código a medida
+que vamos avanzando en un proyecto: nuestro código va evolucionando, cambiando
+con iteraciones pequeñas que nosotros vamos introduciendo por diversos motivos
+(normalmente correcciones o características nuevas), porque esa es la manera
+en la que vemos y pensamos al software: es como si tuviéramos una escultura
+que tiene una forma determinada y nosotros por nuestras arbitrarias razones la
+queremos ir modificando.<p>
+
+Por lo tanto, podemos pensar que el software se va construyendo en base a
+modificaciones incrementales que nosotros vamos haciendo. Pero aun más, una
+cosa esencial es que esos cambios no son desordenados ni desorganizados
+(aunque hay cada uno!): se corresponden con alguna construcción mental
+nuestra, porque cuando nosotros pensamos en implementar algo o corregir un
+bug, lo tenemos en mente como una unidad, como un objetivo bastante
+independiente de como se representa en el código fuente; y nosotros pensamos
+en que cambios le tenemos que realizar para lograr ese objetivo propuesto.<p>
+
+Y ese proceso, esa forma de ver las modificaciones es lo que hace que
+desarrollemos de la manera en la que lo hacemos, más allá de que a otro nivel
+se usen esos métodos que (ridículamente) se suelen modelar y estudiar, en el
+fondo uno piensa las cosas de esa manera, de la misma forma que un escultor
+piensa en una nariz, unos ojos, un pliegue de una manta o un gesto con la
+mano, y es capaz de ver tanto los objetos individuales como el conjunto que
+éstos forman.<p>
+
+Vamos a bautizar esos cambios de los que estuvimos hablando, porque acá si las
+cosas no tienen un nombre con onda y/o una sigla, nadie les da bola. Nosotros
+dijimos que pensábamos en los cambios como una entidad en sí misma, y vamos a
+llamar <i>changeset</i> a eso: a un grupo de cambios que se realizan sobre una
+base de código, todos orientados a un fin en común.<p>
+
+
+<a name="grupos"></a>
+<h2>Grupos de trabajo</h2>
+
+Cuando trabajamos en grupo, surge la necesidad de coordinar el trabajo, no
+sólo por una cuestión natural sino también como mecanismo de optimizar los
+recursos: cuando faltan dos días para entregar un trabajo, absolutamente nadie
+quiere perder tiempo, y menos si eso implica que dos personas hayan estado
+trabajando toda una tarde sobre lo mismo.<p>
+
+Por eso, para desarrollar en grupo es imprescindible la buena comunicación y
+entendimiento entre los pares. Esto implica que, en general, los desarrollos
+se dan de forma coordinada (ya sea de manera horizontal o vertical,
+independientemente del mecanismo que se elija explícita o implícitamente para
+ello) al menos en un nivel social, las tareas se reparten y los cambios se
+discuten donde afectan al grupo para facilitar el trabajo.<p>
+
+Claro que el desarrollar en grupo, por más que uno se lleve maravillosamente
+bien con la gente involucrada, acarrea ciertas incomodidades que sí son más
+técnicas, y que van a constituir gran parte de lo que vamos a hablar acá: al
+haber más de una persona modificando el código fuente de forma simultanea,
+existe una complejidad, y nada menor, en lo que refiere al hecho de
+sincronizarlo y mantenerlo coherente entre todos los miembros del grupo.<p>
+
+También se dan en un grupo de trabajo relaciones asimétricas respecto del
+código, debido a que cada grupo tiene una forma y un flujo de trabajo
+particular, en el cual, por ejemplo, se pueden dar relaciones jerárquicas,
+revisión de código entre pares, subgrupos, etc.<p>
+
+Esto va a reflejarse en el código fuente con el surgimiento de una nueva
+necesidad, que va a ser la de la integración de múltiples trabajos
+individuales, la distribución del mismo en distintas maquinas y la
+coordinación para que todos puedan trabajar sobre la misma base de código.<p>
+
+
+<a name="revision"></a>
+<h2>Capacidad de revisión</h2>
+
+Justamente con los grupos es donde se ve más fácil una cuestión de gran
+importancia, que es la capacidad de revisión, nombre con el que hacemos
+referencia a tener la posibilidad de ver lo que hicieron los otros, no sólo
+para echarles la culpa (idealmente, esa debería ser la razón menos necesaria
+de todas), sino porque es muy importante tener en perspectiva que fue lo que
+hicieron los demás para el trabajo que realiza uno.<p>
+
+Se suelen decir maravillas de la abstracción y todo ese tipo de
+construcciones, pero no hay que perder de vista que, si bien son buenos
+conceptos, el tener una perspectiva amplia y completa de lo que se está
+haciendo y con lo que se está interactuando suele ser beneficioso para todos.
+Siguiendo con la analogía del escultor, es como si un grupo de escultores se
+decidiera a trabajar con una pieza, tuvieran los planos, dibujos e ideas en
+común pero nunca miraran lo que hace el otro.<p>
+
+Vamos a describir entonces un poco mejor a que nos referimos con "poder
+revisar", porque hasta ahora no dijimos bien de que se trataba. Hace un ratito
+hablamos de como nosotros pensábamos en las modificaciones a una base de
+código como un conjunto de cambios que compartían un fin en común, y los
+llamamos "changesets".<p>
+
+Entonces pensemos un poco acerca de este tema de la revisión: a nosotros
+cuando estamos desarrollando y queremos ver como arreglo nuestro compañero ese
+bug que estaba en el nuestro programa desde hacia rato y nadie se le animaba,
+lo que a nosotros nos va a interesar ver no es el código terminado, porque
+normalmente de ahí nos va a costar deducir como fue la solución, y además
+quizás ya para cuando lo queramos ver le metimos tanta mano que quedo
+irreconocible su solución inicial: lo que nos interesa es ver qué cambios
+introdujo desde el código con el error hasta el código sin el error. O sea,
+nos interesa poder "leer" el changeset que introdujo.<p>
+
+Y esto es uno de los pilares del funcionamiento de todo esto que estamos
+hablando: podemos pensar en la representación del código ya no sólo como un
+conjunto de archivos y directorios en los cuales se encuentra texto; sino que
+nos interesa, y mucho, llevar el conjunto de cambios que se han efectuado, que
+van acompañando y representando la evolución de nuestro proyecto.<p>
+
+Esto nos va a permitir poder saber en cualquier instante del tiempo, desde que
+empezamos hasta ahora, cómo fue evolucionando el código fuente, y, lo más
+importante, qué cambios se fueron produciendo en él.<p>
+
+El tener el historial de cambios realizados sobre un repositorio nos va a
+deparar numerosos beneficios (aparte de poder saber a quien culpar cuando
+alguien hace una macana!). Nos va a permitir, en primera instancia, ser
+capaces de revisar y deshacer las cosas que nosotros mismos hicimos, aprender
+de lo que otros hicieron, nos va a facilitar encontrar errores porque vamos a
+poder ver que punto se rompió algo, realizar numerosas pruebas, etc.<p>
+
+Todas esas cosas las vamos a ver en detalle más adelante porque son muy
+divertidas, pero para no irnos demasiado por las nubes, metamos un poco de
+realidad en todo este asunto.<p>
+
+
+<a name="diff"></a>
+<h2>diff + patch</h2>
+
+Bueno, hasta ahora nosotros hablamos mucho de changesets y de cambios a una
+base de código, e inclusive dijimos lo importante que era poder ver los
+cambios, pero todavía no dijimos siquiera como obtenerlos!<p>
+
+Una de las herramientas más viejas y más usadas (inclusive actualmente), que
+constituye uno de las bases sobre las cuales se construyeron la mayoría de los
+mecanismos actuales, son dos programas en apariencia muy simples, que se
+complementan.<p>
+
+El primero y más importante se llama "diff", y sirve para saber la diferencia,
+en principio, entre dos archivos A y B, comparándolos línea por línea y
+produciendo un tercer archivo C.<p>
+
+El archivo de cambios contiene la información necesaria para, teniendo A,
+saber que modificaciones realizarle para llegar a B, es por esto que también se
+le suele decir "delta". El formato en el que se este delta (el archivo C) puede
+variar, pero todo el mundo en su sano juicio (y de los que no, la mayoría
+también) usa uno al que se llama "formato unificado".<p>
+
+El programa "patch" sirve para hacer el proceso inverso: toma un archivo base
+A, y el delta C, y produce un archivo B que resulta de tomar A y aplicarle los
+cambios que están descriptos en C.<p>
+
+Vamos a ver un ejemplito:<p>
+
+<pre>
+ARCHIVO A                                ARCHIVO B
+=========                                =========
+Gloria a Dios en las alturas,            Gloria a Dios en las alturas,
+recogieron las basuras                   recogieron las basuras
+de mi calle, ayer a oscuras              de mi calle, ayer a oscuras
+y hoy sembrada de bombillas.             y hoy sembrada de bombillas.
+
+Y colgaron de un cordel                  Y colgaron de un cordel
+de esquina a esquina un cartel           de esquina a esquina un cartel
+y banderas de papel                      y banderas de papel
+verdes, rojas y amarillas.               lilas, rojas y amarillas.
+
+Y al darles el sol la espalda            Y al darles el sol la espalda
+revolotean las faldas                    revolotean las faldas
+bajo un manto de guirnaldas              bajo un manto de guirnaldas
+para que el cielo no vea,                para que el cielo no vea,
+
+en la noche de San Juan,                 en la noche de San Juan,
+cómo comparten su pan,                   cómo comparten su pan,
+su tortilla y su gabán,                  su mujer y su galán,
+gentes de cien mil raleas.               gentes de cien mil raleas.
+
+Apurad                                   Apurad
+que allí os espero si queréis venir      que allí os espero si queréis venir
+pues cae la noche y ya se van            pues cae la noche y ya se van
+nuestras miserias a dormir.              nuestras miserias a dormir.
+
+Vamos subiendo la cuesta                 Vamos subiendo la cuesta
+que arriba mi calle                      que arriba mi calle
+se vistió de fiesta.                     se vistió de fiesta.
+
+Hoy el noble y el villano,               Hoy el noble y el villano,
+el prohombre y el gusano                 el prohombre y el gusano
+bailan y se dan la mano                  bailan y se dan la mano
+sin importarles la facha.                sin importarles la facha.
+
+Juntos los encuentra el sol              Juntos los encuentra el sol
+a la sombra de un farol                  a la sombra de un farol
+empapados en alcohol                     empapados en alcohol
+abrazando a una muchacha.                magreando a una muchacha.
+
+Y con la resaca a cuestas                Y con la resaca a cuestas
+vuelve el pobre a su pobreza,            vuelve el pobre a su pobreza,
+vuelve el rico a su riqueza              vuelve el rico a su riqueza
+y el señor cura a sus misas.             y el señor cura a sus misas.
+
+Se despertó el bien y el mal             Se despertó el bien y el mal
+la pobre vuelve al portal                la zorra pobre al portal
+la rica vuelve al rosal                  la zorra rica al rosal
+y el avaro a las divisas.                y el avaro a las divisas.
+
+Se acabó,                                Se acabó,
+que el sol nos dice que llegó el final.  que el sol nos dice que llegó el final.
+Por una noche se olvidó                  Por una noche se olvidó
+que cada uno es cada cual.               que cada uno es cada cual.
+
+Vamos bajando la cuesta                  Vamos bajando la cuesta
+que arriba en mi calle                   que arriba en mi calle
+se acabó la fiesta.                      se acabó la fiesta.
+
+
+DIFF UNIFICADO
+==============
+--- archivo1      2005-05-17...
++++ archivo2      2005-05-17...
+@@ -6,7 +6,7 @@
+ Y colgaron de un cordel
+ de esquina a esquina un cartel
+ y banderas de papel
+-verdes, rojas y amarillas.
++lilas, rojas y amarillas.
+
+ Y al darles el sol la espalda
+ revolotean las faldas
+@@ -15,7 +15,7 @@
+
+ en la noche de San Juan,
+ cómo comparten su pan,
+-su tortilla y su gabán,
++su mujer y su galán,
+ gentes de cien mil raleas.
+
+ Apurad
+@@ -35,7 +35,7 @@
+ Juntos los encuentra el sol
+ a la sombra de un farol
+ empapados en alcohol
+-abrazando a una muchacha.
++magreando a una muchacha.
+
+ Y con la resaca a cuestas
+ vuelve el pobre a su pobreza,
+@@ -43,8 +43,8 @@
+ y el señor cura a sus misas.
+
+ Se despertó el bien y el mal
+-la pobre vuelve al portal
+-la rica vuelve al rosal
++la zorra pobre al portal
++la zorra rica al rosal
+ y el avaro a las divisas.
+
+ Se acabó,
+
+</pre><p>
+
+(también se pueden ver los <a href="ejemplos/diff/1-basico">archivos por
+	separado</a>)<p>
+
+Si bien parece un poco loco, el formato del diff no sólo es simple, sino que
+también es ampliamente legible, y se suele ser la forma preferida de ver los
+cambios realizados. Hoy en día es por lejos el formato más usado para ese
+fin.<p>
+
+Miremoslo un poco mejor: se compone de un encabezado en el cual se cuentan los
+nombres de los archivos involucrados y la hora en la que fueron modificados
+por ultima vez, luego una posición, un contexto, y las líneas que
+cambiaron.<p>
+
+En este formato, los cambios se representan de una forma algo dual: se dice
+que líneas han de ser removidas, y cuales han de ser colocadas en su lugar.
+A las primeras se les pone un <b>-</b> delante, y a las segundas un <b>+</b>.
+Las que no tienen ni <b>-</b> ni <b>+</b> son líneas de contexto, puestas para
+hacerlo más legible y cómodo de manipular.<p>
+
+Esto se extiende a dos árboles de código haciendo la comparación recursiva,
+caminando todos los archivos de la estructura de directorios.<p>
+
+Así, lo que se hace con esto y a pulmón es tener el código fuente base en un
+directorio, copiarlo a otro sobre el cual trabajamos, y cuando estamos
+conformes con los cambios realizados, con diff sacamos las diferencias entre
+el original y el nuestro, obteniendo la representación de los cambios que
+introdujimos, o sea, nuestro preciado changeset.<p>
+
+Sobre esta base se puede construir mucho más de lo que parece, dado que
+podemos ir guardando dichos changesets y armar la historia tal como
+describimos arriba. Esto tiene ciertas propiedades muy particulares que lo
+hacen extremadamente flexible y útil para muchas formas de trabajo, pero
+requiere un esfuerzo importante porque hay que hacer mucho de forma manual.<p>
+
+
+<a name="admin"></a>
+<h2>Sistemas para la administración de código fuente</h2>
+
+Ahora que vimos como hacer para obtener los changesets de los que estuvimos
+hablando, dijimos que un tema muy importante era poder manejarlos y
+administrarlos: para esto (entre otras cosas) es por lo que surgen los
+sistemas por los cuales están uds. leyendo esto y nosotros escribiéndolo:
+los sistemas de administración de código fuente.<p>
+
+Antes de seguir, un pequeño paréntesis importante: hay muchísimas formas de
+llamar a estos sistemas, ninguna demasiado convincente. Una que vamos a usar
+mucho, que es de las más usadas, es "SCM", que algunos claman que es "software
+configuration management", otros "source control management", y otros "source
+code management". Saber quien tiene razón es tema para un historiador,
+nosotros vamos a hacernos los zonzos y pretender que es una sigla que tiene
+sentido. También le suelen decir "Sistemas de control de versiones" o VCS; o
+CMS (Code Management System o algo por el estilo) pero es más inusual. Esta
+última sigla en particular, es una pésima elección porque hay otro tipo de
+sistema muy conocido de esta manera (los Content Management Systems) que NADA
+tiene que ver con el manejo de código.<p>
+
+Entonces, volvamos a estas herramientas: su objetivo es administrar el código
+fuente y su evolución, de una forma u otra ir grabando ese proceso, y
+presentar al usuario esa información de forma útil y práctica.<p>
+
+Para entenderlas bien, vamos a presentar un poco los conceptos más importantes
+que acarrean, y cómo interactúan las distintas cosas entre sí.<p>
+
+Comencemos por uno muy básico y que no tiene nada de loco: llamamos
+repositorio a un conjunto compuesto por el código fuente en un punto
+determinado del tiempo, y la historia asociada a éste. Recordemos que vamos a
+pensar la historia de un código fuente como un conjunto de changesets.
+Por lo tanto, un repositorio tiene, además del estado del código fuente
+actual, un conjunto ordenado (no necesariamente de forma cronológica) de
+cambios que se han realizado sobre el mismo para llevarlo a como esta
+ahora.<p>
+
+Conociendo los repositorios, entonces decimos que un changeset se "aplica" a
+un repositorio cuando se lo introduce ordenadamente, o sea, cuando sobre un
+repositorio en un estado A hacemos un cambio que lo lleva a B, el delta entre
+los dos estados es, como ya vimos, el changeset. A cada changeset, ahora que
+tenemos una herramienta para manejarlo, le podemos asociar información
+adicional, como el nombre del autor, la fecha en la cual se incorporó a un
+repositorio, etc.<p>
+
+
+<a name="repos"></a>
+<h2>Manipulando repositorios</h2>
+
+Ahora que mostramos más o menos las estructuras básicas que manejan los SCMs,
+veamos un poco qué podemos hacer con ellas.<p>
+
+La operación más básica sobre un repositorio se le suele llamar "branch", y en
+un principio es simplemente el acto de copiarlo, lo cual nos permite ir
+elaborando cambios en dos repositorios independientes que comparten la misma
+base. Hay muchos tipos y variaciones de branches, no son todas iguales y este
+concepto se ajusta según como lo maneje cada herramienta en particular, aunque
+comparten esta misma esencia.<p>
+
+Así, podemos aplicar distintos changesets en cada repositorio de forma
+independiente. Para encontrar un ejemplo práctico de esto no hay que irlo a
+buscar muy lejos: pensemos en cualquier trabajo grupal. Si tenemos un
+repositorio común, y nos dividimos las tareas entre dos compañeros, ambos
+vamos a partir del mismo repositorio base pero a trabajar de forma
+independiente. En ese caso, cada uno tendría su repositorio que surge de hacer
+un branch de uno común.<p>
+
+Cuando los dos terminamos nuestro trabajo, queremos "integrar" los cambios de
+los dos de tal forma que nos quede un repositorio con el trabajo de ambos.
+Para esto elegimos uno base, y aplicamos los changesets que están en el otro
+para lograr una combinación. Este acto de combinar dos repositorios se llama
+"merge", y como vimos consiste básicamente en incorporar en un repositorio los
+cambios que se produjeron en otro de forma independiente.<p>
+
+Veamos un ejemplo:<p>
+
+<pre>
+ARCHIVO BASE                              MERGE
+============                              =====
+La colina hay que subir,                  La colina hay que subir,
+nada es sencillo aquí,                    nada es sencillo aquí,
+y ante todo está El Dragón                y ante todo está El Dragón
+Al Dragón le gusta tirarse panza arriba   con su fuego intentará
+y ponerse a leer cuentos alegres          parar la construcción
+mientras se rasca la barriga.             pero habrá una solución
+Cuando tiene mucha hambre                 Una flor un corazón,
+busca bichitos de luz                     una porción de sol,
+y se los come despacito.                  y estas ganas de vivir...
+
+
+MODIFICACIÓN 1                            MODIFICACIÓN 2
+==============                            ==============
+La colina hay que subir,                  La colina hay que subir,
+nada es sencillo aquí,                    nada es sencillo aquí,
+y ante todo está El Dragón                y ante todo está El Dragón
+con su fuego intentará                    Al Dragón le gusta tirarse panza arriba
+parar la construcción                     y ponerse a leer cuentos alegres
+pero habrá una solución                   mientras se rasca la barriga.
+Cuando tiene mucha hambre                 Una flor un corazón,
+busca bichitos de luz                     una porción de sol,
+y se los come despacito.                  y estas ganas de vivir...
+
+
+DIFF DE MODIFICACIÓN 2                    DIFF DE MODIFICACIÓN 2
+======================                    ======================
+--- base      2005-05-17 13:16:10.0000    --- base      2005-05-17 13:16:10.0000
++++ archivo1  2005-05-17 13:16:39.0000    +++ archivo2  2005-05-17 13:16:57.0000
+@@ -1,9 +1,9 @@                           @@ -4,7 +4,7 @@
+ La colina hay que subir,                  Al Dragón le gusta tirarse panza arriba
+ nada es sencillo aquí,                    y ponerse a leer cuentos alegres
+ y ante todo está El Dragón                mientras se rasca la barriga.
+-Al Dragón le gusta tirarse panza arriba  -Cuando tiene mucha hambre
+-y ponerse a leer cuentos alegres         -busca bichitos de luz
+-mientras se rasca la barriga.            -y se los come despacito.
++con su fuego intentará                   +Una flor un corazón,
++parar la construcción                    +una porción de sol,
++pero habrá una solución                  +y estas ganas de vivir...
+ Cuando tiene mucha hambre
+ busca bichitos de luz
+ y se los come despacito.
+
+</pre><p>
+
+(también se pueden ver los <a href="ejemplos/diff/2-merge">archivos por
+	separado</a>)<p>
+
+Cuando al hacer un merge vemos que dos changesets modifican las mismas partes
+de un archivo, decimos que hay un "conflicto". El manejo de conflictos es
+parte muy importante de cualquier SCM, no sólo por la capacidad de resolución
+sino por la capacidad de detectarlos: si un SCM no detecta un conflicto, puede
+introducir corrupción en el código, cuyos resultados suelen ser
+problemáticos.<p>
+
+Al detectarse un conflicto que el SCM no puede resolver de forma automática,
+se informa al usuario y se espera que se resuelva a mano o con alguna de las
+herramientas diseñadas para asistir en la resolución de estos problemas.<p>
+
+Afortunadamente, la mayoría de los SCMs modernos se enfocan muchísimo en este
+problema y poseen muy buenos algoritmos de detección y resolución de
+conflictos. Al final, en los ejemplos más prácticos, veremos casos reales de
+conflictos y como resolverlos.<p>
+
+
+<a name="historia"></a>
+<h2>Historia de un repositorio</h2>
+
+Hace un rato hablamos de la importancia de tener la historia de la evolución
+del código, cosa que ahora tenemos representada en un repositorio como un
+conjunto de changesets. Esto nos permite manipularlos de forma muy cómoda,
+no solo para poder leerlos, sino también vimos que podemos hacer merges entre
+dos repositorios y unir dos repositorios que, en base a un ancestro común,
+evolucionaron de forma independiente.<p>
+
+Esta capacidad resulta muy útil en muchos casos, tanto que vamos a hablar un
+rato al respecto y mostrar algunos de ellos.<p>
+
+En principio, una ventaja importante es el poder revisar lo que hizo otro de
+forma clara y contenida, concentrándonos sólo en los cambios introducidos y no
+en el código preexistente. Esto es útil en muchos casos distintos, desde en un
+grupo jerárquico en donde haya gente encargada de revisar y dar vistos buenos
+a códigos de sus subordinados, en grupos en donde se dé la revisión entre
+pares, o la colaboración, que suele ser moneda corriente (pensemos en el caso
+de "esto no me sale, me ayudas?" o "que te parece esto?") en cualquier grupo
+humano bien integrado. Nos permite compartir experiencia con nuestros
+compañeros, permitiendo que otros vean las soluciones que les dimos a
+problemas que surgieron en el pasado y pudiendo aprender de ellas.<p>
+
+Otra aplicación muy útil, y que se utiliza frecuentemente en proyectos
+opensource, es el usar el historial de changesets para ubicar que cambio
+introdujo un bug. Si conocemos una versión que no tiene un bug y otra que sí,
+podemos ir buscando hasta encontrar qué changeset fue el que introdujo el bug,
+haciendo más fácil la comprensión del mismo y su posterior arreglo.<p>
+
+También es posible combinar esto con tests de regresión, de forma tal que,
+usando un mecanismo similar al descripto recién para los bugs, cuando notamos
+que falla algún test, podemos ubicar qué cambio fue el que hizo que comience a
+fallar. Inclusive algunos SCMs incorporan funcionalidad para realizar este
+tipo de operaciones de forma automática.<p>
+
+Tener este tipo de información también nos puede resultar útil para saber a
+quien referirse acerca de una pieza de código en particular: podemos ver quien
+fue el que introdujo o modifico ciertas líneas de código, y así saber a quien
+recurrir en caso de problemas o necesitar consejo sobre las mismas. Esto es
+especialmente importante en proyectos grandes o de larga vida en la cual es
+probable que los desarrolladores originales hayan dejado el proyecto para
+concentrarse en otras cosas y para el grupo que queda a cargo suele ser
+importante saber a quien recurrir.<p>
+
+Pero quizás la utilidad más importante de todas no provenga de la información
+misma, sino de la forma en la que se genera: el hecho de que nosotros tengamos
+que pensar en changesets nos ayuda a trabajar de forma más ordenada y prolija,
+concentrándonos en un problema a la vez y atacándolo sin mezclar las cosas,
+correspondiéndose con la forma de pensarlo abstractamente.<p>
+
+Es por esto que estas herramientas no son simples ayudas técnicas: afectan
+nuestra forma de crear software, y deben acompañar y ajustarse a la manera en
+la que concebimos y desarrollamos el software.<p>
+
+
+<a name="paradigmas"></a>
+<h2>Dos formas de ver a los SCMs</h2>
+
+Todo lo que hablamos hasta ahora lo vimos de una forma relativamente general,
+pero hay muchas cosas que al llevarlas a la práctica se pueden abordar de
+formas distintas, y que implican formas distintas de trabajar.<p>
+
+Existen dos "paradigmas" (a todo el mundo le encanta esa palabra, no? Se
+sienten re importantes sabiendo lo que quiere decir =) para el funcionamiento
+de los SCMs: centralizados y distribuidos.<p>
+
+Aclaremos que el concepto de distribuido no es el que se suele usar en algunos
+ámbitos como "algo que usa la red", sino el que se suele usar más comúnmente
+(o más correctamente), que significa que no existe un punto central, sino que
+las cosas están repartidas de forma más o menos horizontal. Algo así como la
+diferencia entre peer-to-peer y cliente-servidor.<p>
+
+
+<a name="centralizados"></a>
+<h2>SCMs centralizados</h2>
+
+Los SCMs centralizados, como es de suponerse, se basan en un repositorio único
+central con todas las letras (es decir, que guarda la historia de changesets),
+al que todos los desarrolladores se conectan para reportar cambios (aplicar
+changesets). Por otro lado aparece el concepto de lo que se conoce como
+"working copy" (WC), que podría pensarse, según lo visto anteriormente, como
+un branch muy particular, que no tiene historia (más allá de que algunos SCM
+le ponen algo de historia para facilitar algunas operaciones offline).<p>
+
+Al haber un sólo repositorio, éste debe ser el encargado de manejar los
+branches, quedando todos dentro de éste. Es decir, en un mismo repositorio
+tengo 2 (o más) caminos evolutivos distintos del mismo programa. La forma en
+que se implementa esto, varía de SCM en SCM, pero el concepto general se
+mantiene.<p>
+
+A diferencia de los SCM distribuidos (que son algo así como el caso más
+general), los SCM centralizados suelen basarse en una línea de tiempo. Es
+decir, los cambios guardan una dependencia lineal en el tiempo, o sea que para
+obtener un changeset X, debo obtener, en orden cronológico, todos los
+changesets que se han aplicado anteriormente.<p>
+
+Otra cosa a tener en cuenta a la hora de elegir un SCM es que los
+centralizados, al ser naturalmente cliente-servidor, necesitan un servidor
+(que probablemente esté prendido todo el tiempo y con conexión permanente) y
+que debe ser configurado, con algún sistema de autenticación y permisos. Es
+decir, la configuración puede ser algo más compleja, claro que todo depende de
+qué necesitemos hacer. La configuración puede ser tan simple o compleja como
+queramos dependiendo del uso que vamos a darle (por lo general hacer un
+repositorio local es trivial).<p>
+
+Otra "contra" que acarrea su naturaleza cliente-servidor, es que,
+generalmente, todas las operaciones del SCM son online (es decir, requieren
+conexión con el servidor). Por ejemplo para ver la historia del repositorio,
+para obtener un chageset determinado, para aplicar un changeset, etc.<p>
+
+Generalmente hay 2 tipos de SCM centralizados, los que usan el modelo
+Lock-Modify-Unlock y los que usan el modelo Copy-Modify-Merge. El primero es
+el más simple y limitado, y consiste en que cada vez que un usuario quiere
+modificar un archivo, este archivo se "lockea" y no puede ser modificado por
+nadie más hasta que este usuario termine de editarlo. Este modelo, además de
+ser muy limitado e incómodo, rompe bastante el concepto de changeset, ya que
+los cambios están centrados en archivos y en cambios al repositorio como un
+todo.  El segundo modelo propone lo siguiente: se hace una copia del estado
+actual del repositorio (sería nuestra WC), se modifica y se aplica el
+changeset al repositorio central haciendo un merge. Cualquier SCM mínimamente
+serio ofrece esta forma de trabajo.<p>
+
+
+<a name="distribuidos"></a>
+<h2>SCMs distribuidos</h2>
+
+La característica mas importante de un SCM distribuido, como su nombre lo
+indica, es que no existe un punto central de desarrollo sino que los
+repositorios están distribuidos y descentralizados en diversas maquinas que
+pueden o no ser independientes entre si, y técnicamente no hay ninguno mas
+importante que otro. Esto trae bastantes beneficios al momento de desarrollar,
+dado que el modo de trabajo suele ser que cada desarrollador tenga su
+repositorio propio sobre el cual trabaje de forma independiente, y
+periódicamente se pongan en común los trabajos de todos en algún repositorio
+convenido a tal efecto.<p>
+
+Esa puesta en común se realiza mediante la incorporación a un repositorio de
+los changesets de otro, con lo que vemos que esta operación (que es una
+generalización de un merge, y así nos vamos a referir a ella) toma especial
+importancia dado que no solo se realiza de forma frecuente, sino que es
+imprescindible para el funcionamiento del sistema. Es por esto que los SCMs
+distribuidos ponen especial énfasis en el modo en el que realizan estas
+operaciones, y suele ser una de las características mas importantes que los
+diferencian entre si.<p>
+
+Los changesets que forman parte un repositorio no necesariamente deben estar
+dispuestos de forma cronológica, si bien muchos sistemas trabajan de esta
+forma, existen algunos que lo hacen de manera distinta, basándose en la
+relación entre los changesets para este fin.<p>
+
+Hay varios SCMs distribuidos, últimamente han surgido varios, algunos ejemplos
+son Darcs, Arch, Monotone, Codeville y Bitkeeper.<p>
+
+
+<a name="svn"></a>
+<h2>Caso de estudio de SCM Centralizado: Subversion</h2>
+
+Una de las principales características de subversion, es que fue pensado como
+un reemplazo natural a CVS, por lo que es una excelente transición si se
+quiere pasar de CVS a otro SCM un poco más serio o incluso si se quiere seguir
+trabajando con un modelo centralizado, ya que soluciona la mayoría de sus
+problemas técnicos y conceptuales.<p>
+
+Subversion usa el modelo Copy-Modify-Merge y trata siempre de optimizar el uso
+de ancho de banda y de hacer todas las operaciones posible sin necesidad de
+conexión. Esto lo hace simplemente guardando una copia intacta del estado del
+repositorio y otra para que modifiquemos (algo así como guardar un pedacito de
+historia). De esta manera, hay algunas operaciones que pueden hacerse offline.
+Entre ellas, la más importante es el diff, ya que de esta manera puede enviar
+al servidor solamente el changeset (otros SCM más viejitos, CVS incluido,
+tienen que mandar los archivos modificados enteros y hacer el diff en el
+servidor).  Es decir, el uso de ancho de banda en subversion al aplicar un
+changeset es proporcional al tamaño de los cambios y no de los archivos
+enteros, como pasa en otros SCMs.<p>
+
+Otro concepto muy fuerte en Subversion, es que es un filesystem versionado. Es
+decir, un sistema de archivo (conjunto organizado jerárquicamente de
+directorios y archivos, y sus contenidos, por supuesto). Es por esto que
+provee las operaciones comunes de cualquier filesystem (crear un directorio,
+copiar un archivo, mover un archivo, borrar un archivo, etc), con algunas
+particularidades. Como subversion piensa a los repositorios como una línea de
+tiempo, la hacer una copia de un archivo A a B, en realidad no se copia el
+archivo sino que se dice que el archivo copiado B es una bifurcación en la
+línea de tiempo del archivo A. Es decir:<p>
+
+<pre>
+ ARCHIVO A
+ =========
+     |
+ Revisión 1
+     |
+ Revisión 2 ------- ARCHIVO B
+     |              =========
+ Revisión 3             |
+     |                  |
+     |              Revisión 4
+     |                  |
+</pre>
+
+Es decir, la historia del archivo B, será su historia propia más la historia
+del archivo A hasta la revisión 2. Las revisiones serían los changesets que se
+fueron aplicando al repositorio (que como son cronológicamente ordenados, se
+numeran secuencialmente).<p>
+
+A esta característica se la llama "cheap copy" (copia barata) y es la manera
+en la que subversion implementa los branches. Es decir, supónganse que en vez
+de ser archivos son directorios, lo que tenemos son 2 evoluciones distintas de
+la misma base de código. Por supuesto en un determinado momento podemos
+aplicar los changesets de un branch en el otro a través de un merge.<p>
+
+Ahora, si los branches se almacenan en el repositorio como simples
+directorios, es necesario tener una estructura particular en él, que nos
+permita ubicar fácilmente distintos branches de un proyecto, o su línea de
+desarrollo principal, etc. Lo que propone el manual, y uno de los esquemas más
+utilizados, es crear 3 directorios en la raíz del repositorio apenas se lo
+crea, llamados 'trunk' (línea principal de desarrollo), 'branches' y 'tags'
+(tag es un nombre utilizado generalmente para indicar un estado significativo
+del repositorio, en general realeases). De esta forma, hacer un branch sería
+tan simple como copiar 'trunk' a 'branches/mi_branch' para crear el branch
+'mi_branch'.<p>
+
+Un par de características agradables de subversion, que no tiene demasiado que
+ver con la teoría que estuvimos introduciendo, son la alta disponibilidad de
+clientes (hay para todos los gustos y OSs, tanto de consola como gráficos) y
+las propiedades. Estas últimas son metainformación arbitraria o con
+significado especial que se asocia a un archivo o directorio. A través de
+estas propiedades subversion maneja algunas cosas interesantes, como el tipo
+de fin de línea, si es un archivo binario y de qué tipo (para utilizar la
+herramienta de diff correcta), si es ejecutable, etc. Con respecto a los
+clientes, sólo voy a decir que nosotros nos centraremos en el cliente
+"oficial" llamado svn, que es un cliente de consola multiplataforma (la gente
+que use WIN32 tal vez quiera darle una mirada a Tortoise, un cliente gráfico
+que se integra con el shell).<p>
+
+
+<a name="darcs"></a>
+<h2>Caso de estudio de SCM Distribuido: Darcs</h2>
+
+Darcs es un SCM distribuido relativamente nuevo, creado por un físico que
+desarrolló una teoría muy interesante y novedosa acerca de como manipular los
+changesets, que es la base de su funcionamiento.<p>
+
+Otro de sus puntos mas fuertes desde el punto de vista del usuario, es la
+simplicidad y naturalidad de los comandos. Es muy fácil e intuitivo de usar, y
+uno le "toma la mano" bastante rápido, cosa que no es común en este tipo de
+sistemas, y que hace que usarlo no incomode.<p>
+
+Una característica importante es que todas las copias de un repositorio son
+repositorios en si mismos, totalmente funcionales, lo que facilita
+notablemente el trabajo con múltiples repositorios, la creación de
+repositorios temporarios para desarrollar cosas nuevas, y la publicación de
+estos, no necesitando un server especial sino que se utiliza cualquier
+servidor web. También posee una muy buena integración con el email, lo que
+facilita el envío de changesets por dicho medio cuando se lo prefiera.<p>
+
+La aplicación esta escrita en <a href="http://www.haskell.org">Haskell</a>, un
+lenguaje funcional, y es portable por lo que funciona tanto en Linux como en
+cualquier otro pariente de UNIX (incluyendo MacOS X) y en Windows.<p>
+
+
+<a name="ejemplos"></a>
+<h2>Ejemplos prácticos</h2>
+
+Los ejemplos prácticos están separados según el caso de estudio de SCM
+distribuído (darcs) o centralizado (subversion).<p>
+
+<h3>Darcs</h3>
+<ol>
+	<li><a href="ejemplos/darcs/1-basico.html">Ejemplo de uso básico (crear
+		el repositorio y guardar algún changeset)</a></li>
+	<li><a href="ejemplos/darcs/2-comun.html">Ejemplo de uso común
+		(operaciones típicas en la vida de un repositorio)</a></li>
+	<li><a href="ejemplos/darcs/3-loco.html">Ejemplo de uso <em>loco</em>
+		(enfrentando algunas situaciones un tanto excepcionales)</a></li>
+</ol><p>
+
+<h3>Subversion</h3>
+Se recomiendo ver los ejemplos de darcs antes, ya que se hacen algunas
+referencias a ellos.
+<ol>
+	<li><a href="ejemplos/svn/1-basico.html">Ejemplo de uso básico (crear
+		el repositorio y guardar algún changeset)</a></li>
+	<li><a href="ejemplos/svn/2-comun.html">Ejemplo de uso común con
+		situacionies algo excepcionales (operaciones típicas en
+		la vida de un repositorio)</a></li>
+</ol><p>
+
+
+<a name="repopublico"></a>
+<h2>Montando un repositorio público con darcs</h2>
+
+Una de las ventajas de darcs es que se puede crear un repositorio público en
+cualquier servidor que provea acceso por HTTP. En el documento sobre
+<a href="darcs_en_aleph.html">como montar un repositorio público en aleph</a>
+se explica el caso puntual para el servidor público de la Facultad, pero puede
+ser trivialmente adaptado para montar un repositorio en cualquier otro servidor
+de características similares.<p>
+
+
+<a name="links"></a>
+<h2>Links útiles</h2>
+
+<h3>Subversion</h3>
+<ul>
+  <li><a href="http://subversion.tigris.org/">Home page</a></li>
+  <li><a href="http://svnbook.red-bean.com/">Manual en varios formatos y
+    traducciones (ver al que hay una versión en castellano)</a></li>
+  <li><a href="http://subclipse.tigris.org/">Plug-in para Eclipse</a></li>
+  <li><a href="http://tortoisesvn.tigris.org/">Cliente para Windows
+    recomendable</a></li>
+  <li><a href="http://rapidsvn.tigris.org/">Cliente gráfico multiplataforma
+    (Linux, WIN32)</a></li>
+  <li><a href="http://subversion.tigris.org/project_links.html">Links de todo
+    tipo: clientes, conversores de repositorios (desde CVS o VSS entre otros),
+    hosting de repositorios (pagos y gratuitos), y mas</a></li>
+</ul><p>
+
+<h3>Darcs</h3>
+<ul>
+  <li><a href="http://www.darcs.net/">Home page</a></li>
+  <li><a href="http://www.darcs.net/manual/">Manual (altamente recomendable,
+    cortito y ameno de leer)</a></li>
+  <li><a href="http://www.darcs.net/DarcsWiki/">Pagina comunitaria (Wiki), con
+    mucha información incluyendo comparaciones, ejemplos útiles, herramientas
+    de migración, frontends web, casos de uso, etc.</a></li>
+</ul><p>
+
+
+</body>
+</html>
+

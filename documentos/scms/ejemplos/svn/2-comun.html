@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<title>svn :: Ejemplo 2</title>
+<link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+<body>
+
+<h2>Ejemplo 2 - Vemos la luz</h2>
+
+Ahora que ya sabemos operar con las cosas mas comunes, vamos a ver como
+interactuamos con otros repositorios, sean o no nuestros.<p>
+
+El primer ejemplo va a ser obtener un repositorio existente, que esta
+publicado por web. Recordemos que svn tiene varios métodos de acceso
+(local, ssh, protocolo propio, protocolo sobre webdav).<br>
+Vamos a usar un repositorio real, chico y con pocos cambios.<br>
+
+<pre>
+# svn co svn+ssh://luca@svn.llucax.com.ar/var/lib/svn/test wc_test
+Password:
+A  wc_test/link
+A  wc_test/mkfilter
+Revisión obtenida: 1
+# cd wc_test
+#
+<tt class=nota>Vemos que se bajo el repo</tt>
+# ls -l
+total 4
+lrwxrwxrwx  1 guestlabi guestlabi   8 2005-05-18 15:55 link -&gt; mkfilter
+-rwxr-xr-x  1 guestlabi guestlabi 427 2005-05-18 15:55 mkfilter
+#
+</pre>
+
+Para obtener la última versión...
+
+<pre>
+# svn update
+<tt class=nota>No hay nada nuevo</tt>
+En la revisión 1.
+#
+</pre>
+
+Un rato más tarde, luego de que alguien modificó un archivo:
+
+<pre>
+# svn update
+<tt class=nota>Obtenemos los últimos chagesets.</tt>
+M  arroz-solo
+Actualizado a la revisión 4.
+#
+</pre>
+
+Ahora hacemos unos cambios, pero alguien más estuvo haciendo cambios y los
+aplicó antes que nosotros. No importa, subversion, mientras pueda, hará un
+merge.
+
+<pre>
+# svn ci -m Cambios.
+<tt class=nota>Como cambió el mismo archivo que nosotros, antes debemos hacer un
+update para que pueda hacer un merge de los cambios en el servidor a los
+nuestros).</tt>
+Enviando       wc/trunk/arroz-solo
+svn: Falló el commit (detalles a continuación):
+svn: Out of date: '/trunk/arroz-solo' in transaction '6'
+# svn update
+<tt class=nota>Hace el merge sin problemas (notar la G).</tt>
+G  arroz-solo
+Actualizado a la revisión 5.
+#
+</pre>
+
+Finalmente, nuestro grupo humano no es perfecto, hubo falta de comunicación y 2
+personas corregimos el mismo error (o un error en la misma línea, por ejemplo).
+Subversion no puede hacer cargo de la situación y nos dice que hay conflicto.
+
+<pre>
+# svn up
+<tt class=nota>No puede hacer el merge, <strong>PROBLEMAS</strong> (notar la C).</tt>
+C  wc/trunk/arroz-solo
+Actualizado a la revisión 6.
+#
+<tt class=nota>Subversion nos deja varios elementos para solucionar el problema:</tt>
+# ls
+ls -l
+total 16
+-rw-rw----  1 luca luca 471 2005-05-19 18:02 arroz-solo
+<tt class=nota>El archivo con marcas de los conflictos (ya lo veremos en más detalle)</tt>
+-rw-rw----  1 luca luca 369 2005-05-19 18:02 arroz-solo.mine
+<tt class=nota>Mi versión del archivo.</tt>
+-rw-rw----  1 luca luca 362 2005-05-19 18:02 arroz-solo.r5
+<tt class=nota>La versión base de archivo, de donde surgió mi version y la nueva
+con la que tiene el conflicto.</tt>
+-rw-rw----  1 luca luca 362 2005-05-19 18:02 arroz-solo.r6
+<tt class=nota>La versión nueva del archivo que provoca el conflicto con mis cambios.</tt>
+# cat arroz-solo
+
+poner agua a hervir con sal (ponerle bastante sal)
+
+cuando hierva agregar el arroz y bajar un poco el fuego
+
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; .mine
+<tt class=nota>Hasta el "=======" es como está en mi versión.</tt>
+cuando este, sacalo colandolo bajo agua fria para cortar la cocción
+=======
+<tt class=nota>Hasta el "&gt;&gt;&gt;&gt;&gt;&gt;&gt; .r6" es como está en la nueva versión.</tt>
+cuando este, sacalo colandolo bajo agua fría para cortar la coccion
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; .r6
+
+ponerle aceite, puede ser de oliva; poner tambien un chorrin en la fuente
+antes, abajo del arroz
+
+cuatro tazas de agua x una de arroz
+una taza de arroz por persona (salen 2 platos)
+
+Listo!
+
+<tt class=nota>Si me olvido que hubo un conflicto y quiero hacer un commit, el
+svn no me deja.</tt>
+# svn ci
+svn: Falló el commit (detalles a continuación):
+svn: Abortando el commit: '/mnt/burns/luca/documentos/charla_scm/ejemplos/svn/w
+c/trunk/arroz-solo' queda en conflicto
+#
+<tt class=nota>Editamos el archivo para eliminar el conflicto.</tt>
+# vi arroz-solo
+[...]
+# svn diff
+# svn diff
+Index: arroz-solo
+===================================================================
+colordiff 1.0.4 (http://colordiff.sourceforge.net/)
+(C)2002-2004 Dave Ewart, davee@sungate.co.uk
+
+--- arroz-solo  (revisión: 6)
++++ arroz-solo  (copia de trabajo)
+@@ -3,7 +3,7 @@
+
+ cuando hierva agregar el arroz y bajar un poco el fuego
+
+ -cuando este, sacalo colandolo bajo agua fría para cortar la coccion
+ +cuando este, sacalo colandolo bajo agua fría para cortar la cocción
+
+  ponerle aceite, puede ser de oliva; poner tambien un chorrin en la fuente
+  antes, abajo del arroz
+#
+<tt class=nota>Finalmente avisamos al svn que resolvimos el conflicto (es
+análogo a borrar todos los archivos que creó para resolverlo)</tt>
+# svn resolved arroz-solo
+Se resolvió el conflicto de 'arroz-solo'
+# ls
+arroz-solo
+<tt class=nota>Y hacemos el commit.</tt>
+# svn ci -m "Corregido tilde"
+Enviando       trunk/arroz-solo
+Transmitiendo contenido de archivos .
+Commit de la revisión 7.
+#
+</pre>
+
+Listo, esta es uno de los problemas más complejos que se pueden presentar usando
+subversion, sin incluir los merges entre 2 branches, pero no tienen más magia
+que esto: si funciona bien, todos felices, si no, a resolver conflictos!
+
+</body>
+</html>
+

@@ -1,0 +1,1223 @@
+%
+%                                FAQ del LUGFI
+%
+%                      Diego Essaya <dessaya@fi.uba.ar>
+%
+% Para compilar
+% -------------
+% 
+% Requerimientos: LaTeX, con los paquetes babel, helvet, hyperref y 
+%                 html (que viene con html2latex).
+%
+% Primero hay que hacer 'latex faq-lugfi.tex' varias (¿3?) veces hasta 
+% que no tire ningún warning . Es para que se generen las referencias 
+% cruzadas y todo eso...
+%
+% Después, para generar la versión HTML:
+% 
+%   latex2html -split 0 -ascii_mode -no_navigation -no_auto_link \ 
+%     -show_section_numbers -toc_depth 5 -no_subdir faq-lugfi.tex
+%
+% Para generar el PDF:
+%
+%   dvipdf faq-lugfi.dvi
+%
+
+
+\documentclass[11pt,twoside,a4paper]{article}
+\usepackage[latin1] {inputenc}
+\usepackage[spanish]{babel}
+\usepackage{html}
+
+%begin{latexonly}
+\usepackage{fullpage}
+
+% Fuente Helvetica por default:
+\usepackage{helvet}
+\renewcommand\familydefault{\sfdefault}
+
+% El paquete hyperref debe ser el último de todos:
+\usepackage[hyperindex=true,latex2html=true,dvips=true,a4paper=true,colorlinks=true,urlcolor=blue,breaklinks=true,bookmarks=true,bookmarksnumbered=true]{hyperref}
+
+%end{latexonly}
+
+
+\title{Lista de Preguntas Frecuentes del \lugfi}
+
+\author{\htmladdnormallink{Diego Essaya}{mailto:dessaya@fi.uba.ar}}
+
+
+
+\begin{document}
+
+% Por si alguien quiere poner la palabra LUGFI con un estilo lindo, o algo así,
+% defino:
+\newcommand{\lugfi}{LUGFI}
+
+
+
+\maketitle
+
+Esta es la lista de preguntas frecuentes del \htmladdnormallink{\lugfi}
+{http://www.lug.fi.uba.ar}, el grupo de usuarios de
+GNU/Linux de la \htmladdnormallink{Facultad de Ingeniería (UBA)}
+{http://www.fi.uba.ar}. La intención es aclarar algunas dudas acerca del 
+\lugfi, y contestar a las preguntas que aparecen con más frecuencia en la 
+lista de correo.
+
+\tableofcontents
+
+
+
+\section{Acerca del \lugfi}
+
+
+\subsection{¿Qué es el \lugfi?}
+
+En pocas palabras,\label{temas:lugfi}\ el \lugfi\ es un grupo para
+compartir y discutir sobre GNU/Linux, Software Libre, OpenSource y temas
+similares. La idea surgió con varios chicos de la Facultad de
+Ingeniería de la UBA para difundir un poquito más el tema, y ayudar a
+los que quieran empezar en este ámbito.
+
+
+\subsection{¿Pero qué significa \lugfi?}
+
+\lugfi\ quiere decir: \emph{\lugfi\ Usa GNU/Linux en la Facultad de
+Ingeniería}, o bien \emph{Grupo de Usuarios de GNU/Linux de la Facultad
+de Ingeniería}. El nombre (y el grupo mismo) está inspirado en otros
+LUGs como el 
+\htmladdnormallink{LUGMen}{http://www.lugmen.org.ar/}
+(\emph{LUGMen Usa GNU/Linux en Mendoza}),
+el \htmladdnormallink{LUGLi}{http://www.lugli.org.ar/}
+(\emph{Linux Users Group del Litoral}) o el 
+\htmladdnormallink{UYLUG}{http://www.linux.org.uy/} (\emph{Linux Users
+Group del Uruguay}).
+
+
+\subsection{¿Puedo / me conviene unirme al \lugfi?}
+
+Si te interesa alguno de los temas del \lugfi\ (ver pregunta
+\ref{temas:lugfi}), si tenés problemas / dudas / consultas sobre
+GNU/Linux, o si tenés ganas de responder las consultas de los demás, en
+el \lugfi\ vas a encontrar un grupo de gente copada con ganas de ayudar
+y, al mismo tiempo, de aprender. No es estríctamente necesario que seas
+miembro de la Facultad de Ingeniería, aunque la gran mayoría (sino todos)
+lo somos, y casi siempre nuestras reuniones son en la Facultad.
+
+
+\subsection{¿Cómo puedo unirme al \lugfi?}
+Lo primero que podés hacer es anotarte y participar en la 
+\htmladdnormallink{lista de correo}
+{http://listas.fi.uba.ar/mailman/listinfo/lug/}.
+
+Una vez que te hayas anotado, podés mandar mails a
+\htmladdnormallink{lug@listas.fi.uba.ar}{mailto:lug@listas.fi.uba.ar},
+haciendo cualquier tipo de consulta (en lo posible relacionada con los temas
+del \lugfi). También, si te sentís seguro/a, podés responder a las consultas
+de los demás. De eso se trata una lista de correo...
+
+Si querés vernos las caras (y darte a conocer), podés venir a nuestras
+reuniones en la facultad, donde charlamos, trabajamos en los proyectos
+del día y, si es de noche, vamos a cenar pizza y cerveza a \emph{Mi Tío}
+=). El día y horario puede variar, así que preguntanos en la lista de 
+correo.
+
+También podés chatear con nosotros desde nuestra 
+\htmladdnormallink{página web}{http://irc.lug.fi.uba.ar},
+o bien usando cualquier cliente IRC y conectándote al canal \verb|#lugfi| en 
+irc.freenode.net. 
+
+
+\subsection{¿Hay algún tipo de ``reglas'' a seguir en la lista de
+correo?}
+
+Son las mismas que seguirías en cualquier otra lista.
+
+\begin{itemize}
+\item Tratá de mandar mensajes que tengan que ver con los temas del \lugfi.
+Puede ser una pregunta, un comentario o cualquier cosa que se te ocurra. En
+el subject poné una descripción del tema de tu mensaje.
+
+\item Si querés mandar algo que te parezca interesante pero no tiene mucho
+que ver con el \lugfi, agregá en el subject algo como ``[Offtopic]'' u
+``[OT]''. Por ejemplo, ``[OT] Nueva versión de Winamp''.
+
+\item Cuando respondas algún mensaje, y al mismo tiempo cambies el tema de
+conversación, tratá de cambiar el subject.
+
+\item Cuando contestes, incluí el cuerpo del mensaje al que respondés con
+algún símbolo como `\verb|>|' (generalmente lo hace automáticamente tu cliente
+de correo). Si el mensaje al que respondés es largo, tratá de cortar las
+partes que no son relevantes.
+
+\item Por favor, no mandes mensajes en formato HTML. (Algunos clientes de
+correo pueden no mostrar correctamente este tipo de mensajes).
+
+\item Tratá de ser respetuoso con los demás. Además, acordate de que
+Google indexa el historial de la lista, así que podés quedar escrachado/a :)
+\end{itemize}
+
+
+\subsection{¿Qué son esas abreviaturas raras que usan en la lista?}
+{\bf [Agregado por Gustavo Maluf]}
+
+La gente de habla inglesa tiene la (¿mala?) costumbre de abreviar todo
+lo que pueden. Como algunos de nosotros leemos o participamos en algunas
+listas de correo en inglés, nos (¿mal?) acostumbramos a usar algunas de las 
+abreviaturas más comunes. Algunos ejemplos son:
+
+% [Diego]
+% Acá tengo que hacer una triquiñuela para que quede bien la tabla en 
+% formatos pdf y html. En pdf uso el entorno tabbing (para que la tabla
+% pueda ser partida en varias páginas), y en html uso tabular (porque
+% tabbing se ve feo :).
+
+\newcommand{\textotabla}[2]{
+IMHO    #1 In My Humble/Honest Opinion (en mi humilde/modesta opinion)\\
+IMNSHO	#2 In My Not So Humble Opinion (en mi no tan humilde opinion)\\
+BTW	#2 By The Way (a propósito; dicho sea de paso)\\
+ASAP	#2 As Soon As Possible (tan pronto como sea posible; lo antes posible)\\
+AFAIK	#2 As Far As I Know (hasta donde yo sé)\\
+IIRC	#2 If I Remembre/Recall Correctly (si mal no recuerdo)\\
+RTFM	#2 Read The Fine Manuals/f*cking manuals/FAQ manuals/FAQ and manuals\\
+	#2 (leé la documentación/las preguntas más frecuentes 'FAQ')\\
+STFW	#2 Search The F*cking Web (buscá en la web)\\
+SMTC	#2 Show Me The Code (mostrame el código fuente)\\
+BRB	#2 Be Right Back (ya vuelvo)\\
+LOL	#2 Laughing Out Loud (me río a carcajadas)\\
+CU	#2 See You (nos vemos)\\
+AKA	#2 Also Known As (también conocido como; alias)
+}
+
+\begin{htmlonly}
+	\begin{center}
+	\begin{tabular}{ll}
+	\textotabla{&}{&}
+	\end{tabular}
+	\end{center}
+\end{htmlonly}
+\begin{latexonly}
+	\begin{tabbing}
+	\textotabla{\hspace{1cm}\=}{\>}
+	\end{tabbing}
+\end{latexonly}
+
+% Un quilombito, pero funciona :)
+
+
+
+\subsection{¿Cómo me desuscribo de la lista?}
+Andá a \htmladdnormallink{http://listas.fi.uba.ar/mailman/listinfo/lug/}
+{http://listas.fi.uba.ar/mailman/listinfo/lug/}. Ingresá tu mail para cambiar
+las opciones de la suscripción y ahí aparece la opción para desuscribirte.
+
+
+\subsection{¿Cómo puedo colaborar con el \lugfi?}
+Anotate \label{sec:colab} en la lista de correo \htmladdnormallink{org}
+{http://www.lug.fi.uba.ar/cgi-bin/mailman/listinfo/org} y mandanos un
+mensaje diciendo en qué te gustaría colaborar. Esta lista está dedicada a
+todos los temas de organización interna del grupo, como ser los proyectos,
+eventos, reuniones, y la página web.
+
+
+
+
+\section{Acerca de GNU/Linux y el software libre}
+
+
+\subsection{¿Qué es GNU/Linux?}
+\htmladdnormallink{GNU/Linux}{http://www.linux.org} es un sistema operativo 
+multitarea, multiusuario, multiplataforma, extremadamente estable, 
+y por si fuera poco, libre. Todas estas características, y en especial las 
+últimas dos, son las que impulsan a muchos usuarios de otros sistemas 
+operativos a migrar a GNU/Linux. Cada vez son más las empresas y organizaciones
+que toman esta decisión.
+
+Es importante destacar la diferencia entre Linux y GNU.
+
+\htmladdnormallink{El Proyecto GNU}{http://www.gnu.org}, fundado en 1984
+por Richard Stallman, tiene como objetivo desarrollar un sistema operativo 
+libre, accesible para todo el mundo. 
+
+Inspirado en el sistema operativo Unix, GNU no está desarrollado como un
+sistema gigante que intenta hacer todo al mismo tiempo, sino que es un
+conjunto de cientos de pequeñas herramientas independientes. Cada una de 
+estas herramientas hace ``una sola cosa, pero lo hace bien''.
+
+Al juntar estas piezas en forma adecuada se forma el sistema GNU. Como todas
+las piezas funcionan bien, el sistema funciona bien.
+
+Al proyecto GNU siempre le faltó una de las piezas más importantes: el 
+\emph{kernel} o núcleo del sistema. El kernel es la base que se encarga de 
+controlar los recursos y de que todo funcione armoniosamente. Es algo así como
+la pieza central. GNU desarrolla un kernel llamado 
+\htmladdnormallink{Hurd}{http://www.gnu.org/software/hurd/whatsnew.html},
+pero aun no está terminado.
+
+En 1991, Linus Torvalds desarrolló un kernel llamado 
+\htmladdnormallink{Linux}{http://www.kernel.org}, que si bien no forma parte 
+del proyecto GNU, también es libre. Con la ayuda de muchos hackers esparcidos
+por la red, Linux se convirtió en lo que es hoy día: un núcleo extremadamente
+poderoso y estable.
+
+Añadiendo Linux al sistema de herramientas GNU se forma el \textbf{sistema
+GNU/Linux}. Si bien todo el mundo está acostumbrado a llamarlo simplemente
+``Linux'', es importante saber que en realidad Linux es una pieza muy 
+importante en un sistema formado por cientos de otras piezas. Sin las 
+herramientas GNU, el sistema no serviría de mucho.
+
+Más información en
+\htmladdnormallink{http://www.gnu.org/gnu/gnu-linux-faq.es.html}
+{http://www.gnu.org/gnu/gnu-linux-faq.es.html}
+
+
+\subsection{¿Pero qué es el software libre?}
+Este tema es un tanto filosófico; y además tiene la particularidad de generar
+discusiones en la lista de correo bastante seguido. Para entenderlo creo que es
+mejor ir directo a la fuente: la 
+\htmladdnormallink{Free Software Foundation}{http://www.fsf.org}. 
+Según ellos, una ``definición'' de software libre puede ser:
+
+\begin{quotation}
+``Software Libre'' se refiere a la libertad de los usuarios para ejecutar, 
+copiar, distribuir, estudiar, cambiar y mejorar el software. De modo más 
+preciso, se refiere a cuatro libertades de los usuarios del software:\\
+- La libertad de usar el programa, con cualquier propósito (libertad 0).\\
+- La libertad de estudiar como funciona el programa, y adaptarlo a tus
+necesidades (libertad 1). El acceso al código fuente es una condición previa
+para esto.\\
+- La libertad de distribuir copias, con lo que puedes ayudar a tu vecino
+(libertad 2).\\
+- La libertad de mejorar el programa y hacer publicas las mejoras a los
+demás, de modo que toda la comunidad se beneficie. (libertad 3). El acceso al
+código fuente es un requisito previo para esto.
+\end{quotation}
+
+El proyecto GNU se encargó también de crear la 
+\htmladdnormallink{Licencia GPL}{http://gugs.sindominio.net/gnu-gpl/gples.html} 
+(GNU Public License), que es un tipo de contrato entre el desarrollador del 
+software y el usuario. Todo el software que se distribuye bajo la licencia
+GPL es libre, y entre otras cosas, se permite al usuario distribuir copias
+del software, o cambiarlo a gusto, bajo los términos de la licencia.
+
+
+\subsection{¿Es lo mismo \emph{software libre} y \emph{software gratis}
+(Freeware)?}
+
+Definitivamente, no. Que un software sea libre no implica necesariamente
+que sea gratuito o no comercial.
+Existe software propietario y oneroso (por ejemplo, MS Windows), software
+propietario y gratuito (MS Internet Explorer), software libre y oneroso
+(distribuciones RedHat y SuSE de GNU/Linux) y software libre y gratuito
+(Debian GNU/Linux).
+
+
+\subsection{¿Es lo mismo \emph{software libre} y \emph{código abierto} 
+(Open Source)?}
+
+Casi, pero no. 
+\htmladdnormallink{Open Source}{http://www.opensource.org/} es una postura
+política similar a la del Software Libre, pero ambas están en desacuerdo
+en un par de puntos básicos. Sin embargo no se consideran ``enemigas'' e 
+incluso trabajan juntas en muchos proyectos. El ``enemigo'' de estos dos 
+movimientos es el \emph{software propietario}.
+
+Hay mucho más sobre estos temas en:
+\htmladdnormallink{http://www.gnu.org/philosophy/philosophy.es.html}
+{http://www.gnu.org/philosophy/philosophy.es.html}
+
+
+
+
+
+
+\section{Preguntas frecuentes de la lista de correo}
+
+{\bf Nota:} Debido a que muchos de los integrantes del \lugfi\ usamos Debian 
+GNU/Linux, algunas de las preguntas/respuestas están orientadas a esta
+distribución, y si no hay información sobre otras distros por el simple 
+hecho de que no las conocemos tan a fondo. Si creés que falta algún dato 
+importante sobre una distro en particular, por favor avisanos en la lista
+de correo, o agregalo vos mismo (leé la pregunta \ref{sec:colab}).
+
+
+\subsection{Así que querés instalar GNU/Linux...}
+
+\subsubsection{¿Cuáles son los requerimientos mínimos de hardware?}
+
+En general, esto dependerá de la distribución que elijas.  De todos modos,
+para que tengas una idea, el kernel de Linux necesita un micro de 32 bits,
+y en las PCs esto es válido a partir de la 386. Si querés modo gráfico,
+el \htmladdnormallink{XOrg}{http://freedesktop.org/XOrg} necesita como
+mínimo 16 MB de RAM; y si tenés menos de eso, aun podés usar GNU/Linux en
+modo consola. El espacio en disco necesario dependerá principalmente del uso
+que vayas a darle (escritorio, servidor, etc.), pero en una distribución
+estándar para una PC de escritorio podés calcular no menos de 2 GB.
+
+En resumen: GNU/Linux se va a adaptar al hardware que tengas, pero,
+por supuesto, cuanto mejor sea tu máquina, más feliz vas a estar.
+
+
+\subsubsection{¿Qué son las distribuciones?}
+
+No hay un sólo GNU/Linux, sino que existen las denominadas
+\emph{distribuciones}. Todas las distribuciones comparten el mismo kernel
+y las herramientas básicas, y en teoría cualquier programa para Linux
+puede ejecutarse en cualquier distribución. Sin embargo, las distintas
+``distros'' tienen diferentes métodos de instalación y configuración
+(algunas, por ejemplo, llegando a ejecutarse directamente del CD o
+diskettes). Hay distribuciones de todos los colores y para todos los
+gustos. Algunas son gratuitas y otras no.
+
+Lo primero que tenés que hacer (si todavía no lo hiciste) es elegir tu
+distribución. Las más difundidas son
+\htmladdnormallink{Fedora}    {http://fedora.redhat.com/},
+\htmladdnormallink{Debian}    {http://www.debian.org/},
+\htmladdnormallink{Slackware} {http://www.slackware.com/},
+\htmladdnormallink{Mandrake}  {http://www.mandrakesoft.com/},
+\htmladdnormallink{SuSE}      {http://www.suse.com/},
+\htmladdnormallink{Knoppix}   {http://www.knoppix.net/},...
+
+
+\subsubsection{¿Y cuál me conviene?}
+Ah, bueno, ejem... esto es decisión propia. Yo podría decirte cosas como
+``tal distro es la mejor'' o ``esta es malísima'', pero no corresponde.
+Sobre gustos no hay nada escrito. Lo ideal sería que pruebes algunas y
+te quedes con la que más te guste.
+
+Sí puedo hacer algunos comentarios acerca de las distros antes
+mencionadas, que por algo son las más difundidas:
+
+\begin{description}
+	\item[\htmladdnormallink{Fedora}
+		{http://fedora.redhat.com/}]
+		Basada en la famosa distribución comercial 
+		\htmladdnormallink{Red Hat}{http://www.redhat.com},
+		Fedora es una de las distribuciones más populares y más
+		utilizadas en el mundo, apuntada a todos los niveles
+		de usuario.
+
+	\item[\htmladdnormallink{Debian}
+		{http://www.debian.org/}]
+		Otro gigante. Elegido por muchos en el LUGFI. Tiene la
+		particularidad de que las versiones de los programas
+		no son del todo recientes, porque los responsables de
+		armar la distribución se encargan de asegurarse de que
+		cada paquete sea completamente estable antes de incluirlo.
+
+	\item[\htmladdnormallink{Mandrake}
+		{http://www.mandrakesoft.com/}]
+		Generalmente se la recomienda para quien recién comienza
+		en GNU/Linux, ya que está diseñada de forma tal que la
+		instalación y configuración sea fácil e intuitiva.
+
+	\item[\htmladdnormallink{Slackware}
+		{http://www.slackware.com/}]
+		Es una de las distribuciones que estuvieron desde el
+		principio, y mantuvo siempre las mismas características:
+		estabilidad, flexibilidad y rapidez, pero al costo de
+		una orientación a nivel de usuario avanzado.  No es
+		recomendable si nunca tuviste contacto con GNU/Linux,
+		ya que la instalación y configuración es bastante difícil.
+
+	\item[\htmladdnormallink{Knoppix}
+		{http://www.knoppix.net/}]
+		Una distro relativamente nueva, y muy recomendada para 
+		principiantes, ya que {\bf no requiere instalación}. Knoppix 
+		es un \emph{Live-CD}, lo que significa que con sólo insertar 
+		el CD y reiniciar, ya tenés todo un GNU/Linux funcionando.
+		Está basada en Debian.
+\end{description}
+
+Hay muchas, muchísimas más distribuciones que seguramente valga la pena mirar. 
+Podés encontrar una lista muy completa de las distribuciones disponibles
+en \htmladdnormallink{linux.org}{http://www.linux.org/dist/list.html}.
+En \htmladdnormallink{DistroWatch}
+{http://www.distrowatch.com/index.php?language=ES}
+hay además algunos cuadros comparativos.
+
+
+\subsubsection{¿Es muy difícil instalar GNU/Linux?}
+Instalar, no. Configurar... puede ser.
+
+En general la instalación y puesta en marcha no resulta complicada.
+Hay que saber un par de cosas comunes a la mayoría de las distribuciones,
+y luego el programa de instalación te hace algunas preguntas y se encarga
+del resto.
+
+Después de instalar GNU/Linux viene el verdadero trabajo: el de
+configurar, personalizar y administrar el sistema.  No te quiero asustar,
+pero tampoco te quiero mentir: GNU/Linux requiere esfuerzo y ganas
+de aprender.
+
+Las buenas noticias son: 
+\begin{itemize}
+	\item Generalmente podés empezar a usar el sistema con
+	la configuración que viene ``de fábrica'', o con muy pocos
+	cambios. Después podés ir personalizando de a poco todo lo que
+	creas necesario, a medida que vas aprendiendo.
+
+	\item Existe una abundante documentación, empezando por la que
+	viene en todas las distribuciones y con todo el software,
+	siguiendo por la que está disponible en Internet (pasando por 
+	Google), y si nada de eso dio resultado, terminando en
+	las numerosas listas de correo y grupos de noticias, donde
+	siempre se encuentra gente con ganas de ayudar.
+
+	\item No estás usando una muestra gratis de sistema operativo,
+	estás usando GNU/Linux: las herramientas disponibles para llevar
+	a cabo la administración son realmente potentes.  El sistema
+	de archivos (ext2 o ext3) es extremadamente eficiente, y rara
+	vez requiere ``desfragmentación''; cualquier trabajo (sea de
+	mantenimiento o no) que resulte rutinario se puede automatizar;
+	el sistema puede llevar un registro de \emph{todos} los eventos
+	importantes (recepción/envío de paquetes por red, ingreso de
+	usuarios, mensajes de error y avisos generales, etc)...
+
+	Además,	\emph{nadie} salvo el administrador (o sea, vos) puede tocar
+	los archivos de configuración.
+
+	\item {\bf Nunca es necesario reinstalar GNU/Linux}. No importa
+	qué macana te hayas mandado, o qué problema tenga el
+	sistema, {\bf siempre se puede arreglar sin reinstalar}. Una
+	vez que un GNU/Linux está funcionando, ahí se queda, hasta que
+	tires la computadora a la basura por obsoleta. Si estás habituado
+	a cierto SI (Sistema Inoperativo) esto te puede resultar algo
+	chocante. Creeme, es así.
+
+	(Bueno...  la excepción a la regla debe existir, pero me imagino
+	que tiene que ser un problema MUY grave, como que se parta en dos
+	el disco rígido, o algo así. Pero vos ya tenías un backup, ¿no? :)
+
+	\item El trabajo pesado se lo lleva el administrador (ese
+	sos vos).  En cambio, el usuario final (tu abuela o tu tío)
+	requiere mucho menos esfuerzo para comenzar a usar el sistema. Con
+	explicarle un par de cosas básicas es suficiente. Es más, si
+	tu vieja está muy acostumbrada a ``Ventanas'', podés asegurarle
+	que va a notar muy pocas diferencias.
+\end{itemize}
+
+
+\subsubsection{¿Tengo que desinstalar Windows?}
+No (aunque deberías). GNU/Linux y Windows (o cualquier otro SO) pueden 
+coexistir perfectamente en la misma computadora, y sin agarrarse a las 
+patadas :).
+
+
+\subsubsection{Ya tengo mi distribución, ¿Qué hago?}
+Como se dijo antes, la instalación de cada distro puede llegar a ser
+algo distinta de otras distribuciones, y siempre te conviene que leas
+la documentación de la misma.
+
+Sin embargo, los primeros pasos a seguir suelen ser los mismos. En el
+libro online \htmladdnormallink{``Linux: instalación y primeros pasos''}
+{http://ibiblio.org/pub/Linux/docs/LDP/install-guide/translations/es/lipp-1.1-html-2/lipp.htm}\label{preg:ya-tengo-dist}
+se explica detalladamente el proceso de instalación para muchos casos
+diferentes; y en la \htmladdnormallink{FAQ sobre Linux para principiantes}
+{http://unia.ual.es/LuCAS/FAQ/FAQ_Linux/Html/FAQ_Linux.html} se
+responden muchas de las preguntas frecuentes que surgen antes y durante
+la instalación.
+
+\subsection{Problemas comunes en la instalación}
+
+
+\subsubsection{No puedo achicar la partición de Windows}
+Los programas que permiten hacer esto (\verb-fips-, Partition Magic, etc.)
+necesitan que los datos de la partición Windows estén ``apilados'' al
+principio de la misma. Para esto, acordate de desfragmentar el disco antes de
+intentar recortar la partición. Cuando la desfragmentación termine, salí
+de Windows inmediatamente (si vas a usar \verb-fips-), para evitar que se
+vuelvan a generar archivos en cualquier lado.
+
+A veces pasa que hay archivos ocultos, de sistema o read-only que impiden la
+desfragmentación. En ese caso tenés que darte cuenta de cuáles son, y
+quitarle esos atributos.
+
+
+\subsubsection{Mi PC no puede bootear del CD}
+No hay problema. Algunas distros traen ejecutables de DOS para comenzar la
+instalación, o una imagen de un diskette booteable. Leé la documentación
+que viene en el CD.
+
+
+\subsubsection{La instalación no me detecta mi (insertá tu modem/placa de 
+red/sonido/etc.)}
+No importa. Cuando termine la instalación lo podés configurar. Salvo casos
+particulares como la placa de video o un modem normal, para utilizar un
+dispositivo determinado es necesario que tengas instalado y cargues el
+módulo del kernel correspondiente (ver pregunta \ref{sec:modulos}).
+
+
+\subsubsection{No sé qué software instalar}
+En líneas generales, supongo que querés instalar el modo gráfico
+(XFree86 o XOrg), con algún entorno de escritorio (GNOME, KDE...), y algún
+Display Manager que permite loguearse en modo gráfico (gdm, kdm...). Podés 
+ver descripciones de algunas de las demás aplicaciones
+en la pregunta \ref{preg:prog}.
+
+De todos modos, tampoco te preocupes por esto. Una vez que tengas
+GNU/Linux funcionando, siempre podés instalar y desinstalar paquetes
+\emph{a piacere}. No te olvides, eso sí, de los paquetes indispensables
+(en el programa de instalación te avisa cuáles son).
+
+
+\subsubsection{Tengo problemas con el LILO}
+Bueno, no voy a hacer una exposición detellada del tema, ni explicar
+la configuración para todos los casos posibles (que son muchos), porque
+eso ya está hecho en la documentación del LILO.
+
+Voy a suponer que tu instalación es similar a la mia: un solo disco
+rígido, con Windows en la primera partición, GNU/Linux en la segunda
+y la partición swap de Linux en la tercera. Me imagino que esto es
+bastante general.
+
+La configuración del LILO se lleva a cabo desde GNU/Linux, editando
+\verb|/etc/lilo.conf|, y luego (no olvidarse de esto)
+ejecutando \verb|lilo|. Al ejecutar \verb|lilo|, el programa lee el
+archivo de configuración y hace los cambios especificados en el sector
+de booteo. Si acabás de actualizar tu kernel y te olvidás de este último
+paso, es probable que tu computadora quede imposibilitada para bootear.
+
+Mi \verb|/etc/lilo.conf| es como sigue:
+\begin{verbatim}
+# Soporte para discos rígidos grandes:
+#
+lba32
+
+# Quiero guardar el lilo en el MBR (Master Boot Record) del disco rígido.
+# También es posible guardarlo en alguna partición booteable (/dev/hda1,
+# /dev/hda2...).
+#
+boot=/dev/hda
+
+# Especifico como default que /dev/hda2 es la partición root de 
+# Linux (`/').
+#
+root=/dev/hda2
+
+# La variable install permite elegir cómo se va a ver el boot loader
+# cuando funcione (modo texto/gráfico, con/sin menu...). Para empezar,
+# la opción `menu' es aceptable.
+#
+install=/boot/boot-menu.b
+
+# Esquema de colores para el menu:
+#
+menu-scheme=wb:bw:wb:Wb
+
+# En el archivo mensaje.txt dice "Seleccione el sistema operativo: ".
+#
+message=/boot/mensaje.txt
+
+# Quiero que arranque el Linux automáticamente a los 3 segundos.
+#
+default=Linux-2.4.20
+prompt
+timeout=30
+
+#
+# Comienzo a especificar las opciones disponibles:
+#
+
+# Linux:
+#
+image=/boot/vmlinuz-2.4.20
+	label=Linux-2.4.20
+
+# Windows:
+#
+other=/dev/hda1
+    label=Windows
+
+# Un kernel de Linux que funciona seguro, en caso de emergencia:
+#
+image=/boot/vmlinuz-2.2.20-idepci
+	label=Linux-2.2.20
+\end{verbatim}
+
+Para más información, ver: \verb|'man lilo'|, \verb|man 'lilo.conf'| y 
+la documentación del LILO.
+
+\subsubsection{El sistema se cuelga en el arranque}
+Lo más común es que esto pase porque el sistema esté configurado para 
+ingresar automáticamente en el modo gráfico (X), pero que éste no haya sido 
+instalado correctamente y se cuelgue, con lo que la computadora queda 
+completamente inutilizada...
+
+Suponiendo que tengas el LILO correctamente configurado, para ingresar al 
+sistema y evitar que arranque el modo gráfico, tenés que agregar un parámetro
+a la opción del LILO que utilices. Cuando aparece el mensaje ``boot:~'' vos
+normalmente pondrías ``linux'' para arrancar el sistema. En lugar de eso,
+poné ``linux 1'' o ``linux S''. De esta forma se cambia el runlevel a ingresar.
+
+Dependiendo de la distribución, el runlevel 5 ó el 2 es el utilizado por
+defecto, habilitando entre otras cosas el modo gráfico. El runlevel 1,
+en cambio, arranca el sistema en modo mantenimiento y no carga ningún 
+servicio que no sea indispensable.
+
+Otra opción es escribir en el prompt del LILO algo como ``linux root=/dev/hda2 
+init=/bin/sh''. La opción ``root'' es la partición root que elegiste en la 
+instalación, e ``init'' permite especificar el programa a ejecutar (en lugar
+de /sbin/init). De esta forma, ni bien termina de cargarse el kernel, obtenés
+una consola de root, donde podés arreglar cualquier problema que tenga
+el sistema.
+
+\subsubsection{¡Ya lo instalé! ¿Y ahora?}
+En el libro y la FAQ mencionados en la pregunta \ref{preg:ya-tengo-dist} 
+también hay información importante para principiantes; 
+más precisamente un tutorial y una lista de preguntas frecuentes.
+Además podés leer el \htmladdnormallink
+{User-Friendly Unix FAQ}{http://www.camelcity.com/~noel/usenet/cuuf-FAQ.htm}.
+
+Cuando querés averiguar sobre un tema específico, pueden ser útiles
+los \htmladdnormallink{COMOs}{http://lucas.linux.org.mx/htmls/comos.html}
+(HOWTOs en castellano). Son un conjunto numeroso de FAQs que tratan muchos
+temas relacionados con GNU/Linux, incluyendo \htmladdnormallink{Cómo pasar de
+DOS/Windows a Linux}
+{http://lucas.linux.org.mx/COMO-INSFLUG/COMOs/Dos-Win-Linux-Como/}.
+
+En \htmladdnormallink{www.gnuservers.com.ar}{http://www.gnuservers.com.ar}
+están los apuntes de las clases de GNU/Linux dictadas en la Facultad por
+Margarita Manterola y Maximiliano Curia.
+
+
+\subsection{Programas para reemplazar a los de Windows}
+Recomiendo leer: \label{preg:prog}
+
+\htmladdnormallink{http://linuxshop.ru:10000/linuxbegin/win-lin-soft-spanish/}
+{http://linuxshop.ru:10000/linuxbegin/win-lin-soft-spanish/}\label{sec:prog}
+
+o la versión en inglés, probablemente más actualizada:
+
+\htmladdnormallink{http://linuxshop.ru/linuxbegin/win-lin-soft-en/}
+{http://linuxshop.ru/linuxbegin/win-lin-soft-en/}
+
+Esa página tiene una lista bastante extensa de equivalencias entre los 
+programas de Windows y GNU/Linux, agrupados por categorías, más algunos links 
+importantes.
+
+En el LABI está funcionando la
+\htmladdnormallink{CDoteca del \lugfi}{../../proyectos/cdoteca/index.php}, 
+donde estamos juntando de a poco una colección de CDs con software libre 
+para Windows y GNU/Linux, disponible para cualquiera que los necesite.
+
+Si disponés de banda ancha, en \htmladdnormallink{www.cdlibre.org}
+{http://www.cdlibre.org} y en 
+\htmladdnormallink{http://gnuwin.epfl.ch/es/index.html}{GnuWin II}
+hay más imágenes de CDs listas para bajar con recopilaciones de software 
+libre para GNU/Linux y Windows.
+
+En uno de los documentos del \lugfi\ hay una
+\htmladdnormallink{lista de herramientas}{../lista-herramientas/index.php}
+libres para ingeniería.
+
+Finalmente, en \htmladdnormallink{Scientific Applications on Linux (SAL)}
+{http://sal.kachinatech.com/} hay información sobre \emph{todo} el 
+software científico disponible para GNU/Linux, en una base de datos dividida 
+en temas, y con un motor de búsqueda. Interesante.
+
+
+
+\subsection{Obtener ayuda}
+La gran mayoría de los comandos/programas se instalan con una página de manual,
+de forma tal que podés leer la documentación fácilmente haciendo:
+
+\verb-man <comando>-
+
+Esto te muestra la ``man page'' para cualquier comando. Por ejemplo, si querés
+saber más sobre el comando \verb-ls-, hacé:
+
+\verb-man ls-
+
+Para salir de la página de manual, usá la tecla \verb-q-. Para aprender más
+sobre el comando \verb|man|, obviamente podés hacer:
+
+\verb|man man|
+
+¡No te olvides de hacer \verb-man- de todos los comandos que mencionemos de acá
+en adelante!
+
+Si no quedaste satisfecho, algunos comandos traen una documentación más extensa
+en formato \verb-info-. Para leerla, probá con:
+
+\verb-info <comando>-
+
+¿Qué pasa si sabés lo que querés hacer, pero no sabés el nombre del comando?
+En este caso el comando \verb|apropos| es tu amigo:
+
+\verb-apropos <texto>-
+
+busca aquellas páginas de manual que contienen el texto. Por ejemplo:
+\begin{verbatim}
+$ apropos "copy files"
+File::Copy (3perl)   - Copy files or filehandles
+cp (1)               - copy files and directories
+cpio (1)             - copy files to and from archives
+install (1)          - copy files and set attributes
+\end{verbatim}
+
+También, Muchos programas instalan documentación (archivos txt, pdf, html...) 
+en algún directorio como
+\verb|/usr/share/doc|, o \verb|/usr/local/share/doc|, o \verb|/usr/doc|, ...
+
+
+\subsection{Montar diskettes / CDs / particiones}
+En GNU/Linux no es suficiente con meter el diskette o CD para utilizarlo. Además
+hay que \emph{montarlo}, y luego de haberlo utilizado hay que \emph{desmontarlo}
+y recién después sacarlo.
+
+Los comandos \verb-mount- y \verb-umount- se encargan de estas tareas. La forma
+``más molesta'' de montar un diskette es:
+
+\verb|mount -t auto /dev/floppy /floppy|
+
+De esta forma le estamos diciendo: Quiero que el diskette (\verb-/dev/floppy-)
+esté montado en el directorio \verb-/floppy-, y además que su filesystem
+(tipo de formato) sea autodetectado (\verb|-t auto|). El directorio
+\verb-/floppy- debería existir. Si no existe, probá con \verb-/mnt/floppy-.
+
+Si todo esto no funciona, hay un problema. Probá cambiar \verb-/dev/floppy- por
+\verb-/dev/fd0-. Si esto no sirve, tu sistema no parece haber detectado ninguna
+disketera...
+
+Para desmontar hacer simplemente:
+
+\verb|umount /floppy|
+
+Lo mismo puede aplicarse al CDROM cambiando \verb-floppy- por \verb-cdrom-:
+
+\verb|mount -t auto /dev/cdrom /cdrom|\\
+\verb|umount /cdrom|
+
+Para más detalles, leé el manual de \verb-mount- (\verb-man mount-).
+
+La forma ``menos molesta'' para utilizar el comando \verb|mount| requiere 
+que edites el archivo \verb-/etc/fstab-. Este archivo guarda información 
+sobre los  dispositivos montables. En mi caso, \verb-fstab- es como sigue:
+
+\begin{verbatim}
+------------------------------------------------------------------------------
+# <file system> <mount point>   <type>  <options>               <dump>  <pass>
+/dev/hda2       /               ext2    errors=remount-ro       0       1
+/dev/hda3       none            swap    sw                      0       0
+proc            /proc           proc    defaults                0       0
+/dev/fd0        /floppy         auto    user,noauto             0       0
+/dev/cdrom      /cdrom          iso9660 ro,user,noauto          0       0
+/dev/hda1       /hd1            vfat    user,auto,rw,noexec,umask=002
+------------------------------------------------------------------------------
+\end{verbatim}
+
+Se explica solito, ¿no? (Si no, ver \verb-man fstab-). La primera columna 
+muestra los dispositivos, tal como los detecta el kernel. Hay que tener en 
+cuenta la nomenclatura:
+
+\begin{tabular}{ll}
+\verb-/dev/hda- &   Dispositivo maestro de la controladora IDE primaria\\
+\verb-/dev/hda1- &  Primera partición de \verb-/dev/hda- (en mi caso, la 
+		    partición Windows)\\
+\verb-/dev/hda2- &  Segunda partición (en mi caso, la partición \verb-ext2- de 
+		    Linux)\\
+\verb-/dev/hda3- &  Tercera partición (en mi caso, la partición \verb-swap- de 
+		    Linux)\\
+\verb-...-\\
+\verb-/dev/hdb- &   Dispositivo esclavo de la controladora IDE primaria\\
+\verb-/dev/hdb1- &  Primera partición de \verb-/dev/hdb-\\
+\verb-...-\\
+\verb-/dev/hdc- &   Dispositivo maestro de la IDE secundaria (en mi caso, el 
+		    CDROM)\\
+\verb-/dev/hdd-  &  Dispositivo esclavo de la IDE secundaria\\
+\verb-/dev/fd0-  &  Primera disketera \\
+\verb-/dev/fd1-  &  Segunda disketera (yo no tengo)\\
+\verb-...-\\
+\verb-/dev/floppy- & Es un link a \verb-/dev/fd0-\\
+\verb-/dev/cdrom- & Es un link a \verb-/dev/hdc- (en mi caso)
+\end{tabular}
+
+La segunda columna muestra el directorio donde se montará el dispositivo; este
+directorio debe existir y normalmente debe estar vacío.
+
+La columna \verb|<type>| permite especificar el tipo de \emph{filesystem} que
+utiliza el dispositivo. Los tipos \verb|ext2|, \verb|ext3| y \verb|reiserfs| 
+son filesystems comúnmente utilizados en particiones Linux, mientras que 
+\verb|msdos| y \verb|vfat| son los de Windows. Si vas a montar una partición 
+(o un diskette) de Windows, utilizá \verb|vfat|, ya que es la que soporta los 
+nombres largos. Los CDs utilizan normalmente \verb|iso9660|.
+
+Si usás \verb|auto|, al montar se intentará detectar el filesystem
+automáticamente. Esto es útil para la disketera, en donde pueden ser utilizados
+diskettes con distintos filesystems.
+
+En la columna \verb|<options>| pueden pasarse al comando \verb|mount| todas 
+las opciones deseadas para el dispositivo. La más destacada es \verb|auto|, 
+que permite que el mismo sea montado automáticamente en el booteo. Ver 
+\verb|man mount| para una descripción de las demás opciones disponibles.
+
+Una vez que tenés el archivo \verb-/etc/fstab- a tu medida, se puede usar el
+comando \verb-mount- de una manera más corta:
+
+\verb-mount /cdrom-
+
+El sistema se fija en \verb-/etc/fstab- y encuentra la línea correspondiente,
+por lo que el CDROM se monta con todas las opciones especificadas.
+
+
+\subsection{Configuración de un winmodem}
+Estos tipos de modems suelen generar problemas... Podés empezar por ver si por
+lo menos Linux lo está ``detectando'' mirando dentro del archivo
+\verb-/proc/pci-. Eso no te garantiza que funcione pero por lo menos es un
+comienzo.
+
+En \htmladdnormallink{www.linmodems.org}{http://www.linmodems.org} hay
+instrucciones para configurar una gran cantidad de estos modems. En la mayoría
+de los casos vas a tener que bajar un módulo (driver) que viene en código
+fuente. Esto significa que vas a tener que compilarlo. Leé la sección
+\ref{sec:modulos}.
+
+Si tu modem no está listado en linmodems.org, yo iría perdiendo las
+esperanzas... :(
+
+
+\subsection{Manejo de paquetes en Debian}
+La herramienta\label{sec:apt} \verb-apt- que viene en Debian GNU/Linux
+facilita enormemente el trabajo de instalar y desinstalar paquetes.
+De hecho es tan útil y avanzada que otras distribuciones han comenzado a
+utilizarla para el manejo de paquetes.  A continuación se dan las reglas
+básicas para comenzar a usar esta excelente herramienta.
+
+\subsubsection{Instalación de paquetes}
+La forma típica de instalar, por ejemplo, el Evolution sería tan simple como:
+
+\verb|apt-get install evolution|
+
+Nada más. Así de fácil. Si ese paquete necesita tener instalado algún otro,
+el \verb-apt- se encarga de bajar todos los paquetes que sean necesarios para
+que las dependencias queden satisfechas.
+
+Pero, ¿de donde saca todos esos paquetes? Eso depende. Puede ser
+que los saque de los CDs de Debian, o que los baje automáticamente de internet,
+según como esté configurado el archivo \verb-/etc/apt/sources.list-. Este
+archivo tiene la lista de todos los lugares (CDs, servidores de internet, e
+incluso directorios de tu disco rígido) de donde obtener los paquetes. Por lo
+tanto, es necesario que esté configurado correctamente.
+
+Para bajar los archivos del repositorio oficial de Debian, tenés que tener las
+siguientes líneas en \verb-/etc/apt/sources.list-:
+
+\begin{verbatim}
+deb http://http.us.debian.org/debian stable main contrib non-free
+deb http://non-us.debian.org/debian-non-US stable/non-US main contrib non-free
+deb http://security.debian.org stable/updates main contrib non-free
+\end{verbatim}
+
+Cuando termines de editar este archivo, no te olvides de hacer:
+
+\verb|apt-get update|
+
+para que el \verb-apt- se fije en esos repositorios qué paquetes están
+disponibles. Si querés bajar versiones más recientes, cambiá donde dice
+\verb-stable- por \verb-unstable- o \verb-testing-.
+
+Además, podés decirle al \verb-apt- que se fije en tus CDROMs, que para algo
+los tenés :) . Para esto, ejecutá el comando:
+
+\verb|apt-cdrom add|
+
+y vas a tener que meter todos tus CDs de a uno. Cuando termines, se van a 
+agregar las líneas correspondientes al \verb-sources.list-. De esta manera, si
+la versión del paquete que estás instalando son iguales en el CD y en el 
+server, el \verb-apt- instala del CD. Si la versión del server es más reciente,
+baja el paquete del server.
+
+Para ponerle broche de oro, el \verb-apt- maneja resume al bajar de internet, 
+lo que significa que podés cortarlo en cualquier momento y continuar bajando 
+otro día... Una joyita :)
+
+En \htmladdnormallink{www.apt-get.org}{http://www.apt-get.org} hay una lista de
+repositorios donde podés encontrar más paquetes.
+
+Si el paquete que buscás no está en ninguno de los repositorios, vas a tener
+que bajar el paquete manualmente como un archivo \verb-.deb-. Para instalarlo,
+ejecutá:
+
+\verb|dpkg -i paquete.deb| \\
+pero tené en cuenta que de este modo no se instalan automáticamente las 
+dependencias, de modo que tenés que asegurarte de tener todos los
+requerimientos instalados. Sin embargo, hay una forma de salvar estos casos.
+Seguí leyendo.
+
+\subsubsection{¿Puedo instalar paquetes .deb con apt? / ¿Cómo creo un 
+repositorio local?}
+Los pasos que siguen describen cómo crear un respositorio de paquetes 
+\verb|.deb| local. Esto te puede servir para poder instalar los paquetes 
+\verb|.deb| ``sueltos'' con \verb|apt|, como si estuvieras instalando 
+cualquier otro programa.
+
+\begin{enumerate}
+
+\item \verb|apt-get install dpkg-dev|
+
+\item Creá un directorio adonde irán todos los paquetes (archivos \verb|.deb|)
+del repositorio (por ejemplo, \verb|/root/pkg|)
+
+\item En el mismo directorio (no adentro del directorio nuevo; en el ejemplo 
+sería \verb|/root|) creá un archivo vacío con nombre \verb|Packages| 
+(\verb|touch Packages|). No te olvides de la P mayúscula.
+
+\item Agregá la siguiente línea a \verb|/etc/apt/sources.list|:
+
+\verb|deb file:/root pkg/|
+
+\item Cada vez que agregues o elimines paquetes del directorio \verb|pkg|, 
+tenés que ejecutar el siguiente script: (ponele de nombre lo que quieras;
+yo le puse \verb|update-pkg|)
+
+\begin{verbatim}
+#! /bin/sh
+# Script para actualizar el archivo Packages.gz en el directorio /root/pkg
+
+cd /root
+dpkg-scanpackages pkg Packages | gzip > pkg/Packages.gz
+
+echo
+echo -n "¿Ejecutar el comando 'apt-get update' [Sn]? "
+read ANS
+if [ "x$ANS" = "x"  -o  "$ANS" = "s"  -o  "$ANS" = "S"  ]; then
+     apt-get update
+fi
+\end{verbatim}
+
+\end{enumerate}
+
+Listo. Ahora, cada vez que bajes un paquete \verb|.deb|, lo que vas a hacer
+para instalarlo es copiarlo al directorio \verb|pkg|, ejecutar el script,
+y entonces podés usar \verb|apt-get| como si fuera un paquete normal, sin
+preocuparte por las dependencias.
+
+
+\subsubsection{Desinstalación de paquetes}
+
+El comando:
+
+\verb|apt-get remove <paquete>| \\
+desinstala el paquete, pero deja instalados los archivos de configuración.
+Esto es por si un día decidís volver a instalarlo. Para desinstalar
+el paquete en forma completa, incluyendo los archivos de configuración:
+
+\verb|apt-get --purge remove <paquete>|
+
+El \verb|apt| desinstala sólamente el paquete indicado, pero no los
+paquetes que hayan sido instalados automáticamente como requisitos.
+
+
+\subsubsection{Actualización de paquetes}
+
+El comando 
+
+\verb|apt-get upgrade| \\
+actualiza instantáneamente todos los paquetes instalados a la versión
+más nueva disponible, pero no instala ni desinstala ningún paquete,
+y no actualiza ningún paquete que tenga conflictos con un paquete 
+instalado.
+
+A veces es útil el comando
+
+\verb|apt-get dist-upgrade| \\
+que sirve para actualizar el sistema entre diferentes releases de Debian.
+Utiliza un algoritmo para determinar el mejor grupo de paquetes para 
+instalar, desinstalar y actualizar para obtener lo mejor de la nueva
+versión del sistema.
+
+
+\subsubsection{Búsqueda de paquetes}
+
+Cuando no sabés qué paquete contiene el programa que andás buscando,
+o querés averiguar qué programas hay disponibles para una tarea 
+determinada, el comando \verb|apt-cache| es tu mejor amigo. 
+Por ejemplo:
+
+\verb|apt-cache search mp3 player| \\
+busca todos los paquetes que contengan las palabras ``mp3'' y ``player'' en
+el nombre o en la descripción, y los muestra por pantalla.
+
+Para saber más acerca de un paquete:
+
+\verb|apt-cache show <paquete>| \\
+muestra toda la información disponible acerca del paquete, como la versión,
+el tamaño antes y después de instalar, la descripción y las dependencias.
+
+El comando \verb|dpkg| también es útil en algunos casos:
+
+\verb|dpkg -l <patrón>| \\
+busca todos los paquetes cuyos nombres coincidan con el patrón.
+
+\verb|dpkg -L <paquete>| \\
+muestra, si el paquete está instalado, la lista de archivos instalados
+por el mismo.
+
+
+\subsubsection{Front-ends}
+
+Si no te agrada la línea de comandos, existen front-ends para el
+\verb|apt|, que permiten utilizarlo de una forma más amigable.
+Yo recomiendo el
+\htmladdnormallink{aptitude}{http://aptitude.sourceforge.net/}, 
+que además agrega al \verb|apt| algunas funcionalidades extra muy jugosas,
+como desinstalar automáticamente paquetes que ya no son utilizados,
+consultar las dependencias de un paquete, mostrar los paquetes nuevos
+disponibles o los que pueden ser actualizados, etc. Además existen
+front-ends gráficos como el
+\htmladdnormallink{synaptic}{http://www.nongnu.org/synaptic/} y el
+\htmladdnormallink{Kpackage}{http://www.general.uwa.edu.au/u/toivo/kpackage/}.
+
+
+\subsection{¿Como se averigua el espacio libre en disco?}
+\verb|df -h|
+
+El \verb|-h| significa ``human readable'', así que no te lo olvides :) . Para
+averiguar el espacio que ocupa un directorio se usa el comando \verb-du-.
+
+
+\subsection{Módulos del kernel}
+Los módulos\label{sec:modulos} del kernel pueden ser pensados como los 
+análogos de los \emph{drivers} en DOS y Windows. En realidad son ``pedazos de 
+código'' que pueden ser añadidos o quitados del kernel en cualquier instante, y que
+le agregan cierta funcionalidad, como por ejemplo la de utilizar algún
+dispositivo.
+
+Para acceder a un determinado dispositivo, como por ejemplo un winmodem,
+el kernel necesita que cargues en memoria el módulo asociado. Para esto
+sirven los comandos \verb-modprobe- y \verb-depmod-. La sintaxis más
+básica es:
+
+\verb-modprobe <modulo>-
+
+\verb-modprobe- intenta cargar el módulo en memoria. Si necesita de algun otro
+módulo y éste está disponible, lo carga automáticamente. Pero para que
+todo ande suavemente, \verb-modprobe- necesita información acerca de las
+dependencias de los módulos. Para esto sirve el comando \verb-depmod-.
+Ejecutando:
+
+\verb|depmod -a|
+
+se leen todos los módulos disponibles y si hay dependencias no resueltas
+(módulos faltantes) te avisa por pantalla.
+
+Si te falta un módulo para algún dispositivo de tu PC, tenés que agregarlo.
+La mala noticia es que los módulos vienen en código fuente, por lo que deben
+ser compilados. Para compilar el módulo vas a necesitar los headers
+(cabeceras) de tu kernel. Si la versión de tu kernel es bastante vieja,
+seguramente tendrás que compilar un kernel nuevo.
+
+
+\subsection{Mensajería instantánea (ICQ, MSN...)}
+Existen clientes (programas) para conectarse a la mayoría de los sistemas.
+Ver pregunta \ref{sec:prog} para saber cuáles son. También existen algunos
+clientes como EveryBuddy y gaim, que pueden conectarse a varios sistemas al 
+mismo tiempo. Dicho de otra forma, usás el mismo programa para conectarte a 
+ICQ y a MSN.
+
+Como estos clientes no son oficiales (salvo el cliente Java de ICQ), muchas 
+veces pasa que no tienen todas las funcionalidades que los clientes de Windows
+tienen (por ejemplo, algunos no soportan el intercambio de archivos). Pero si 
+te conformás con los mensajes simples, vas a quedar más que satisfecho.
+
+Existe otra alternativa que se llama \htmladdnormallink{Jabber}
+{http://www.jabber.org}. Jabber es un protocolo de mensajería instantánea como
+el de ICQ y MSN, pero que tiene la particularidad de poder conectarse a otros
+sistemas, y además es libre. La idea es más o menos esta:
+
+Primero elegís un servidor de jabber. Tenés que fijarte que tu servidor
+te dé acceso a ICQ y MSN. Algunos tienen y otros no. Acá hay una
+\htmladdnormallink{lista de servidores públicos}
+{http://www.jabber.org/user/publicservers.php}.
+
+Después tenés que elegir el cliente (el programa de conexión). Acá hay un
+\htmladdnormallink{cuadro comparativo de clientes}
+{http://www.jabber.org/user/clientlist.php?Platform=Linux}.
+
+Cuando ya tengas el cliente instalado, tenés que utilizarlo para crear tu 
+cuenta Jabber. Tu cuenta va a ser del tipo \verb|nombre@server|. 
+La mía es \verb|dessaya@jabber.org.uk|.
+Cuando esté todo listo, y estés conectado, tenés que decirle que querés
+conectarte a ICQ y a MSN. Traducido al idioma jabber, tenés que decirle que
+querés los \emph{servicios} \emph{ICQ Transport} y \emph{MSN Transport}.
+Ingresá los datos que te pida, ¡y listo!
+
+
+\subsection{¿Cómo instalo plugins para el web browser (Java, Flash, etc.)?}
+La mayoría de los navegadores vienen con soporte para JavaScript, así que no es
+necesario hacer nada para ver páginas con JavaScript.
+
+Para utilizar Java (que no es lo mismo que JavaScript), tenés que instalar un
+Java Runtime Environment. Si tu distribución no lo trae, podés encontrar
+el de Sun en:
+
+\htmladdnormallink{http://java.sun.com/j2se/}
+{http://java.sun.com/j2se/} 
+
+También podés utilizar el de Blackdown: 
+
+\htmladdnormallink{http://www.blackdown.org/}{http://www.blackdown.org/}
+
+El resto de los plug-ins, como Macromedia Flash, podés encontrarlos en:
+
+\htmladdnormallink{http://plugindoc.mozdev.org/linux.html}
+{http://plugindoc.mozdev.org/linux.html} 
+
+Normalmente son plugins para Netscape / Mozilla, y si usás otro browser 
+tenés que estar seguro de que soporte estos plugins.
+
+Si usás Debian, podés utilizar el apt para instalar Java y plugins. Buscá en 
+\htmladdnormallink{www.apt-get.org}{http://www.apt-get.org}, 
+y agregá las líneas correspondientes en \verb|/etc/apt/sources.list|. 
+(Leé la pregunta \ref{sec:apt} para más sobre el apt).
+
+Si usás RedHat, o cualquier otra distro basada en paquetes RPM, buscá en
+\htmladdnormallink{www.rpmfind.net}{http://www.rpmfind.net}. Asegurate
+de que el paquete que bajes sea para tu distribución.
+
+Después de instalar el JRE o cualquier plugin tenés que configurar tu browser 
+para que lo utilice. Leé la documentación del mismo para saber cómo hacerlo.
+
+
+\subsection{¿Cómo hago para que la computadora se apague automáticamente?}
+{\bf [Sugerido por Marga]}
+
+Tenés que instalar el paquete \verb|apmd| (En Debian: \verb|apt-get install|
+\verb|apmd|). Una vez instalado, cuando cerrás el sistema la computadora
+se apaga sola (si el mother tiene esa función, obviamente... si no,
+no esperes milagros :-).
+
+
+\subsection{¿Cómo configuro un gateway? / ¿Cómo hago para compartir la
+conexión a Internet?}
+Emiliano Castagnari escribió un documento sobre la 
+\htmladdnormallink{Configuración de un Gateway}{../gateway/gateway.php}, 
+donde se explican detalladamente los conceptos relevantes y los pasos 
+necesarios para tener el gateway funcionando.
+
+
+\subsection{Tengo Windows y GNU/Linux, y el reloj de la PC hace cosas raras.}
+Seguramente tu GNU/Linux está configurado de forma tal que piensa que el reloj
+está mostrando la hora de Greenwich (GMT).
+
+En Debian, podés cambiar esto editando el archivo \verb|/etc/default/rcS|:
+
+\begin{verbatim}
+# Set UTC=yes if your system clock is set to UTC (GMT), and UTC=no if not.
+UTC=no
+\end{verbatim}
+
+
+\subsection{¿Cómo hago una carátula en LaTeX?}
+LaTeX no está pensado para hacer carátulas al estilo del que estamos 
+acostumbrados. Sin embargo, todo es posible; y en este caso el entorno
+\verb|titlepage| es nuestro amigo. En la sección de
+\htmladdnormallink{Proyectos y Documentos}{../index.php}
+del sitio web del \lugfi\ hay un documento de LaTeX que puede servir como 
+base para crear un trabajo práctico, con carátula incluida.
+
+
+\end{document}
+

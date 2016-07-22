@@ -1,0 +1,609 @@
+#LyX 1.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 220
+\textclass article
+\language spanish
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize a4paper
+\paperpackage widemarginsa4
+\use_geometry 0
+\use_amsmath 0
+\use_natbib 0
+\use_numerical_citations 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Subversion FAQ
+\layout Author
+
+Leandro Lucarella <llucare@fi.uba.ar>
+\layout Date
+
+$Id: faq-subversion.lyx,v 1.1.1.1 2003/12/19 15:56:29 luca Exp $
+\layout Standard
+
+Este documento pretende explicar brevemente el uso 
+\emph on 
+básico
+\emph default 
+ del 
+\begin_inset LatexCommand \htmlurl[subversion]{http://subversion.tigris.org/}
+
+\end_inset 
+
+ (o svn).
+ Como nació en el 
+\begin_inset LatexCommand \htmlurl[LUGFI]{http://www.fi.uba.ar/lug/}
+
+\end_inset 
+
+, la mayoría de los ejemplos y explicaciones están orientadas al uso de
+ su repositorio.
+ De todas maneras creo que el documento es bastante general como para servirle
+ a otra gente también.
+ 
+\newline 
+También aclaro que esto no pretende ser una traducción del 
+\begin_inset LatexCommand \htmlurl[Manual de Subversion]{http://svnbook.red-bean.com/}
+
+\end_inset 
+
+.
+ Cualquiera de los temas aquí tratados pueden ampliados en dicho manual,
+ que recomiendo leer (al menos por arriba) muy enfáticamente.
+\layout Standard
+
+
+\begin_inset LatexCommand \tableofcontents{}
+
+\end_inset 
+
+
+\layout Section
+
+Uso básico.
+\layout Subsection
+
+Ya tengo una cuenta de svn, ¿y ahora?
+\layout Standard
+
+Ahora asumo que ya tenés el svn andando también.
+ Si no es el caso y usas Debian (
+\family typewriter 
+unstable
+\family default 
+), hacé un:
+\layout LyX-Code
+
+# apt-get install subversion
+\layout Standard
+
+Listo, ya tenés el subversion.
+ Si usas otra distro, buscá si está disponible un paquete (seguramente sí)
+ y si no vas a tener que compilarlo vos.
+ En la página del subversion podés encontrar 
+\begin_inset LatexCommand \htmlurl[paquetes precompilados]{http://subversion.tigris.org/servlets/ProjectDocumentList}
+
+\end_inset 
+
+ para las distros más populares.
+\layout Subsubsection
+
+¿Y si uso Debian 
+\family typewriter 
+stable
+\family default 
+? En la página web del subversion solo está el código fuente y binarios
+ RPM ¿qué bajo?
+\layout Standard
+
+Yo diría que pruebes con el código fuente.
+ O probá de apuntar tu 
+\family typewriter 
+/etc/apt/sources.list
+\family default 
+ al 
+\family typewriter 
+unstable
+\family default 
+ y fijate si no te tiene que actualizar media
+ distribución para bajar el paquete.
+ Es un paquete que (creo que) no tiene muchas dependencias, así que con
+ un poco de suerte...
+\layout Subsection
+
+Ya tengo mi cuenta de svn y mi 
+\family typewriter 
+svn
+\family default 
+ andando ¿y ahora?
+\layout Standard
+
+Ahora podés hacer un 
+\emph on 
+checkout
+\emph default 
+ del repositorio, solamente escribí esto:
+\layout LyX-Code
+
+$ svn co http://svn.llucax.hn.org/svn/lugfi/tronco lugfi-www
+\layout Standard
+
+(Reemplaza el 
+\family typewriter 
+http://svn.llucax.hn.org/svn/lugfi/tronco
+\family default 
+ por el repositorio que quieras bajar y el 
+\family typewriter 
+lugfi
+\family default 
+ del final por el directorio en donde querés que baje todo)
+\layout Standard
+
+Esto te va a crear un subdirectorio 
+\family typewriter 
+lugfi-www
+\family default 
+ después de preguntarte tu usuario y password.
+ En ese subdirectorio está todos los archivos de sitio.
+\layout Subsection
+
+¿Cómo modifico un archivo?
+\layout Standard
+
+Entrá al subdirectorio lugfi-www y editalo con tu editor favorito! Hacé
+ de cuenta que estás trabajando en un subdirectorio cualquiera.
+ Modificá todos los archivos que quieras, el repositorio no se va a modificar
+ hasta que hagas un 
+\emph on 
+commit
+\emph default 
+.
+\layout Subsection
+
+¿Qué es un 
+\family typewriter 
+commit
+\family default 
+?
+\layout Standard
+
+Con el comando 
+\family typewriter 
+commit
+\family default 
+ del 
+\family typewriter 
+svn
+\family default 
+ se 
+\emph on 
+suben
+\emph default 
+ los cambios al repositorio.
+ Es recomendado hacer un 
+\family typewriter 
+update
+\family default 
+ antes:
+\layout LyX-Code
+
+.../lugfi-www/$ svn up
+\layout LyX-Code
+
+[...]
+\layout LyX-Code
+
+At revision 30.
+\layout LyX-Code
+
+.../lugfi-www/$ svn ci [archivos]
+\layout LyX-Code
+
+A archivo
+\layout LyX-Code
+
+M archivo
+\layout LyX-Code
+
+[...]
+\layout Standard
+
+El 
+\family typewriter 
+svn ci
+\family default 
+ (commit) te va a abrir tu editor favorito (o se va a quejar si no puede
+ hacerlo) para que escribas un mensaje comentando qué es lo que cambiaste.
+ !Por favor, tratá de ser lo más descriptivo posible!
+\layout Subsection
+
+¿Qué es un 
+\family typewriter 
+update
+\family default 
+?
+\layout Standard
+
+El comando 
+\family typewriter 
+update
+\family default 
+ se encarga de poner al día nuestra copia local del repositorio.
+ Si alguien hizo algún cambio después de que lo hayamos bajado, este comando
+ nos lo actualiza de una forma 
+\emph on 
+barata
+\emph default 
+, ya que sólo baja los cambios (no todo el repositorio de nuevo).
+\layout LyX-Code
+
+$ svn up [<archivo>]
+\layout Standard
+
+
+\family typewriter 
+<archivo>
+\family default 
+ es opcional (como en prácticamente todos los comandos de 
+\family typewriter 
+svn
+\family default 
+), si no se especifica, se toma el directorio actual.
+\layout Subsection
+
+¿Cómo sé que cosas cambiaron/van a cambiar antes de hacer un 
+\family typewriter 
+commit
+\family default 
+/
+\family typewriter 
+update
+\family default 
+?
+\layout Standard
+
+Para tener un pantallazo, el comando 
+\family typewriter 
+status
+\family default 
+ es tu mejor amigo:
+\layout LyX-Code
+
+$ svn st
+\layout Standard
+
+Si querés ver qué cosa cambió en cada archivo, el comando 
+\family typewriter 
+diff
+\family default 
+ es lo que necesitas:
+\layout LyX-Code
+
+$ svn diff <archivo>
+\layout Subsection
+
+Me dice algo como que el repositorio está lockeado, ¿Qué pasa?
+\layout Standard
+
+Es probable que hayas cortado un comando del 
+\family typewriter 
+svn
+\family default 
+ con 
+\family typewriter 
+Ctrl-C
+\family default 
+ o algo así.
+ Probá de hacer un:
+\layout LyX-Code
+
+$ svn cleanup
+\layout Standard
+
+y si eso no lo soluciona preguntá en lugfi-www.
+\layout Subsection
+
+¿Cómo agrego/muevo/borro un archivo/directorio?
+\layout Standard
+
+Para agregar archivos o directorios (de forma recursiva por defecto) está
+ el comando add:
+\layout LyX-Code
+
+$ svn add miarchivo midirectorio
+\layout LyX-Code
+
+A miarchivo
+\layout LyX-Code
+
+A midirectorio
+\layout Standard
+
+Para mover (renombrar) un archivo o directorio es casi igual que lo que
+ hacés frecuentemente, sólo que hay que agregar antes el svn:
+\layout LyX-Code
+
+$ svn mv miarchivo milindoarchivo
+\layout LyX-Code
+
+D miarchivo
+\layout LyX-Code
+
+A+ milindoarchivo
+\layout LyX-Code
+
+$ svn rm otroarchivo
+\layout LyX-Code
+
+D otroarchivo
+\layout Standard
+
+Todos estos cambios (y cualquier cambio que hagas) no se subirá al repositorio
+ hasta que no hagas un 
+\family typewriter 
+commit
+\family default 
+.
+\layout Subsection
+
+¡Ups! Rompí algo, ¿cómo hago para volver atrás?
+\layout Standard
+
+Si todavía no hiciste un commit, es fácil, simplemente escribí:
+\layout LyX-Code
+
+$ svn revert [<archivo>]
+\layout Standard
+
+Si ya hiciste el 
+\emph on 
+commit
+\emph default 
+, tendrías que hacer un 
+\family typewriter 
+merge
+\family default 
+ con la versión anterior pero eso escapa a los objetivos de este documento.
+\layout Subsection
+
+¿Qué son esas cosas raras 
+\family typewriter 
+$id$
+\family default 
+, 
+\family typewriter 
+$date$
+\family default 
+, etc?
+\layout Standard
+
+Son 
+\emph on 
+keywords
+\emph default 
+, es decir, palabras clave que el 
+\family typewriter 
+svn
+\family default 
+ puede traducir a propiedades del documento.
+ En realidad van con mayúscula la primera letra pero lo puse a propósito
+ mal para que en el título no lo expanda.
+ A continuación las escribo bien así son expandidas y ven el significado
+ de cada una:
+\layout LyX-Code
+
+$Id: faq-subversion.lyx,v 1.1.1.1 2003/12/19 15:56:29 luca Exp $
+\layout LyX-Code
+
+$Date: 2003/12/19 15:56:29 $
+\layout LyX-Code
+
+$Rev: 37 $
+\layout LyX-Code
+
+$URL: http://svn.llucax.hn.org:81/svn/lugfi/tronco/proyectos/faq_website.lyx
+ $
+\layout LyX-Code
+
+$Author: luca $
+\layout Subsection
+
+¿Por qué a mí no me expande los 
+\emph on 
+keywords
+\emph default 
+?
+\layout Standard
+
+El 
+\family typewriter 
+svn
+\family default 
+ por defecto no expande nada para evitar problemas indeseables, tengan en
+ cuenta que en especial al trabajar con PHP (o Perl) se usa mucho el signo
+ $ y si usamos una variable 
+\family typewriter 
+$Id
+\family default 
+ y luego otra es probable que lo expanda.
+ Es por esto que recomiendo altamente 
+\series bold 
+no
+\series default 
+ utilizar nombres de variable en PHP que empiecen con Mayúsculas (para evitar
+ problemas con futuros 
+\emph on 
+keywords
+\emph default 
+ también).
+ En fin, en caso de querer que expanda los 
+\emph on 
+keywords
+\emph default 
+ hay que decirlo explícitamente, seteando la propiedad especial (los archivos
+ además del contenido pueden tener propiedades arbitrarias) llamada 
+\family typewriter 
+svn:keywords
+\family default 
+:
+\layout LyX-Code
+
+$ svn ps svn:keywords 
+\begin_inset Quotes eld
+\end_inset 
+
+Id Date Author
+\begin_inset Quotes erd
+\end_inset 
+
+ <archivo>
+\layout Standard
+
+Donde 
+\family typewriter 
+
+\begin_inset Quotes eld
+\end_inset 
+
+Id Date Author
+\begin_inset Quotes erd
+\end_inset 
+
+
+\family default 
+ puede ser en realidad cualquier combinación de 
+\emph on 
+keywords
+\emph default 
+ que queramos expandir.
+ También podemos hacer un:
+\layout LyX-Code
+
+$ svn pe svn:keywords <archivo>
+\layout Standard
+
+Para que abra nuestro editor favorito y escribir en él los 
+\emph on 
+keywords
+\emph default 
+ a expandir.
+\layout Standard
+
+
+\series bold 
+Es importante que no expandan keywords en archivos binarios, porque pueden
+ tener la mala suerte de que les parta el archivo al medio al expandir algo
+ no deseado.
+\layout Subsection
+
+¿Hay una forma más fácil de poner los 
+\emph on 
+keywords
+\emph default 
+?
+\layout Standard
+
+No que conozca, pero para simplificar un poco las cosas (y considerando
+ que siempre expando los mismos 
+\emph on 
+keywords
+\emph default 
+) me hice dos 
+\emph on 
+micro-scripts
+\emph default 
+:
+\layout LyX-Code
+
+
+\series bold 
+svnkw:
+\layout LyX-Code
+
+#!/bin/sh
+\layout LyX-Code
+
+svn ps svn:keywords 
+\begin_inset Quotes eld
+\end_inset 
+
+Id Date Author Rev URL
+\begin_inset Quotes erd
+\end_inset 
+
+ 
+\begin_inset Quotes eld
+\end_inset 
+
+$@
+\begin_inset Quotes erd
+\end_inset 
+
+
+\layout Standard
+
+que setea los 
+\emph on 
+keywords
+\emph default 
+ y
+\layout LyX-Code
+
+
+\series bold 
+svnaddkw:
+\layout LyX-Code
+
+#!/bin/sh
+\layout LyX-Code
+
+svn add 
+\begin_inset Quotes eld
+\end_inset 
+
+$@
+\begin_inset Quotes erd
+\end_inset 
+
+
+\layout LyX-Code
+
+svn ps svn:keywords 
+\begin_inset Quotes eld
+\end_inset 
+
+Id Date Author Rev URL
+\begin_inset Quotes erd
+\end_inset 
+
+ 
+\begin_inset Quotes eld
+\end_inset 
+
+$@
+\begin_inset Quotes erd
+\end_inset 
+
+
+\layout Standard
+
+que agrega los archivos y setea los 
+\emph on 
+keywords
+\emph default 
+.
+\the_end
